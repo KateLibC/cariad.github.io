@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cariad's Crypto Challenges</title>
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/css2?family=Nunito&display=swap);
+
+        body { 
+            background-color: #f5f5f5;
+            margin-top: 10px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        a {
+            color:#d56868;
+            text-decoration:none;
+        }
+
+        a:hover {
+            border-bottom:#f1a995 dashed 1px;
+        }
+
+        .textbody {
+            background-color: #f5f5f5;
+            border: #eeeeee solid 1px;
+            color: #585858;
+            font-size: 12pt;
+            padding:8px;
+            margin-top:10px;
+            margin-left:5%;
+            margin-right:5%;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius:5px;
+            line-height:160%;
+        }
+
+        .head {
+            background-color: #f6f6de;
+            border:  #f6f6de solid 1px;
+            color:#484848;
+            padding:3px;
+            text-align:center;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing:2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius:5px;
+            border-radius:5px;
+        }
+
+        p.head {
+            font-weight:bold;
+            margin-left:8%;
+            margin-right:8%;
+        }
+
+        span.head {
+            line-height:200%;
+        }
+
+        p.nav {
+            width:120px;
+            border-left:none;
+            border-right:none;
+            border-top: #f1a995 solid 1px;
+            border-bottom: #f1a995 solid 1px;
+            font-size:8pt;
+            text-align:right;
+            margin-top:10px;
+            margin-bottom:10px;
+            -moz-border-radius:0px;
+            -webkit-border-radius:0px;
+            border-radius:0px;
+        }
+
+        a.nav {
+            line-height:135%;
+
+        }
+
+        .overall {
+            width:80%;
+            position:absolute;
+            top:10px;
+            left:0px;
+            padding-bottom: 10px;
+            margin-top: 8%;
+            margin-left:8%;
+            margin-bottom: 8%;
+            background-color: #565BAB;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius:5px;
+        }
+
+
+        .navbar {
+            position:absolute;
+            top:0px;
+            right:0px;
+            border-left: #f1a995 solid 1px;
+            border-bottom:  #f1a995 solid 1px;
+            width:130px;
+            -moz-border-radius-bottomleft:5px;
+            -webkit-border-bottom-left-radius:5px;
+            border-bottom-left-radius:5px;
+        }
+
+        .fancy {
+            text-transform: uppercase;
+            letter-spacing:4px;
+            font-family:sans;
+        }
+
+        .code {
+            font-family: monospace;
+            background-color: #f6f6de;
+            border: #f7e1e1 dashed 2px;
+            white-space:pre;
+            width:600px;
+            min-height:100px;
+            height:200px;
+            padding:4px;
+        }
+
+        img { 
+            border:0px; 
+        }
+
+        textarea {
+            font-family: monospace;
+        }
+
+        table,td,tr,th {
+            border: 1px solid #000000;
+            text-align: left;
+        }
+
+        .outline { 
+            border: #8D858E solid 1px; 
+            margin: 3px;
+        }
+
+        .rounded {
+            /*background-color:white;*/
+            border: 1px solid #8D858E;
+            -moz-border-radius: 5px;
+            -webkit-border-radius:5px;
+            border-radius:5px;
+        }
+
+        .contacticon {
+            border: 0px;
+            background-color: #FFFFFF;
+            width: 16px;
+            height: 16px;
+        }
+
+        .header {
+            font-size: 64;
+            padding:3px;
+            text-align:center;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing:2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius:5px;
+            border-radius:5px;
+        }
+
+        p.footer {
+            font-size: 8;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<p class="header">Cariad's Crypto Puzzles</p>
+
+
+<div class="overall">
+    <div class="textbody">
+        <p>
+            Every once in a while, I offer a cryptographic challenge to solve. They're meant to 
+            be solvable with very little tools other than using statistical analysis. In the 
+            past, they were meant for a private group of people or intended for a local security 
+            conference, but I have opted to share some of them here.
+        </p>
+
+        <p>
+            If you have solved a puzzle, <a href="https://twitter.com/katelibc">tweet your solution at me</a>!
+        </p>
+    </div>
+
+    <p class="head">Current challenge</p>
+
+    <div class="textbody">
+        <p>The following challenge (released December 14th, 2020) can be copied from this text box:</p>
+
+        <textarea rows="25" cols="80">VHRoa2doZmZlQndmcGRlVTZwMi92dEUybTFtOlkyOmMxbzFoZy9wcXc4RXd3bUktam0KV0Evc0NHcHVUb246RElmeDJDSWQgMj9QdDosTXA2Tm84L1BtYWM6ej8KLz96CiczRFI/N2h6by5vR29vZWZsaS8yTlMuIjYvUEcvTmRwLz96RSxuMm8scDRsLmVrIGMvdGVvLDZzYWhKSnpQInNQLy8uNDZjN0ZyM2sgb2xCaHAuOGhteDpzdE4vaDFPdVlwNFMuRXQyMi9sdjpOMmRoS2t3b2NGQiJOL3QxcmVuYi5sZjZEdGYuZ2ZoRVAvdnBmcHAnOApoTEVvZWxYaEhKLXMidTZuZXVlLmYgOnRoTjYtSGd3MjJmQXVCMkdzRS5vc2htb0xmLXNZbWgvb2VELmtuaSEuIgouMmdoUFlvb3d6QVJJWEp1aCAnTkh1MTJwdC9zdCx1djZucHQtSFkuZyBlUFRlaWMxMmxhWHpzLm91c0hvZmhtby5nZmhmNllsNnVwQmYuIGwxWUdlRC8vZlhvanpvMmMnMkpTLWhQcmU6ZlllSkdjcy46Im1BSm8xZnRmQnAxOEZjeFloc29BcGtlUDZZZy5vLnBkN1loZzc2LDIuQm8veDdjIjoyMkVhell1aHA/cyI3ZnY2dXBvLi5vMllPc3AtQi84Si5lUEdlITZjMkVpcXRjN3B5Y0hlL2M2by5ndDZ1Y1N3c01ZNDZmQmdOTTZIMWhOL3lzRS5sLG9tLkFmNi5rIGNrdDEvOjFzRmYuRTcuRXQyMmt1RDovLWdlNHpvcDInMk0vMiwuRmpvVDI/dDZoZ2I4Sno2SjZlLlNlQS4xMixoUjZmb3NJaC8vMnd0bjFsZixlMkdjcy5ZQmtHdnVoMnBvTkd6CkZ0eFlvd3AKV2ogOGMyb293dFd1MjE6NFJrb0hZNHM2cDc3b3A2enllIllXaCBkaC1oNi53IGg6L2Nmb3dvOnAuRTcuUy8yZlJBTmpMekN0LjJvc25tNlJlSXBmP3RrdHBvLjYuZ2UvQTYsQnA2ejY3RHRwMjNlcXBXLm9ONiFlRm9mcmhEZmhwczcvYWZBSnpZNHM6cC5vb3A2ekNtMHBjYzYna0hlNzIuVTJodmhmNllsZS8sTVktdnBlOHdlRWMxekY2eTYgVyBFb0FzMnc3LU4gN2VvMjJsbGVBSno2ZWxCTTY3InB0cHkgZjdmY28scCJmei42dG9sOjplMm1zZnQ0SHBmSmd3Mi9oRDo6Mj9vRSFoaC9ULiJ2LXR6aS1uYzZmaDcuczdZNDYtImNjLi5kIjoxckZTUjZmby9UcDRmMi04VTJwZnNlZVNzdnR3NHpCU3M6LXplQjh0cD9lZkZvRGwnMk0vMk5mYS5vLnBsY1lPdnRQNDZZQmsyMnouInBKLQp0RTd3N2NGLkFmMnY3YVROZmgvIllPc3A4NHcuQmFOMnpob2hCTUZoM0p1aEQKdzdlSXB0aWVsLzIuLnRsZTIvTjE4SmwxMnouInAxLz9sM0ZvZHM/ZUwvMnVwYi5vdTJlL1BsNi86SnpZNHNYODc2dnBYcCdzeFlnaiEzP1llNDo4IGh1OHBmOnBpdDcuU0doTjpOMlNoRTovUEl3S3RXdG8sNkhlZnNZMGVvOmNEaHBnc3AtNFBmSnA4LTZqQXdZZkZLIjh1NmhQUyJsLWVTRmgvL2hEcDZXbDctQVkuQm50L3c6NHAnOApoTEZvSGNJLkEvMjEuckxodmggYzZuYXYuQjJFNHkvenBkcHBxWEksRWljcHcKaEZsMXRHIHNrdDZoMTYndWZmSnAtSjYyLWZlNHcvNHkgNy46TG9DYyJmei42T3NoZWVlLTdPczpwInpZNGkvWUd1LGYyS3UKL0hwLm8vcCE2ZmhpVS91Mi5saHRjL2hoNFNLSkx2UDYxIjZwN0ZzUjZhcGNYaFJoMk5ZaU4gLkxlb3dscDI4SnRoTm4vZndETmNQMmogcnBsaC95LEpUTWh6by5sdEQ/OmZsP2YuIXQ2amEyIjZmITYvLnl3RTFwZQp2byFvMmV3bWhkLFdldDdsbmgvZTYtInM4Zk0vTjg4LUZmS3d1aDpULkhsMi03VWgKZmhmNnRzY2NZIjgtSnA4LTZkdjg2ekZzUkVvby8nLUgvNnQ2WHNoOjJNTUJGTFQuU1k4cXNIOG1BTmsuMlVvajZwZU4/aExoTi42LXBOZnRlLTdPc3dmSno2Sm84OG1rOFQsMGogZjdLaE0/c0g/N2g3MC5rdDNsLzI6Om8uWUc4QSAvWFAgLDNxQVJUeFlsaHA/aEw2MWM2eGNvMm86aDI6Omh3Si5wZXMxelllU3UuRjMgSDdOLlcnb1I4MjM3bjcgdDNsLzI6Om8uIS4sNHMuMXpldjpOMgphTFNraCFuZW5EZmpYej92Mi5ld3RzLnYuIUc4NGkyIjZ1QnBSOG1lNFlvdCBDLDZlMGs3OlNvNzZ1MjYvbHAuQmsvbmdod09lLndHTUZhIllvdmNXaGsvZiwiaS1jb2hmNllsZTIvQWY4Tm4ycDRIbFRxP3BTZFhvMnA/aEtsODFTaXdwZi5sLlN3SURVOGY6dm44UDZmITZoCkZMM3p5dG9qLkhmMjI3bWViLHRld0duIGg4Ti84LDQvdDhsTmY4Zm1sM3dhLmcnb0xlLSJZVXZjZS4/dDYubEw2LHAtNHNQLy8uNDZjMkduRXpwLm9IOk5mLGgseDI2dFUvVDJsTmU2ancuM3VjMkcgQnAyd3pzLTZwb3UndWtoMWNTaTdjd2NEdEVsbGVBSkdoU3MxOHdzSjZ6MnRlLjJvTmg/YyIxL3VHdW9sY2h1OmZscDI4Sm0vOnMxODZmQWt0THFzRQpuYyBJaG91UHdHaWVsdmhvcG1UczI4YzIuSDpjLTYgLHAxenkgIllXaDp5c0EvcFk2LGNXdGNoMUVsRjpFdnd0SnRlNzY3dk4vUEkgWEdoaCBQLkF1Mm93aTJwZmhsLlNsZS86Tlk6Smd3MnouInA2ekNsSFlsdWhQWSJJNi4uZy5vY29KLjZycHQyTTZtImkvUEcvTlNlLkkgcHBhNi8/c1U4CmhiM0VNVGpIP0JCc284ZTZmTXUxNnBzITgvN2JpNFlXaFd5MUFlOGM2dTZodGVsLnduczpwZTYtSDovSTdzTj90WWJpNFlvdC8Kc1IvImg4Y1lvUzYvaFNzdW9mSjdHNGEvMVBldjpOMkduRTIvLndkaFIuLWhZWHU2dGsuLndscDI4Sll0a3M4ZnpwITZOTUZZUjJwb29UZUxlZjdQIGVnZixlLXRzRnQtSFkuNG46Mi5vb3BjLWRlTE1oLG8sNkhlNG8vWC51N2h1N1BhbHdmNDZtLHVEMnouInA2cEl3ZkZvSnA/aEtsODFTaXQgdSxBaFgxdXBZdkUucnV3enBBTkkuN2JpZFgnPyJ5OkhvLWhtTzpCZixlb3dscC8uSHAsSmxoIjY6dmNOTUYibzd1Nm5haDMvNnc3LS5vN3BlMkdjcy5ZQmtHdnVoN0cgS3BEZj9jeDYgY1cndiF0MnR6eDpzdDZ1IllsVy8yLDYtLGxOLWt1PzQvdy1lM3dvZWxYaDMuLzJZaU4gNzJjLjYgY3UtSgo2LHMxenA6Tj90UGRoaTZNcGYnLCEvN2hwdWgyZi5jQlhGSQo2U0doSmkyQ2YgImshMnVJWDYyLmhJdCJzcC4udWpvVFRkaDJzc0w4LCIuSGxZQyJlNHcvNHkgeFlnLm9BcGtlUDZZaS1uZWVjaHRzY2VBSi5wZXN2MjF1LHYxMixhTHpvLWNQaFIuLWgvbmNhdDJoaDJzY2VBcTY0SGd3MnA6TmUuL1BnRXpjaEQ/aFIuLWghIHQvdC0gdUdoc1RCQWYuNGsycDYudiEyMkNuZjZkVAonc0h1InY2dXBvY3BlMXBodHQsOjYtLGxOLWt1PzQvP0lzeHBveGFtaHN1LmM3MGohRD9IITcvdnQvITE2LHllLi9lNHcvTEl1IjZ3c2NBb1MvMncuVSxrdG9maDJuZ3YuRUcvRXNCODhlSi8yIkZ5UjhnaC95Y0J0LWh6bmhoOjJlLndjRnU4U0YudW8vUEd1NHAxcCdlOFhvSGNJLkEvMmUyPy5XLT9XTWJjb3EuCiIuRXVodzgvTmZ0LkZlS3pvZWwwMk0gLnU2T2NXdERldHpyIGguSC5INHNETDZDQS84L0ZFIS9veSBGYyFvCmhsIGVXa2hmcDYgOmYudnpMLUksMERoTmg4LUNkLTYyb2c/aEo3ZnZPTj8nUktjc3BpdDdYSmI2U3RlMm5zVHA/ZlBuUnc2WTYnS1JmZndSQU0nREouLndUczdZNDY3QmFoOHdlUmNjLTMgS3dvLmFtaEpvImhwdWhwdTJlMkdjczcvLC84RWYvRUcvTmZjOCxkRTFwLmhQLmhlZnQ2NnB1Mm9ldC5yeSIuLUtoLDo2UDYuRDhVMFIKSUxjMWsnMk11UGhtT3RvOld1J3BnbnEucjdmSGchMi9oQWsvNidjejZjLy8nMk0vcC42T2NXdDIuZXd2b3RtInQuU3QuRnBvVHBELUZ5UjhnaC9QZWgvTmV0P2hSY3VleS5nYS9wcVhrb0xNLiJmRD8yTUZKUmZoY2h0TSJDOHRHeGhnZjdjb1knczpmSnpZNHM2cDc3b3A2enllIllXWSczTXZqTWh3bjFvNzZ1MjYvOnQsNHouImNjMno3QXB0TkN6THdhaDJDdU1mLXMyV2huN1Q6aHpyRmYuMzc6SnA4LTZsSnQyN0ZvZzYvNm5kaEpkZidwMHVvQnB0MjZuYXYuSFk6NHMxODZmInRwMj9oMzZnL3M/dCJoSWh6by5vR29zNnpsZ3AuIjg6SmkySVlsIjYhMm9oNjZQL2J0TWNXWDYiaUlla2hwZWtjc3VwSi5wZXNjLVBjRDZOTUYiWUcgY0JkUyI0ODpZMC42dCFoMTZodHVmSnBmSm4uL3dzTjguMlhlRS5vdHc/d051Nmg3MC56b3B0Y1NsRjotIUcuamcxejZvQXAxL0VlRWZuV24sWSJDOC82LWVidC86LjZkdXc6SjJHNGVlZmZldjgxZmRrTTYgMm8KY3RmL1dZaSxlb29vdTZodGYuIC4tIXQvZndETndQMmRvanR1LmsndiF0MncuMGggNzJ1d1JsVy8yLDY2TS8uLllvNHBHLz9oRSJjL2cndDQ2LXM2TzIvOndTWTZ5OnRQdmZ3Sk4yLVBlVHdlLnogancvb3MnMUhlemVNIGggdDEgY3djaS0uaEc2NGsycDZzIjh3Mm5uUjFCLlcncDRmMi1wVXQvImhjcDJjb3QtSFkuIGwxWUdldjpOMlVvanRvcHd2cEEvLjI2Om9zaGh2LjYnOi53QnQ4ZXMxelllVHV0LjMgcUcgV3dDcEFNMkpHbnRodGVsLjZodGYuLDh3NG8vOAplNDcyMmRoS2t3b2NGdE0gQ1k2dnBzZmMvQlhGSVI0SC5wNnNCODhBTnUySXYgbXdXaGx5MTZlLzJKZ2gvMi5lVzdDOmUtSiI2TGQ0LTZ1a3QvNHllNDZmZW4sb0FzMi03VVlvVDJlbzJscHUsNDYtInNQLy8uNDMvP0lzeHBraCBQLiJUOC82VS4gdnZrTUJGTFNZQnpCU3N0MiIvQkwveElsM3doWSEnRiE6em82VS53aG8vLDYvZzdZSi4uRXRmTiE6Ti5ZTUYid0oKaGc/ZWhUMjI3aXVjcU1XP1g0dS9HQjZPLGN3ellscHB0cHkgNjdlaGc/ZWhUS002dnBzZmMvaC4gTmZBcUJrLSdrTjZ1a3QvN3l0ZFhvM2N5N0plZ3M4ZzZob2hsLlBhZ2ZBcUJrLUpwcHBzITgvUGJlNEVvMnA/aC91UDJmIGhEZnUgYzJsLjI4TjZKImMvell1P3AxenkgITdsdTYnRSFBMjY3cixvL2NlMjdsVy8yLDZZQnB3MgpoazR3MlhlcS5ldGgnMk0gN2hwZ2hhL29vdTZodXQiNDYvSm5jLS5mTj90UGRoZDZpY2gncHhlUDZZZy5vNzFoaApybjItNHRmSi5lNmZlVHcvekltMzYvNmgndWt1Liw2bDYgYjcgcHd3c05ZIjZQdiBwMiEvTmZjOCxuM1NvMnA/aDMgLmNZVUJvTm9jOjZycHQiNDYtSDovZzdoS2gvZy11TUdoc295cyJmei42ZG9sL2h5by86cGY6cDZTNCBwTTY3InZjLUZhNzdlMm8scCIxL2NTaXBlN2g3NjdsZzcudjJDcWYvcHBzITgvLkl3ZDZTc2gndiF0MnNZTyxiQU1XP1gxTU1YLTYtSDovWXRoRWsvWWJlM3RoLDYzP3pCei53aTpoN1Q6aC9jcHQtSHBmSkZ0UDEuTi8xZi10M1NLaExUdiJGMXZFaTIgIS5lb3psbFkvOk9Vb0lqeiJlTy5CMkNnIlloLG8KdCJmei42LWUvLjZlbzJsbEI2THouRXUvN3p1Pzh6MnJoMzY6c2NOLCJzcC5taXRuaC5vMjZub3QzSCIuZ2NCMjJ1RGshMnVBSHRudXAsaHRoMWh6OnBrdDIubzJsZ3AudnpYSnJoWVlldXdmMmJlS3RvMnBDdCJzOGMvV2gvMi5lVy5oZTIuanB3QXMuSQogU2N0Nm15RTIvZWcsWSJDOHRHeGggZSxlMzdzLzouQ3QyU3QycEVlVHcuIkZsajFCaC95aFIuLWghbjJwdHAxaCJzY3QvTlMuIGxCMnouInBKLQp0RQpudXAsLmtlRm93aGhBLzFBaCFjNi86NDZQNHM6LXplQjh0cD9lZjZmby9UaFIuL3Q2LWUvLjZBaGZjcHQsNDYtNCBwMiJoSnBHekN0LjJvZS8ndFJ1ai42by5nZlllSkdjc1loTnc4LHMuSTZmIWN3MkVhWDFwaGZDOlNlNC4xbldodDIuLjYtIHUtbjZEdnBrNzZGP2hoIkZDeC4KN255YyJ1Liw2eGNvOixEb3pydWUuRTcuRXQyMnogNHQyMklmRS9nZWxYaEsuZldQeHBsImhmNllsLnVwTlk6Si5lNmZldnR3OEZyMzFob04/aFIuL3Q2bDYgYjcgcHcgdHVHSno6Ii84TE9IbFRMenkgcXRjMVcnd00vLXNZbWgyL3NlRUdkcycyOjZQSDpoMnouIk4vN0N3RXpwLm8scyE2enZGaUpwZmNlRUdkcycyOjZmQmdOTTZINjpOMlBvckVvby94dCJmei42LXAKZmNmaHo6bDcuNE04LFcuLlk/QnBKLXluRW0gby9DY0JlSXB0QWhkN1Q6aHpyRmYuRTcuU3B0cHplNDcyMmtpNC5zaAoKMksuCmhBdVR1dEZodEdyc0xmcTZPInVZZjZqPy53enlyZDZTc2gndiF0MnNZTyxiQU1XP1gxOnBDLTY0SDovWXRoRWsvN0NpZkYnPyFVaEt1LlR6aTZoOnNldjdvZnROSjIvdnkhMi5sInBCOCcgIlkgLGJpTWNXMEZua2ohdDIuLjZ1aS9QZTY3SDoycFlETVQsMGFvcjYvNiAsVExlTnB0IGhzdUwvaHBoNHRqQWYuLGc6enplNDcyLmkgeFlnLm9OLiJzOGpYej92Mi5vaHg6V3RiTCIuRXUuajZoSjgvekdzRUcgVwo/cyJ1Liw2Z2VudmhmNlkgOnRtQms2TG8vRjdsby8vUGJhWDZmb3NJaExmZnN6aTJwZmhkZXp1dCIuLWw4QnlCCkY4OFQsP0lzeHBvZWxYaFIuLWhpbnB3OmhqczggdGY6Sno2Ik4vUEcvRHUvSUdneHpuY2EnNyE6LzJwbmN1dGU6aHo6OnQiQnotQTovLzJldkEuMT8gWDdvTmhtb0E4QT9Yay4vLVk4TUJGLDI4SjItQnllMWtlVHUyRkZ2M3RiaHVDOkhvUGguZ2gvMi5UaC4vbHUtSgo2LHMxelllQndmLjMgUgpvMnA/aEJoLnVGej9TZSxlMkdjYS1DcUJrOGFOMnouIjp6CnYKL0EvVHUnMk5kLWh6bmh1N2VsMjZodGYuIC4tIXR6MngudXB5MVUgeFlzLG9Ub0xlNHNZTzJwImhsZXAgOnYuSHBmSnR0TmsvP0wvZlBkRTIgb1cnMk0vMnB3cnZvWXBsLDZodDotSm1oQSAvenBmTjg4LUZnUndhaCBGLCI6UGV0dWgvMi5lVy5oZTIudDgtcWZ6MnouInBQL3poWFlndG8Kc0hvUzI2dG9hMjIgYy93c01ZOjZiTFcvN3BzITZOMkNuZjZ1ZW5YUyJIVC8iZ1NvWWVTLjZvLy0ud0c4SkZ0UDEuTjd0N1AnWDZ1MiBQMkhECmhMb3ZvOnMvY0poc2s2TDZtdm44UHBvVEpxQVIiQ1k6ZWVkLjZlTHA4aS1jb3VoMjZodXRZdnouRXQyMi9oLGV6MEZZUjJwb29kZU5ETWhYNnBldHd1Y0poc3AtQnQtSnA4LTZkdjg2ekZ3THpwcGUsaFIuLWgvbmNhLU1XP1gwdCIudTZtImk6OHplNDcyMnpvNC82aGlBaEtoMXMyIFlvVGhjLgpoc3UtSnpZNGkyMm0uIjovSkZnUnpvNmhQLiJ2MTJFaTJwZnMvVDJsYS8uazdwa3NQOHRlbjYvUEkgeHAvWW80cEwuL1M2bHBlaCxldjdvc3Y2Sms4SmwvSS5KQXUvZlBkRTh1Lm8wcDRsMjI3MHVlZmhmcDYuOjc3SDYsNHMxelllVHdodzAiRXhwdm9IL3RlZnRSICw2RD9IRjdvc2M2RTZoRTQvdHcvTmUuLnogWDdvdC8Kc1JlUDZZaVcgN3cuaApzaXQzSCIuZ2NCTTZwQT9lLnogalBLTW80cEwuL2h0IDdzdS5EaC4gczI4SjhmNHkvenA6TjguLnp1M0YnP3ZULkFlMXRwMHVvMm86aHpzYWMyNEUucnV3enBlIWh3MmtvandXaC9ULiJzOGMvaGhHL3QubzYgRnV3NFMuQmFOMjJ1RGshMnVTeCJvSWUwUyJiMi03YWNXdDIuLjZpdWV0ejZORXNHZjJldjgvUGJlRWsgT2NQClMvZnU4IGhzL3dTLnRsaS82IEYuMnVHMm0vTmZ0LkZzWC5nMm8sNkhlTmV6bDZLUj9XTUg6bDdCUzZ0LDp0UEVlWHd3ekcuRXFnb2xtaE5mMm93aXRjdDEvaDFuYXQiQnotQTpVMEJXOEJlUGIgMGZoZXVXc0hNMko3MHVlZlNlTi51TnQtIjYtSDovZnQvLGhVMFIKWUdoY2snL0wgLnU2b291dDJoYy9vOiIucjdmSGcvei46TkFjOCdneHpvMnA/aEJoLnU2dXBvNzYvaC5POmUvcTZ5Im84LzY6bmNwLTMgS3dXaHUKb2hBMk1nIHNodG9maHAgdnQzSCIuZ2NCcjZhLDYvOGtmTDFuZXMnSVMgUCc2MW8vdHVoYy9Uc284QlNKSnAuMiEvTjdlUEZhWDYgY2Isb28vck1Cek12MmVvTDJUcwo2U0doekwvWEdUTmRmTEZyM1Bzb2hYUyJISlRraXRjdHVjZVNscDIvRTZKImMvSTd0LGsvLz8uRUxoOnNhaEFoRmh6b2UvdDIuLjZpdWV0SkcvU3NKLVlvTnouMVBkLTZkaC9Ub0FTMjFZaXdjdzpEaDJobG8tSnpZNHNEZnpwIXBKMT8sRTJjV2gsNk5vd1QyaVducHQgYy93c1QuRUdoTk4vSjYxQXU6OD8gWEdoaGNGOnRlRnB0bWgvMmVmaG1yIGguU3ovLHAvUEcvTj90UGRoaTZBcGZhaDMuL3dHaTFjbyxlbzJsZzdMLUJrQ3UuQy5lR3VmN2JlIjYvNmNXdU1mMi03VWggdFdoV1lncHQvTlMuU2xlIkVlOCx3Mkd0RQpuMlQ6P2NIcXBGTj8nCnA6NnBsb2JoQVlBSnAuMngudXB5MVUgS3dXaHUKb2hBMk1OeHVwN0JIP0JTckcuITcyLG8ycjZiTnoucHpvWDYvcG9kZXRlSW8vbzI2dEouZXd2byIucjdmSGdVMmJoSnZjLUZ0eFlvTmhkMiIxL3VHdS5ndDIuLjZuaWZwQjZZQm8vLU0vP3B3LXluaTZBcGYnMk0vLlM2LWVidERlLDdscDI4Skc2TnVjNzZ2dXA4Lz90THdhaC9ULiJzOGMvJ01vTTZUaERvV3QvU1I4ZXMxellkTVQsP0lzeHBvZWxYaEZoODcuaTNnd3QuLnRscC82NjYtSDplcDYxRGU4UEduITZ3cHVDMk5oLnQ2T2NXdHR1b1NscDI4U1kuanVjIjJldjgvUGJlRTIgV2gnMk5kLVM2TkVwa2hGLyJUczJoRTYtSDp6CkZlT29IVGUiL0JMNmInSTRUMnRreDpodmh1MjZodGYsSiEvIU4vZndETi90LzMsRVhTOmdDdU1mMjJHIGNrdDYvc1lsZzcuITcsNG96MjNvb3AnOApoTDQhPyc6Rkg6TWh4b3ZvJy9UWVhsLS9mSHAuLDpZNnAvb0csQXVUeC5sTG8wcDRlSXB0aS1uZSwgYy9scDI4Si82Tm56MEJXOEVoTD9pdFlLTSczTVB1Im9ZZ2ggZSxldVlncGg4IFlwLnMxelllVHdod0ZoSzJvTmg/YyIxOC93bWgvMmVvTDJscC8ucjdmSGdVMjAvNHZ3MnppR1lvby8nL2plSXB0aTJwZmhOb3dzcz9oa0ctNGlVMDZLIU4vVCd5RS5sY2NXY0svIllCekpwZmhwczcveXQ3SFk4LDpOMgpoP3AnOApoTDYgdG9lNnRlVC8iaTZlY3UvLDY6Z2IuMzc6SnRlNzZzQXdOMjNlM1M2aHZULkFlei42Z2VudlNlTWpzLnQtSFlwLnN0cFlldXdmMi1lS1NiaC95aGhoMk4udTJzZmhDcDI6Z0FVb0JVOEYvSjZsImhOTDAgWUcgMnlkaEpld3NZTzJvaS8vdHpydWVDSjA4RXNELTZ1LC9HLS0gWEcgMm83L0g6UG83MGhmdTIuaDdnOnRmdnd0QTovRjdsb0dxQVIibXdXaC9UZVJlN293WDpodDFoc1NsZ3BDcUZVb0lxP25LWWosQXVBSHRudXAsaFIuLWNGaUQydHZoL0pPOnQ6NC5BOnYvdUVlcUwvYnYuaVgnP0xUdiJGMXY2dXBjIWhoL3psdHVmSkcvIEYycEVlP2hlN3lkRXAvaGV2UyJ1Liw2dTZoZVNlNllsbzpoZTYtSDovRjdsb0d6ClIKSU5udXAsWXpXQTQ4dVNvNzYvaApybjItNHRmSmxjLXc/NHBEOGdpNC82aExUdiJGMXY2ZzZnd3VzLlNsbGVBSjIvdnkhMlhGSk53TUZJRTIgb1cnLU5zejJGaUpwZmhkZXp1dHRZQjIuU3B0cHovb0cvIWJ5RS5nLmx4MiJUOC82dG9hMjIgYy9iTERrLXE4IWxmN1lBTjg4LUZjIjdmLG9DdCI6LzpZMDI2UmhDcDI6Z3Q6NFB3djpOCkJXOEhmUEZoUm1UTSczTWdoMXM2YnBuLi5lbzJsYS8tSmY2THkvLXdoSmU4MmtvIjYvNmgnd2toRixGTj8nUiAuajZKdXRKIjguamxoUDZkInAxOEZzSyJvMnA/aDNocCw2cnBldi5saDJzczdZNDY3LHVHIjZwdjovenlhIjYKLlQ6P2NIP3gzImpvVC1ldjdvc3AvOjZoRXNwODhEInUhMj9oM3dvLk4/c3RoLi42bGVsdDYvZXRsVy8yejZpZjpoMjg6WWosQXVZUjhvTGx5MTZlUDZwZ2hudi51aCBvbzcuIHB0SHAvRjdsd3B0LjMgd0oKaDI/LlMgLnU2SS4vNy5saHo6bGUuNE04LHNoOG1NTiI4ZlBrTUVvRmNkNk5NMD9CTktsazIgV1lUc284M0YuOGFCUHBkIjMvIXlsSEVvMXAKMiJ1cC42RnBldDF1b3pyYWMuMzc6cHN2MjF1LHYxMgp0SyJvb2wnV3RlNGV6dTpodDdodHBoZy9wSgo2LHN0LjdmITZjMmtlcjZ1Ljp5Y2g6cmhnYXNna1NlRUdkcycyOk8ud3QyMjFsQS1OMkdzRS9oMi9DY0JlcC4ydTpocHRlNllPOnQvTlMuajovZnQvTi8xL21sRW0gby9DY0JlSXB0aXZjd3Nldy5hIHEuMjdQLnNqeiJlTy5CCkZTSyJvMnA/aDNocCw2T2NXdDovMkogc2M4RTZmRWxjUFlEWWovP0lzeHBvdCBDLCJmOGh6by5vby4xLnRjOi1rb3hZOnN5MSJldmVjLXlkRW1uMnAnNk46Mm9TIGVvOmNEaHpzdSEuIjgtSnRlNzYudj9ELS0uRUhwLmwnNkhlN2VwbVNvUktjc3BpdDcuRUc4TnYvellsInBlUEZjUmtodEsnaTZlZFM2Zlk2LWh5RERLLHFVb0JqTnkvUEcvLEwvUGJlRS9jY2EnNko6MnQ3YWNXZixlZXcnczdZNDZtdm44UFlsQnBjMQpoM1Nvb2wnMiFlLWUxb2hjNzYvczYvZzdZSnpZNHM2cDc3b3A2enllInBsdTYzP3AuLWM2azZidEl0djYvbHAuM3Bwdm84LVNlRWMxekZ0eFlvdWNGdTZlei42Z2VudmhmcDYxdXBZdkUuLSw4LXQvWXAwZkRwNjQhPyc6Rkkhbmo2NnBlLHMvaCFuZSEuRTcuOnVmcDZoRTovN3lsZzZscGYnTkhwZi8yIGhiLy9ldC5yeXQtSFkuanVjIjZjQS5OLS0hRUhwZWwgdENIQT9YLGNiN29kLk9sYmZ3QUUuanR0UDZ1PzYvTEl1RW0gby9DY0JlSXB0J2hkLCIvaC5haWYvZSIuSGcxMnouInA6OFBnRTJjaC9UZVJlTi4uMHRvNzZ1MjZkdXcuU0c2TCBOMi9oTmhoIkZhWHogd0InMk0vMjM3bjcgdDNsLzI6Om8uLHB0SHAvLjc3TWovWGJ5RURldm9kZU5EMjI3aTZuYlNlTWxjRmYsdFk6LnMxelllUmM6ej9lIjZmNmMndUhmN2hSMHA6IS5EaDdvcHR3IjI4U3N0LlNlNDcyMmRoS2t3b2NGdE0gQ2h6VXB3MnZlbzJsbzdoQWYuQnAvN3p1dzZ6Mm9vLTZhcG9tLlJlUy5rQU0nRE0icG1Uc01ZOjZiTFdTMDZDQS84L0ZhTVJoLDYzP3pDLXRFaUZjcDYgajZtJydyd09VSiI4TDZGSk4vZnpyM1lXaCBGLCJzZiJZaTZuYmh1aHo6Y2IiUzYyTWYsQVhhIUwvcEdneHpLaFNGLCI3LzJHaTJwOjJlLXRzRnRKIjhLSidrTjZoUnpVMiJvTUduaGl2LkEgLnVGaFlvT2dLVU9TSURqTlMuamcxejZmIWgxTUZ0eFlvd3AKV2ogOGMyb293dFd1MjE6czIvUzY2MzZlWXB1a3RCMlhlIThsaiczRiE6em82ZzIgbzIvLDZodGYuIC4tIXQvRnBmIXA4LwogWHQgLGhqZWtTMi4vWHRvWTYgOllscDI4Smk2Ii90MmlsSi84LS0gTVBlY29DYyIuL3Q2ZzZoaDplMjdsP2g2IVIuSGd3Mi5mNGg2anYgWUdoY29ULiJ1UDIubExodmhDcDI6Z3RQdnpZSnRlNzY6ITZwNkZhNFNvdCBDLDZlMEY3YVRnZmguZU1yYWMuQjZmSDpwNjZoUnB0Mj9pdFlLaExULlNjMkVrT3RwcU1XP2JzbzJoSjIsdiAyIjZ1LGsvcHlwSHBoLGsnTUlzd2h4b29oaCxNTUJGLDI4TjZ5Im84LzY6IWMyNjNlZjZuY29Ub0xlLXUvaWV1dDIuLjZKdGZ3QTYzIGx3ejZ1NDh0WW4gci51aEQKdzcxL3NZbVlvUzYvaDFPdVlBSjIvanMxelllImU6MkNuZjY6Nmg/c0hEMi03VWhHL3QubzZub3QtSFkudGwxUGYvTjcyZj9zRTh3WW8uIkhvMkg3ci5sZmg3ZTJsZ2JHLFlmUzpOMm0gNDcvP0lzeHB5dG8udUJlWDZwIDpXdGVvLDYgbHVBLjZVaHVHTTZDQS84L3FzRW5hdW9lNk4vNiw2b2V1dE5jcDF2OnYuRUc4SiI4LWZjTlJEZgpoZDZ2Nm5kaE46MnU3eGNhdDJoaCFjczoua3Q4QnAvTi5mUzdVMFIKbTJvMnA/aC91UDJmIGg6L2Nmb3dvOnBLSmI2U3RlMi5vb3AxenkgVzdjNyAnM2t0NzZZVWggby5ldXAsZ2V0SllINGlCUEcgLGUvUGJlNjZhcC9CaElzd3RFaTdlZXcuLjJUc3BZNGZ3U3YvTDd0Tjp0TnkgTHpLPydPNkhvMjJHIGhEOjJmOllsZ3AuQiE2THAvUDdlIjpOTUZ0eFlvM2N5N0plZ3M4ZzZob2g6ZXAndnRVaFl3QXYvL3pla3cuagogSHBCLm8sNk46Mk4udTJzZmguZTJsaWYvIUc4ZXNlUDJlIjpOTUZZUjJwb0snYkpsLTFZcjpLdGIgY3AgdHVwazZqRXB0WVJ3TkRlLkNsRWljcHcKaEZsMXRHIHNvTTcgY09TSUQ0SFlwSnQyMjI2SjovL1AgeHB1aHVULlNjMmV3bWh1OC5EaEdyb3RQQiIuRXVHZnREQnAnOApoTEZvSnBDdCI3ZnQ2eDJrdDIuLjZucDcvIVIuRXUvLXdETjg4LUZtS3o6NjYzP3phelM2MHBLdDNocFBuc1U6TDJZNGkvLzJldmNEL1BnRS4vaEd5dE0gMjFwdTZvMm86aApyYTp3Si4tRWw2akVlNDcyMk1pNC5zaEV5cGp1MjN0YXRwZnNlRVByYXEudQouRXRlNzZ1NDh0WW4gcTdzOm5YLkxlRm96b2hHL3Qub0VscDI4TjZoRWR3Mi5ja3AuUnlyLTZlY3M/dExlP3Ayb29vMmU6aDJzRmYtSHBwa3MxODZEQXAxOEZzS01oaC9ULiJkZjIxb2pveC5ldC4sOnYuRUc4SkZ0UDEuTi8yUnluRXpuV2hkaE5vMjJHeHRvN3B0c3duRmZwRUYubGxoMkcvTj90ankgSzZEb2EndyFkLU4ubExvOmNEaG1yYXQtSFkuRWcxNllrTm9oNlUgWHAKLm9Ob1NjMjJZcjpLUmg0cGZjYWYuQndwImNoWVlETVQsP0lzeHBvd3N5dEhEMjZwZ2hoay46aC5neXRQQnAtNHkvSTdsTjg4LUZjeC5sd2gnMiFlNzJ0eExoLWhxLjZodS9FSjcyRXM4LzJlUGU6MkhhNHdjY28KY2hlWWVmci5XdHB0MjZodGYuUzhHNGkvZnpmdmZLTUYiCnBhYyAsL2svMkt6dWU6IWplRjcgdHUuc3BwQiAvYS9zTmJ0LlBvNE8hPyduNkhlWXM3OixvWWVmd0djeXQvTlMuamxlUFlETnoucEZ0eFlvTiAsMlMvMjI3aXdjYi5lMjdsbGUuNHdBSmx3MmJoQjdlMmRoS3RhLlcnL2plem8yaS5hY2hwZXdndWVDSkhZNGEvelllU3dmLj9lZkVvTXhhaDBBMm1GaFkhRD8hY1NscDI4TkZDcUksVXdETjg4LVAuaUYnP3ZULiJwZmN3bmNvby51d0djeXRtTGZ3Si8uRllsTXAnOApoTDZwLnNYaFIuLWgxT2NsL2NldHpjbHZKLjYtInVLMi4gbnB0UEZ0eFlvM2N5N0plZ3M4ZzZob2h1Y1NsL3d3QVlBSnA4LTZmP2M6d3lyRS51aHA/aEwuOC96Z2hjdzJlMkdjc3Boa3cvRWNjLTZ1NDh0WW4uaUYnPyFxZ1BFMjQwLEV2cU1XPzNneXQtSFlwLnMxelllUGU6MkhhNHdjY29Bb2svImguaSJob3ZlTnBpc2Z0azYvTnkvN1Avb3BlUAogci5iaC95MUpsInQ2dTZodDNocFBuc1U6TDJZNGlrNzYxRDp0NkZhWHogd0JCaHAuLWM2eDJvY3BmaHo6Om84LjZoRXN3UDc2SzZOMj9oMzYgMi8KdzdlZmNTaTZuN2hmNllsSC82TS4uQ2lmN0cvP0wvInlhZjZjY0snSk0vMnd0bjFXdHR1MTZodGYuNC90SmxoIjZwITYycHlkRQpjc280cEwuL2guZ2gvMi5lLi9pc2M6Im1mSj9ldy8vPzMsQXVUeFlnLm9DMiIgN2o2eTZodEZodEdycz9oTi53Sk06dzYndjpoOFAsRWJjdHBDVExlNy9QIHNvOjJmZTF2NHR4IjdFU3NwL1IvTkkuN2JpRUcgdG9kZTIvImh6by5vYmVmd0dsdWU3NDYva2xlLkVlUndwagohRUEyaC9Ub0xlLXUvaS4wODpoLFkgcy9wSnpZNHNYODc2dnBYcCdzeFlnU28sNkhvMjJHeHRvYmVmd0dsLnV3QTY3IkYyMnpoTmhoMnluZkZvVWhQLiIgUGgxbldocFk4WVhsUy93NHc4SmxoLjd0LGYyIkZhTTYvNmgnLkJzMi53WC9zR3RlMkdjc1U2IlAvSkhjMTIuInV6QVJZUjJwb29icDIvcC5TaTZucGgvZXQgczpwZTZmQmdOTTZIYzZwNmkgVzdjNyAnM2t0NzZZVVNva3B0aG1jaWYuQjZ0LDp0UDZoSzEuLnluWDZELy8nYyE3TWhwdVR1dDIgV1lsNi86SiI2THMxODZ2InB3WS1hdCFzLlcnMU5memh6b291dHdjcDJyYWMuQnotQmVLCjYzLGkuTEZ0eFlvLW5QLjNocEwyaU5oLmV0dFlscDJoUzYvRXB0WVJlIjpON0Z0eFlvVyAsd01lcG8vbzJvMi5sLkVsaXV0SHouTnVHcjZ5dnUyRnlsSE9vRmNkNk5lQm93TzpvWHVzaHZuYWU2TkZDcXNUSmohMXBPOktMU3hkIEF0TWNXVWNTaTFuNzZlcHdjc0doTi53Sj9wZjJmTnpjOEUgWEdoaDoKY0FoLlM2dTZodC5zdTZjWDh3IlM4ZXMuLjZmITYvZ0lvMC5vM2dXdE0vcGpCekpwZmh2Oi4gcHRmNHdBU3M4L2tlSjEvUEkgWEdoaDo/b1MgLnU2T2NXdDIuLndUczI4Sgo4QSAvIjc3LHAuLkZ0eFlvZWc/Y0plSTo3bnM2dEouLjZ1aS9QZTZ0LDpHMjIgazZoUEZhTTZFcGN2ZSJqcC8yby5ndHRmcDcnc3dHcTZyNHN3ZnBETjdlN0ZmTHcgOm9OcGtEN1M2TkpwOjI/dDZodGYudFlmRXN0UHp1UzQvSnF2MzZoImhQaEwvLWNGaURvLmVvVHpscDpFNDZoRXN0LiJkQXUyckZBNFNvMW4sNiJmemV6aS1uZWVjaC5ocDo3NjZtLHVEMiJoSkwvSnFtRXdjMTZCWSJOYWJuLEpSSmpIP0JCYXYuanAtSHM4LzJla2h3UEZ3UnRXU29ULiJmOHBSaTZucGhjZTJoc0I6NC4tSHN0LlNlUjZwNkZkUm1saGVGdyFvN3dwbi91LWhqcDd0bHRPLDhmSDpjMm11QnBLLkljellXaGNXMiJ1Liw2dTZodFd1MjE6czIvUzY4TnkyIkZXbFI4TEZHaiJvMmN5TCJoMTI2b291dDZ1V2tjaSIuSHAtU3MxelllVHdod0ZhNFNvdCBDLDZlMGtHbmVLdEouZXpsLjpmSi5wSmdEQ3QvQi9lUnkgZ3BsZXM/aiJiUyJZaWNoTC5saDJjOmUuRUdoU3NQL3cgQjdlLnogS3ovZTogaHhsOFc2NnB1Mm9lZXcnczdZNDZPInVZZjZqPy53enlyRXB1aGx5MSJELS1ZTzJodmplSkdyb3RoUzYyTj8yNnAvL2hKNnksRQpjOkJkaiJhLi42dG9sOjplZXpobC5FSgpoTmd3elk6Tjg4LUZqUiFLaEx5UyJmemV6aVdoOmM6WUZ3cz9OMkEzbTRxQUI0QXQyLnkgSDdjTGhYaEpmMjJHIGhEOjJmOllsbGVBSjIvdnkhMlgsInRwTUZ0eC4vaGYKdCJmcC9mRmggZWggV1BPOnBmdk04SnllN1Bjdk4vOGsgSzEvb2NGaE5vMjJHIGggby5vZUZsQy9QNHQuZm96MlBoRTZjTUZzMFloLG9sdFVlNzJ0IGNhNzZBaHpjZTJwdnMyNHM0N0ZlNDY2elBpdjhoWW9uNk46MjEuZ2gvby9jdjZodGYuIDdmRXNlTlBsIi93L2dlRSEgMi9JLiJoSWh6by5vN3B0c3duRmZwRTYvTnkvUEcvTmZjOCxkRWZjImhYaE5mcmhxYTJrdDIuLnRjcy4vTjY2TiBCMiEvTndoLUZnIi5sLG9iNkpkQ283MGhuZWhmNnAgc0doTi53Sj90UHpjInB0LjMgWEcgMm9kcG8vOGNZaW91LVk4aGIwInhOelhrby0uN0cgTnV0LkZ0UjYicHM/Y0hlZmNTaTZlY3UvLDY6Om8uQjIuIXVoSVlmNGMvSXlsSDZjY28sNkhlRm93MC5nLWgsb3o6czdZNDY3LHVHIjZwITYycEduIUVvSGNJLkEvMnRreDpodmhmcDYxdXBZdjYvTnkvNy4gb0wvMCJvajZXb1cnb1JBMkY3ZzZucWgncHdpaTotTGYvRWcuLjJNTiwvWUNuLnpvTmhJb0hKLWhtb2UvdE90dHpsdDpHTVlwNHkvellsInBKMT8gNjdlc29Bb0F1NmgudTIgLkxlVy52OnAuOjcySnA4LTZGa2MxLEZQTHp5dG9Ic0pvImh2b2UKOG9oY09sIWYtYzIuSDp0cDY6QT8yMlBvTDJoaDJ5cyJoMXM2WHMgZSxld0duRjhoIndYLUksRUcvTmZjOCxkRTFwLmhQLmhlLSJZMGhzLy9ELnRsbHAucjdmSGcvczhkSzZOMmtvIjYzcGInMU0vLmhVbjpoZS5lNlluaXYuRUc4SmxoLjd0LGYyTnluWEZvSGNJLkEvMnRreDpodmh1Y1NsbzpoZUUuLSIuTTZUQS5rUnkgZjdsLm9DMjZlNC9TbXZLdGsvOmZseS9wNEUuIXR0TlBNTlIuTUZoUm1vLGM/dCIgUGgKIC5zdDJoaCFjcy46Im1wNHkvUEcvTmVjZlBkRTFwZQp2byFvS01Cek1kN2gxLllhb3QvIC4/dmE6clhlWHd3ekcgIll3Om4/LDZlMEQ2dTZjd3UuMjYKc1kvUzYvSm4uLllsTkFmUEZ3eFlsaGQnLU5sLSw2LXZvWHVzaHZuYWU2TkUudXMxMXRvImsvUGJlRSEgMi9JLiJ1cHA4MCxvOmNEaHo6OmVDcUYuN3J1bE9ldDcyMmhvUlAgaEVQL0wuLXM2OmV1dCwvLVlucGZBSi5wZXNoOG1BTixrTkZ0eFlvd3AKV2ogOGNPTj8nUiAxaDFzY29mNDZKImMvInBEcHAnOApoTE9vSnA/aExmZixwYVdvaHBKLjJsVy8yLDYidm4vUnBwNHdjTEZhNFNvMWgnZWsvMnQ3aXVzOixlMjdsdDpINDZKImMvZjJlQS5jMnpyS3dXaDpUZW82L3B3aWVsdmhvcHpsdWV3OjYtSGwxTTZUQS5rUnkgS2Z1cG9kZTIvImh6by5vYmVmd0d3cyc6NC4tSi8ycApoPz90LmRlLTY6NiBqN0NlcXBtV2hzZjI/dDYgOmYuRUcvRXNQL3d1a3B0UD9hcVJvZWEKb0FlL2M2bi9ndG9vdHpuYTcuLFlHQWxCMiEvUndjLUZ3MzZhb04/aHRoMWh6by5vLjZ1V1BydWVmSHBHSnBjOFAudUwvN2JhSGZvMWhpTWNXMGtZaXRwOjpjaFNzczdZQnpLSlMuNllvIjNxQVIiU2lraCBkaExoOGM2T3Rva3B0aApyaWZBSnpZNHM2ZndvQTohMkd0RTJ3Llcnb1I6MjEuRmgvL2hmNllsSC82TS4uQ2lmN0cvP0cvRWJlNEVvMnA/aEhzd2gvbjJvQm9zdVlPczpwZTZmRWkuLi8vP3B0N0Z5UjhvMSAsd01lUDZZaWUvN2VwTDZ1dWI4UzZoTnNQMWZjTnoucGRlaTZTY1cnLU5vZjpmRlNvSyBhWE9sLDI4Sll0a3MyZVBjQWsyIkZvNDZwbwonZUFEMjZZaS1oaDplLDcvYXQ2TjYtSDovZnQvLGgvSW1vUnRraDJDY046em93WGgvMi5lVy5oZTJDLTZxIiAyLlllQmhlIkZhTTYvNmgnLDRoMnQuOmhuN2hoYzZuYXRoTjItQmExMnQvS3R0THYKL0hwLm9icyE3ImgyTzFvdTJlZWZhczpwZTY3SDoycFlETnoucEZZUjJwb3lkaC8gd2hQIHMyL3NkZXd1Oi1rb0hZNGEveDdjIjoyMgphTFNraCFoZWggLXQ2T2NXdHUvY3phOmI4TkUudXNZcFk6IjoxMj9vRSJjL28sNkhld3MuMCxvLjZ1V1BydWUuIgouRXQyMkRjRDhXMktpWEZvSnA/aC4gLnA2R29hMjIvczY6Z2JmNGZtcWZ6MmJhN1h2cnUKL0hwLm9icyE3Imgxby5oby5EaE1jaWsuQTcyZSBCMi46TkkuN2JpRW0gImhYaFJoMjJHIGg6b3A3LEZsTUw4TjYzSFcvVDhUTmY4LXlyM1NvLWNQaGdoNzZwaWV1dHdoYwpjcDdoSlI4NC93MjdvTnp0Nm1pNC82Pyc6ISE3TWhHIHNodDJoaFBPOnA4TnouRXRlNzZwIWhEQ0dvNDJwb3cnMmtoQzYiaW91dHB0czZPOkc4LFk4cXNqeiJlTy5CTUZkUjYvNmgnNiFvOHMyaU5idDdsLjJjYTdoTi8uRXRlNzZmP3dZelUgWDdvcGVQaDMgLmNZVVkhdEhoOllnOnRmQnBBcUksWEdUTmRmTEZjS2toaC95aFIuLWguVS5sOmg3b3o6czdZNDYtLHVZeiJldjpOMgphTFNraCE0cEwuL1M2bmNvQi4uZWYucy9tSnpZNHN5NnBmcnBiLz8sRXAvaGFDIkg6MldZaXVnZmVmaFBhOjpmTHQ4SnAuMlBsIi8yLj8gWDdvdmNXaDMgUDY2dTZucGhwNi5DL3U2TjJZdi8vUHRoSzdCckZUeHB1aC9QcGouTGhQVXBOZnRlMjdsVy8ySnpZQnAvNFlwQT9lLnogWEdoaDpUZW82L3B3aXNoaS8gc1kgc3BFdmZ3LnN3UHQvLGUxemkgTXogV25GZTZlZmNTaXdjd3N1dVl3cwo2TDZZQmsyMmt1bzYvUGJlRTIvZVdDL29lUi50Rmh3b3B0LDYvZzdZSiI2TGkvN3psQTo6MkN0WC46THVhaHRoMXM2SC9uLkxldFBjOnZLSi5wZXNEODJmTndQMkNsSEVvdmNXaE11Ui42LWVXZmhmNnAgc0doTi53SkZ0UDEuTjg4LUZtUjIvaG5qN2svN3RwYi5vYmVmd0dscDI4SjItQnllMWtlIWh3Mnl2M3RvdGg/YyJ1Liw2LXB1N2hoLTZuIGhLSiI2TGQ0LTYxQS5oIkZ0eFlvdWNGdSJmOGgydWVnN2hmNllsRjotIUdDSkpoIjZvQS0hMkd0RXB1aC9DV0hlSXB0aXZjd2hmcDZ1IDpoIDZKImNjMnpsQTE4THYgbzd1Nm5haExmLTc2bmNvR3BsMS5PeXQtIjY3IiBwLTFmTk4uMS0gMHRuJ2h0TWNXP3Ayb29vOnVsLlknczpmSkc4Sm4yUDJlNDcyMj9yUlBwdjYnRU1UMkk4Rmg6OlcvaHpzczJoIDYvTnkvNy4gb3BHLz9oRS5vNmVtUyJIa3B3WHMgNy9jZXpydWVmLjZ5Im84L09lWHdmMjNlTVlnImgnb1JNMD9CTkpwOmNTaCJzYyIuWUdKSnpmTE9ITkkuN2JpRXRoN3NDLmhlZnQ2by5vMi5jLDZodGYuRXQ2TXRCMjg2Tjdld2IgS3dXaGZUb1MvMjZZaTEgcGhEcHBnbnQtSC4tLnNEOHQvTmYuLmtlWHpuaDI/OlNlOGM2dTZodGVsLnduc1loRUcuRXQyMjFsQS1OMmRoM1lnb2xtWSJDOHRHeGh1Ym9jLlNscC8uMTd3NGEyMi5vb3BqelUgYzhiaCBGLCI6Zm9TV2ghTi5jOkVsJ3R0TFlmU3MxellsInA2ZlAgUndzdm9yLiJoLi42bDYgYjcgcHdsbGVBSkEuamxoUDYvLzZjTEluMzZuY28sNkhlZnNZMGVvN3BldC5kc2JKSncvIDp6MmwvdmtCS0ZPNFlraC9OcDZlUDZ0IC42LVlIP0JIa2Y6OjdwNHN3ZnBETjdlN0ZuS2toaCAsaFIuLWgyT1dodDIgV1llc1J5VHhydTRxQUJCITZoMiJvTUduaHUKb2hlRm96b2ggdDEgY1JUc1I0SC4tY28vTllBTjg4LUZnIi5sLG9iNkpkQ283MGohRD9tCj9ZSUROMzZKImMvei5KInB3OG12M1NvMnBDdCI2MSdUci5vNzYvYzZDOnBmQi84SkYyMm0gNDcvMCJvTUduaG5kaEplenB0Zy5vQi5wZTggOnRZInRmNG8vNi5UTjY6dwoiaTZ2NiBGTExlSXB0aXRjaCIgYy9sbTo6di5BY28vZDotV3A/cFVwWDdvZGVFJ1Mvcj9CUGhwOiIvY0poc3Y2TlkuImEyMjcxTjg4LQplRXBsaCAnLUg3MnZZT3N1dGN1V1lhV3RBTFkuRXUvTllERGZ0NkZpTTJlLnUnZUFEMk84ZzJvLyIvcy5hIHRwNFlBdmE6MnpoTjh0ankgSzZ1Mmh2aC91WUw2dHNjYmhmNnBnbnBDSmc2ajo0LXRBTiwvZkUgTTh3LmcnNko2Q3Y2dXBvcC4vaDJzRmY2TlkuSGx3MjJoayEyIkZ0eHB1aCBGLCJiMjdmT2NvN3BlVy52OnQ2TlkuQm50L3dlLDYgUEZ5My5nWW9VaE1oQy42RnBldGVsLjYvOmh3Si5wZXNZNll1QjYvIkkgSFkvaAo/aDdvODE2eC1va3B0aEdua2YuUzd3ZjpOMnBmWVQK</textarea>
+
+        <p>
+            Here are some notes about the ciphertext:
+
+            <ul>
+                <li>
+                    The Base64 encoding is just to preserve all characters from the ciphertext output. This 
+                    should be considered somewhat of a hint but is not meant to be part of the solution.
+                </li>
+                <li>
+                    Because of the first note, I do not suggest doing this on paper and make sure you take into 
+                    account all of the data provided. You can however do this by hand.
+                </li>
+                <li>
+                    The plaintext input is UTF-8. This isn't super important but this is offered to avoid 
+                    any potential confusion.
+                </li>
+            </ul>
+        </p>
+
+        <p>
+            If you're having problems with the contents in the text area, a link to the file containing the  
+            data unaltered by the encoding is also available 
+            <a href="challenges/crypto_christmas_2020.txt">here</a>. No further hints will be provided as that 
+            would defeat the challenge!
+        </p>
+    </div>
+
+    <p class="head">Why?</p>
+
+    <div class="textbody">
+        <p>
+            I like to write ciphertexts and find anything that predates the Enigma as really fascinating and fun. I 
+            like to make these sort of things accessible to other people since often cryptography appears to be 
+            daunting to tackle. A lot of the puzzles I make are intended to be sort of loosely based on past 
+            practices that predate computers and as a result anyone with some knowledge of statistics, a bit of 
+            programming to make things quicker and easier, and just a knack for figuring out puzzles and patterns 
+            should find this enjoyable.
+        </p>
+
+        <p>
+            Previously, these challenges used to be produced as puzzles within conference guidebooks or as a 
+            challenge for online communities I have been part of, but I had taken a break for a few years from 
+            producing them and as a result of my return to creating new onesI have opted to make them public moving 
+            forward.
+        </p>
+
+        <img src="../books.jpg" width="13%" height="13%" align="right" />
+
+        <p>
+            One of the books I often recommend is Simon Singh's <a href="https://en.wikipedia.org/wiki/The_Code_Book">
+            <em>The Code Book</em></a> (ISBN: 978-1-85702-879-9), which goes deep into the history of cryptography. I 
+            can honestly say that if the puzzles you find created by me are not making sense in methodology that upon 
+            finishing this book you'll understand what my approach is. His book goes into the mundane methods to 
+            quantum cryptography, which to me the latter is basically witchcraft. Additionally, there are puzzles at 
+            the back of the book and I've completed a good portion of them myself.
+        </p>
+
+        <p>
+            Other books include <em>Cryptography: The Science of Secret Writing</em> by Laurence Dwight Smith (ISBN: 
+            978-0-486-20247-1) and <em>Cryptanalysis: A Study of Ciphers and their Solution</em> by Helen Fouch&#233; 
+            Gaines (ISBN: 978-0-486-20097-2). These two books are from the late 1930s and early 1940s and as a result 
+            predate the public knowledge of encryption and decryption performed by machines like Enigma and Bombe. As 
+            a result, I feel like they're good candidates for understanding how to work with ciphertexts.
+        </p>
+    </div>
+
+    <p class="head">Past puzzles</p>
+
+    <div class="textbody">
+        <p>
+            I've made numerous puzzles for other events and groups in the past. All of them have been solved as 
+            short as a few hours and no longer than a week. Unfortunately, a lot of them have gone missing but as I 
+            find more I'll add them to the list.
+        </p>
+
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Release date</th>
+                <th>Completition time</th>
+                <th>Comments</th>
+            </tr>
+            <tr>
+                <td><a href="challenges/crypto_christmas_2016.png">Major bets on Surebet</a></td>
+                <td>September 18, 2017</td>
+                <td>~6 days</td>
+                <td>Sent as a gift in late 2016, made public in 2017</td>
+            </tr>
+            <tr>
+                <td><a href="challenges/crypto_bsides_2015.txt">Australia and New Zealand at war</a></td>
+                <td>March 14, 2015</td>
+                <td>~2 days</td>
+                <td>Released for BSides Vancouver 2015</td>
+            </tr>
+        </table>
+
+        <p>
+            Currently, I am trying to hunt down other puzzles for BSides Vancouver 2014 as well as for a message 
+            board I used to be active on. If you have a copy of the BSides Vancouver 2014 guide, please do share 
+            the puzzle with me as I would love to add this to the list.
+        </p>
+    </div>
+
+    <p class="head">Other things</p>
+
+    <div class="textbody">
+        <p>
+            When I write these puzzles, I not only take care of the encryption but I also write the methods to 
+            decrypt. This means that any puzzle you see here can be reversed and can be reversed without having to 
+            change the code to accommodate the plaintext. This means that all of these puzzles are solvable.
+        </p>
+
+        <p>
+            I also do some baseline analysis and purposely make it so you can come up with methods to attack the 
+            enciphering process. As a result, these ciphers are not meant to be bulletproof and are not meant to go 
+            unsolved for more than a short period of time. Some of my puzzles have been solved in hours and at most 
+            have taken a week. Allocate a few hours at least to figuring the puzzles out and do let me know when 
+            you have solved them!
+        </p>
+
+        <p>
+            Lastly, one big thing: do not write your own encryption methods. This is a bad idea and can endanger 
+            yourself and other people either legally or mortally. Lots of time and care goes into creating encyption 
+            algorithms and transport standards and I can at least say for myself that I am not qualified to be part 
+            of that process.
+        </p>
+
+    </div>
+
+    <div class="textbody">
+        <div class="footer">
+            <a href="/">Home</a> | &copy; Cariad Keigher
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
