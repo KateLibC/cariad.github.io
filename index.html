@@ -1,438 +1,103 @@
+<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
     <title>Cariad Heather Keigher</title>
-    <style type="text/css">
-        @import url(https://fonts.googleapis.com/css2?family=Nunito&display=swap);
 
-        body { 
-            background-color: #f5f5f5;
-            margin-top: 10px;
-            font-family: 'Nunito', sans-serif;
-        }
-
-        a {
-            color:#d56868;
-            text-decoration:none;
-        }
-
-        a:hover {
-            border-bottom:#f1a995 dashed 1px;
-        }
-
-        p {
-            background-color: #f5f5f5;
-            border: #eeeeee solid 1px;
-            color: #585858;
-            font-size: 12pt;
-            padding:8px;
-            margin-top:10px;
-            margin-left:5%;
-            margin-right:5%;
-            -moz-border-radius: 5px;
-            -webkit-border-radius: 5px;
-            border-radius:5px;
-            line-height:160%;
-        }
-
-        ul {
-            background-color: #f5f5f5;
-            border: #eeeeee solid 1px;
-            color: #585858;
-            font-size: 10pt;
-            padding:8px;
-            text-align:center;
-            margin-top:10px;
-            margin-left:5%;
-            margin-right:5%;
-            -moz-border-radius: 5px;
-            -webkit-border-radius: 5px;
-            border-radius:5px;
-            line-height:160%;
-            list-style-type: none;
-        }
-
-        li {
-            padding: 5px;
-        }
-
-        .head {
-            background-color: #f6f6de;
-            border:  #f6f6de solid 1px;
-            color:#484848;
-            padding:3px;
-            text-align:center;
-            width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-            letter-spacing:2px;
-            -moz-border-radius: 5px;
-            -webkit-border-radius:5px;
-            border-radius:5px;
-        }
-
-        p.head {
-            font-weight:bold;
-            margin-left:8%;
-            margin-right:8%;
-        }
-
-        span.head {
-            line-height:200%;
-        }
-
-        p.nav {
-            width:120px;
-            border-left:none;
-            border-right:none;
-            border-top: #f1a995 solid 1px;
-            border-bottom: #f1a995 solid 1px;
-            font-size:8pt;
-            text-align:right;
-            margin-top:10px;
-            margin-bottom:10px;
-            -moz-border-radius:0px;
-            -webkit-border-radius:0px;
-            border-radius:0px;
-        }
-
-        a.nav {
-            line-height:135%;
-
-        }
-
-        .workside {
-            width:40%;
-            position:absolute;
-            top:10px;
-            left:0px;
-            margin-top: 8%;
-            margin-left:8%;
-            margin-bottom: 8%;
-            background-color: #565BAB;
-            -moz-border-radius: 5px;
-            -webkit-border-radius: 5px;
-            border-radius:5px;
-        }
-
-        .personalside {
-            width:40%;
-            position:absolute;
-            top:10px;
-            right:0px;
-            margin-top: 8%;
-            margin-right:8%;
-            margin-bottom: 8%;
-            background-color:#B538B9;
-            -moz-border-radius: 5px;
-            -webkit-border-radius: 5px;
-            border-radius:5px;
-        }
-
-
-        .navbar {
-            position:absolute;
-            top:0px;
-            right:0px;
-            border-left: #f1a995 solid 1px;
-            border-bottom:  #f1a995 solid 1px;
-            width:130px;
-            -moz-border-radius-bottomleft:5px;
-            -webkit-border-bottom-left-radius:5px;
-            border-bottom-left-radius:5px;
-        }
-
-        .fancy {
-            text-transform: uppercase;
-            letter-spacing:4px;
-            font-family:sans;
-        }
-
-        .code {
-            font-family: monospace;
-            background-color: #f6f6de;
-            border: #f7e1e1 dashed 2px;
-            white-space:pre;
-            width:600px;
-            min-height:100px;
-            height:200px;
-            padding:4px;
-        }
-
-        img { 
-            border:0px; 
-        }
-
-        .outline { 
-            border: #8D858E solid 1px; 
-            margin: 3px;
-        }
-
-        .rounded {
-            /*background-color:white;*/
-            border: 1px solid #8D858E;
-            -moz-border-radius: 5px;
-            -webkit-border-radius:5px;
-            border-radius:5px;
-        }
-
-        .contacticon {
-            border: 0px;
-            background-color: #FFFFFF;
-            width: 16px;
-            height: 16px;
-        }
-
-        .header {
-            font-size: 64;
-            padding:3px;
-            text-align:center;
-            width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-            letter-spacing:2px;
-            -moz-border-radius: 5px;
-            -webkit-border-radius:5px;
-            border-radius:5px;
-        }
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
 <body>
-    <p class="header">Cariad Heather Keigher</p>
 
-    <div class="workside">
-        <p class="head">Me</p>
+<div class="header">
+    <img src="/images/layout_me_emote.png" />
+    <h1>Cariad Heather Keigher</h1>
+</div>
 
+<div class="topnav">
+    <a href="/">Home</a>
+    <a href="/about/">About Me</a>
+    <a href="/travels/">Travels</a>
+    <a href="/crypto/">Crypto Challenges</a>
+    <a href="/projects/">Projects</a>
+    <a href="/contact/">Contact</a>
+</div>
+
+<div class="row">
+    <div class="content">
         <p>
-            My name is Cariad Heather Keigher and I live in the unceded territories of the Sḵwx̱wú7mesh (Squamish), 
-            Stó:lō (Stolo), Səl̓ílwətaʔ/Selilwitulh (Tsleil-Waututh), and xʷməθkʷəy̓əm (Musqueam) first nations, 
-            otherwise known as Vancouver, British Columbia in Canada. My pronouns are "she" and "her", and I am of 
-            Irish ancestory, holding citizenship in both Canada and Ireland.<br />
-            <br />
-            Often I go by "Cari" amongst my friends and family, although "Cariad" is fine. I use the handle 
-            "KateLibC" on the Internet, leading to some people calling me "Kate" which is fine too! The handle's origins is 
-            a play on the name "Kate Libby", a character from the movie, Hackers. B was the language 
-            that preceded the C programming language and being that she was a hacker this became a silly joke I 
-            have kept as a name.<br />
-            <br />
-            My life's work is centred around cyber security, with the past decade focused on supporting digital 
-            forensics and incident response (DFIR). I'm skilled in log collection through the use of SIEMs, 
-            detective control systems, and automation. Much of my most recent work has involved industrial control, 
-            but in the past I've been a consultant for various companies in different sectors and have worked for a 
-            vendor, working with different sectors there as well. My work has resulted in me speaking at a number 
-            of conferences and corporations, and appearing in various publications.<br />
-            <br />
-            Outside of my day-to-day work, I have an interest in video games, roller skating, camping, vegetarian 
-            cooking, and gardening. I'm part of the LGBTQ+ community (I am a lesbian and refer to myself as a 
-            "queer woman") and am passionate about promoting equal rights for all persons.
+            My name is Cariad Heather Keigher and I live in the unceded territories of the Sḵwx̱wú7mesh (Squamish), Stó:lō (Stolo), Səl̓ílwətaʔ/Selilwitulh (Tsleil-Waututh), and xʷməθkʷəy̓əm (Musqueam) first nations, otherwise known as Vancouver, British Columbia in Canada. My pronouns are "she" and "her", and I am of Irish ancestory, holding citizenship in both Canada and Ireland. 
+        </p>
+        <p>
+            In many places on the Internet, I'm known as "KateLibC". My name is of course not Kate, but the name itself is a portmanteau of Kate Libby, a character from the movie, <em>Hackers</em>, and the C programming language, which was the successor to B. It's a really silly joke, but it has stuck for years.
+        </p>
+        <p>
+            I lead a cyber security team for a Canadian company and have worked in the field for over a decade as an engineer, software developer, consultant, and incident responder in environments ranging from corporate networks to industrial control. In my off time, I stream on Twitch where I speedrun video games, enjoy the outdoors by rollerskating and cycling, travel to random places, and I also like to dabble in photography.
         </p>
 
-        <p class="head">My corporeal self</p>
+        <h2>Writings</h2>
 
-        <p>
-            I really like to put a face to a name and as a result I am not adverse to photos of me being out 
-            there on the Internet.
-        </p>
-            <div align="center"><img src="me.jpg" class="rounded"/></div><br />
-        <p>
-            Selfies have been a huge form of self-liberation and it has gotten me through some difficult times 
-            when grappling with my own self-image. It's not a panacea for all of my ills, but it definitely has 
-            helped me build a better relationship with my physical image.
-        </p>
+        <div id="articles">
+            <script type="text/javascript">
+                var content = document.getElementById('articles');
 
-        <p class="head">Engagements</p>
+                var xhr = new XMLHttpRequest();
 
-        <p>
-            I make it a point to be part of the community within the cyber security field. I've found myself published 
-            in various publications throughout my career and I've been part of many security conferences both as a 
-            speaker, an organizer, and as an attendee. Besides what is listed before, I've been to many SANS events, 
-            vendor conferences, DEFCON, and DefendCon to name a few.
-        </p>
+                xhr.onreadystatechange = function(){
+                    if (xhr.readyState==4 && xhr.status==200)
+                    {
+                        var data = JSON.parse(xhr.responseText);
+                        var itemsContainer = document.createElement('DIV');
 
-        <ul>
-            <li>
-                Hackers on Planet Earth (HOPE)<br />
-                New York, NY<br />
-                July 2010, Speaker
-            </li>
-            <li>
-                BSides Vancouver 2013<br />
-                Vancouver, BC<br />
-                March 2013, Speaker
-            </li>
-            <li>
-                BSides Vancouver 2014<br />
-                Vancouver, BC<br />
-                March 2014, Speaker & Organizer
-            </li>
-            <li>
-                BSides Vancouver 2015<br />
-                Vancouver, BC<br />
-                March 2015, Speaker & Organizer
-            </li>
-            <li>
-                BSides Vancouver 2016<br />
-                Vancouver, BC<br />
-                March 2016, Organizer
-            </li>
-            <li>
-                Facebook Security Summit<br />
-                Palo Alto, CA<br />
-                April 2016, Speaker
-            </li>
-            <li>
-                BSides Vancouver 2018<br />
-                Vancouver, BC<br />
-                March 2018, Speaker
-            </li>
-        </ul>
+                        if(data.status == 'ok'){
 
-        <p>
-            I've also spoken at and organized local security events outside of the above. I'm an advocate for 
-            other women in cyber security and am open to being a mentor to those who want to enter or are new 
-            to the field.
-        </p>
 
-        <p class="head">Log collection</p>
+                            for( var i=0,t = data.items.length ; i < t ; ++i ){
+                                var item = data.items[i];
+                                var itemContainer = document.createElement('DIV');
 
-        <p>
-            Want to know the best method for helping safeguard your network in the event of compromise? It's 
-            logging anything and everything that you have in your environment. This will assist heavily 
-            during digital forensics and incident response (DFIR) tasks.<br />
-            <br />
-            Logging is by far the first thing you should do after you've implemented any network device, be it
-            for security or just general traffic. Anything that generates a log file should somehow make those 
-            details go to a central source and there are many off-the-shelf, open-source applications for 
-            collecting vital data.<br />
-            <br />
-            I practice "log collection agnosticism", meaning that I don't care about what I use as the final 
-            data destination, but I do care about ensuring that the log collection is done using "native 
-            protocols" as much as possible. This may include using syslog-ng for collecting syslog traffic and 
-            NXlog for anything involving flat files.<br />
-            <br />
-            Everybody's network is different but the fundamentals of collecting logs are more or less the same.
-        </p>
+                                var itemTitleElement = document.createElement('h3');
+                                var itemLinkElement = document.createElement('A');
+                                var itemDateElement = document.createElement('P')
+
+                                itemLinkElement.setAttribute('href' , item.link);
+                                itemLinkElement.innerText = item.title;
+                                itemDateElement.innerText = item.pubDate;
+
+                                itemTitleElement.appendChild(itemLinkElement);
+                                itemContainer.appendChild(itemTitleElement);
+                                itemContainer.appendChild(itemDateElement);
+                                itemsContainer.appendChild(itemContainer);
+                            }
+                            content.appendChild(itemsContainer);
+                        }
+                    }
+                };
+                xhr.open(
+                    'GET',
+                    'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@katelibc',
+                    true
+                );
+                xhr.send();
+            </script>
+        </div>
     </div>
-    <div class="personalside">
-        <p class="head">Travel</p>
-
-        <p>
-            In the past decade, I've found myself travelling and appreciating the world. While there are 
-            consequences to this activity, it has opened me up to new cultures and experiences that I otherwise 
-            would have not had if I stayed in my bubble here in Vancouver. I exercise this privilege knowing 
-            that there are so many who will never have the luxury I've had.<br />
-            <br />
-            My favourite city in the world is New York City and my favourite country is Belgium. I've spent 
-            more time in New York City than anywhere else on this planet outside of Vancouver and Seattle with 
-            the latter just being a consequence of being nearby and having friends and relationships there. I 
-            love Belgium for its history and scenery but am overdue for a revisit.<br />
-            <br />
-            I do have a least-favourite city but I won't be sharing that detail here! I will however openly 
-            state that Las Vegas is my least favourite city in North America and often my opinion on this one 
-            doesn't really cause any controversies.<br />
-            <br />
-            I've travelled all across Canada and the United States, visited Iceland, Belgium, the Netherlands, 
-            the United Kingdom (including England and Northern Ireland), Ireland, Luxembourg, France, Monaco, 
-            Romania, Cuba, Panama, and Peru. I've been as high up as 3,800 metres in the Peruvian Andes and I am
-            certain that my time in the Netherlands somewhere had me below sea level.<br />
-            <br />
-            I've been to every Canadian province excluding New Brunswick, Prince Edward Island, and Newfoundland 
-            and Labrador; I've not been to any Canadian territory. My favourite Canadian city is Toronto, which 
-            is weird considering that anyone like me who was born in Vancouver often laments the place.
-        </p>
-
-        <p class="head">Roller skating</p>
-
-        <p>
-            I love my roller skates and at one point I had an interest in roller derby. Due to an injury that 
-            had caused some significant tissue damage in my hip, I decided to not go beyond casual skates 
-            outdoors or at roller rinks.
-        </p>
-
-        <p class="head">Computing</p>
-
-        <p>
-            I've been using computers since I was a very young child when my grandmother put me in front of her 
-            IBM PC and made me learn how to use it; 
-            <a href="https://medium.com/@KateLibC/my-grandmother-taught-me-to-use-a-computer-b8d68d75905c">I 
-            wrote about her a few years ago</a>. Often, I describe my youth as "misspent", but it did lead to the 
-            career I have today in cyber security.<br />
-            <br />
-            My first computer was a Commodore 64 but eventually I had an IBM PC of my own. Since my youth, I've 
-            used a mix of PCs and Macintosh computers, with my current environment being primarily macOS.<br />
-            <br />
-            My favourite computer of all time is the <a href="https://lowendmac.com/1993/quadra-800/">Macintosh 
-            Quadra 800</a>, which I still own and have modified with plenty of RAM and an SD card for storage;
-            it still has its original 68040 processor however. It presently runs A/UX 3.0.1, which was 
-            <a href="https://en.wikipedia.org/wiki/A/UX">Apple's first *NIX operating system</a>.<br />
-            <br />
-            I also make <a href="/crypto/">crypto puzzles</a> from time to time!
-        </p>
-
-        <p class="head">Programming</p>
-
-        <p>
-            While I have written in various programming languages such as Perl, PHP, C, and BASIC, the language 
-            I usually fall back on using is Python. It's relatively simple and has ample support.
-        </p>
-
-        <p class="head">Retro gaming</p>
-
-        <p>
-            I am a huge fan of retro gaming and have maintained a collection of consoles for most of my life. Some 
-            of them came from my childhood, but the majority have been over the past decade.<br />
-            <br />
-            With exception to the Virtual Boy, I can lay claim to having every single Nintendo console including 
-            some Japanese variations. My favourite console is the Super Nintendo due to both its games and the 
-            technical design of it. I also have a 3DO, Sega Dreamcast, and every PlayStation model to date.<br />
-            <br />
-            Any console predating the use of HDMI that is capable of analogue RGB interfaces with an 
-            <a href="http://junkerhq.net/xrgb/index.php?title=OSSC">Open Source Scan Converter</a> (OSSC). I've 
-            given a <a href="https://www.youtube.com/watch?v=0aa0C9dFZ5Y">presentation</a> with my friend, 
-            <a href="http://www.mistys-internet.website">Misty</a> on our experiences with improving the video 
-            quality of our older consoles at the 2018 Vancouver Retro Gaming Expo.<br />
-            <br />
-            I'm not big on handhelds, but I do have a Game Boy, Game Boy Advance, Nintendo DS, and Nokia NGage; I 
-            am unsure to how I acquired the last one however.<br />
-            <br />
-            My favourite video game of all time is Chrono Trigger. I have been trying to get my hands on every 
-            physical release in its original packaging for a number of years. So far I am missing the European 
-            DS release and the North American SNES version with the latter just being too expensive for me to 
-            just outright purchase.<br />
-            <br />
-            I stream on <a href="https://twitch.tv/katelibc">Twitch</a>, where I usually either try and complete 
-            console collections (currently the Sega Game Gear library), accomplish some 
-            <a href="https://www.speedrun.com/user/KateLibC">speedrunning</a>, or stream something obscure.
-        </p>
-
-        <p class="head">Contact</p>
-
-        <p>
-            <strong>Before you contact me:</strong><br />
-            <br />
-            I get a lot of requests for assistance on projects and consulting gigs leading to me often turning them
-            down. I only provide such services outside of normal business hours (Pacific time) and am selective 
-            about what I take on. For individuals, I am a lot more flexible about how I will be able to provide 
-            help but the time I am available still applies.<br />
-            <br />
-            There are many who I share my family name with. I am not able to provide you with a vanity e-mail 
-            address as I do not have the services or support to make this possible.<br />
-            <br />
-            E-mail is neither secure or private; do not have expectations of either and do not send me PGP-signed 
-            or encrypted e-mails. If you need to reach out to me securely, please contact me and we can likely 
-            arrange a conversation via Signal.<br />
-            <br />
-            My primary language is English and I prefer to use that in all communications. I occasionally will 
-            participate in French-speaking forums, but only sparingly.<br />
-            <br />
-            Lastly, my Internet presence does not necessitate the views that are held by my employer or any 
-            organization I may be participatory of.
-        </p>
-
-        <p>
-            <a href="https://twitter.com/katelibc"><img src="icon_twitter.png" class="contacticon" /> Twitter</a><br />
-            <a href="https://twitch.tv/katelibc"><img src="icon_twitch.png" class="contacticon" /> Twitch</a><br />
-            <a href="https://github.com/katelibc"><img src="icon_github.png" class="contacticon" /> GitHub</a><br />
-            <a href="mailto:cariad@keigher.ca"><img src="icon_email.png" class="contacticon" /> Email</a><br />
-        </p>
+  
+  <div class="side">
+    <div class="subnav">
+        <a href="https://twitter.com/katelibc"><img src="/images/icon_twitter.png" class="contacticon" /> Twitter</a>
+        <a href="https://github.com/katelibc"><img src="/images/icon_github.png" class="contacticon" /> Github</a>
+        <a href="https://foxes.live"><img src="/images/icon_twitch.png" class="contacticon" /> Twitch</a>
     </div>
+    
+    <img src="/images/layout_me_main.jpg" class="side_img">
+
+  </div>
+</div>
+
+<div class="footer">
+    <p>&copy; Cariad Keigher. All rights reserved.
+</div>
+
 </body>
 </html>

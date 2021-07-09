@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/main.css">
+    <title>Cariad Heather Keigher - Projects - Converting a third-party NES controller to work on a SNES</title>
+</head>
+<body>
+
+<div class="header">
+    <img src="/images/layout_me_emote.png" />
+    <h1>Cariad Heather Keigher</h1>
+</div>
+
+<div class="topnav">
+    <a href="/">Home</a>
+    <a href="/about/">About Me</a>
+    <a href="/travels/">Travels</a>
+    <a href="/crypto/">Crypto Challenges</a>
+    <a href="/projects/">Projects</a>
+    <a href="/contact/">Contact</a>
+</div>
+
+<div class="row">
+    <div class="content_sub">
+        <h2>Converting a third-party NES controller to work on a SNES</h2>
+
+        <div class="content_sub_date">
+            <p>
+                June 2021
+            </p>
+        </div>
+
+        <p>
+            A friend of mine put out a challenge where if someone had a controller that was unbelievably awful 
+            that they should send it to her and she'd use it to play a modified version of Super Mario World. 
+            Her restrictions were that it couldn't require physical exertion (such as a dancing pad), but if it 
+            worked on a standard Super Nintendo, she'd try it out. Being that I am someone who likes to read 
+            rules and see where there are loopholes, she never told me I couldn't just make her a controller 
+            that was designed to be bad on purpose.
+        </p>
+
+        <p>
+            I've been tied up with other work as of late so I haven't been able to focus on making her a 
+            controller from scratch, but luck would have it that a friend of mine was giving me an old NES 
+            clone she no longer wanted and upon receiving it, I was amazed at the awful controllers it came 
+            with.
+        </p>
+
+        <div class="image_middle">
+            <img src="/images/projects/nessnes3.jpg" />
+            <p>
+                NES controller (top-left), SNES controller (bottom), and cursed NES clone controller 
+                (top-right). The SNES controller had its buttons replaced with Super Famicom colours and 
+                the extra buttons on the third-party controller are used as turbo inputs.
+            </p>
+        </div>
+
+        <p>
+            The cool thing about the NES and the SNES is that the Super Nintendo itself was initially designed 
+            to be backwards-compatible with its predecessor. This ultimately did not become reality, but much 
+            of the internals of the SNES resemble what is on the NES and that includes the controller inputs.
+        </p>
+
+        <p>
+            Electrically speaking, the NES and SNES controller ports are compatible even if shaped different.
+        </p>
+
+        <div class="image_middle">
+            <img src="/images/projects/nessnes2.jpg" />
+            <p>
+                Diagram of a SNES controller port (top-left) and NES controller port (right) with pins colour 
+                matched on their respective ends. Brown for ground, green for +5 VDC, red for data, yellow for 
+                latch, blue for clock, and grey for pins reserved for extra features, typically found on 
+                multi-tap devices.
+            </p>
+        </div>
+
+        <p>
+            As shown in the image above, each of the seven pins on each console (SNES on top, NES on right) 
+            have identical roles on each system--the two pins marked as "other" are not important for this 
+            particular topic, but they are also the same. The only difference between the two is the data 
+            transmission: the NES sends 8-bits from its controller and the SNES sends 16. This may present 
+            problems, but I will leave that for later.
+        </p>
+
+        <div class="image_middle">
+            <img src="/images/projects/nessnes4.jpg" />
+            <p>
+                The cursed controller torn open with notes about what each pin did after testing with a 
+                multimeter.
+            </p>
+        </div>
+
+        <p>
+            There are two ways we can go about converting the NES controller to work on the SNES: either make 
+            ourselves a new adapter or we replace the connector. Because I have done work on other projects 
+            which use the SNES controller port, I had a SNES connector available and opted to just replace 
+            the cable all together.
+        </p>
+
+        <p>
+            To do this, I just desoldiered the existing cable after performing continuity checks to determine 
+            which circuit did what and then soldiered a new cable in place. It's just that easy assuming you 
+            are familiar with using a soldering iron. The only hard part is just ensuring that you did this 
+            properly because mixing up your +5 VDC line with your data may prove to be harmful to ever 
+            diminishing Super Nintendo consoles.
+        </p>
+
+        <p>
+            Having said that, if you do use the above image as reference, please double-check with other 
+            sources as you do not want to make a mistake if I have made on in the diagram.
+        </p>
+
+        <div class="image_middle">
+            <img src="/images/projects/nessnes8.png" />
+            <p>
+                Hooray! I didn't fry my Super Famicom!
+            </p>
+        </div>
+
+        <p>
+            Success! I can move stuff around on the screen. That is, there is one problem: I am missing the 
+            A button, which means that testing against my FXPak Pro requires me to load a game using a standard 
+            SNES controller. Nonetheless, I went and swapped controllers temporarily and then loaded up a game 
+            I felt was appropriate: Super Mario All Stars.
+        </p>
+
+        <div class="image_middle">
+            <img src="/images/projects/nessnes5.png" />
+            <p>
+                I can select Super Mario Bros. 3 but I cannot do anything beyond the map.
+            </p>
+        </div>
+
+        <p>
+            This presented the aforementioned problem: I can move around the menu and select a game, but upon 
+            loading any of them, I cannot at all make inputs. It was very ironic that a game ported from the NES 
+            to the SNES would not work with what was electrically speaking an NES controller. I suspect that the 
+            reason for this is because there are two modes on the console in where the game determines inputs: 
+            manually or automatic.
+        </p>
+
+        <p>
+            I couldn't find a source on All Stars with respect to polling, but my suspicion is that it be reading 
+            the memory addresses for inputs and with nothing showing up in half of what would normally be filled, 
+            it just doesn't register inputs at all and fails. So then, does this mean the same fate for Super Mario 
+            World?
+        </p>
+
+        <div class="image_middle">
+            <img src="/images/projects/nessnes6.png" />
+            <p>
+                Super Mario World does work!
+            </p>
+        </div>
+
+        <p>
+            Success! I was able to move around on the screen! I tried to do a 
+            <a href="https://smwspeedruns.com/Yoshi%27s_Island_3" target="blank">box jump</a> in Yoshi's Island 3, but 
+            failed so I figured it was a bad controller.
+        </p>
+
+        <p>
+            So let's prepare to send this to my friend.
+        </p>
+
+        <div class="image_middle">
+            <img src="/images/projects/nessnes7.png" alt="Thank you for your purchase of your Cursed SNES Controller. This controller is not officially sanctioned by Nintendo, your uncle at Nintendo, Nobuo Miyamoto, the Geneva Convention, or the Canadian Department of Railways and Canals. This device has been thoroughly tested with just one single console and one single human being but has been confirmed to work with Super Mario Bros 4.
+
+            Instructions
+
+            Locate the Super Nintendo Entertainment System in your TV cabinet
+            Plug the controller into a desired controller port, taking care to not try and plug two controllers into the same port
+            Ensure that your hands are adequately clean and grab the controller
+            Insert a game cassette into your Super Nintendo Entertainment System with the game label facing towards the controller port
+            Power on the Super Nintendo Entertainment System located in your TV cabinet and then proceed to walk away
+            Place the controller into your hands and begin to participate in electronic activities that are typically games*
+
+            Cursed SNES Controller Inc. does not recommend using this device for online banking, lottery bets, or horse race betting as we cannot ensure that this controller is adequately protected from computer hacker criminals.
+
+            Warnings
+
+            This device should not be used on airplanes, cars, recreational vehicles, helicopters, or watercraft excluding personal jet skis and hovercraft designed for use in the North Sea
+            At all times, fresh turnips and whole cinnamon should be kept away from the controller
+            If you are wearing the colour pink on any article of clothing visible or not, you must wear sunglasses while using the device
+            It is recommended that you do not speak Esperanto in eye shot of the controller
+            When transporting this device on train, ensure that you are seated next to a window and that the train meets a top speed of 250 KM/h or greater as this will ensure the lifespan of this controller
+
+            Warranty
+
+            This device does not take personal responsibility for anything that occurs during its use and the manufacturer does not exist and cannot be contacted should there be any claims. We have guaranteed a lifespan of 1.8x10^22 years as we have taken great care to ensure that the finest atoms in the universe could be used to make this device.
+            " />
+            <p>
+                No cursed controller is complete without instructions.
+            </p>
+        </div>
+
+        <p>
+            Happy with the above instructions and the controller being operational, I sent it to my friend for 
+            her to endure in a few weeks.
+        </p>
+
+        <p>
+            You can see her reaction <a href="https://www.twitch.tv/videos/1079631017" target="_blank">here</a>.
+        </p>
+
+        <p>
+            The verdict is that you cannot play any Super Mario World hacks that require spin jumps as it is missing the input 
+            to permit that. While this lack of a spin jump prevents you from performing an 11-exit speedrun of the regular 
+            game, it does not prevent you from completing it quickly as you can do it in 13 exits. Additionally, it was determined 
+            that the controller allows left-right inputs (physically impossible on a regular controller), meaning that one could 
+            use this controller to go out of bounds.
+        </p>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; Cariad Keigher. All rights reserved.
+</div>
+
+</body>
+</html>

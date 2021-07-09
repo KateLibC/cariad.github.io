@@ -1,0 +1,206 @@
+@import url(https://fonts.googleapis.com/css2?family=Nunito&display=swap);
+
+/*
+Shared
+*/
+
+* {
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+/* Style the header */
+.header {
+  /*background-color: #f1f1f1;*/
+  padding: 20px;
+  text-align: left;
+}
+.header img {
+  float: right;
+  height: 100px;
+  width: 100px;
+}
+
+/* Side styles */
+
+.side {
+  text-align: center;
+}
+
+.side_img {
+  text-align: center;
+  float: right;
+  padding: 10px;
+  display: block;
+  max-height: 320px;
+  width: auto;
+  height: auto;
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+.footer p {
+  font-size: 8pt;
+}
+
+
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #565BAB;
+    border: 1px solid #8D858E;
+    -moz-border-radius: 5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the side navigation bar */
+.subnav {
+    overflow: hidden;
+    text-align: center;
+    background-color: #B538B9;
+    border: 1px solid #8D858E;
+    -moz-border-radius: 5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+
+/* Style the subnav links */
+.subnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.subnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Column stuff */
+.content, .content_sub {
+  float: left;
+  padding: 15px;
+}
+
+.row {
+  padding: 5px;
+}
+
+.content {
+  width: 70%;
+}
+
+.content_sub {
+  width:  100%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/* Project Stubs */
+
+.project {
+  clear:  both;
+}
+
+.project #date {
+  font-size: 10pt;
+}
+
+.project img {
+  float: left;
+  padding: 10px;
+}
+
+.project:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Photo Stubs */
+
+.photo {
+  clear:  both;
+}
+
+.photo #date {
+  font-size: 10pt;
+}
+
+.photo img {
+  float: left;
+  padding: 10px;
+  display: block;
+  max-width: 240px;
+  max-height: 320px;
+  width: auto;
+  height: auto;
+}
+
+.photo:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Icons */
+
+.contacticon {
+    border: 0px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Random */
+
+.image_middle {
+  text-align: center;
+  padding: 10px;
+}
+
+.image_middle p, .content_sub_date p {
+  font-size: 10pt;
+}
