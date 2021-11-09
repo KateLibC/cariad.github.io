@@ -107,6 +107,36 @@ body {
   color: black;
 }
 
+/* In-page navigation */
+.pagenav {
+    overflow: hidden;
+    text-align: center;
+    background-color: #bd3570;
+    border: 1px solid #8D858E;
+    -moz-border-radius: 5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    width: 50%;
+    margin: auto;
+}
+
+/* Style the pagenav links */
+.pagenav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 10pt;
+}
+
+/* Change color on hover */
+.pagenav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
 /* Column stuff */
 .content, .content_sub {
   float: left;
@@ -203,4 +233,8 @@ body {
 
 .image_middle p, .content_sub_date p {
   font-size: 10pt;
+}
+
+th {
+  text-align: left;
 }
