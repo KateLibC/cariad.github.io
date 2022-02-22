@@ -48,7 +48,9 @@ function update_shitpost() {
     /* Builds the string */
     let o = part0 + game0 + part1 + gamehacker + part2 + game1;
     append_plural();
-    o += part3 + gamegenre + part4 + game0 + part5 + game1abr;
+    o += part3 + gamegenre + part4 + game0;
+    append_plural();
+    o += part5 + game1abr;
     append_plural();
     o += part6 + game1chars + part7 + game1plot + part8;
 
