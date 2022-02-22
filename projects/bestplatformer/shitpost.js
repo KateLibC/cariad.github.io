@@ -57,7 +57,7 @@ function update_shitpost() {
     o += part7 + game1plot + part8;
 
     /* Updates HTML */
-    document.getElementById("gameshitpost").innerHTML=o;
+    document.getElementById("gameshitpost").innerText=o;
 }
 
 /* Just sets the defaults at load */
