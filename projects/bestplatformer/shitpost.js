@@ -52,7 +52,9 @@ function update_shitpost() {
     append_plural();
     o += part5 + game1abr;
     append_plural();
-    o += part6 + game1chars + part7 + game1plot + part8;
+    o += part6 + game1chars;
+    append_plural();
+    o += part7 + game1plot + part8;
 
     /* Updates HTML */
     document.getElementById("gameshitpost").innerHTML=o;
