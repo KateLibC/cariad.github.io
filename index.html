@@ -50,7 +50,7 @@
                 cohostxhr.onreadystatechange = function(){
                     if (cohostxhr.readyState==4 && cohostxhr.status==200)
                     {
-                        var data = JSON.parse(xhr.responseText);
+                        var data = JSON.parse(cohostxhr.responseText);
                         var itemsContainer = document.createElement('DIV');
 
                         if(data.status == 'ok'){
