@@ -43,11 +43,12 @@
                 const user = "Cariad";
                 const atuser = "@" + user;
 
+                var cohostxhr = new XMLHttpRequest();
                 var base_url = "https://cohost.org/" + user + "/rss/public.json";
                 var content = document.getElementById('cohost');
 
-                xhr.onreadystatechange = function(){
-                    if (xhr.readyState==4 && xhr.status==200)
+                cohostxhr.onreadystatechange = function(){
+                    if (cohostxhr.readyState==4 && cohostxhr.status==200)
                     {
                         var data = JSON.parse(xhr.responseText);
                         var itemsContainer = document.createElement('DIV');
@@ -76,12 +77,12 @@
                     }
                 };
 
-                xhr.open(
+                cohostxhr.open(
                     'GET',
                     base_url,
                     true
                 );
-                xhr.send();
+                cohostxhr.send();
             </script>
         </div>
 
