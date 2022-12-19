@@ -27,7 +27,7 @@
 <div class="row">
     <div class="content">
         <p>
-            My name is Cariad Heather Keigher and I live in the unceded territories of the Sḵwx̱wú7mesh (Squamish), Stó:lō (Stolo), Səl̓ílwətaʔ/Selilwitulh (Tsleil-Waututh), and xʷməθkʷəy̓əm (Musqueam) first nations, otherwise known as Vancouver, British Columbia in Canada. My pronouns are "she" and "her", and I am of Irish ancestory, holding citizenship in both Canada and Ireland. 
+            My name is Cariad Heather Keigher and I live in the unceded territories of the Sḵwx̱wú7mesh (Squamish), Stó:lō (Stolo), Səl̓ílwətaʔ/Selilwitulh (Tsleil-Waututh), and xʷməθkʷəy̓əm (Musqueam) first nations, otherwise known as Vancouver, British Columbia in Canada. My pronouns are "she" and "they", and I am of Irish ancestory, holding citizenship in both Canada and Ireland. 
         </p>
         <p>
             In many places on the Internet, I'm known as "KateLibC". My name is of course not Kate, but the name itself is a portmanteau of Kate Libby, a character from the movie, <em>Hackers</em>, and the C programming language, which was the successor to B. It's a really silly joke, but it has stuck for years.
@@ -36,7 +36,56 @@
             I lead a cyber security team for a Canadian company and have worked in the field for over a decade as an engineer, software developer, consultant, and incident responder in environments ranging from corporate networks to industrial control. In my off time, I stream on Twitch where I speedrun video games, enjoy the outdoors by rollerskating and cycling, travel to random places, and I also like to dabble in photography.
         </p>
 
-        <h2>Writings</h2>
+        <h2>Recently on cohost</h2>
+
+        <div id="cohost">
+            <script type="text/javascript">
+                const user = "Cariad";
+                const atuser = "@" + user;
+
+                var base_url = "https://cohost.org/" + user + "/rss/public.json";
+                var content = document.getElementById('cohost');
+
+                xhr.onreadystatechange = function(){
+                    if (xhr.readyState==4 && xhr.status==200)
+                    {
+                        var data = JSON.parse(xhr.responseText);
+                        var itemsContainer = document.createElement('DIV');
+
+                        if(data.status == 'ok'){
+                            for( var i=0,t = data.items.length ; i < t ; ++i ){
+                                var item = data.items[i];
+                                if (item.author.name == atuser) {
+                                    var itemContainer = document.createElement('DIV');
+                                    var itemTitleElement = document.createElement('h3');
+                                    var itemLinkElement = document.createElement('A');
+                                    var itemDateElement = document.createElement('P')
+                                    
+                                    itemLinkElement.setAttribute('href' , item.url);
+                                    itemLinkElement.innerText = item.summary;
+                                    itemDateElement.innerText = item.date_published;
+
+                                    itemTitleElement.appendChild(itemLinkElement);
+                                    itemContainer.appendChild(itemTitleElement);
+                                    itemContainer.appendChild(itemDateElement);
+                                    itemsContainer.appendChild(itemContainer);
+                                }
+                            }
+                            content.appendChild(itemsContainer);
+                        }
+                    }
+                };
+
+                xhr.open(
+                    'GET',
+                    base_url,
+                    true
+                );
+                xhr.send();
+            </script>
+        </div>
+
+        <h2>Blog Posts</h2>
 
         <div id="articles">
             <script type="text/javascript">
