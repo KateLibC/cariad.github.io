@@ -40,57 +40,6 @@
 	   I'm also one-half of the podcast, <a href="https://shawiniganmoments.ca">Shawinigan Moments</a>, a show about Canadian history. If you want to hear two queer leftists discuss their takes on the country, then check us out.
 	</p>
 
-        <h2>Recently on cohost</h2>
-
-        <div id="cohost">
-            <em>Coming soon...</em>
-            <script type="text/javascript">
-                const user = "Cariad";
-                const atuser = "@" + user;
-
-                var cohostxhr = new XMLHttpRequest();
-                var base_url = "https://cohost.org/" + user + "/rss/public.json";
-                var content = document.getElementById('cohost');
-
-                cohostxhr.onreadystatechange = function(){
-                    if (cohostxhr.readyState==4 && cohostxhr.status==200)
-                    {
-                        var data = JSON.parse(cohostxhr.responseText);
-                        var itemsContainer = document.createElement('DIV');
-
-                        if(data.status == 'ok'){
-                            for( var i=0,t = data.items.length ; i < t ; ++i ){
-                                var item = data.items[i];
-                                if (item.author.name == atuser) {
-                                    var itemContainer = document.createElement('DIV');
-                                    var itemTitleElement = document.createElement('h3');
-                                    var itemLinkElement = document.createElement('A');
-                                    var itemDateElement = document.createElement('P')
-                                    
-                                    itemLinkElement.setAttribute('href' , item.url);
-                                    itemLinkElement.innerText = item.summary;
-                                    itemDateElement.innerText = item.date_published;
-
-                                    itemTitleElement.appendChild(itemLinkElement);
-                                    itemContainer.appendChild(itemTitleElement);
-                                    itemContainer.appendChild(itemDateElement);
-                                    itemsContainer.appendChild(itemContainer);
-                                }
-                            }
-                            content.appendChild(itemsContainer);
-                        }
-                    }
-                };
-
-                cohostxhr.open(
-                    'GET',
-                    base_url,
-                    true
-                );
-                cohostxhr.send();
-            </script>
-        </div>
-
         <h2>Blog Posts</h2>
 
         <div id="articles">
@@ -141,12 +90,11 @@
   
   <div class="side">
     <div class="subnav">
-        <a href="https://cohost.org/Cariad"> cohost</a>
         <a href="https://github.com/katelibc"><img src="/images/icon_github.png" class="contacticon" /> Github</a>
         <a href="https://foxes.live"><img src="/images/icon_twitch.png" class="contacticon" /> Twitch</a>
     </div>
     
-    <img src="/images/layout_me_main.jpg" class="side_img">
+    <img src="/images/layout_me_2024jpg" class="side_img">
 
   </div>
 </div>
