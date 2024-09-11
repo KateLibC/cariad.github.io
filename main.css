@@ -18,13 +18,15 @@ body {
 /* Style the header */
 .header {
   /*background-color: #f1f1f1;*/
-  padding: 20px;
   text-align: left;
+  clear: both;
+  margin-top: 15px;
 }
-.header img {
-  float: right;
-  height: 100px;
-  width: 100px;
+
+
+.header h1 {
+  float: left;
+  display: block;
 }
 
 /* Side styles */
@@ -38,7 +40,7 @@ body {
   float: right;
   padding: 10px;
   display: block;
-  max-height: 320px;
+  max-height: 400px;
   width: auto;
   height: auto;
 }
@@ -46,7 +48,7 @@ body {
 /* Style the footer */
 .footer {
   background-color: #f1f1f1;
-  padding: 20px;
+  margin-bottom: 15px;
   text-align: center;
 }
 .footer p {
@@ -62,6 +64,8 @@ body {
     -moz-border-radius: 5px;
     -webkit-border-radius:5px;
     border-radius:5px;
+    display: block;
+    width: 100%;
 }
 
 /* Style the topnav links */
@@ -81,6 +85,20 @@ body {
 }
 
 /* Style the side navigation bar */
+.sidebox {
+  text-align: center;
+  width: auto;
+  max-height: 120px;
+  overflow: hidden;
+  float: right;
+}
+
+.sidebox:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .subnav {
     overflow: hidden;
     text-align: center;
@@ -89,6 +107,19 @@ body {
     -moz-border-radius: 5px;
     -webkit-border-radius:5px;
     border-radius:5px;
+    display: block;
+    float: right;
+    margin-bottom: 15px;
+}
+
+.subnav img {
+  max-height: 20px;
+}
+
+.subnav:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* Style the subnav links */
@@ -144,7 +175,7 @@ body {
 }
 
 .row {
-  padding: 5px;
+  padding: 15px;
 }
 
 .content {
