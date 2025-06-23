@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://cariad.keigher.ca//sitemap.xml
