@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Twitch has made a good step with preventing harassment but it has pitfalls — also what the hell is…</title>
+  <meta name="description" content="I have written extensively about the problems Twitch has with harassment via user interactions, so it should come as no surprise that I have been keeping myself informed of the the activities that eventually lead to A Day Off Twitch, where many streamers protested against the company’s milquetoast response to the problem by not streaming. While I have many opinions about how everything was co-opted and mutated from what the #TwitchDoBetter movement, I am of the opinion that the media attention it receive was likely beneficial. Earlier this week, Twitch finally announced seemingly effective tools to contend with harassment. Streamers can now enforce a requirement for users to have either or both e-mail and phone-based verification (via SMS) before they are permitted to participate in chat. Being that many users legitimately may not have done either prior to this new feature, streamers can permit users who have accounts with a specific age to avoid either, they can elevate them to VIP or moderator status, or require them to subscribe (as in pay the streamer) to participate. Moderation configuration settings from a Twitch dashboard. Options show e-mail verification and phone verification with settings for first time chatters, with additional features for chatters without verification being granted permission to participate with a minimum account age. The one thing many streamers had called for that is not mentioned at all in the above screenshot is this one pertinent feature from the announcement: We know there are many reasons someone may need to manage more than one account, so you can verify up to five accounts per phone number. That said, to help prevent ban evasion, if one phone-verified account is suspended site-wide, all accounts tied to that number will also be suspended site-wide. Users won’t be able to verify additional accounts using a phone number that is already tied to an actively suspended account. At the channel-level, if one phone-verified or email-verified account is banned by a channel, all other accounts tied to that phone number or email will also be banned from chatting in that channel. This is huge as for the longest time, a harassing user could just register multiple accounts to a single e-mail address without consequence. While it is easy to have multiple e-mail addresses, there is a much larger barrier to having multiple phone numbers capable of receiving SMS. User account settings showing that a phone number and e-mail address are linked. However, be that it may, it comes with many caveats and one in particular comes to mind: not everyone has access to mobile phone service, and this could lead to an inequity situation for some. Twitch themselves even point this out in the announcement. If I don’t have a mobile phone, does this mean I can’t participate in chat anymore? If your account is not phone-verified, this will not prevent you from watching and enjoying a stream — but it does mean there may be some channels you are unable to chat in if they have phone-verified chat enabled. Creators can also choose to make exceptions to phone-verified chat for accounts of a certain age or following time, as well as VIPs, moderators, and subscribers. This comes down to the creator being benevolent or permissive with how individuals can participate and could just outright exclude anyone who is unable to verify via their mobile phone. The minimum age for a user to have a Twitch account is on paper thirteen years, and while many who are younger often have mobile phone service, there are many who do not. While I personally do not want anyone younger than 18-years old to participate in my stream, I do know that this is not desired by everyone. The other problem is that this likely has some limitations. Twitch’s goal is to make harassment more expensive and is something I advocated when I wrote about this problem earlier this year, but based on how I am seeing it written about by the company, I do believe that there are workarounds. My burning question for one workaround is this: how do the e-mail address-based ban evasion avoidance techniques take tags into account? Many e-mail services, including Google’s, support the appending a tag to an e-mail address wherein you append ‘+’ to the end of the first half of your address (also known as the “local part”) with a label following soon after. Many do not and perhaps should not scan for this sort of thing as the rules for what can and should be in a local part are sort of defined, you cannot be assured that the use of a tag is implicit of anything as it is dependent on the e-mail service to start with. Does Twitch scan for this potential problem? I have my doubts and may consider testing this if someone else hasn’t already. I also pointed out that there are throwaway e-mail services, and those can be used to verify an account. What is Twitch doing about that? There are lists that are freely available for them to use to detect the use of the, but are they doing this? From page 35 of my March 2021 report on Twitch harassment. This shows a throwaway e-mail service granting me a verification code for my new account. So then we’re led into this scenario: let’s verify by mobile phone? This seems to be straightforward as surely it is hard to evade that way? It is a valid assumption as while I have had to buy disposable SIM cards for consulting engagements, not everyone is going to have more than one or two mobile phones. However, this assumption is still wrong as there are throwaway SMS services. A service showing available mobile phone numbers for web-based reception of SMS messages. Now, I will admit that these numbers provided by this and similar services are often exhausted extremely quickly. There is also the consideration that there is a finite quantity of available numbers on these services, but it is a matter to give thought to when relying on this scheme. Overall, I am supportive of this new feature, but the equity issue and the potential evasion techniques remain. So what about this lawsuit? On September 10th, which was two and a half weeks before announcing these features, Twitch filed a civil suit in Northern California against two Europeans who are alleged to have created software to engage in harassment on the streaming service. The timing has always baffled me because it would have made sense to drop this feature and this lawsuit on the same day. Many found that this was Twitch trying to look like they were doing something instead of anything concrete and this further alienated streamers from the company. In my case, I found the filing rather damning towards the company themselves, because they admitted a few things that I find rather embarassing. However, despite Twitch’s best efforts, the hate raids continue. On information and belief, Defendants created software code to conduct hate raids via automated means. And they continue to develop their software code to avoid Twitch’s efforts at preventing Defendants’ bots from accessing the Twitch Services. This paragraph (51) was rather interesting because I want to know more about “Twitch’s best efforts”, There have been rumours for many years that there remains a workaround that permits harassers to create en-masse accounts to engage in harassment without any response from the company. I cannot elaborate further on this problem, but honestly it isn’t here where I raise my eyebrow. To further curb Defendants’ hate-raids, Twitch updated its software to employ additional measures that better detect malicious bot software in chat messages. Twitch expended significant resources combatting Defendants’ attacks. Twitch spent time and money investigating Defendants, including through use of its fraud detection team. Twitch also engineered technological and other fixes in an attempt to stop Defendants’ harassing and hateful conduct. These updates include but are not limited to implementing stricter identity controls with accounts, machine learning algorithms to detect bot accounts that are used to engage in harmful chat and augmenting the banned word list. Twitch mobilized its communications staff to address the community harm flowing from the hate raids and assured its community that it was taking proactive measures to stop them. Twitch also worked with impacted streamers to educate them on moderation toolkits for their chats and solicited and responded to streamers’ and users’ comments and concerns. These “stricter identity controls” stand out as we did not see tools for streamers being made available to leverage this until recently, but what really raises my ire is them stating they’re using “machine learning algorithms to detect bot accounts”. What the hell sort of “machine learning” have they deployed? I even criticised this on Twitter. Of the 174 “hoss” follow bots that have been known to exist at the time of this writing, with the majority appearing since mid-August, they all share a common pattern which can be easily snuffed out with just two very basic regular expressions: ^hoss0{0,2}312_{0,1}.* ^.*_{0,1}hoss0{0,2}312$ Just what the fuck? How is this so complicated? You can do this with just one regular expression, but it isn’t that much more costly to do it with two and it is much easier to maintain. My only theory about this “machine learning” nonsense can be summed up in this Discord conversation I had on the day I read the filing: My parodic interpretation of a meeting at Twitch HQ about the chat moderation problem: “this is my theory about a meeting [on] moderation […] recently: a: “okay. so these fucks are asking us to make moderation better. what do we do?” b: “well, i have been doing machine learning for funsies on udemy and i think it would work well?” a: “that is hot shit. we can’t do this with blockchain?” b: “working on that later. nft stuff first ya know” c: “hey. why don’t we revisit my idea of just allowing bans based on how they work on irc?” a &amp;amp; b: “no. fuck you” a: “besides, we don’t get to do machine learning for anything beyond marketing”” I have rather poor opinions about Twitch’s approach as evident above. The solution of using machine learning at least to me appears to be something “hot and sexy” when in reality we need something conventional. I have done a lot of work around using entropy to detect malicious activity in my line of work, but it was only done after making other attack methods more expensive, which should be done first as it is often easier to do. At least we finally got these new verification tools, but honestly, Twitch has a lot remaining to do and I am not holding my breath.">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://cariad.keigher.ca/2021/10/02/twitch-has-made-a-good-step-with-preventing-harassment-but-it-has-pitfalls-also-what-the-hell-is/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="cariad.keigher.ca" href="https://cariad.keigher.ca/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Twitch has made a good step with preventing harassment but it has pitfalls — also what the hell is…">
+  <meta property="og:site_name" content="cariad.keigher.ca">
+  <meta property="og:url" content="https://cariad.keigher.ca/2021/10/02/twitch-has-made-a-good-step-with-preventing-harassment-but-it-has-pitfalls-also-what-the-hell-is/">
+  <meta property="og:description" content="I have written extensively about the problems Twitch has with harassment via user interactions, so it should come as no surprise that I have been keeping myself informed of the the activities that eventually lead to A Day Off Twitch, where many streamers protested against the company’s milquetoast response to the problem by not streaming. While I have many opinions about how everything was co-opted and mutated from what the #TwitchDoBetter movement, I am of the opinion that the media attention it receive was likely beneficial. Earlier this week, Twitch finally announced seemingly effective tools to contend with harassment. Streamers can now enforce a requirement for users to have either or both e-mail and phone-based verification (via SMS) before they are permitted to participate in chat. Being that many users legitimately may not have done either prior to this new feature, streamers can permit users who have accounts with a specific age to avoid either, they can elevate them to VIP or moderator status, or require them to subscribe (as in pay the streamer) to participate. Moderation configuration settings from a Twitch dashboard. Options show e-mail verification and phone verification with settings for first time chatters, with additional features for chatters without verification being granted permission to participate with a minimum account age. The one thing many streamers had called for that is not mentioned at all in the above screenshot is this one pertinent feature from the announcement: We know there are many reasons someone may need to manage more than one account, so you can verify up to five accounts per phone number. That said, to help prevent ban evasion, if one phone-verified account is suspended site-wide, all accounts tied to that number will also be suspended site-wide. Users won’t be able to verify additional accounts using a phone number that is already tied to an actively suspended account. At the channel-level, if one phone-verified or email-verified account is banned by a channel, all other accounts tied to that phone number or email will also be banned from chatting in that channel. This is huge as for the longest time, a harassing user could just register multiple accounts to a single e-mail address without consequence. While it is easy to have multiple e-mail addresses, there is a much larger barrier to having multiple phone numbers capable of receiving SMS. User account settings showing that a phone number and e-mail address are linked. However, be that it may, it comes with many caveats and one in particular comes to mind: not everyone has access to mobile phone service, and this could lead to an inequity situation for some. Twitch themselves even point this out in the announcement. If I don’t have a mobile phone, does this mean I can’t participate in chat anymore? If your account is not phone-verified, this will not prevent you from watching and enjoying a stream — but it does mean there may be some channels you are unable to chat in if they have phone-verified chat enabled. Creators can also choose to make exceptions to phone-verified chat for accounts of a certain age or following time, as well as VIPs, moderators, and subscribers. This comes down to the creator being benevolent or permissive with how individuals can participate and could just outright exclude anyone who is unable to verify via their mobile phone. The minimum age for a user to have a Twitch account is on paper thirteen years, and while many who are younger often have mobile phone service, there are many who do not. While I personally do not want anyone younger than 18-years old to participate in my stream, I do know that this is not desired by everyone. The other problem is that this likely has some limitations. Twitch’s goal is to make harassment more expensive and is something I advocated when I wrote about this problem earlier this year, but based on how I am seeing it written about by the company, I do believe that there are workarounds. My burning question for one workaround is this: how do the e-mail address-based ban evasion avoidance techniques take tags into account? Many e-mail services, including Google’s, support the appending a tag to an e-mail address wherein you append ‘+’ to the end of the first half of your address (also known as the “local part”) with a label following soon after. Many do not and perhaps should not scan for this sort of thing as the rules for what can and should be in a local part are sort of defined, you cannot be assured that the use of a tag is implicit of anything as it is dependent on the e-mail service to start with. Does Twitch scan for this potential problem? I have my doubts and may consider testing this if someone else hasn’t already. I also pointed out that there are throwaway e-mail services, and those can be used to verify an account. What is Twitch doing about that? There are lists that are freely available for them to use to detect the use of the, but are they doing this? From page 35 of my March 2021 report on Twitch harassment. This shows a throwaway e-mail service granting me a verification code for my new account. So then we’re led into this scenario: let’s verify by mobile phone? This seems to be straightforward as surely it is hard to evade that way? It is a valid assumption as while I have had to buy disposable SIM cards for consulting engagements, not everyone is going to have more than one or two mobile phones. However, this assumption is still wrong as there are throwaway SMS services. A service showing available mobile phone numbers for web-based reception of SMS messages. Now, I will admit that these numbers provided by this and similar services are often exhausted extremely quickly. There is also the consideration that there is a finite quantity of available numbers on these services, but it is a matter to give thought to when relying on this scheme. Overall, I am supportive of this new feature, but the equity issue and the potential evasion techniques remain. So what about this lawsuit? On September 10th, which was two and a half weeks before announcing these features, Twitch filed a civil suit in Northern California against two Europeans who are alleged to have created software to engage in harassment on the streaming service. The timing has always baffled me because it would have made sense to drop this feature and this lawsuit on the same day. Many found that this was Twitch trying to look like they were doing something instead of anything concrete and this further alienated streamers from the company. In my case, I found the filing rather damning towards the company themselves, because they admitted a few things that I find rather embarassing. However, despite Twitch’s best efforts, the hate raids continue. On information and belief, Defendants created software code to conduct hate raids via automated means. And they continue to develop their software code to avoid Twitch’s efforts at preventing Defendants’ bots from accessing the Twitch Services. This paragraph (51) was rather interesting because I want to know more about “Twitch’s best efforts”, There have been rumours for many years that there remains a workaround that permits harassers to create en-masse accounts to engage in harassment without any response from the company. I cannot elaborate further on this problem, but honestly it isn’t here where I raise my eyebrow. To further curb Defendants’ hate-raids, Twitch updated its software to employ additional measures that better detect malicious bot software in chat messages. Twitch expended significant resources combatting Defendants’ attacks. Twitch spent time and money investigating Defendants, including through use of its fraud detection team. Twitch also engineered technological and other fixes in an attempt to stop Defendants’ harassing and hateful conduct. These updates include but are not limited to implementing stricter identity controls with accounts, machine learning algorithms to detect bot accounts that are used to engage in harmful chat and augmenting the banned word list. Twitch mobilized its communications staff to address the community harm flowing from the hate raids and assured its community that it was taking proactive measures to stop them. Twitch also worked with impacted streamers to educate them on moderation toolkits for their chats and solicited and responded to streamers’ and users’ comments and concerns. These “stricter identity controls” stand out as we did not see tools for streamers being made available to leverage this until recently, but what really raises my ire is them stating they’re using “machine learning algorithms to detect bot accounts”. What the hell sort of “machine learning” have they deployed? I even criticised this on Twitter. Of the 174 “hoss” follow bots that have been known to exist at the time of this writing, with the majority appearing since mid-August, they all share a common pattern which can be easily snuffed out with just two very basic regular expressions: ^hoss0{0,2}312_{0,1}.* ^.*_{0,1}hoss0{0,2}312$ Just what the fuck? How is this so complicated? You can do this with just one regular expression, but it isn’t that much more costly to do it with two and it is much easier to maintain. My only theory about this “machine learning” nonsense can be summed up in this Discord conversation I had on the day I read the filing: My parodic interpretation of a meeting at Twitch HQ about the chat moderation problem: “this is my theory about a meeting [on] moderation […] recently: a: “okay. so these fucks are asking us to make moderation better. what do we do?” b: “well, i have been doing machine learning for funsies on udemy and i think it would work well?” a: “that is hot shit. we can’t do this with blockchain?” b: “working on that later. nft stuff first ya know” c: “hey. why don’t we revisit my idea of just allowing bans based on how they work on irc?” a &amp;amp; b: “no. fuck you” a: “besides, we don’t get to do machine learning for anything beyond marketing”” I have rather poor opinions about Twitch’s approach as evident above. The solution of using machine learning at least to me appears to be something “hot and sexy” when in reality we need something conventional. I have done a lot of work around using entropy to detect malicious activity in my line of work, but it was only done after making other attack methods more expensive, which should be done first as it is often easier to do. At least we finally got these new verification tools, but honestly, Twitch has a lot remaining to do and I am not holding my breath.">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Twitch has made a good step with preventing harassment but it has p...">
+  <meta name="twitter:description" content="I have written extensively about the problems Twitch has with harassment via user interactions, so it should come as no surprise that I have been keeping myself informed of the the activities that ...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+
+  
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">cariad.keigher.ca</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://hachyderm.io/@KateLibC">Mastodon</a>
+      
+        
+        <a class="page-link" href="https://bsky.app/profile/cariad.bsky.social">Bluesky</a>
+      
+        
+        <a class="page-link" href="https://github.com/katelibc">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">Twitch has made a good step with preventing harassment but it has pitfalls — also what the hell is…</h1>
+    
+    <p class="post-meta"><time datetime="2021-10-02T00:00:00+00:00" itemprop="datePublished">Oct 2, 2021</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <hr />
+
+<p>I have <a href="https://katelibc.medium.com/twitch-chat-harassment-remains-unaddressed-despite-complaints-and-evidence-of-potential-fraud-d7fc66f95d88">written extensively</a> about the problems Twitch has with harassment via user interactions, so it should come as no surprise that I have been keeping myself informed of the the activities that eventually lead to <a href="https://www.polygon.com/22652063/a-day-off-twitch-streaming-platform-hate-raids-boycott">A Day Off Twitch</a>, where many streamers protested against the company’s milquetoast response to the problem by not streaming. While I have many opinions about how everything was co-opted and mutated from what the <a href="https://twitter.com/search?q=%23twitchdobetter&amp;lang=en">#TwitchDoBetter</a> movement, I am of the opinion that the media attention it receive was likely beneficial.</p>
+
+<p>Earlier this week, <a href="https://blog.twitch.tv/en/2021/09/29/securing-your-chat-with-phone-and-email-verification/">Twitch finally announced</a> seemingly effective tools to contend with harassment. Streamers can now enforce a requirement for users to have either or both e-mail and phone-based verification (via SMS) before they are permitted to participate in chat. Being that many users legitimately may not have done either prior to this new feature, streamers can permit users who have accounts with a specific age to avoid either, they can elevate them to VIP or moderator status, or require them to subscribe (as in pay the streamer) to participate.</p>
+
+<p><img src="/img/1s_oEmF3_BGljdwhhk17nSg_1.png" alt="" /></p>
+
+<p>Moderation configuration settings from a Twitch dashboard. Options show e-mail verification and phone verification with settings for first time chatters, with additional features for chatters without verification being granted permission to participate with a minimum account age.</p>
+
+<p>The one thing many streamers had called for that is not mentioned at all in the above screenshot is this one pertinent feature from the announcement:</p>
+
+<blockquote>
+  <p>We know there are many reasons someone may need to manage more than one account, so you can verify up to five accounts per phone number. That said, to help prevent ban evasion, if one phone-verified account is suspended site-wide, all accounts tied to that number will also be suspended site-wide. Users won’t be able to verify additional accounts using a phone number that is already tied to an actively suspended account.</p>
+</blockquote>
+
+<blockquote>
+  <p>At the channel-level, if one phone-verified or email-verified account is banned by a channel, all other accounts tied to that phone number or email will also be banned from chatting in that channel.</p>
+</blockquote>
+
+<p>This is huge as for the longest time, a harassing user could just register multiple accounts to a single e-mail address without consequence. While it is easy to have multiple e-mail addresses, there is a much larger barrier to having multiple phone numbers capable of receiving SMS.</p>
+
+<p><img src="/img/1aBKB4SwqChOQvjXy4q0dHA_1.png" alt="" /></p>
+
+<p>User account settings showing that a phone number and e-mail address are linked.</p>
+
+<p>However, be that it may, it comes with many caveats and one in particular comes to mind: not everyone has access to mobile phone service, and this could lead to an inequity situation for some. Twitch themselves even point this out in the announcement.</p>
+
+<blockquote>
+  <p><strong>If I don’t have a mobile phone, does this mean I can’t participate in chat anymore?</strong></p>
+</blockquote>
+
+<blockquote>
+  <p>If your account is not phone-verified, this will not prevent you from watching and enjoying a stream — but it does mean there may be some channels you are unable to chat in if they have phone-verified chat enabled. Creators can also choose to make exceptions to phone-verified chat for accounts of a certain age or following time, as well as VIPs, moderators, and subscribers.</p>
+</blockquote>
+
+<p>This comes down to the creator being benevolent or permissive with how individuals can participate and could just outright exclude anyone who is unable to verify via their mobile phone. The minimum age for a user to have a Twitch account is <a href="https://help.twitch.tv/s/article/children-on-twitch?language=en_US">on paper thirteen years</a>, and while many who are younger often have mobile phone service, there are many who do not. While I personally do not want anyone younger than 18-years old to participate in my stream, I do know that this is not desired by everyone.</p>
+
+<p>The other problem is that this likely has some limitations. Twitch’s goal is to make harassment more expensive and is something I advocated when I wrote about this problem earlier this year, but based on how I am seeing it written about by the company, I do believe that there are workarounds.</p>
+
+<p>My burning question for one workaround is this: how do the e-mail address-based ban evasion avoidance techniques take tags into account? Many e-mail services, including Google’s, support the appending a tag to an e-mail address wherein you append ‘+’ to the end of the first half of your address (also known as the “local part”) with a label following soon after.</p>
+
+<p>Many do not and perhaps should not scan for this sort of thing as the rules for what can and should be in a local part are <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">sort of defined</a>, you cannot be assured that the use of a tag is implicit of anything as it is dependent on the e-mail service to start with. Does Twitch scan for this potential problem? I have my doubts and may consider testing this if someone else hasn’t already.</p>
+
+<p>I also pointed out that there are throwaway e-mail services, and those can be used to verify an account. What is Twitch doing about that? There are lists that are freely available for them to use to detect the use of the, but are they doing this?</p>
+
+<p><img src="/img/1XrDhT8SWvsvXhLZGuAAyxA_1.png" alt="" /></p>
+
+<p>From page 35 of my March 2021 report on Twitch harassment. This shows a throwaway e-mail service granting me a verification code for my new account.</p>
+
+<p>So then we’re led into this scenario: let’s verify by mobile phone? This seems to be straightforward as surely it is hard to evade that way?</p>
+
+<p>It is a valid assumption as while I have had to buy disposable SIM cards for consulting engagements, not everyone is going to have more than one or two mobile phones. However, this assumption is still wrong as there are throwaway SMS services.</p>
+
+<p><img src="/img/1VD-i14Df6Ff3ahu6X1zi1g_1.png" alt="" /></p>
+
+<p>A service showing available mobile phone numbers for web-based reception of SMS messages.</p>
+
+<p>Now, I will admit that these numbers provided by this and similar services are often exhausted extremely quickly. There is also the consideration that there is a finite quantity of available numbers on these services, but it is a matter to give thought to when relying on this scheme.</p>
+
+<p>Overall, I am supportive of this new feature, but the equity issue and the potential evasion techniques remain.</p>
+
+<h4>So what about this lawsuit?</h4>
+
+<p>On September 10th, which was two and a half weeks before announcing these features, Twitch <a href="https://www.scribd.com/document/524416914/Twitch-Interactive-vs-Cruzzcontrol-and-CreatineOverdose">filed a civil suit</a> in Northern California against two Europeans who are alleged to have created software to engage in harassment on the streaming service.</p>
+
+<p>The timing has always baffled me because it would have made sense to drop this feature and this lawsuit on the same day. Many found that this was Twitch trying to look like they were doing something instead of anything concrete and this further alienated streamers from the company. In my case, <a href="https://twitter.com/KateLibc/status/1436403378314092547">I found the filing rather damning towards the company themselves</a>, because they admitted a few things that I find rather embarassing.</p>
+
+<blockquote>
+  <p>However, despite Twitch’s best efforts, the hate raids continue. On information and belief, Defendants created software code to conduct hate raids via automated means. And they continue to develop their software code to avoid Twitch’s efforts at preventing Defendants’ bots from accessing the Twitch Services.</p>
+</blockquote>
+
+<p>This paragraph (51) was rather interesting because I want to know more about “Twitch’s best efforts”, There have been rumours for many years that there remains a workaround that permits harassers to create en-masse accounts to engage in harassment without any response from the company. I cannot elaborate further on this problem, but honestly it isn’t here where I raise my eyebrow.</p>
+
+<blockquote>
+  <p>To further curb Defendants’ hate-raids, Twitch updated its software to employ additional measures that better detect malicious bot software in chat messages.</p>
+</blockquote>
+
+<blockquote>
+  <p>Twitch expended significant resources combatting Defendants’ attacks. Twitch spent time and money investigating Defendants, including through use of its fraud detection team. Twitch also engineered technological and other fixes in an attempt to stop Defendants’ harassing and hateful conduct. These updates include but are not limited to implementing stricter identity controls with accounts, machine learning algorithms to detect bot accounts that are used to engage in harmful chat and augmenting the banned word list. Twitch mobilized its communications staff to address the community harm flowing from the hate raids and assured its community that it was taking proactive measures to stop them. Twitch also worked with impacted streamers to educate them on moderation toolkits for their chats and solicited and responded to streamers’ and users’ comments and concerns.</p>
+</blockquote>
+
+<p>These “stricter identity controls” stand out as we did not see tools for streamers being made available to leverage this until recently, but what really raises my ire is them stating they’re using “machine learning algorithms to detect bot accounts”.</p>
+
+<p>What the hell sort of “machine learning” have they deployed? I even criticised this on Twitter.</p>
+
+<p>Of the 174 “hoss” follow bots that have been known to exist at the time of this writing, with the majority appearing since mid-August, they all share a common pattern which can be easily snuffed out with just two very basic <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>:</p>
+
+<blockquote>
+  <p>^hoss0{0,2}312_{0,1}.*<br />
+^.*_{0,1}hoss0{0,2}312$</p>
+</blockquote>
+
+<p>Just what the fuck? How is this so complicated? You can do this with just one regular expression, but it isn’t that much more costly to do it with two and it is much easier to maintain.</p>
+
+<p>My only theory about this “machine learning” nonsense can be summed up in this Discord conversation I had on the day I read the filing:</p>
+
+<p><img src="/img/1eB1xHbutR-B044C3xXU5Dw_1.png" alt="" /></p>
+
+<p>My parodic interpretation of a meeting at Twitch HQ about the chat moderation problem: “this is my theory about a meeting [on] moderation […] recently: a: “okay. so these fucks are asking us to make moderation better. what do we do?” b: “well, i have been doing machine learning for funsies on udemy and i think it would work well?” a: “that is hot shit. we can’t do this with blockchain?” b: “working on that later. nft stuff first ya know” c: “hey. why don’t we revisit my idea of just allowing bans based on how they work on irc?” a &amp; b: “no. fuck you” a: “besides, we don’t get to do machine learning for anything beyond marketing””</p>
+
+<p>I have rather poor opinions about Twitch’s approach as evident above.</p>
+
+<p>The solution of using machine learning at least to me appears to be something “hot and sexy” when in reality we need something conventional. I have done a lot of work around using entropy to detect malicious activity in my line of work, but it was only done after making other attack methods more expensive, which should be done first as it is often easier to do.</p>
+
+<p>At least we finally got these new verification tools, but honestly, Twitch has a lot remaining to do and I am not holding my breath.</p>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Cariad Heather Keigher - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="https://cariad.keigher.ca/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

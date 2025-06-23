@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>The state of streaming on macOS in 2020</title>
+  <meta name="description" content="Earlier this year, my partner encouraged me to get into streaming on Twitch after noticing that I spend a lot of time watching others and I myself having a substantial collection of games. When the COVID-19 pandemic began to take a foothold in British Columbia, I found that streaming was an appropriate outlet for me to engage in social activities without having to worry about needing to social distance. I am a life-long Mac user. I’ve been using Macs on and off since childhood, but since leaving grade school I’ve always had one available to me. I’ve been through the transition from 680x0 to PowerPC, the transition from PowerPC to Intel, and likely will buy the first Mac that makes use of the ARM architecture. macOS is an operating system I prefer to use because it gives me the ability to have an operating system that provides me with a *nix environment all the while giving me enterprise-level tools that I use day-to-day. Macs are expensive though. The lowest-end desktop model is $999 CAD for a Mac Mini and the base-model Macbook Air is $1,299 CAD. Even with my discount I get through my employer, these machines do not come spec’d with anything on par with what you’d get if you built a PC for the same price. You are paying for the privilege of using an arguably well-built operating system, and combined with the privacy features that Apple touts, you don’t become an advertising target at the same time. Where does Twitch streaming come in? While I do have Steam installed on my Mac, I don’t in fact play any games on it minus a handful. Most of the games I play are console-based with an old PC set aside for playing any games I still wish to play. My console games are primarily on the Super Nintendo and Sega Genesis, but I do stream from my Nintendo Switch too. Four HDMI sources passing through various devices before reaching my computer and display. The above setup is based on a lot of headaches I’ve had with capturing content from my devices to my computer. I like the setup physically as with three buttons and a single connection, I can have my stream live in OBS (Open Broadcaster Software) with little effort. However, to get it to this point has required a lot more effort than would have been required if I were using Windows and even Linux. Performance on macOS is abysmal. A thread on OBS’ support forums shows a number of shared complaints about using a Mac with OBS: it really pushes the limit of the hardware due to limitations in macOS. This is not the fault of the hardware specifically but rather how macOS has effectively abandoned OpenGL in favour of Metal. This decision means that a Mac made in 2013 has more or less the same performance when capturing video and live-streaming it as a Mac made in 2018, that being my Mac Mini with a six-core i5 and 32 GB of RAM. If one were to boot their newer model Mac into Windows, they’d not run into these problems. In fact, without having to add an external GPU, the performance would be night and day but then you’re dealing with a computer that is spec’d no better than a Dell laptop that is half the price and includes input devices and a display. The 2018 Mac Mini does have the option of using the Apple VT hardware encoder, which provides h264 encoding via an interface with Intel QuickSync, but that means you’re sacrificing one of your CPU cores to video encoding. There is no option to make use of NVidia’s NVENC or AMD’s VCE, both of which would off-load to the GPU, because macOS doesn’t provide any level of support for those features. Basically this means that you cannot use an external GPU to speed things along. You are stuck with CPU-based video encoding. This also means that buying an iMac Pro or a Mac Pro with a Xeon processor will not be helpful from a cost-perspective as you’re still going to have CPU-based video encoding and you’re still going to have to spend unnecessary amounts of money for such little gain in performance. Compounding this is the fact that streaming anything from the computer itself is problematic. Performance suffers greatly when you do a window capture versus full-screen, meaning that you run the risk of exposing information you may not want to share. Window capturing means that the frame rate from the software is cut to less than half — it’s that bad and this only started with changes to the graphics sublayer to the operating system a few versions ago. The short answer you’re probably looking for here is that don’t bother streaming from your Mac if you have any intention of using it for anything else in parallel. You should not mix audio from it, you should not run any heavy applications alongside OBS (such as browsers or anything Electron-based), and you should not expect to stream your own games from it. OBS cannot help us any further than they have because the operating system is the real culprit. If you’re doing work in Final Cut Pro and you want to do streaming as a side thing, it’s fine and you’ll manage, but if you want to have the same flexibility as our friends running Windows, it’s going to be unpleasant. Update — 12:15 PM PT, July 21, 2020 I was asked about whether or not I saw this article regarding video performance on macOS, and I should say that I have, but it isn’t going to provide a solution. The performance gains when encoding using H264 are negligible unless when using specific external GPUs and even those have problems. When using the T2 chip on newer Macs, it actually only improves the performance of H265 encoding. H265 is in fact more efficient than H264, with suggestions that it reduces resource consumption by 30% when processing video. The 2018 Mac Mini, which I have, does have a T2 chip built-in and this would be great news if it weren’t for the fact that OBS cannot send H265 data to Twitch. The only benefit I get from H265 is if I record to disk which defeats the purpose of what I am trying to do. Now I could install an external GPU (such as the tested AMD RX 5700 X), which appears to be supported by macOS, but Apple has been breaking support for GPUs on point releases of their operating systems. The biggest problem isn’t so much leaning on the use of an external GPU, which would cost $700 alone, it’s the lack of VP9 support in macOS. Twitch announced in late 2018 that they’d be using VP9 instead of H265, meaning that it’s up to Apple to provide that acceleration with the built-in chipset. Apple’s Video Toolbox (which is what the “VT” in “Hardware VT” references to) requires them to support for VP9 for video-encoding which at the time of writing is not the case and is unlikely to change with Catalina. There is a tinge of hope on the horizon, though. macOS “Big Sur” (aka macOS 11) could support VP9 as upcoming tvOS and iOS releases will, but there has been no mention of support in Safari and whether or not we can encode and decode via the T2 chip. For now, those of us still using Catalina are stuck using H264 encoding on one of our cores.">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://cariad.keigher.ca/2020/07/21/the-state-of-streaming-on-macos-in-2020/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="cariad.keigher.ca" href="https://cariad.keigher.ca/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="The state of streaming on macOS in 2020">
+  <meta property="og:site_name" content="cariad.keigher.ca">
+  <meta property="og:url" content="https://cariad.keigher.ca/2020/07/21/the-state-of-streaming-on-macos-in-2020/">
+  <meta property="og:description" content="Earlier this year, my partner encouraged me to get into streaming on Twitch after noticing that I spend a lot of time watching others and I myself having a substantial collection of games. When the COVID-19 pandemic began to take a foothold in British Columbia, I found that streaming was an appropriate outlet for me to engage in social activities without having to worry about needing to social distance. I am a life-long Mac user. I’ve been using Macs on and off since childhood, but since leaving grade school I’ve always had one available to me. I’ve been through the transition from 680x0 to PowerPC, the transition from PowerPC to Intel, and likely will buy the first Mac that makes use of the ARM architecture. macOS is an operating system I prefer to use because it gives me the ability to have an operating system that provides me with a *nix environment all the while giving me enterprise-level tools that I use day-to-day. Macs are expensive though. The lowest-end desktop model is $999 CAD for a Mac Mini and the base-model Macbook Air is $1,299 CAD. Even with my discount I get through my employer, these machines do not come spec’d with anything on par with what you’d get if you built a PC for the same price. You are paying for the privilege of using an arguably well-built operating system, and combined with the privacy features that Apple touts, you don’t become an advertising target at the same time. Where does Twitch streaming come in? While I do have Steam installed on my Mac, I don’t in fact play any games on it minus a handful. Most of the games I play are console-based with an old PC set aside for playing any games I still wish to play. My console games are primarily on the Super Nintendo and Sega Genesis, but I do stream from my Nintendo Switch too. Four HDMI sources passing through various devices before reaching my computer and display. The above setup is based on a lot of headaches I’ve had with capturing content from my devices to my computer. I like the setup physically as with three buttons and a single connection, I can have my stream live in OBS (Open Broadcaster Software) with little effort. However, to get it to this point has required a lot more effort than would have been required if I were using Windows and even Linux. Performance on macOS is abysmal. A thread on OBS’ support forums shows a number of shared complaints about using a Mac with OBS: it really pushes the limit of the hardware due to limitations in macOS. This is not the fault of the hardware specifically but rather how macOS has effectively abandoned OpenGL in favour of Metal. This decision means that a Mac made in 2013 has more or less the same performance when capturing video and live-streaming it as a Mac made in 2018, that being my Mac Mini with a six-core i5 and 32 GB of RAM. If one were to boot their newer model Mac into Windows, they’d not run into these problems. In fact, without having to add an external GPU, the performance would be night and day but then you’re dealing with a computer that is spec’d no better than a Dell laptop that is half the price and includes input devices and a display. The 2018 Mac Mini does have the option of using the Apple VT hardware encoder, which provides h264 encoding via an interface with Intel QuickSync, but that means you’re sacrificing one of your CPU cores to video encoding. There is no option to make use of NVidia’s NVENC or AMD’s VCE, both of which would off-load to the GPU, because macOS doesn’t provide any level of support for those features. Basically this means that you cannot use an external GPU to speed things along. You are stuck with CPU-based video encoding. This also means that buying an iMac Pro or a Mac Pro with a Xeon processor will not be helpful from a cost-perspective as you’re still going to have CPU-based video encoding and you’re still going to have to spend unnecessary amounts of money for such little gain in performance. Compounding this is the fact that streaming anything from the computer itself is problematic. Performance suffers greatly when you do a window capture versus full-screen, meaning that you run the risk of exposing information you may not want to share. Window capturing means that the frame rate from the software is cut to less than half — it’s that bad and this only started with changes to the graphics sublayer to the operating system a few versions ago. The short answer you’re probably looking for here is that don’t bother streaming from your Mac if you have any intention of using it for anything else in parallel. You should not mix audio from it, you should not run any heavy applications alongside OBS (such as browsers or anything Electron-based), and you should not expect to stream your own games from it. OBS cannot help us any further than they have because the operating system is the real culprit. If you’re doing work in Final Cut Pro and you want to do streaming as a side thing, it’s fine and you’ll manage, but if you want to have the same flexibility as our friends running Windows, it’s going to be unpleasant. Update — 12:15 PM PT, July 21, 2020 I was asked about whether or not I saw this article regarding video performance on macOS, and I should say that I have, but it isn’t going to provide a solution. The performance gains when encoding using H264 are negligible unless when using specific external GPUs and even those have problems. When using the T2 chip on newer Macs, it actually only improves the performance of H265 encoding. H265 is in fact more efficient than H264, with suggestions that it reduces resource consumption by 30% when processing video. The 2018 Mac Mini, which I have, does have a T2 chip built-in and this would be great news if it weren’t for the fact that OBS cannot send H265 data to Twitch. The only benefit I get from H265 is if I record to disk which defeats the purpose of what I am trying to do. Now I could install an external GPU (such as the tested AMD RX 5700 X), which appears to be supported by macOS, but Apple has been breaking support for GPUs on point releases of their operating systems. The biggest problem isn’t so much leaning on the use of an external GPU, which would cost $700 alone, it’s the lack of VP9 support in macOS. Twitch announced in late 2018 that they’d be using VP9 instead of H265, meaning that it’s up to Apple to provide that acceleration with the built-in chipset. Apple’s Video Toolbox (which is what the “VT” in “Hardware VT” references to) requires them to support for VP9 for video-encoding which at the time of writing is not the case and is unlikely to change with Catalina. There is a tinge of hope on the horizon, though. macOS “Big Sur” (aka macOS 11) could support VP9 as upcoming tvOS and iOS releases will, but there has been no mention of support in Safari and whether or not we can encode and decode via the T2 chip. For now, those of us still using Catalina are stuck using H264 encoding on one of our cores.">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="The state of streaming on macOS in 2020">
+  <meta name="twitter:description" content="Earlier this year, my partner encouraged me to get into streaming on Twitch after noticing that I spend a lot of time watching others and I myself having a substantial collection of games. When the...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+
+  
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">cariad.keigher.ca</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://hachyderm.io/@KateLibC">Mastodon</a>
+      
+        
+        <a class="page-link" href="https://bsky.app/profile/cariad.bsky.social">Bluesky</a>
+      
+        
+        <a class="page-link" href="https://github.com/katelibc">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">The state of streaming on macOS in 2020</h1>
+    
+    <p class="post-meta"><time datetime="2020-07-21T00:00:00+00:00" itemprop="datePublished">Jul 21, 2020</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <hr />
+
+<p>Earlier this year, my partner encouraged me to get into streaming on Twitch after noticing that I spend a lot of time watching others and I myself having a substantial collection of games. When the COVID-19 pandemic began to take a foothold in British Columbia, I found that streaming was an appropriate outlet for me to engage in social activities without having to worry about needing to social distance.</p>
+
+<p>I am a life-long Mac user. I’ve been using Macs on and off since childhood, but since leaving grade school I’ve always had one available to me. I’ve been through the transition from 680x0 to PowerPC, the transition from PowerPC to Intel, and likely will buy the first Mac that makes use of the ARM architecture. macOS is an operating system I prefer to use because it gives me the ability to have an operating system that provides me with a *nix environment all the while giving me enterprise-level tools that I use day-to-day.</p>
+
+<p>Macs are expensive though. The lowest-end desktop model is $999 CAD for a Mac Mini and the base-model Macbook Air is $1,299 CAD. Even with my discount I get through my employer, these machines do not come spec’d with anything on par with what you’d get if you built a PC for the same price. You are paying for the privilege of using an arguably well-built operating system, and combined with the privacy features that Apple touts, you don’t become an advertising target at the same time.</p>
+
+<p>Where does Twitch streaming come in? While I do have Steam installed on my Mac, I don’t in fact play any games on it minus a handful. Most of the games I play are console-based with an old PC set aside for playing any games I still wish to play. My console games are primarily on the Super Nintendo and Sega Genesis, but I do stream from my Nintendo Switch too.</p>
+
+<p><img src="/img/1CZKt4YnCItM_t66ty5LX_A_1.png" alt="Diagram showing video from various HDMI sources passing through an HDMI switch with audio broken apart before video capture." /></p>
+
+<p>Four HDMI sources passing through various devices before reaching my computer and display.</p>
+
+<p>The above setup is based on a lot of headaches I’ve had with capturing content from my devices to my computer. I like the setup physically as with three buttons and a single connection, I can have my stream live in OBS (Open Broadcaster Software) with little effort. However, to get it to this point has required a lot more effort than would have been required if I were using Windows and even Linux.</p>
+
+<p>Performance on macOS is abysmal. A <a href="https://obsproject.com/forum/threads/best-mac-for-streaming.99789/">thread on OBS’ support forums</a> shows a number of shared complaints about using a Mac with OBS: it really pushes the limit of the hardware due to limitations in macOS. This is not the fault of the hardware specifically but rather how macOS has effectively abandoned OpenGL in favour of Metal. This decision means that a Mac made in 2013 has more or less the same performance when capturing video and live-streaming it as a Mac made in 2018, that being my Mac Mini with a six-core i5 and 32 GB of RAM.</p>
+
+<p>If one were to boot their newer model Mac into Windows, they’d not run into these problems. In fact, without having to add an external GPU, the performance would be night and day but then you’re dealing with a computer that is spec’d no better than a Dell laptop that is half the price and includes input devices and a display.</p>
+
+<p>The 2018 Mac Mini does have the option of using the Apple VT hardware encoder, which provides h264 encoding via an interface with Intel QuickSync, but that means you’re sacrificing one of your CPU cores to video encoding. There is no option to make use of NVidia’s NVENC or AMD’s VCE, both of which would off-load to the GPU, because macOS doesn’t provide any level of support for those features.</p>
+
+<p>Basically this means that you cannot use an external GPU to speed things along. You are stuck with CPU-based video encoding.</p>
+
+<p>This also means that buying an iMac Pro or a Mac Pro with a Xeon processor will not be helpful from a cost-perspective as you’re still going to have CPU-based video encoding and you’re still going to have to spend unnecessary amounts of money for such little gain in performance.</p>
+
+<p>Compounding this is the fact that streaming anything from the computer itself is problematic. Performance suffers greatly when you do a window capture versus full-screen, meaning that you run the risk of exposing information you may not want to share. Window capturing means that the frame rate from the software is cut to less than half — it’s that bad and this only started with changes to the graphics sublayer to the operating system a few versions ago.</p>
+
+<p>The short answer you’re probably looking for here is that don’t bother streaming from your Mac if you have any intention of using it for anything else in parallel. You should not mix audio from it, you should not run any heavy applications alongside OBS (such as browsers or anything Electron-based), and you should not expect to stream your own games from it.</p>
+
+<p>OBS cannot help us any further than they have because the operating system is the real culprit. If you’re doing work in Final Cut Pro and you want to do streaming as a side thing, it’s fine and you’ll manage, but if you want to have the same flexibility as our friends running Windows, it’s going to be unpleasant.</p>
+
+<p><em>Update — 12:15 PM PT, July 21, 2020</em></p>
+
+<p>I was asked about whether or not I saw <a href="https://egpu.io/forums/pro-applications/insights-into-macos-video-editing-performance/">this article regarding video performance on macOS</a>, and I should say that I have, but it isn’t going to provide a solution.</p>
+
+<p>The performance gains when encoding using H264 are negligible unless when using specific external GPUs and even those have problems.</p>
+
+<p>When using the T2 chip on newer Macs, it actually only improves the performance of H265 encoding. H265 is in fact more efficient than H264, with suggestions that it reduces resource consumption by 30% when processing video.</p>
+
+<p>The 2018 Mac Mini, which I have, does have a T2 chip built-in and this would be great news if it weren’t for the fact that OBS cannot send H265 data to Twitch. The only benefit I get from H265 is if I record to disk which defeats the purpose of what I am trying to do.</p>
+
+<p>Now I could install an external GPU (such as the tested AMD RX 5700 X), which appears to be supported by macOS, but Apple has been breaking support for GPUs on point releases of their operating systems.</p>
+
+<p>The biggest problem isn’t so much leaning on the use of an external GPU, which would cost $700 alone, it’s the lack of VP9 support in macOS. <a href="https://blog.twitch.tv/en/2018/12/19/how-v-p9-delivers-value-for-twitch-s-esports-live-streaming-35db26f6322f/">Twitch announced in late 2018</a> that they’d be using VP9 instead of H265, meaning that it’s up to Apple to provide that acceleration with the built-in chipset.</p>
+
+<p>Apple’s Video Toolbox (which is what the “VT” in “Hardware VT” references to) requires them to support for VP9 for video-encoding which at the time of writing is not the case and is unlikely to change with Catalina.</p>
+
+<p>There is a <a href="https://9to5mac.com/2020/06/24/apple-adds-webp-hdr-support-and-more-to-safari-with-ios-14-and-macos-big-sur/">tinge of hope on the horizon</a>, though. macOS “Big Sur” (aka macOS 11) could support VP9 as upcoming tvOS and iOS releases will, but there has been no mention of support in Safari and whether or not we can encode and decode via the T2 chip. For now, those of us still using Catalina are stuck using H264 encoding on one of our cores.</p>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Cariad Heather Keigher - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="https://cariad.keigher.ca/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

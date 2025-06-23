@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>An explanation for TransLink’s ransomware story and recommendations for those who live in Vancouver</title>
+  <meta name="description" content="If you want to skip the explanation, scroll to the bottom for what I suggest on what you should do next. This is also haphazardly written so ignore the typos and grammatical errors you find here. I am a computer security professional who has worked in the field for over a decade and the story about TransLink finding itself subject to ransomware is not a new story to me nor is it an overly sophisticated attack. The unfortunate reality is that the transit agency fell subject to an attack that has become more common over the past few years in both the public and private sector as the tactic is fairly effective to unprepared organizations. The idea that this is a “sophisticated new type of ransomware attack” is a bit exaggerating as this has happened repeatedly for years. A famous example includes local Seth Rogan’s movie, The Interview leading to North Korea breaching Sony Pictures and dumping out their data after having disabled their entire computer network [1]. Combine this tactic with ransomware [2], and you can hold hostage an entire organization until you receive an payout. What is new is that this has become a popular business for organized crime, typically from abroad. When I say that this is being run as a business, they are engaging in negotiations through customer service [3]. The first instance of ransomware being used to run a business dates back to 1989 where you were required to send at least US$189 via mail to have your hard drive unlocked [4]. An example of the 1989 AIDS virus, which required you to pay to unlock your computer. TransLink was also not alone this past week as an American retailer was also subjected to the same malware by the same group [5]. The malware in itself appeared earlier in the fall of this year, but it only picked up from where another group left off [6]. Additionally, Montreal’s transit agency found itself subject to a similar attack in October [7] as did a hospital in the city too [8]. So while “new” is correct when talking about the malware or group itself, the methodology is not new and only a few years younger than I am old. The attacks are via e-mail and while you can do your best to filter things out, you cannot expect that everyone is going to be perfect and someone somewhere is going to click a link. Anti-virus and other software cannot prevent this behaviour and it won’t always detect that someone gave their password to a website that looks legitimate despite it being not their own. The main concerns you should have for TransLink in all of this are two: How is their payment processor handling this? How far did they get into TransLink’s systems? The second one to me is the most important as the first one is actually the least troubling situation. In the statement, it is mentioned that TransLink does not store fare payment data. If the agency is following industry standards for handling payment, this is likely the case. What is often the case especially since TransLink uses a third-party to handle payment via credit and debit is that when you have something like an auto-reload on to your Compass card, the agency only knows your credit card number for a brief period until they get a token from their processor. This brief period is often barely a second and that token is strictly for them to use when trying to process your card for that initial payment and any subsequent payments later on. If someone were to steal those tokens, without them knowing how the payment processor created them they will never be able to get the details about your card. The payment processor themselves likely doesn’t know the card either and instead follows whatever Visa, MasterCard, or American Express tells them to send transactions later on [9]. However, this doesn’t mean that the attackers could not have gotten your payment details when in transit during that time they were in contact with the payment processor. If you have in the past few months changed your payment details on the Compass portal, pay extra special attention to your credit card statement just in case. Details TransLink does have about you personally if you used the Compass portal include your name, address, what cards you possess, trip history, your e-mail address, and your password. That password should be changed if you haven’t changed it already and if it is the same as your e-mail, not only should that password be changed too but it shouldn’t match what you just changed your Compass account to Personally, changing your password and having to keep an eye on your credit card statement is the least worrying thing. My next concern is this: how far did they get into the network? Child in front of a workstation at SkyTrain control (TransLink) My daily work involves security with industrial control. Industrial control (sometimes called “SCADA”) is just a fancy way of describing physical, moving equipment that is controlled by computers. These things can include power plants, traffic lights, heating and cooling systems, and of course transportation systems. With SkyTrain being fully automated, it is to me an industrial control system of which is super fascinating and have written about before [10]. Problems with the computers operating SkyTrain are an ongoing phenomenon [11]. It is easy to suggest that the problem has to do with the aging computers [12], but unlike the corporate world where desktops and servers are refreshed every few years and the personal world where you may opt to get a new computer as soon as the power cord goes, the industrial control world doesn’t have that luxury as the devices have to work in a state for years because their task is to be reliable and not disrupted. As a result, they’re not cheap [13], so replacing them is often discouraged as they’re usually designed to be extensible not for just a decade but sometimes up to half-a-century. However, being that they’re old, they’re likely susceptible to tampering. We have had many instances where they’ve taken out power plants, HVAC systems, and power plants to name just a few [14]. My concerns are really this: Can TransLink verify that their control systems were not reached? How can TransLink verify this and assuage my fears? What did the attackers specifically get access to? Being that the attackers had printed the ransom message on their multi-function printers, they did have network access to the business network, but without any further information all I can assume is that they have this aspect under control. These sort of breaches are really painful and I hope that TransLink’s cyber security team is able to get a weekend to relax. Having had a few incidents that ate up weeks of my life in the past, I know what they’re experiencing and they have my sympathies. As for me, I will be requesting a copy of the report they get from whichever security outfit they hire. What are my recommendations for you? Change your password on your Compass Card account. Use a password manager and don’t reuse the same password everywhere. If your password for Compass is the same as your e-mail address, change that too. If you have provided a new credit card via that website in the past three months, pay extra attention to your statements Keep an eye on any future recommendations from TransLink with respect to your payment card details If you have any questions, feel free to ping me on Twitter. I do not work for TransLink so I cannot speak for them if you want to know more specifics. https://www.vox.com/2015/1/20/18089084/sony-hack-north-korea https://www.kaspersky.com/resource-center/definitions/what-is-ransomware https://www.wired.com/story/ransomware-gone-corporate-darkside-where-will-it-end/ https://en.wikipedia.org/wiki/AIDS_(Trojan_horse) https://threatpost.com/kmart-egregor-ransomware/161881/ https://www.digitalshadows.com/blog-and-research/a-eulogy-for-maze-the-end-of-a-ransomware-era/ https://globalnews.ca/news/7431526/hacker-montreal-transit-cyberattack-seeks-ransom/ https://globalnews.ca/news/7430000/cyberattack-montreal-health-centre-information-system-shutdown/ https://squareup.com/ca/en/townsquare/what-does-tokenization-actually-mean https://twitter.com/katelibc/status/1014573115244929024 https://www.burnabynow.com/local-news/update-burnaby-skytrain-back-in-service-after-glitch-3117083 https://www.citynews1130.com/2014/08/05/translink-gives-tour-of-skytrain-computer-room/ https://bc.ctvnews.ca/backup-computer-system-for-skytrain-would-cost-20-million-1.1920852 https://www.osti.gov/servlets/purl/1505628">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://cariad.keigher.ca/2020/12/04/an-explanation-for-translink-s-ransomware-story-and-recommendations-for-those-who-live-in-vancouver/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="cariad.keigher.ca" href="https://cariad.keigher.ca/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="An explanation for TransLink’s ransomware story and recommendations for those who live in Vancouver">
+  <meta property="og:site_name" content="cariad.keigher.ca">
+  <meta property="og:url" content="https://cariad.keigher.ca/2020/12/04/an-explanation-for-translink-s-ransomware-story-and-recommendations-for-those-who-live-in-vancouver/">
+  <meta property="og:description" content="If you want to skip the explanation, scroll to the bottom for what I suggest on what you should do next. This is also haphazardly written so ignore the typos and grammatical errors you find here. I am a computer security professional who has worked in the field for over a decade and the story about TransLink finding itself subject to ransomware is not a new story to me nor is it an overly sophisticated attack. The unfortunate reality is that the transit agency fell subject to an attack that has become more common over the past few years in both the public and private sector as the tactic is fairly effective to unprepared organizations. The idea that this is a “sophisticated new type of ransomware attack” is a bit exaggerating as this has happened repeatedly for years. A famous example includes local Seth Rogan’s movie, The Interview leading to North Korea breaching Sony Pictures and dumping out their data after having disabled their entire computer network [1]. Combine this tactic with ransomware [2], and you can hold hostage an entire organization until you receive an payout. What is new is that this has become a popular business for organized crime, typically from abroad. When I say that this is being run as a business, they are engaging in negotiations through customer service [3]. The first instance of ransomware being used to run a business dates back to 1989 where you were required to send at least US$189 via mail to have your hard drive unlocked [4]. An example of the 1989 AIDS virus, which required you to pay to unlock your computer. TransLink was also not alone this past week as an American retailer was also subjected to the same malware by the same group [5]. The malware in itself appeared earlier in the fall of this year, but it only picked up from where another group left off [6]. Additionally, Montreal’s transit agency found itself subject to a similar attack in October [7] as did a hospital in the city too [8]. So while “new” is correct when talking about the malware or group itself, the methodology is not new and only a few years younger than I am old. The attacks are via e-mail and while you can do your best to filter things out, you cannot expect that everyone is going to be perfect and someone somewhere is going to click a link. Anti-virus and other software cannot prevent this behaviour and it won’t always detect that someone gave their password to a website that looks legitimate despite it being not their own. The main concerns you should have for TransLink in all of this are two: How is their payment processor handling this? How far did they get into TransLink’s systems? The second one to me is the most important as the first one is actually the least troubling situation. In the statement, it is mentioned that TransLink does not store fare payment data. If the agency is following industry standards for handling payment, this is likely the case. What is often the case especially since TransLink uses a third-party to handle payment via credit and debit is that when you have something like an auto-reload on to your Compass card, the agency only knows your credit card number for a brief period until they get a token from their processor. This brief period is often barely a second and that token is strictly for them to use when trying to process your card for that initial payment and any subsequent payments later on. If someone were to steal those tokens, without them knowing how the payment processor created them they will never be able to get the details about your card. The payment processor themselves likely doesn’t know the card either and instead follows whatever Visa, MasterCard, or American Express tells them to send transactions later on [9]. However, this doesn’t mean that the attackers could not have gotten your payment details when in transit during that time they were in contact with the payment processor. If you have in the past few months changed your payment details on the Compass portal, pay extra special attention to your credit card statement just in case. Details TransLink does have about you personally if you used the Compass portal include your name, address, what cards you possess, trip history, your e-mail address, and your password. That password should be changed if you haven’t changed it already and if it is the same as your e-mail, not only should that password be changed too but it shouldn’t match what you just changed your Compass account to Personally, changing your password and having to keep an eye on your credit card statement is the least worrying thing. My next concern is this: how far did they get into the network? Child in front of a workstation at SkyTrain control (TransLink) My daily work involves security with industrial control. Industrial control (sometimes called “SCADA”) is just a fancy way of describing physical, moving equipment that is controlled by computers. These things can include power plants, traffic lights, heating and cooling systems, and of course transportation systems. With SkyTrain being fully automated, it is to me an industrial control system of which is super fascinating and have written about before [10]. Problems with the computers operating SkyTrain are an ongoing phenomenon [11]. It is easy to suggest that the problem has to do with the aging computers [12], but unlike the corporate world where desktops and servers are refreshed every few years and the personal world where you may opt to get a new computer as soon as the power cord goes, the industrial control world doesn’t have that luxury as the devices have to work in a state for years because their task is to be reliable and not disrupted. As a result, they’re not cheap [13], so replacing them is often discouraged as they’re usually designed to be extensible not for just a decade but sometimes up to half-a-century. However, being that they’re old, they’re likely susceptible to tampering. We have had many instances where they’ve taken out power plants, HVAC systems, and power plants to name just a few [14]. My concerns are really this: Can TransLink verify that their control systems were not reached? How can TransLink verify this and assuage my fears? What did the attackers specifically get access to? Being that the attackers had printed the ransom message on their multi-function printers, they did have network access to the business network, but without any further information all I can assume is that they have this aspect under control. These sort of breaches are really painful and I hope that TransLink’s cyber security team is able to get a weekend to relax. Having had a few incidents that ate up weeks of my life in the past, I know what they’re experiencing and they have my sympathies. As for me, I will be requesting a copy of the report they get from whichever security outfit they hire. What are my recommendations for you? Change your password on your Compass Card account. Use a password manager and don’t reuse the same password everywhere. If your password for Compass is the same as your e-mail address, change that too. If you have provided a new credit card via that website in the past three months, pay extra attention to your statements Keep an eye on any future recommendations from TransLink with respect to your payment card details If you have any questions, feel free to ping me on Twitter. I do not work for TransLink so I cannot speak for them if you want to know more specifics. https://www.vox.com/2015/1/20/18089084/sony-hack-north-korea https://www.kaspersky.com/resource-center/definitions/what-is-ransomware https://www.wired.com/story/ransomware-gone-corporate-darkside-where-will-it-end/ https://en.wikipedia.org/wiki/AIDS_(Trojan_horse) https://threatpost.com/kmart-egregor-ransomware/161881/ https://www.digitalshadows.com/blog-and-research/a-eulogy-for-maze-the-end-of-a-ransomware-era/ https://globalnews.ca/news/7431526/hacker-montreal-transit-cyberattack-seeks-ransom/ https://globalnews.ca/news/7430000/cyberattack-montreal-health-centre-information-system-shutdown/ https://squareup.com/ca/en/townsquare/what-does-tokenization-actually-mean https://twitter.com/katelibc/status/1014573115244929024 https://www.burnabynow.com/local-news/update-burnaby-skytrain-back-in-service-after-glitch-3117083 https://www.citynews1130.com/2014/08/05/translink-gives-tour-of-skytrain-computer-room/ https://bc.ctvnews.ca/backup-computer-system-for-skytrain-would-cost-20-million-1.1920852 https://www.osti.gov/servlets/purl/1505628">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="An explanation for TransLink’s ransomware story and recommendations...">
+  <meta name="twitter:description" content="If you want to skip the explanation, scroll to the bottom for what I suggest on what you should do next. This is also haphazardly written so ignore the typos and grammatical errors you find here. I...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+
+  
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">cariad.keigher.ca</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://hachyderm.io/@KateLibC">Mastodon</a>
+      
+        
+        <a class="page-link" href="https://bsky.app/profile/cariad.bsky.social">Bluesky</a>
+      
+        
+        <a class="page-link" href="https://github.com/katelibc">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">An explanation for TransLink’s ransomware story and recommendations for those who live in Vancouver</h1>
+    
+    <p class="post-meta"><time datetime="2020-12-04T00:00:00+00:00" itemprop="datePublished">Dec 4, 2020</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <hr />
+
+<p><em>If you want to skip the explanation, scroll to the bottom for what I suggest on what you should do next. This is also haphazardly written so ignore the typos and grammatical errors you find here.</em></p>
+
+<p>I am a computer security professional who has worked in the field for over a decade and the story about TransLink finding itself subject to ransomware is not a new story to me nor is it an overly sophisticated attack. The unfortunate reality is that the transit agency fell subject to an attack that has become more common over the past few years in both the public and private sector as the tactic is fairly effective to unprepared organizations.</p>
+
+<p>The idea that this is a “sophisticated new type of ransomware attack” is a bit exaggerating as this has happened repeatedly for years. A famous example includes local Seth Rogan’s movie, The Interview leading to North Korea breaching Sony Pictures and dumping out their data after having disabled their entire computer network [1]. Combine this tactic with ransomware [2], and you can hold hostage an entire organization until you receive an payout.</p>
+
+<p>What is new is that this has become a popular business for organized crime, typically from abroad. When I say that this is being run as a business, they are engaging in negotiations through customer service [3]. The first instance of ransomware being used to run a business dates back to 1989 where you were required to send at least US$189 via mail to have your hard drive unlocked [4].</p>
+
+<p><img src="/img/18aSSQC66s2hF2KQaS7gt7g_1.png" alt="" /></p>
+
+<p>An example of the 1989 AIDS virus, which required you to pay to unlock your computer.</p>
+
+<p>TransLink was also not alone this past week as an American retailer was also subjected to the same malware by the same group [5]. The malware in itself appeared earlier in the fall of this year, but it only picked up from where another group left off [6]. Additionally, Montreal’s transit agency found itself subject to a similar attack in October [7] as did a hospital in the city too [8].</p>
+
+<p>So while “new” is correct when talking about the malware or group itself, the methodology is not new and only a few years younger than I am old. The attacks are via e-mail and while you can do your best to filter things out, you cannot expect that everyone is going to be perfect and someone somewhere is going to click a link. Anti-virus and other software cannot prevent this behaviour and it won’t always detect that someone gave their password to a website that looks legitimate despite it being not their own.</p>
+
+<p>The main concerns you should have for TransLink in all of this are two:</p>
+
+<ol>
+  <li>How is their payment processor handling this?</li>
+  <li>How far did they get into TransLink’s systems?</li>
+</ol>
+
+<p>The second one to me is the most important as the first one is actually the least troubling situation.</p>
+
+<p>In the statement, it is mentioned that TransLink does not store fare payment data. If the agency is following industry standards for handling payment, this is likely the case.</p>
+
+<p>What is often the case especially since TransLink uses a third-party to handle payment via credit and debit is that when you have something like an auto-reload on to your Compass card, the agency only knows your credit card number for a brief period until they get a token from their processor. This brief period is often barely a second and that token is strictly for them to use when trying to process your card for that initial payment and any subsequent payments later on.</p>
+
+<p>If someone were to steal those tokens, without them knowing how the payment processor created them they will never be able to get the details about your card. The payment processor themselves likely doesn’t know the card either and instead follows whatever Visa, MasterCard, or American Express tells them to send transactions later on [9].</p>
+
+<p>However, this doesn’t mean that the attackers could not have gotten your payment details when in transit during that time they were in contact with the payment processor. If you have in the past few months changed your payment details on the Compass portal, pay extra special attention to your credit card statement just in case.</p>
+
+<p>Details TransLink does have about you personally if you used the Compass portal include your name, address, what cards you possess, trip history, your e-mail address, and your password. That password should be changed if you haven’t changed it already and if it is the same as your e-mail, not only should that password be changed too but it shouldn’t match what you just changed your Compass account to</p>
+
+<p>Personally, changing your password and having to keep an eye on your credit card statement is the least worrying thing. My next concern is this: how far did they get into the network?</p>
+
+<p><img src="/img/1Tlh_KS7bl_pUgFd2TY8EaA_1.jpeg" alt="" /></p>
+
+<p>Child in front of a workstation at SkyTrain control (TransLink)</p>
+
+<p>My daily work involves security with industrial control. Industrial control (sometimes called “SCADA”) is just a fancy way of describing physical, moving equipment that is controlled by computers. These things can include power plants, traffic lights, heating and cooling systems, and of course transportation systems. With SkyTrain being fully automated, it is to me an industrial control system of which is super fascinating and have written about before [10].</p>
+
+<p>Problems with the computers operating SkyTrain are an ongoing phenomenon [11]. It is easy to suggest that the problem has to do with the aging computers [12], but unlike the corporate world where desktops and servers are refreshed every few years and the personal world where you may opt to get a new computer as soon as the power cord goes, the industrial control world doesn’t have that luxury as the devices have to work in a state for years because their task is to be reliable and not disrupted. As a result, they’re not cheap [13], so replacing them is often discouraged as they’re usually designed to be extensible not for just a decade but sometimes up to half-a-century.</p>
+
+<p>However, being that they’re old, they’re likely susceptible to tampering. We have had many instances where they’ve taken out power plants, HVAC systems, and power plants to name just a few [14].</p>
+
+<p>My concerns are really this:</p>
+
+<ol>
+  <li>Can TransLink verify that their control systems were not reached?</li>
+  <li>How can TransLink verify this and assuage my fears?</li>
+  <li>What did the attackers specifically get access to?</li>
+</ol>
+
+<p>Being that the attackers had printed the ransom message on their multi-function printers, they did have network access to the business network, but without any further information all I can assume is that they have this aspect under control.</p>
+
+<p>These sort of breaches are really painful and I hope that TransLink’s cyber security team is able to get a weekend to relax. Having had a few incidents that ate up weeks of my life in the past, I know what they’re experiencing and they have my sympathies.</p>
+
+<p>As for me, I will be requesting a copy of the report they get from whichever security outfit they hire.</p>
+
+<h3>What are my recommendations for you?</h3>
+
+<ul>
+  <li>Change your password on your <a href="https://www.compasscard.ca">Compass Card account</a>. Use a <a href="https://www.pcmag.com/picks/the-best-password-managers">password manager</a> and don’t reuse the same password everywhere. If your password for Compass is the same as your e-mail address, change that too.</li>
+  <li>If you have provided a new credit card via that website in the past three months, pay extra attention to your statements</li>
+  <li>Keep an eye on any future recommendations from TransLink with respect to your payment card details</li>
+</ul>
+
+<p>If you have any questions, feel free to ping me on <a href="https://twitter.com/katelibc">Twitter</a>. I do not work for TransLink so I cannot speak for them if you want to know more specifics.</p>
+
+<hr />
+
+<ol>
+  <li><a href="https://www.vox.com/2015/1/20/18089084/sony-hack-north-korea">https://www.vox.com/2015/1/20/18089084/sony-hack-north-korea</a></li>
+  <li><a href="https://www.kaspersky.com/resource-center/definitions/what-is-ransomware">https://www.kaspersky.com/resource-center/definitions/what-is-ransomware</a></li>
+  <li><a href="https://www.wired.com/story/ransomware-gone-corporate-darkside-where-will-it-end/">https://www.wired.com/story/ransomware-gone-corporate-darkside-where-will-it-end/</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/AIDS_%28Trojan_horse%29">https://en.wikipedia.org/wiki/AIDS_(Trojan_horse)</a></li>
+  <li><a href="https://threatpost.com/kmart-egregor-ransomware/161881/">https://threatpost.com/kmart-egregor-ransomware/161881/</a></li>
+  <li><a href="https://www.digitalshadows.com/blog-and-research/a-eulogy-for-maze-the-end-of-a-ransomware-era/">https://www.digitalshadows.com/blog-and-research/a-eulogy-for-maze-the-end-of-a-ransomware-era/</a></li>
+  <li><a href="https://globalnews.ca/news/7431526/hacker-montreal-transit-cyberattack-seeks-ransom/">https://globalnews.ca/news/7431526/hacker-montreal-transit-cyberattack-seeks-ransom/</a></li>
+  <li><a href="https://globalnews.ca/news/7430000/cyberattack-montreal-health-centre-information-system-shutdown/">https://globalnews.ca/news/7430000/cyberattack-montreal-health-centre-information-system-shutdown/</a></li>
+  <li><a href="https://squareup.com/ca/en/townsquare/what-does-tokenization-actually-mean">https://squareup.com/ca/en/townsquare/what-does-tokenization-actually-mean</a></li>
+  <li><a href="https://twitter.com/katelibc/status/1014573115244929024">https://twitter.com/katelibc/status/1014573115244929024</a></li>
+  <li><a href="https://www.burnabynow.com/local-news/update-burnaby-skytrain-back-in-service-after-glitch-3117083">https://www.burnabynow.com/local-news/update-burnaby-skytrain-back-in-service-after-glitch-3117083</a></li>
+  <li><a href="https://www.citynews1130.com/2014/08/05/translink-gives-tour-of-skytrain-computer-room/">https://www.citynews1130.com/2014/08/05/translink-gives-tour-of-skytrain-computer-room/</a></li>
+  <li><a href="https://bc.ctvnews.ca/backup-computer-system-for-skytrain-would-cost-20-million-1.1920852">https://bc.ctvnews.ca/backup-computer-system-for-skytrain-would-cost-20-million-1.1920852</a></li>
+  <li><a href="https://www.osti.gov/servlets/purl/1505628">https://www.osti.gov/servlets/purl/1505628</a></li>
+</ol>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Cariad Heather Keigher - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="https://cariad.keigher.ca/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

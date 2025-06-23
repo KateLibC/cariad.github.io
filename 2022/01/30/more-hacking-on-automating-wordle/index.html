@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>More hacking on automating Wordle</title>
+  <meta name="description" content="Just a warning: if you are playing Wordle and don’t want any hints, this is not the Medium entry for you. Also, I am not a mathematician or statistician, so everything is just based on my knowledge of cryptanalysis and nothing more. One other thing to note is that the word list I am working with is not Wordle’s as I intentionally wanted to avoid looking at its source code. Okay. So I had one remaining question from my last entry on Wordle: what is the most efficient starting word overall? “Cares” has a word score of 967.4, whereas “audio” gets 288.4 and “ports” has 796.6. The point of the game is to produce an answer in as few steps as possible and while you will knock off a lot of vowels and consonants with those two, you are likely reducing the chances of answering in the fewest attempts. My choice of word also includes the letter “e”, which is the most common letter used in the English language. On average, you should see that letter appear about 10–13% of the time, with the letter “a” being about 7–9%, and “s” being 6–9%. You can also order it as “scare” or “races” too if you desire, but I believe that with “s” at the end and putting “r” in the middle, you cover all initial possibilities quite effectively here. I did not like what I wrote here, but at the time I didn’t really run numbers on outcomes. However, I was working on this because you cannot really automate Wordle without a good starting word. Methodology Using the same logic from before, the process to find the winning word was fairly simple. For each starting word, we then ran through each possible five letter word other than itself. It would run each guess against an implementation of Wordle in my own code with the same hints and correct guesses. Once it got to an answer, it would then record all attempts into a set and then move on to the next word. The word “bases” was guessed with a starting word of “caves” and made five other guesses before coming to an eventual answer. This obviously would have failed if I used it against Wordle. Unlike Wordle, there was no guess limit as I wanted to know how many attempts it would take using the methodology I did before where I came up with a list based on efficiency. So the first word based on possibilities made by the hints and correct letter guesses available from the list was the word chosen. There are flaws with this list sorting as discussed on Twitter, but I wanted to stick to my current methodology, so we’ll proceed forward. The worst words Defining the worst word can be achieved one of two ways. We can either look for a group of words or a single word that has the most guess attempts or we can look at them on average. A minimum of the number of guesses is quite simple: one if you’re lucky, but if the word doesn’t match, then two. Guessing what the largest number of guesses will be took a little bit of magic. The words that managed to hit a the maximum-seen attempts of 14 were: “agile”, “anile”, “dells”, “duels”, “dulls”, “dully”, “exile”, “gaily”, “guile”, “gulls”, “gully”, “jails”, “jello”, “jells”, “jelly”, “jinns”, “jolly”, “keels”, “kelly”, “lolls”, “lolly”, “lulls”, “nails”, “ninny”, “nulls”, “quell”, “rails”, “rials”, “villa”, “ville”, “villi”, “yella”, “yells”, and “yield”. If you are to notice a pattern here, almost all of them have the letter ‘l’ in them, but this isn’t really the reason why they performed badly. Word scores are all over the place with these words, which leads me to believe that it is not necessarily indicative of a good start. For example, “quells” is amongst that list and had a score of 307.4, but then “rails” received 768.6. The average score for all of the words was 531.1, so I’m not confident all that much in using that as a metric for a good starting word. So then what about averages? This gives us a better picture because Wordle limits us to six guesses. I would suggest if a word has a minimum average of 4 or higher that it should not be used at the start. The worst performing word had an average of 4.26 attempts, which was “jujus”. This was followed by “wheee” at 4.23, and “yukky” at 4.21. There were three tied for 4.2, and they were “vexes”, “sexes”, and “esses”. The word score “jujus” was 506.6, but interestingly, “sexes” received 888.6. Is there a guaranteed winner? The short answer is: no. All words with this methodology ranged from 8 to 14 maximum attempts. No single word went below 8 attempts, meaning there are starting words which will lead to failure. There is a silver-lining, the number of words with the smallest maximum is only slightly larger than the number of words with the largest maximum. There are 1,764 words of which had 12 maximum attempts, 2,085 with 11, 984 with 10, and 411 with 9. However, with 8, there are only 39 words, and all of them might justifiably be the best candidates. The words that performed the best were “blest”, “deism”, “doest”, “durst”, “feist”, “heist”, “least”, “liest”, “merse”, “midst”, “obese”, “pseud”, “sebum”, “sedan”, “sedge”, “sedgy”, “sedum”, “seize”, “sepia”, “serge”, “serif”, “serum”, “sheaf”, “sheik”, “sherd”, “siege”, “sieve”, “skein”, “skirt”, “slept”, “speck”, “spend”, “sperm”, “steal”, “suede”, “swell”, “swift”, “welsh”, and “wrist”. “Obese” has a word score of 277.8 and “pseud” is 281.6. Going back to word scores, we arrive upon something curious: the range of scores is between 277.8 and 526, with the average being 398.4. Perhaps the way to look at the word score is not at whether it is strong at the start, but instead if it eliminates all of the least likely? This would suggest that words such as “obese” or “pseud” could be good starting candidates. Could we find a most-likely? This is where I want to deviate: a maximum does not imply that it is the worst choice. And in this case, I am willing to believe this because I did find something amongst all of the words that allows me to suggest that there is either a flaw in my methodology or I am looking at this all wrong. The words “estop”, “epsom”, and “serum” had an average attempt count of 2.74, 2.77, and 2.79 each respectively. When I looked at their word scores, “estop” had 160.4, “epsom” had 165.8, and “serum” had 418. I decided to look at all words of which were lower than 2.9, and within the the 54 words, the minimum score was 106.6 and the maximum was 496, with an average of 336.3. I think I know where the word score’s usefulness may lie: it’s better to start with a lower than a higher one. When I spoke about maximums earlier, “estop” found itself with a maximum of 9 attempts. In fact, “serum”, which had a slightly higher average than “estop” found itself with a maximum of 8 — “epsom” received 9. But this is still an incorrect approach. We’re looking at the average and what I’d like to know is what has the highest percentage of wins within the limitations imposed by the game. We have six guesses, so what word is best suited on average to produce an outcome. With these parameters in mind, we can then use the following methodology: which word is most likely to get a guess correct within those six attempts and then not consider the steps beyond that point since they’re not indicative of what would be considered a success. Of the 5,756 words tested, one word managed to achieve a win in three moves 69.4% of the time: “verso”. It also achieved a win in two moves 10.8% of the time, four was 13.1%, five was 4.6%, and six was 1.5% — a 99.4% successful starting word. But this is not the best word even though it is the best word for the quickest win — fortunately we already know the best one to use in order to win. As mentioned before, “estop” had an average of 2.74 attempts before a win, but importantly it has the highest success rate. It edged out “verso” by achieving a 99.6% win rate with 46% of all attempts being achieved in its first two guesses and then three in 40% — four was 9.4%, five was 3.2%, and six was 0.9%. With a failure on only 19 words from the word list — compared to 30 for the other word I was testing with — starting with just “estop” should net you a win most of the time. So in my opinion: “estop” is by far the best word. From January 30th’s Wordle: “estop” showed that despite failing the first two guesses, the algorithm did it in four tries whereas “verso” had to make an extra guess. The data I’m happy to share the data I have made and I welcome you to demonstrate anything you have done with it. However, I must reiterate that I am not a statistician nor do I consider myself adept with mathematics. What I will say that I was out to have fun to solve this challenge and I feel like I have. I wanted to play this game unconventionally and I think I accomplished that goal. There are some further ideas to achieve a 100% success rate or at least get extremely close to it, but being that I am at 99.6% successful on just this algorithm alone, it does make me think that this little project can be considered “ended”.">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://cariad.keigher.ca/2022/01/30/more-hacking-on-automating-wordle/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="cariad.keigher.ca" href="https://cariad.keigher.ca/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="More hacking on automating Wordle">
+  <meta property="og:site_name" content="cariad.keigher.ca">
+  <meta property="og:url" content="https://cariad.keigher.ca/2022/01/30/more-hacking-on-automating-wordle/">
+  <meta property="og:description" content="Just a warning: if you are playing Wordle and don’t want any hints, this is not the Medium entry for you. Also, I am not a mathematician or statistician, so everything is just based on my knowledge of cryptanalysis and nothing more. One other thing to note is that the word list I am working with is not Wordle’s as I intentionally wanted to avoid looking at its source code. Okay. So I had one remaining question from my last entry on Wordle: what is the most efficient starting word overall? “Cares” has a word score of 967.4, whereas “audio” gets 288.4 and “ports” has 796.6. The point of the game is to produce an answer in as few steps as possible and while you will knock off a lot of vowels and consonants with those two, you are likely reducing the chances of answering in the fewest attempts. My choice of word also includes the letter “e”, which is the most common letter used in the English language. On average, you should see that letter appear about 10–13% of the time, with the letter “a” being about 7–9%, and “s” being 6–9%. You can also order it as “scare” or “races” too if you desire, but I believe that with “s” at the end and putting “r” in the middle, you cover all initial possibilities quite effectively here. I did not like what I wrote here, but at the time I didn’t really run numbers on outcomes. However, I was working on this because you cannot really automate Wordle without a good starting word. Methodology Using the same logic from before, the process to find the winning word was fairly simple. For each starting word, we then ran through each possible five letter word other than itself. It would run each guess against an implementation of Wordle in my own code with the same hints and correct guesses. Once it got to an answer, it would then record all attempts into a set and then move on to the next word. The word “bases” was guessed with a starting word of “caves” and made five other guesses before coming to an eventual answer. This obviously would have failed if I used it against Wordle. Unlike Wordle, there was no guess limit as I wanted to know how many attempts it would take using the methodology I did before where I came up with a list based on efficiency. So the first word based on possibilities made by the hints and correct letter guesses available from the list was the word chosen. There are flaws with this list sorting as discussed on Twitter, but I wanted to stick to my current methodology, so we’ll proceed forward. The worst words Defining the worst word can be achieved one of two ways. We can either look for a group of words or a single word that has the most guess attempts or we can look at them on average. A minimum of the number of guesses is quite simple: one if you’re lucky, but if the word doesn’t match, then two. Guessing what the largest number of guesses will be took a little bit of magic. The words that managed to hit a the maximum-seen attempts of 14 were: “agile”, “anile”, “dells”, “duels”, “dulls”, “dully”, “exile”, “gaily”, “guile”, “gulls”, “gully”, “jails”, “jello”, “jells”, “jelly”, “jinns”, “jolly”, “keels”, “kelly”, “lolls”, “lolly”, “lulls”, “nails”, “ninny”, “nulls”, “quell”, “rails”, “rials”, “villa”, “ville”, “villi”, “yella”, “yells”, and “yield”. If you are to notice a pattern here, almost all of them have the letter ‘l’ in them, but this isn’t really the reason why they performed badly. Word scores are all over the place with these words, which leads me to believe that it is not necessarily indicative of a good start. For example, “quells” is amongst that list and had a score of 307.4, but then “rails” received 768.6. The average score for all of the words was 531.1, so I’m not confident all that much in using that as a metric for a good starting word. So then what about averages? This gives us a better picture because Wordle limits us to six guesses. I would suggest if a word has a minimum average of 4 or higher that it should not be used at the start. The worst performing word had an average of 4.26 attempts, which was “jujus”. This was followed by “wheee” at 4.23, and “yukky” at 4.21. There were three tied for 4.2, and they were “vexes”, “sexes”, and “esses”. The word score “jujus” was 506.6, but interestingly, “sexes” received 888.6. Is there a guaranteed winner? The short answer is: no. All words with this methodology ranged from 8 to 14 maximum attempts. No single word went below 8 attempts, meaning there are starting words which will lead to failure. There is a silver-lining, the number of words with the smallest maximum is only slightly larger than the number of words with the largest maximum. There are 1,764 words of which had 12 maximum attempts, 2,085 with 11, 984 with 10, and 411 with 9. However, with 8, there are only 39 words, and all of them might justifiably be the best candidates. The words that performed the best were “blest”, “deism”, “doest”, “durst”, “feist”, “heist”, “least”, “liest”, “merse”, “midst”, “obese”, “pseud”, “sebum”, “sedan”, “sedge”, “sedgy”, “sedum”, “seize”, “sepia”, “serge”, “serif”, “serum”, “sheaf”, “sheik”, “sherd”, “siege”, “sieve”, “skein”, “skirt”, “slept”, “speck”, “spend”, “sperm”, “steal”, “suede”, “swell”, “swift”, “welsh”, and “wrist”. “Obese” has a word score of 277.8 and “pseud” is 281.6. Going back to word scores, we arrive upon something curious: the range of scores is between 277.8 and 526, with the average being 398.4. Perhaps the way to look at the word score is not at whether it is strong at the start, but instead if it eliminates all of the least likely? This would suggest that words such as “obese” or “pseud” could be good starting candidates. Could we find a most-likely? This is where I want to deviate: a maximum does not imply that it is the worst choice. And in this case, I am willing to believe this because I did find something amongst all of the words that allows me to suggest that there is either a flaw in my methodology or I am looking at this all wrong. The words “estop”, “epsom”, and “serum” had an average attempt count of 2.74, 2.77, and 2.79 each respectively. When I looked at their word scores, “estop” had 160.4, “epsom” had 165.8, and “serum” had 418. I decided to look at all words of which were lower than 2.9, and within the the 54 words, the minimum score was 106.6 and the maximum was 496, with an average of 336.3. I think I know where the word score’s usefulness may lie: it’s better to start with a lower than a higher one. When I spoke about maximums earlier, “estop” found itself with a maximum of 9 attempts. In fact, “serum”, which had a slightly higher average than “estop” found itself with a maximum of 8 — “epsom” received 9. But this is still an incorrect approach. We’re looking at the average and what I’d like to know is what has the highest percentage of wins within the limitations imposed by the game. We have six guesses, so what word is best suited on average to produce an outcome. With these parameters in mind, we can then use the following methodology: which word is most likely to get a guess correct within those six attempts and then not consider the steps beyond that point since they’re not indicative of what would be considered a success. Of the 5,756 words tested, one word managed to achieve a win in three moves 69.4% of the time: “verso”. It also achieved a win in two moves 10.8% of the time, four was 13.1%, five was 4.6%, and six was 1.5% — a 99.4% successful starting word. But this is not the best word even though it is the best word for the quickest win — fortunately we already know the best one to use in order to win. As mentioned before, “estop” had an average of 2.74 attempts before a win, but importantly it has the highest success rate. It edged out “verso” by achieving a 99.6% win rate with 46% of all attempts being achieved in its first two guesses and then three in 40% — four was 9.4%, five was 3.2%, and six was 0.9%. With a failure on only 19 words from the word list — compared to 30 for the other word I was testing with — starting with just “estop” should net you a win most of the time. So in my opinion: “estop” is by far the best word. From January 30th’s Wordle: “estop” showed that despite failing the first two guesses, the algorithm did it in four tries whereas “verso” had to make an extra guess. The data I’m happy to share the data I have made and I welcome you to demonstrate anything you have done with it. However, I must reiterate that I am not a statistician nor do I consider myself adept with mathematics. What I will say that I was out to have fun to solve this challenge and I feel like I have. I wanted to play this game unconventionally and I think I accomplished that goal. There are some further ideas to achieve a 100% success rate or at least get extremely close to it, but being that I am at 99.6% successful on just this algorithm alone, it does make me think that this little project can be considered “ended”.">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="More hacking on automating Wordle">
+  <meta name="twitter:description" content="Just a warning: if you are playing Wordle and don’t want any hints, this is not the Medium entry for you. Also, I am not a mathematician or statistician, so everything is just based on my knowledge...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+
+  
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">cariad.keigher.ca</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://hachyderm.io/@KateLibC">Mastodon</a>
+      
+        
+        <a class="page-link" href="https://bsky.app/profile/cariad.bsky.social">Bluesky</a>
+      
+        
+        <a class="page-link" href="https://github.com/katelibc">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">More hacking on automating Wordle</h1>
+    
+    <p class="post-meta"><time datetime="2022-01-30T00:00:00+00:00" itemprop="datePublished">Jan 30, 2022</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <hr />
+
+<p><em>Just a warning: if you are playing Wordle and don’t want any hints, this is not the Medium entry for you. Also, I am not a mathematician or statistician, so everything is just based on my knowledge of cryptanalysis and nothing more.</em></p>
+
+<p><em>One other thing to note is that the word list I am working with is not Wordle’s as I intentionally wanted to avoid looking at its source code.</em></p>
+
+<p>Okay. So I had one remaining question from <a href="https://katelibc.medium.com/hacking-wordle-through-automation-and-cryptanalysis-85b438328936">my last entry on Wordle</a>: what is the most efficient starting word overall?</p>
+
+<blockquote>
+  <p>“Cares” has a word score of 967.4, whereas “audio” gets 288.4 and “ports” has 796.6. The point of the game is to produce an answer in as few steps as possible and while you will knock off a lot of vowels and consonants with those two, you are likely reducing the chances of answering in the fewest attempts.</p>
+</blockquote>
+
+<blockquote>
+  <p>My choice of word also includes the letter “e”, which is the most common letter used in the English language. On average, you should see that letter appear about 10–13% of the time, with the letter “a” being about 7–9%, and “s” being 6–9%.</p>
+</blockquote>
+
+<blockquote>
+  <p>You can also order it as “scare” or “races” too if you desire, but I believe that with “s” at the end and putting “r” in the middle, you cover all initial possibilities quite effectively here.</p>
+</blockquote>
+
+<p>I did not like what I wrote here, but at the time I didn’t really run numbers on outcomes. However, I was working on this because you cannot really automate Wordle without a good starting word.</p>
+
+<h3>Methodology</h3>
+
+<p>Using the same logic from before, the process to find the winning word was fairly simple.</p>
+
+<p>For each starting word, we then ran through each possible five letter word other than itself. It would run each guess against an implementation of Wordle in my own code with the same hints and correct guesses. Once it got to an answer, it would then record all attempts into a set and then move on to the next word.</p>
+
+<p><img src="/img/10sPLTqitT_TdO16_lziu1A_1.png" alt="" /></p>
+
+<p>The word “bases” was guessed with a starting word of “caves” and made five other guesses before coming to an eventual answer. This obviously would have failed if I used it against Wordle.</p>
+
+<p>Unlike Wordle, there was no guess limit as I wanted to know how many attempts it would take using the methodology I did before where I came up with a list based on efficiency. So the first word based on possibilities made by the hints and correct letter guesses available from the list was the word chosen.</p>
+
+<p>There are flaws with this list sorting as <a href="https://twitter.com/authorblues/status/1481292670769192962">discussed on Twitter</a>, but I wanted to stick to my current methodology, so we’ll proceed forward.</p>
+
+<h3>The worst words</h3>
+
+<p>Defining the worst word can be achieved one of two ways. We can either look for a group of words or a single word that has the most guess attempts or we can look at them on average.</p>
+
+<p>A minimum of the number of guesses is quite simple: one if you’re lucky, but if the word doesn’t match, then two. Guessing what the largest number of guesses will be took a little bit of magic.</p>
+
+<p>The words that managed to hit a the maximum-seen attempts of 14 were: “agile”, “anile”, “dells”, “duels”, “dulls”, “dully”, “exile”, “gaily”, “guile”, “gulls”, “gully”, “jails”, “jello”, “jells”, “jelly”, “jinns”, “jolly”, “keels”, “kelly”, “lolls”, “lolly”, “lulls”, “nails”, “ninny”, “nulls”, “quell”, “rails”, “rials”, “villa”, “ville”, “villi”, “yella”, “yells”, and “yield”. If you are to notice a pattern here, almost all of them have the letter ‘l’ in them, but this isn’t really the reason why they performed badly.</p>
+
+<p>Word scores are all over the place with these words, which leads me to believe that it is not necessarily indicative of a good start. For example, “quells” is amongst that list and had a score of 307.4, but then “rails” received 768.6. The average score for all of the words was 531.1, so I’m not confident all that much in using that as a metric for a good starting word.</p>
+
+<p>So then what about averages? This gives us a better picture because Wordle limits us to six guesses. I would suggest if a word has a minimum average of 4 or higher that it should not be used at the start.</p>
+
+<p>The worst performing word had an average of 4.26 attempts, which was “jujus”. This was followed by “wheee” at 4.23, and “yukky” at 4.21. There were three tied for 4.2, and they were “vexes”, “sexes”, and “esses”.</p>
+
+<p>The word score “jujus” was 506.6, but interestingly, “sexes” received 888.6.</p>
+
+<h3>Is there a guaranteed winner?</h3>
+
+<p>The short answer is: no.</p>
+
+<p>All words with this methodology ranged from 8 to 14 maximum attempts. No single word went below 8 attempts, meaning there are starting words which will lead to failure.</p>
+
+<p>There is a silver-lining, the number of words with the smallest maximum is only slightly larger than the number of words with the largest maximum.</p>
+
+<p>There are 1,764 words of which had 12 maximum attempts, 2,085 with 11, 984 with 10, and 411 with 9. However, with 8, there are only 39 words, and all of them might justifiably be the best candidates.</p>
+
+<p>The words that performed the best were “blest”, “deism”, “doest”, “durst”, “feist”, “heist”, “least”, “liest”, “merse”, “midst”, “obese”, “pseud”, “sebum”, “sedan”, “sedge”, “sedgy”, “sedum”, “seize”, “sepia”, “serge”, “serif”, “serum”, “sheaf”, “sheik”, “sherd”, “siege”, “sieve”, “skein”, “skirt”, “slept”, “speck”, “spend”, “sperm”, “steal”, “suede”, “swell”, “swift”, “welsh”, and “wrist”.</p>
+
+<p><img src="/img/1Ka5sISDp-NUVVWlfsGT_8A_1.png" alt="" /></p>
+
+<p>“Obese” has a word score of 277.8 and “pseud” is 281.6.</p>
+
+<p>Going back to word scores, we arrive upon something curious: the range of scores is between 277.8 and 526, with the average being 398.4. Perhaps the way to look at the word score is not at whether it is strong at the start, but instead if it eliminates all of the least likely? This would suggest that words such as “obese” or “pseud” could be good starting candidates.</p>
+
+<h3>Could we find a most-likely?</h3>
+
+<p>This is where I want to deviate: a maximum does not imply that it is the worst choice. And in this case, I am willing to believe this because I did find something amongst all of the words that allows me to suggest that there is either a flaw in my methodology or I am looking at this all wrong.</p>
+
+<p>The words “estop”, “epsom”, and “serum” had an average attempt count of 2.74, 2.77, and 2.79 each respectively. When I looked at their word scores, “estop” had 160.4, “epsom” had 165.8, and “serum” had 418.</p>
+
+<p>I decided to look at all words of which were lower than 2.9, and within the the 54 words, the minimum score was 106.6 and the maximum was 496, with an average of 336.3. I think I know where the word score’s usefulness may lie: it’s better to start with a lower than a higher one.</p>
+
+<p>When I spoke about maximums earlier, “estop” found itself with a maximum of 9 attempts. In fact, “serum”, which had a slightly higher average than “estop” found itself with a maximum of 8 — “epsom” received 9.</p>
+
+<p>But this is still an incorrect approach.</p>
+
+<p>We’re looking at the average and what I’d like to know is what has the highest percentage of wins within the limitations imposed by the game. We have six guesses, so what word is best suited on average to produce an outcome.</p>
+
+<p>With these parameters in mind, we can then use the following methodology: which word is most likely to get a guess correct within those six attempts and then not consider the steps beyond that point since they’re not indicative of what would be considered a success.</p>
+
+<p>Of the 5,756 words tested, one word managed to achieve a win in three moves 69.4% of the time: “verso”. It also achieved a win in two moves 10.8% of the time, four was 13.1%, five was 4.6%, and six was 1.5% — a 99.4% successful starting word.</p>
+
+<p>But this is not the best word even though it is the best word for the quickest win — fortunately we already know the best one to use in order to win.</p>
+
+<p>As mentioned before, “estop” had an average of 2.74 attempts before a win, but importantly it has the highest success rate. It edged out “verso” by achieving a 99.6% win rate with 46% of all attempts being achieved in its first two guesses and then three in 40% — four was 9.4%, five was 3.2%, and six was 0.9%.</p>
+
+<p>With a failure on only 19 words from the word list — compared to 30 for the other word I was testing with — starting with just “estop” should net you a win most of the time.</p>
+
+<p>So in my opinion: “estop” is by far the best word.</p>
+
+<p><img src="/img/1DezAoeADAebHml6mnxXMOA_1.png" alt="" /></p>
+
+<p>From January 30th’s Wordle: “estop” showed that despite failing the first two guesses, the algorithm did it in four tries whereas “verso” had to make an extra guess.</p>
+
+<h3>The data</h3>
+
+<p><a href="https://github.com/KateLibC/WordleStats">I’m happy to share the data I have made</a> and I welcome you to demonstrate anything you have done with it. However, I must reiterate that I am not a statistician nor do I consider myself adept with mathematics. What I will say that I was out to have fun to solve this challenge and I feel like I have.</p>
+
+<p>I wanted to play this game unconventionally and I think I accomplished that goal. There are some further ideas to achieve a 100% success rate or at least get extremely close to it, but being that I am at 99.6% successful on just this algorithm alone, it does make me think that this little project can be considered “ended”.</p>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Cariad Heather Keigher - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="https://cariad.keigher.ca/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Adventures with an 11,000 kilometre-long Game Boy Advance link</title>
+  <meta name="description" content="One of the things I lamented a lot growing up was an inability to find anyone else to do Game Boy link cable games with. I had a few games which would work with the setup, but very few of my friends had Game Boys themselves and when my younger brother received a Game Boy Pocket (I had the black-coloured original), it used a different cable all together, making it impossible for us to play Pokémon together. My Game Boy was always on its own little island, never to see any real interaction any other device. It wasn’t until I was much older that I would have the ability to hook it up with other Game Boys since I now own a Game Boy Advance (GBA), Game Boy Player, and Super Game Boy 2. But everything is online now and starting with the handheld’s successor, the Nintendo DS: it’s also wireless. There are a lot of gems for the Game Boy out there which relied on this cable that have since become largely forgotten or at least cannot have the full extent of their capabilities realized. The GameCube and Game Boy Advance One of the features of the GameCube was the ability to attach to a GBA via a controller port. This wasn’t meant to output from a handheld to a TV necessarily (such as with the Super Game Boy on the Super Nintendo), but instead to act as an alternate controller or to transfer content between. This same cable also works on Wii consoles with the appropriate controller ports. My rather beat-up GameCube attached to a Game Boy Advance One other benefit of this cable is when using the Game Boy Player, you can use the GBA as a controller instead of the awkwardly-shaped one provided with the console. And if you want to go further, you can also attach the cable to another GameCube if you want to make use of the Player on there instead. As weird as this looks, it’s entirely possible to use your Wii and GameCube this way. Or you can go all “chaotic evil” and use this configuration, which too works, but not for the purposes of I am discussing here — I just thought it was neat to share! Two friends of mine gave me a SGB2 after returning from Japan and it’s a far better device than the original Super Game Boy. One of the features of the GBA is the ability to load software on it without having to insert a cartridge. This made the handheld rather powerful as a game loaded on a GameCube could load content on to a handheld without additional copies of software. This was taken advantage of games such as PacMan Vs., Final Fantasy Crystal Chronicles, and importantly for this article, The Legend of Zelda: Four Swords Adventure. All of these games required the use of a GBA to be attached for multiplayer action and acted a lot like what you’d see in some Wii U games. However, this required you to have multiple GBA handhelds, the cables themselves (sold separately), and the appropriate copy of the GameCube game. A ridiculous dream One of the consequences of the ongoing pandemic is the inability to not only safely play some games in the comfort of our own homes, but to travel to see each other when we have shared interests. I’ve been wanting to play one of the aforementioned games with a few friends, but safety is important. So on and off I’ve been thinking about just playing these games over the Internet. It was more or less an idle thought in 2020, but then in early 2021, someone released an adapter which allowed you to make use of a Raspberry Pi Pico to allow a desktop computer to interface with a link cable. I quickly ordered one and assembled it. No. This doesn’t work. Yes. That is my Game Boy from childhood. There’s now no reason that physically a GameCube couldn’t attach to the Internet if I had at least three of these USB adapters attached to the console with three of those appropriate link cables, and then three other people with GBAs with the same adapters attached to their PCs. And that is where the problems started: it required everyone to have the hardware. Unfortunately, that wasn’t going to be the only issue. The adapter itself was intended purely to trade Pokémon, which itself should work even with the latency the Internet creates. It was designed around the idea that it should be fine for pure Game Boy to Game Boy connectivity, which is forgiving due to how the protocol is supposed to work. Since the link protocol is synchronous and bits are sent and received simultaneously, that means the master device requires the slave to send its response at a rate equal to the clock speed. In non-Game Boy Color mode, the master Game Boy supplies an 8KHz clock (data transfer speed of 1KB/s). This means that there is only a ~120μs window to respond! The Game Boy Color can operate at even higher speeds. No internet connection could possibly satisfy this latency requirement. However, the slave device has no such constraints. It just responds when it receives data! Unfortunately, it doesn’t appear that this is the case with the GBA. Based on what I am reading in some excellent documentation, the clock rate is even tighter with its tolerances (256 KHz to 2 MHz for the GBA as opposed to the original Game Boy’s 8 KHz). As a result, the hardware is unlikely to accept being a GameCube controller once you are of significant distance, which in the GBA’s case is more than a few metres. But maybe the hardware being a problem is a non-issue. What if we just scrapped the hardware idea and do this using software instead? Luck would have it that a few months after the USB adapter was released, the team behind the GameCube (and Wii) emulator, Dolphin announced a new feature: Game Boy Advance netplay. This was no small feat for the team, but they’re also known for being rather meticulous and talented with their software. It wasn’t fool-proof and was rife with problems as evident from this excerpt from their blog: These games in particular loved to spam tons of commands, sometimes sending over 200 commands a frame. This exposed a rather serious flaw in the TCP GBA protocol. Namely, they could get tripped up if they received a command while they were still emulating forward to catch up to the point from the previous command. When I casually brought up in the fall of that year that I wanted to do this, someone linked the above blog piece, which then led to some organization. Getting a crew together Eventually my friends, authorblues, tinahacks, Aetyate, and I got together to go over playing this game online. We kept testing brief as we wanted to play the chosen game mostly obscured from us aside from “does it work”. Once we were assured, we set up a night to play and thus The Legend of Zelda: Four Swords Adventures was being played on Twitch with all four Game Boy Advance displays on stream alongside the GameCube game itself. You have to go back and forth between the GameCube screen and the Game Boy Advance you’re playing on in order to complete this game in multiplayer. In single player mode, this is not required. While Aetyate and authorblues are in the eastern United States, tinahacks herself is in Finland. With my being in Vancouver, we effectively had two 4,000 KM (2,500 mi) connections and an 11,000 KM (6,800 mi) one going to my PC, playing a game which originally used a two metre (6 ft) cable itself — these distances are approximations and not based on the actual connections between us. A single button press would find itself travelling 15,000 KM (9,300 mi) one-way, meaning that we’re approaching at least 3/4ths of the circumference of the whole planet considering the nature of of both TCP and the link cable protocols. The emulator was required to do this in order to keep everything in sync and consequently we had to endure somewhere of a 1/5th of a second delay on our individual inputs just to make it manageable. But it was possible and we were playing it. Two people in the eastern United States, one in northern Europe, and myself in Western Canada were about to do something that would have been seen as absurd when the game initially came out Reducing the latency was something I had considered. I looked at options for acquiring a virtual machine with a GPU located somewhere in eastern North America close to fibre links across the Atlantic to Europe, but the costs for such systems have become quite expensive. For example, one large cloud computing service was quoting me US$800 for a single month’s use of a machine meeting these requirements. Even with a discount I had available plus US$450 in credits I had with them, it just didn’t seem worth it. One thing we learnt quick to do was test our controllers by using the battle mode within the game just to make sure that nothing found itself remapped. This was something another streamer had done in order to host fighting games online and had a great deal of success, but we didn’t feel that the cost was worth it for what we were playing. Four Swords Adventure is an action role playing game and with two streams of this game under our belt, we were feeling that latency would not hinder us too much. Or so we thought. When the lag caught up with us The latency in Four Swords Adventures was largely manageable for us and often was comical. In fact, the latency was the least of our concerns for the most part as we had other issues to deal with. During one of our streams, tinahacks’ copy of Dolphin suddenly ran into problems and started to spew all sorts of errors on her computer. Fortunately, we were not too far past the last save point so we all opted to just restart Dolphin and carry on. When the game broke, the stream broke. On average, I was seeing about 60–80 ms of latency between Aetyate and I, 110–130 ms for authorblues, and unsurprisingly, 180–220 ms for tinahacks. This is where the whole 1/5th of a second from earlier comes from. We were restricted by the laws of physics to what options we had available. Dolphin includes an adjustable buffer setting in its netplay feature and we can adjust it based on what feels right. I kept it at ‘20’ the whole time as reducing it any further started to introduce audio choppiness and that is just not good “stream content”. It was fine for the first two streams, but towards the middle of our third night of playing the game, it reared its ugly head. The game wanted us to walk in-step to get to the other side and failing to do so would result in us having to circle back to where we began on the screen. Walking into this square without care will lead to you falling into a pit and having to come around back. You can see Aetyate falling into a pit on the bottom-right with myself and authorblues right — tinahacks is presently dashing across on the far right. Typically if you run across a pit in a Zelda game, you can use your “Pegasus Boots” item to quickly dart across large gaps. However, the game developers placed what appears to be potato-pineapple hybrids in the way so if you were to dash across, you’d collide with them and then fall down the pit. The game requires you to walk parallel to each other in formation in order to keep the platform balanced and then upon approaching the blocked items, simultaneously pull them off of the ground and then toss them. If you can pull off the second part successfully, then the pit is resolved so all we need to worry about is just getting at least one of us across. With the current buffer settings, we probably made a dozen and a half if not more attempts. It was starting to look dire as the input latency combined with the latency that a Discord audio call produces made it impossible for us to just get the timing down right. It was beginning to look like this might be the end of this fun experiment until we tried one idea. Let’s just make the buffer not exist and play the game frame-by-frame. You absolutely should watch the video in this tweet to understand how everything went because while we were successful, someone decided to be a “bother” once it was known that we made it. Each frame we progressed was progress in itself and when we made it to the other side, almost all of us managed to remember to pick up the object on the other end — I inadvertently hit my sword button instead (oops). What proceeded was pure comedy because once one of us successfully got over, another went and attempted to sabotage everything because it was possible to get away with that now and I found myself and that saboteur at the bottom of the pit. However, this was no longer a problem as now the boots I had put on earlier were now possible as an option across this pit. At least two of us were on the other side despite someone’s best efforts. This wasn’t the only obvious latency problem we had to contend with as a prior boss battle during this stream was proving difficult due to a need to time certain actions, but this was the first time we had to adjust the emulation in order to actually make any meaningful progress. What’s next? We have a few more streams of this game left with plans for this upcoming Sunday and Tuesday (February 6 and 8, 2022), with the second day being a hopeful completion of what has been a rather fun experience. This will be on authorblues’ Twitch channel. If you’re interested in watching the past broadcasts, you can view the VODs on Twitch here (I will do my best to update this with the other streams once we are done): February 1, 2022 (Part 3) January 25, 2022 (Part 2) January 20, 2022 (Part 1) After completing our misadventures, we intend to play Final Fantasy Crystal Chronicles, which is another game I have never played. This is likely to be after the upcoming Frost Fatales 2022, an all-women speedrunning marathon I contribute my spare time to. I hope you’ll check out as we’re raising money for Malala Fund and lots of talented women will show how fast they can play games!">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://cariad.keigher.ca/2022/02/03/adventures-with-an-11-000-kilometre-long-game-boy-advance-link/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="cariad.keigher.ca" href="https://cariad.keigher.ca/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Adventures with an 11,000 kilometre-long Game Boy Advance link">
+  <meta property="og:site_name" content="cariad.keigher.ca">
+  <meta property="og:url" content="https://cariad.keigher.ca/2022/02/03/adventures-with-an-11-000-kilometre-long-game-boy-advance-link/">
+  <meta property="og:description" content="One of the things I lamented a lot growing up was an inability to find anyone else to do Game Boy link cable games with. I had a few games which would work with the setup, but very few of my friends had Game Boys themselves and when my younger brother received a Game Boy Pocket (I had the black-coloured original), it used a different cable all together, making it impossible for us to play Pokémon together. My Game Boy was always on its own little island, never to see any real interaction any other device. It wasn’t until I was much older that I would have the ability to hook it up with other Game Boys since I now own a Game Boy Advance (GBA), Game Boy Player, and Super Game Boy 2. But everything is online now and starting with the handheld’s successor, the Nintendo DS: it’s also wireless. There are a lot of gems for the Game Boy out there which relied on this cable that have since become largely forgotten or at least cannot have the full extent of their capabilities realized. The GameCube and Game Boy Advance One of the features of the GameCube was the ability to attach to a GBA via a controller port. This wasn’t meant to output from a handheld to a TV necessarily (such as with the Super Game Boy on the Super Nintendo), but instead to act as an alternate controller or to transfer content between. This same cable also works on Wii consoles with the appropriate controller ports. My rather beat-up GameCube attached to a Game Boy Advance One other benefit of this cable is when using the Game Boy Player, you can use the GBA as a controller instead of the awkwardly-shaped one provided with the console. And if you want to go further, you can also attach the cable to another GameCube if you want to make use of the Player on there instead. As weird as this looks, it’s entirely possible to use your Wii and GameCube this way. Or you can go all “chaotic evil” and use this configuration, which too works, but not for the purposes of I am discussing here — I just thought it was neat to share! Two friends of mine gave me a SGB2 after returning from Japan and it’s a far better device than the original Super Game Boy. One of the features of the GBA is the ability to load software on it without having to insert a cartridge. This made the handheld rather powerful as a game loaded on a GameCube could load content on to a handheld without additional copies of software. This was taken advantage of games such as PacMan Vs., Final Fantasy Crystal Chronicles, and importantly for this article, The Legend of Zelda: Four Swords Adventure. All of these games required the use of a GBA to be attached for multiplayer action and acted a lot like what you’d see in some Wii U games. However, this required you to have multiple GBA handhelds, the cables themselves (sold separately), and the appropriate copy of the GameCube game. A ridiculous dream One of the consequences of the ongoing pandemic is the inability to not only safely play some games in the comfort of our own homes, but to travel to see each other when we have shared interests. I’ve been wanting to play one of the aforementioned games with a few friends, but safety is important. So on and off I’ve been thinking about just playing these games over the Internet. It was more or less an idle thought in 2020, but then in early 2021, someone released an adapter which allowed you to make use of a Raspberry Pi Pico to allow a desktop computer to interface with a link cable. I quickly ordered one and assembled it. No. This doesn’t work. Yes. That is my Game Boy from childhood. There’s now no reason that physically a GameCube couldn’t attach to the Internet if I had at least three of these USB adapters attached to the console with three of those appropriate link cables, and then three other people with GBAs with the same adapters attached to their PCs. And that is where the problems started: it required everyone to have the hardware. Unfortunately, that wasn’t going to be the only issue. The adapter itself was intended purely to trade Pokémon, which itself should work even with the latency the Internet creates. It was designed around the idea that it should be fine for pure Game Boy to Game Boy connectivity, which is forgiving due to how the protocol is supposed to work. Since the link protocol is synchronous and bits are sent and received simultaneously, that means the master device requires the slave to send its response at a rate equal to the clock speed. In non-Game Boy Color mode, the master Game Boy supplies an 8KHz clock (data transfer speed of 1KB/s). This means that there is only a ~120μs window to respond! The Game Boy Color can operate at even higher speeds. No internet connection could possibly satisfy this latency requirement. However, the slave device has no such constraints. It just responds when it receives data! Unfortunately, it doesn’t appear that this is the case with the GBA. Based on what I am reading in some excellent documentation, the clock rate is even tighter with its tolerances (256 KHz to 2 MHz for the GBA as opposed to the original Game Boy’s 8 KHz). As a result, the hardware is unlikely to accept being a GameCube controller once you are of significant distance, which in the GBA’s case is more than a few metres. But maybe the hardware being a problem is a non-issue. What if we just scrapped the hardware idea and do this using software instead? Luck would have it that a few months after the USB adapter was released, the team behind the GameCube (and Wii) emulator, Dolphin announced a new feature: Game Boy Advance netplay. This was no small feat for the team, but they’re also known for being rather meticulous and talented with their software. It wasn’t fool-proof and was rife with problems as evident from this excerpt from their blog: These games in particular loved to spam tons of commands, sometimes sending over 200 commands a frame. This exposed a rather serious flaw in the TCP GBA protocol. Namely, they could get tripped up if they received a command while they were still emulating forward to catch up to the point from the previous command. When I casually brought up in the fall of that year that I wanted to do this, someone linked the above blog piece, which then led to some organization. Getting a crew together Eventually my friends, authorblues, tinahacks, Aetyate, and I got together to go over playing this game online. We kept testing brief as we wanted to play the chosen game mostly obscured from us aside from “does it work”. Once we were assured, we set up a night to play and thus The Legend of Zelda: Four Swords Adventures was being played on Twitch with all four Game Boy Advance displays on stream alongside the GameCube game itself. You have to go back and forth between the GameCube screen and the Game Boy Advance you’re playing on in order to complete this game in multiplayer. In single player mode, this is not required. While Aetyate and authorblues are in the eastern United States, tinahacks herself is in Finland. With my being in Vancouver, we effectively had two 4,000 KM (2,500 mi) connections and an 11,000 KM (6,800 mi) one going to my PC, playing a game which originally used a two metre (6 ft) cable itself — these distances are approximations and not based on the actual connections between us. A single button press would find itself travelling 15,000 KM (9,300 mi) one-way, meaning that we’re approaching at least 3/4ths of the circumference of the whole planet considering the nature of of both TCP and the link cable protocols. The emulator was required to do this in order to keep everything in sync and consequently we had to endure somewhere of a 1/5th of a second delay on our individual inputs just to make it manageable. But it was possible and we were playing it. Two people in the eastern United States, one in northern Europe, and myself in Western Canada were about to do something that would have been seen as absurd when the game initially came out Reducing the latency was something I had considered. I looked at options for acquiring a virtual machine with a GPU located somewhere in eastern North America close to fibre links across the Atlantic to Europe, but the costs for such systems have become quite expensive. For example, one large cloud computing service was quoting me US$800 for a single month’s use of a machine meeting these requirements. Even with a discount I had available plus US$450 in credits I had with them, it just didn’t seem worth it. One thing we learnt quick to do was test our controllers by using the battle mode within the game just to make sure that nothing found itself remapped. This was something another streamer had done in order to host fighting games online and had a great deal of success, but we didn’t feel that the cost was worth it for what we were playing. Four Swords Adventure is an action role playing game and with two streams of this game under our belt, we were feeling that latency would not hinder us too much. Or so we thought. When the lag caught up with us The latency in Four Swords Adventures was largely manageable for us and often was comical. In fact, the latency was the least of our concerns for the most part as we had other issues to deal with. During one of our streams, tinahacks’ copy of Dolphin suddenly ran into problems and started to spew all sorts of errors on her computer. Fortunately, we were not too far past the last save point so we all opted to just restart Dolphin and carry on. When the game broke, the stream broke. On average, I was seeing about 60–80 ms of latency between Aetyate and I, 110–130 ms for authorblues, and unsurprisingly, 180–220 ms for tinahacks. This is where the whole 1/5th of a second from earlier comes from. We were restricted by the laws of physics to what options we had available. Dolphin includes an adjustable buffer setting in its netplay feature and we can adjust it based on what feels right. I kept it at ‘20’ the whole time as reducing it any further started to introduce audio choppiness and that is just not good “stream content”. It was fine for the first two streams, but towards the middle of our third night of playing the game, it reared its ugly head. The game wanted us to walk in-step to get to the other side and failing to do so would result in us having to circle back to where we began on the screen. Walking into this square without care will lead to you falling into a pit and having to come around back. You can see Aetyate falling into a pit on the bottom-right with myself and authorblues right — tinahacks is presently dashing across on the far right. Typically if you run across a pit in a Zelda game, you can use your “Pegasus Boots” item to quickly dart across large gaps. However, the game developers placed what appears to be potato-pineapple hybrids in the way so if you were to dash across, you’d collide with them and then fall down the pit. The game requires you to walk parallel to each other in formation in order to keep the platform balanced and then upon approaching the blocked items, simultaneously pull them off of the ground and then toss them. If you can pull off the second part successfully, then the pit is resolved so all we need to worry about is just getting at least one of us across. With the current buffer settings, we probably made a dozen and a half if not more attempts. It was starting to look dire as the input latency combined with the latency that a Discord audio call produces made it impossible for us to just get the timing down right. It was beginning to look like this might be the end of this fun experiment until we tried one idea. Let’s just make the buffer not exist and play the game frame-by-frame. You absolutely should watch the video in this tweet to understand how everything went because while we were successful, someone decided to be a “bother” once it was known that we made it. Each frame we progressed was progress in itself and when we made it to the other side, almost all of us managed to remember to pick up the object on the other end — I inadvertently hit my sword button instead (oops). What proceeded was pure comedy because once one of us successfully got over, another went and attempted to sabotage everything because it was possible to get away with that now and I found myself and that saboteur at the bottom of the pit. However, this was no longer a problem as now the boots I had put on earlier were now possible as an option across this pit. At least two of us were on the other side despite someone’s best efforts. This wasn’t the only obvious latency problem we had to contend with as a prior boss battle during this stream was proving difficult due to a need to time certain actions, but this was the first time we had to adjust the emulation in order to actually make any meaningful progress. What’s next? We have a few more streams of this game left with plans for this upcoming Sunday and Tuesday (February 6 and 8, 2022), with the second day being a hopeful completion of what has been a rather fun experience. This will be on authorblues’ Twitch channel. If you’re interested in watching the past broadcasts, you can view the VODs on Twitch here (I will do my best to update this with the other streams once we are done): February 1, 2022 (Part 3) January 25, 2022 (Part 2) January 20, 2022 (Part 1) After completing our misadventures, we intend to play Final Fantasy Crystal Chronicles, which is another game I have never played. This is likely to be after the upcoming Frost Fatales 2022, an all-women speedrunning marathon I contribute my spare time to. I hope you’ll check out as we’re raising money for Malala Fund and lots of talented women will show how fast they can play games!">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Adventures with an 11,000 kilometre-long Game Boy Advance link">
+  <meta name="twitter:description" content="One of the things I lamented a lot growing up was an inability to find anyone else to do Game Boy link cable games with. I had a few games which would work with the setup, but very few of my friend...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+
+  
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">cariad.keigher.ca</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://hachyderm.io/@KateLibC">Mastodon</a>
+      
+        
+        <a class="page-link" href="https://bsky.app/profile/cariad.bsky.social">Bluesky</a>
+      
+        
+        <a class="page-link" href="https://github.com/katelibc">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">Adventures with an 11,000 kilometre-long Game Boy Advance link</h1>
+    
+    <p class="post-meta"><time datetime="2022-02-03T00:00:00+00:00" itemprop="datePublished">Feb 3, 2022</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <hr />
+
+<p>One of the things I lamented a lot growing up was an inability to find anyone else to do Game Boy link cable games with. I had a few games which would work with the setup, but very few of my friends had Game Boys themselves and when my younger brother received a Game Boy Pocket (I had the black-coloured original), <a href="https://en.wikipedia.org/wiki/Game_Link_Cable">it used a different cable all together</a>, making it impossible for us to play Pokémon together.</p>
+
+<p>My Game Boy was always on its own little island, never to see any real interaction any other device. It wasn’t until I was much older that I would have the ability to hook it up with other Game Boys since I now own a Game Boy Advance (GBA), Game Boy Player, and Super Game Boy 2.</p>
+
+<p>But everything is online now and starting with the handheld’s successor, the Nintendo DS: it’s also wireless. There are a lot of gems for the Game Boy out there which relied on this cable that have since become largely forgotten or at least cannot have the full extent of their capabilities realized.</p>
+
+<h3>The GameCube and Game Boy Advance</h3>
+
+<p>One of the features of the GameCube was <a href="https://en.wikipedia.org/wiki/GameCube_%E2%80%93_Game_Boy_Advance_link_cable">the ability to attach to a GBA via a controller port</a>. This wasn’t meant to output from a handheld to a TV necessarily (such as with the Super Game Boy on the Super Nintendo), but instead to act as an alternate controller or to transfer content between. This same cable also works on Wii consoles with the appropriate controller ports.</p>
+
+<p><img src="/img/1biEqjKPLVVy6BPn4aH8mQA_1.png" alt="" /></p>
+
+<p>My rather beat-up GameCube attached to a Game Boy Advance</p>
+
+<p>One other benefit of this cable is when using the Game Boy Player, you can use the GBA as a controller instead of the awkwardly-shaped one provided with the console. And if you want to go further, you can also attach the cable to another GameCube if you want to make use of the Player on there instead.</p>
+
+<p><img src="/img/1CP7mcsRxMfHKIsI5k1FRaA_1.png" alt="" /></p>
+
+<p>As weird as this looks, it’s entirely possible to use your Wii and GameCube this way.</p>
+
+<p><img src="/img/1d9KzsC1W4sHm32hHWYZy2w_1.png" alt="" /></p>
+
+<p>Or you can go all “chaotic evil” and use this configuration, which too works, but not for the purposes of I am discussing here — I just thought it was neat to share! Two friends of mine gave me a SGB2 after returning from Japan and it’s a far better device than the original Super Game Boy.</p>
+
+<p>One of the features of the GBA is the ability to load software on it without having to insert a cartridge. This made the handheld rather powerful as a game loaded on a GameCube could load content on to a handheld without additional copies of software.</p>
+
+<p>This was taken advantage of games such as PacMan Vs., Final Fantasy Crystal Chronicles, and importantly for this article, The Legend of Zelda: Four Swords Adventure. All of these games required the use of a GBA to be attached for multiplayer action and acted a lot like what you’d see in some Wii U games.</p>
+
+<p>However, this required you to have multiple GBA handhelds, the cables themselves (sold separately), and the appropriate copy of the GameCube game.</p>
+
+<h3>A ridiculous dream</h3>
+
+<p>One of the consequences of the ongoing pandemic is the inability to not only safely play some games in the comfort of our own homes, but to travel to see each other when we have shared interests. I’ve been wanting to play one of the aforementioned games with a few friends, but safety is important.</p>
+
+<p>So on and off I’ve been thinking about just playing these games over the Internet. It was more or less an idle thought in 2020, but then in early 2021, someone <a href="https://stacksmashing.gumroad.com/l/gb-link">released an adapter</a> which allowed you to make use of a Raspberry Pi Pico to allow a desktop computer to interface with a link cable. I quickly ordered one and assembled it.</p>
+
+<p><img src="/img/1mBkQoK2tVo7PKO4yF5v-gg_1.png" alt="" /></p>
+
+<p>No. This doesn’t work. Yes. That is my Game Boy from childhood.</p>
+
+<p>There’s now no reason that physically a GameCube couldn’t attach to the Internet if I had at least three of these USB adapters attached to the console with three of those appropriate link cables, and then three other people with GBAs with the same adapters attached to their PCs.</p>
+
+<p>And that is where the problems started: it required everyone to have the hardware. Unfortunately, that wasn’t going to be the only issue.</p>
+
+<p>The adapter itself was intended purely to trade Pokémon, <a href="https://blog.gbplay.io/2021/05/10/An-8-Bit-Idea_The-Internet-of-Game-Boys.html">which itself should work even with the latency the Internet creates</a>. It was designed around the idea that it should be fine for pure Game Boy to Game Boy connectivity, which is forgiving due to how the protocol is supposed to work.</p>
+
+<blockquote>
+  <p>Since the link protocol is synchronous and bits are sent and received simultaneously, that means the master device requires the slave to send its response at a rate equal to the clock speed. In non-Game Boy Color mode, the master Game Boy supplies an 8KHz clock (data transfer speed of 1KB/s). This means that there is only a ~120μs window to respond! The Game Boy Color can operate at even higher speeds. No internet connection could possibly satisfy this latency requirement. However, the slave device has no such constraints. It just responds when it receives data!</p>
+</blockquote>
+
+<p>Unfortunately, it doesn’t appear that this is the case with the GBA. Based on what I am reading in some <a href="http://www.akkit.org/info/gbatek.htm#gbacommunicationports">excellent documentation</a>, the clock rate is even tighter with its tolerances (256 KHz to 2 MHz for the GBA as opposed to the original Game Boy’s 8 KHz). As a result, the hardware is unlikely to accept being a GameCube controller once you are of significant distance, which in the GBA’s case is more than a few metres.</p>
+
+<p>But maybe the hardware being a problem is a non-issue. What if we just scrapped the hardware idea and do this using software instead?</p>
+
+<p>Luck would have it that a few months after the USB adapter was released, the team behind the GameCube (and Wii) emulator, Dolphin announced a new feature: <a href="https://dolphin-emu.org/blog/2021/07/21/integrated-gba/">Game Boy Advance netplay</a>.</p>
+
+<p>This was no small feat for the team, but they’re also known for being rather meticulous and talented with their software. It wasn’t fool-proof and was rife with problems as evident from this excerpt from their blog:</p>
+
+<blockquote>
+  <p>These games in particular loved to spam tons of commands, sometimes sending over 200 commands a frame. This exposed a rather serious flaw in the TCP GBA protocol. Namely, they could get tripped up if they received a command while they were still emulating forward to catch up to the point from the previous command.</p>
+</blockquote>
+
+<p>When I casually brought up in the fall of that year that I wanted to do this, someone linked the above blog piece, which then led to some organization.</p>
+
+<h3>Getting a crew together</h3>
+
+<p>Eventually my friends, <a href="https://twitter.com/authorblues">authorblues</a>, <a href="https://twitter.com/callmewuest">tinahacks</a>, <a href="https://twitter.com/aetyate">Aetyate</a>, and I got together to go over playing this game online. We kept testing brief as we wanted to play the chosen game mostly obscured from us aside from “does it work”.</p>
+
+<p>Once we were assured, we set up a night to play and thus <a href="https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Four_Swords_Adventures">The Legend of Zelda: Four Swords Adventures</a> was being played on Twitch with all four Game Boy Advance displays on stream alongside the GameCube game itself.</p>
+
+<p><img src="/img/1gGnKQnz084ShaEcJTTbdgQ_1.png" alt="" /></p>
+
+<p>You have to go back and forth between the GameCube screen and the Game Boy Advance you’re playing on in order to complete this game in multiplayer. In single player mode, this is not required.</p>
+
+<p>While Aetyate and authorblues are in the eastern United States, tinahacks herself is in Finland. With my being in Vancouver, we effectively had two 4,000 KM (2,500 mi) connections and an 11,000 KM (6,800 mi) one going to my PC, playing a game which originally used a two metre (6 ft) cable itself — these distances are approximations and not based on the actual connections between us.</p>
+
+<p>A single button press would find itself travelling 15,000 KM (9,300 mi) one-way, meaning that we’re approaching at least 3/4ths of the circumference of the whole planet considering the nature of of both TCP and the link cable protocols. The emulator was required to do this in order to keep everything in sync and consequently we had to endure somewhere of a 1/5th of a second delay on our individual inputs just to make it manageable.</p>
+
+<p>But it was possible and we were playing it.</p>
+
+<p><img src="/img/1ORWszohXzW0wOvRsMpL84w_1.png" alt="" /></p>
+
+<p>Two people in the eastern United States, one in northern Europe, and myself in Western Canada were about to do something that would have been seen as absurd when the game initially came out</p>
+
+<p>Reducing the latency was something I had considered. I looked at options for acquiring a virtual machine with a GPU located somewhere in eastern North America close to fibre links across the Atlantic to Europe, but the costs for such systems have become quite expensive.</p>
+
+<p>For example, one large cloud computing service was quoting me US$800 for a single month’s use of a machine meeting these requirements. Even with a discount I had available plus US$450 in credits I had with them, it just didn’t seem worth it.</p>
+
+<p><img src="/img/1ejRHQzvvt3WSAZq2EwP96A_1.png" alt="" /></p>
+
+<p>One thing we learnt quick to do was test our controllers by using the battle mode within the game just to make sure that nothing found itself remapped.</p>
+
+<p>This was something another streamer had done in order to host fighting games online and had a great deal of success, but we didn’t feel that the cost was worth it for what we were playing. Four Swords Adventure is an action role playing game and with two streams of this game under our belt, we were feeling that latency would not hinder us too much.</p>
+
+<p>Or so we thought.</p>
+
+<h3>When the lag caught up with us</h3>
+
+<p>The latency in Four Swords Adventures was largely manageable for us and often was comical. In fact, the latency was the least of our concerns for the most part as we had other issues to deal with.</p>
+
+<p>During one of our streams, tinahacks’ copy of Dolphin suddenly ran into problems and started to spew all sorts of errors on her computer. Fortunately, we were not too far past the last save point so we all opted to just restart Dolphin and carry on.</p>
+
+<p><img src="/img/159SGRCsm1gIjskJjPmU_ew_1.png" alt="" /></p>
+
+<p>When the game broke, the stream broke.</p>
+
+<p>On average, I was seeing about 60–80 ms of latency between Aetyate and I, 110–130 ms for authorblues, and unsurprisingly, 180–220 ms for tinahacks.</p>
+
+<p>This is where the whole 1/5th of a second from earlier comes from. We were restricted by the laws of physics to what options we had available.</p>
+
+<p>Dolphin includes an adjustable buffer setting in its netplay feature and we can adjust it based on what feels right. I kept it at ‘20’ the whole time as reducing it any further started to introduce audio choppiness and that is just not good “stream content”. It was fine for the first two streams, but towards the middle of our third night of playing the game, it reared its ugly head.</p>
+
+<p>The game wanted us to walk in-step to get to the other side and failing to do so would result in us having to circle back to where we began on the screen.</p>
+
+<p><img src="/img/1lX02ALhpysQKJFFyiOgSkA_1.png" alt="" /></p>
+
+<p>Walking into this square without care will lead to you falling into a pit and having to come around back. You can see Aetyate falling into a pit on the bottom-right with myself and authorblues right — tinahacks is presently dashing across on the far right.</p>
+
+<p>Typically if you run across a pit in a Zelda game, you can use your “Pegasus Boots” item to quickly dart across large gaps. However, the game developers placed what appears to be potato-pineapple hybrids in the way so if you were to dash across, you’d collide with them and then fall down the pit.</p>
+
+<p>The game requires you to walk parallel to each other in formation in order to keep the platform balanced and then upon approaching the blocked items, simultaneously pull them off of the ground and then toss them. If you can pull off the second part successfully, then the pit is resolved so all we need to worry about is just getting at least one of us across.</p>
+
+<p>With the current buffer settings, we probably made a dozen and a half if not more attempts. It was starting to look dire as the input latency combined with the latency that a Discord audio call produces made it impossible for us to just get the timing down right. It was beginning to look like this might be the end of this fun experiment until we tried one idea.</p>
+
+<p>Let’s just make the buffer not exist and play the game frame-by-frame.</p>
+
+<p>You absolutely should watch the video in this tweet to understand how everything went because while we were successful, someone decided to be a “bother” once it was known that we made it.</p>
+
+<p>Each frame we progressed was progress in itself and when we made it to the other side, almost all of us managed to remember to pick up the object on the other end — I inadvertently hit my sword button instead (oops).</p>
+
+<p>What proceeded was pure comedy because once one of us successfully got over, another went and attempted to sabotage everything because it was possible to get away with that now and I found myself and that saboteur at the bottom of the pit.</p>
+
+<p>However, this was no longer a problem as now the boots I had put on earlier were now possible as an option across this pit.</p>
+
+<p><img src="/img/1nwZy5gRIV8l4r5ymWaiDGQ_1.png" alt="" /></p>
+
+<p>At least two of us were on the other side despite someone’s best efforts.</p>
+
+<p>This wasn’t the only obvious latency problem we had to contend with as a prior boss battle during this stream was proving difficult due to a need to time certain actions, but this was the first time we had to adjust the emulation in order to actually make any meaningful progress.</p>
+
+<h3>What’s next?</h3>
+
+<p>We have a few more streams of this game left with plans for this upcoming Sunday and Tuesday (February 6 and 8, 2022), with the second day being a hopeful completion of what has been a rather fun experience. This will be on <a href="https://www.twitch.tv/authorblues">authorblues’ Twitch channel</a>.</p>
+
+<p>If you’re interested in watching the past broadcasts, you can view the VODs on Twitch here (I will do my best to update this with the other streams once we are done):</p>
+
+<ul>
+  <li><a href="https://www.twitch.tv/videos/1283953211">February 1, 2022 (Part 3)</a></li>
+  <li><a href="https://www.twitch.tv/videos/1276216366">January 25, 2022 (Part 2)</a></li>
+  <li><a href="https://www.twitch.tv/videos/1270519533">January 20, 2022 (Part 1)</a></li>
+</ul>
+
+<p>After completing our misadventures, we intend to play <a href="https://en.wikipedia.org/wiki/Final_Fantasy_Crystal_Chronicles_%28video_game%29">Final Fantasy Crystal Chronicles</a>, which is another game I have never played.</p>
+
+<p>This is likely to be after the upcoming <a href="https://gamesdonequick.com/framefatales">Frost Fatales 2022</a>, an all-women speedrunning marathon I contribute my spare time to. I hope you’ll check out as we’re raising money for Malala Fund and lots of talented women will show how fast they can play games!</p>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Cariad Heather Keigher - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="https://cariad.keigher.ca/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

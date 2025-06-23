@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Hacking Wordle through automation and cryptanalysis</title>
+  <meta name="description" content="Recently, a game called Wordle has exploded in popularity with its simple five-letter guessing game. I’ve been playing it for a few weeks but have also been musing over how to automate this all using my knowledge of classical cryptography. So let’s dive in! Patterns in the English language While English is a very complicated language, it is also rather predictable and it is because of this we can play around with statistics. Letter frequency is often spoken about in cryptanalysis and is often a basis for solving cryptographic puzzles I release periodically. With Wordle, we’re limited to five-letter words, so what I wanted to do is figure out what are the most common letters per position. The use of letter frequency is helpful, but because we’re dealing with restrictions, the base statistics are merely a guide and not a rule. Using a list of five-letter words, I generated some statistics and came up with some answers for each position. In order, the first position had the most common letter of “s”, the second “a”, the third “a”, the fourth “e”, and the last being “s”. Now obviously, the word “saaes” does not exist in this word list, but we can use this knowledge to build a score for each word. By going through the list, we can use the counts of each position to its letter within that position and then come up with a score. For example, the word “sores” in a set of the highest word score and has the values of 724, 911, 475, 1228, and 1764. If we create an average of those numbers, we come up with an answer of 1,020.4. Using these averages to create a score for each, we can then order a list. That is all right? Well, not exactly, because there’s one other hiccup. Of the 5,756 words I am working with, 38% of them end in the letter “s”. This is not really all that surprising seeing that four-letter words made plural should not be uncommon. However, I don’t want them to be dominant when I go to automate this later on, so I need to fix this. While maybe not the best way to do this, I sorted the list in to two halves. The first half were words with all unique letters and the second not. In both halves, the order was kept from earlier, so once we finished the first half starting from the highest score to lowest, the same would repeat on the second. At this point I decided I was done and felt that I had the most “efficient” list. Where to start Now that we have this list, we need to know what word to start off with. I’ve seen a lot of people suggest words like “audio” and “ports”, but the one I seem to find works best is “cares”. “Cares” has a word score of 967.4, whereas “audio” gets 288.4 and “ports” has 796.6. The point of the game is to produce an answer in as few steps as possible and while you will knock off a lot of vowels and consonants with those two, you are likely reducing the chances of answering in the fewest attempts. My choice of word also includes the letter “e”, which is the most common letter used in the English language. On average, you should see that letter appear about 10–13% of the time, with the letter “a” being about 7–9%, and “s” being 6–9%. You can also order it as “scare” or “races” too if you desire, but I believe that with “s” at the end and putting “r” in the middle, you cover all initial possibilities quite effectively here. Writing code to deal with this Wordle’s rules are very straight forward: you have five letters and six attempts. On each attempt, the game will inform you on whether or not each letter is valid based on colour. If the letter in a position is valid, it’ll give it a background colour of green, if invalid then grey, and if invalid but elsewhere in the word, amber. With this knowledge, I went and created a Python script to churn through a word list and find words based on inputs I give. I am solely responsible for the starting word, but the script itself will use my inputs and produce an answer based on the first hit in a list of words which matches the patterns. The script works by dynamically generating a regular expression pattern for words that are not valid and then goes through to confirm that the letters that are suggested to be anywhere in the word are then only included. It then spits out the first word from the list created which itself is based off of the scoring method I wrote earlier. It’s fairly simple and runs from a command line. Testing it out One hiccup is that Wordle only allows one guess per day. Now, while I could just erase my browser session data to test this out, there is fortunately a clone which not only allows for the same five-letter words, but can also be used on words of which are much longer — and my script can be used on words of any length provided there is a word list. This clone allows you to keep playing to your hearts content so it became my test bed. Feeding letters to the script to find the word Even if the first guess is completely incorrect, we can do it in three steps The positional arguments in the script are simple. You supply a wordlist (“words_efficient_er.txt”), the letters you wish to completely discard (“c”, “a”, “r”, “e”, “s”, “o”, and “l”), the letters you want to find anywhere (“d” and “i”, or just “_” for none), and then for each position you either put “_” as a wildcard, the known letter, or you precede letters in that position with a “.”, so if you want to exclude “r”, you can do “.r”, or if you wanted “h” and “y” to be exempted, you just do “.hy”. Because we have the list ordered in a way that allows us to find the most likely word based on positional letter placement scores, it’s entirely possible to have an answer in just two guesses if your first guess isn’t correct. This has in fact happened with my attempts. Two attempts and we have our answer This is of course not fool-proof and I have had it take six attempts. It came very close to not winning here The placement of “V” and starting with “L” demonstrates that the scoring isn’t exactly fool-proof because it doesn’t take into account the prevalence of the word in the English language. I’d argue that “loves” is more common than the preceding two, but maybe in the case of a random word choice it does not matter? But sometimes it seems like it won’t get it and then it suddenly it has an answer. “Girls” I guess what may have happened on the last one is that the scores for the other words being higher gave it precedence, but ultimately it came across “girls”. This is why I am only so confident in the efficiency of the list because there might be a way to do this better, but it is beyond my knowledge of statistics. Closing You can grab the script from this gist here and any five-letter list from a Google search should suffice should you wish to try this all out.">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://cariad.keigher.ca/2022/01/12/hacking-wordle-through-automation-and-cryptanalysis/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="cariad.keigher.ca" href="https://cariad.keigher.ca/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Hacking Wordle through automation and cryptanalysis">
+  <meta property="og:site_name" content="cariad.keigher.ca">
+  <meta property="og:url" content="https://cariad.keigher.ca/2022/01/12/hacking-wordle-through-automation-and-cryptanalysis/">
+  <meta property="og:description" content="Recently, a game called Wordle has exploded in popularity with its simple five-letter guessing game. I’ve been playing it for a few weeks but have also been musing over how to automate this all using my knowledge of classical cryptography. So let’s dive in! Patterns in the English language While English is a very complicated language, it is also rather predictable and it is because of this we can play around with statistics. Letter frequency is often spoken about in cryptanalysis and is often a basis for solving cryptographic puzzles I release periodically. With Wordle, we’re limited to five-letter words, so what I wanted to do is figure out what are the most common letters per position. The use of letter frequency is helpful, but because we’re dealing with restrictions, the base statistics are merely a guide and not a rule. Using a list of five-letter words, I generated some statistics and came up with some answers for each position. In order, the first position had the most common letter of “s”, the second “a”, the third “a”, the fourth “e”, and the last being “s”. Now obviously, the word “saaes” does not exist in this word list, but we can use this knowledge to build a score for each word. By going through the list, we can use the counts of each position to its letter within that position and then come up with a score. For example, the word “sores” in a set of the highest word score and has the values of 724, 911, 475, 1228, and 1764. If we create an average of those numbers, we come up with an answer of 1,020.4. Using these averages to create a score for each, we can then order a list. That is all right? Well, not exactly, because there’s one other hiccup. Of the 5,756 words I am working with, 38% of them end in the letter “s”. This is not really all that surprising seeing that four-letter words made plural should not be uncommon. However, I don’t want them to be dominant when I go to automate this later on, so I need to fix this. While maybe not the best way to do this, I sorted the list in to two halves. The first half were words with all unique letters and the second not. In both halves, the order was kept from earlier, so once we finished the first half starting from the highest score to lowest, the same would repeat on the second. At this point I decided I was done and felt that I had the most “efficient” list. Where to start Now that we have this list, we need to know what word to start off with. I’ve seen a lot of people suggest words like “audio” and “ports”, but the one I seem to find works best is “cares”. “Cares” has a word score of 967.4, whereas “audio” gets 288.4 and “ports” has 796.6. The point of the game is to produce an answer in as few steps as possible and while you will knock off a lot of vowels and consonants with those two, you are likely reducing the chances of answering in the fewest attempts. My choice of word also includes the letter “e”, which is the most common letter used in the English language. On average, you should see that letter appear about 10–13% of the time, with the letter “a” being about 7–9%, and “s” being 6–9%. You can also order it as “scare” or “races” too if you desire, but I believe that with “s” at the end and putting “r” in the middle, you cover all initial possibilities quite effectively here. Writing code to deal with this Wordle’s rules are very straight forward: you have five letters and six attempts. On each attempt, the game will inform you on whether or not each letter is valid based on colour. If the letter in a position is valid, it’ll give it a background colour of green, if invalid then grey, and if invalid but elsewhere in the word, amber. With this knowledge, I went and created a Python script to churn through a word list and find words based on inputs I give. I am solely responsible for the starting word, but the script itself will use my inputs and produce an answer based on the first hit in a list of words which matches the patterns. The script works by dynamically generating a regular expression pattern for words that are not valid and then goes through to confirm that the letters that are suggested to be anywhere in the word are then only included. It then spits out the first word from the list created which itself is based off of the scoring method I wrote earlier. It’s fairly simple and runs from a command line. Testing it out One hiccup is that Wordle only allows one guess per day. Now, while I could just erase my browser session data to test this out, there is fortunately a clone which not only allows for the same five-letter words, but can also be used on words of which are much longer — and my script can be used on words of any length provided there is a word list. This clone allows you to keep playing to your hearts content so it became my test bed. Feeding letters to the script to find the word Even if the first guess is completely incorrect, we can do it in three steps The positional arguments in the script are simple. You supply a wordlist (“words_efficient_er.txt”), the letters you wish to completely discard (“c”, “a”, “r”, “e”, “s”, “o”, and “l”), the letters you want to find anywhere (“d” and “i”, or just “_” for none), and then for each position you either put “_” as a wildcard, the known letter, or you precede letters in that position with a “.”, so if you want to exclude “r”, you can do “.r”, or if you wanted “h” and “y” to be exempted, you just do “.hy”. Because we have the list ordered in a way that allows us to find the most likely word based on positional letter placement scores, it’s entirely possible to have an answer in just two guesses if your first guess isn’t correct. This has in fact happened with my attempts. Two attempts and we have our answer This is of course not fool-proof and I have had it take six attempts. It came very close to not winning here The placement of “V” and starting with “L” demonstrates that the scoring isn’t exactly fool-proof because it doesn’t take into account the prevalence of the word in the English language. I’d argue that “loves” is more common than the preceding two, but maybe in the case of a random word choice it does not matter? But sometimes it seems like it won’t get it and then it suddenly it has an answer. “Girls” I guess what may have happened on the last one is that the scores for the other words being higher gave it precedence, but ultimately it came across “girls”. This is why I am only so confident in the efficiency of the list because there might be a way to do this better, but it is beyond my knowledge of statistics. Closing You can grab the script from this gist here and any five-letter list from a Google search should suffice should you wish to try this all out.">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Hacking Wordle through automation and cryptanalysis">
+  <meta name="twitter:description" content="Recently, a game called Wordle has exploded in popularity with its simple five-letter guessing game. I’ve been playing it for a few weeks but have also been musing over how to automate this all usi...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+
+  
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">cariad.keigher.ca</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://hachyderm.io/@KateLibC">Mastodon</a>
+      
+        
+        <a class="page-link" href="https://bsky.app/profile/cariad.bsky.social">Bluesky</a>
+      
+        
+        <a class="page-link" href="https://github.com/katelibc">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">Hacking Wordle through automation and cryptanalysis</h1>
+    
+    <p class="post-meta"><time datetime="2022-01-12T00:00:00+00:00" itemprop="datePublished">Jan 12, 2022</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <hr />
+
+<p>Recently, a game called <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a> has exploded in popularity with its simple five-letter guessing game. I’ve been playing it for a few weeks but have also been musing over how to automate this all using my knowledge of classical cryptography.</p>
+
+<p>So let’s dive in!</p>
+
+<h3>Patterns in the English language</h3>
+
+<p>While English is a very complicated language, it is also rather predictable and it is because of this we can play around with statistics. <a href="https://en.wikipedia.org/wiki/Letter_frequency">Letter frequency</a> is often spoken about in cryptanalysis and is often a basis for solving cryptographic puzzles I release periodically.</p>
+
+<p>With Wordle, we’re limited to five-letter words, so what I wanted to do is figure out what are the most common letters per position. The use of letter frequency is helpful, but because we’re dealing with restrictions, the base statistics are merely a guide and not a rule.</p>
+
+<p>Using a list of five-letter words, I generated some statistics and came up with some answers for each position. In order, the first position had the most common letter of “s”, the second “a”, the third “a”, the fourth “e”, and the last being “s”. Now obviously, the word “saaes” does not exist in this word list, but we can use this knowledge to build a score for each word.</p>
+
+<p>By going through the list, we can use the counts of each position to its letter within that position and then come up with a score. For example, the word “sores” in a set of the highest word score and has the values of 724, 911, 475, 1228, and 1764. If we create an average of those numbers, we come up with an answer of 1,020.4.</p>
+
+<p>Using these averages to create a score for each, we can then order a list. That is all right? Well, not exactly, because there’s one other hiccup.</p>
+
+<p>Of the 5,756 words I am working with, 38% of them end in the letter “s”. This is not really all that surprising seeing that four-letter words made plural should not be uncommon. However, I don’t want them to be dominant when I go to automate this later on, so I need to fix this.</p>
+
+<p>While maybe not the best way to do this, I sorted the list in to two halves. The first half were words with all unique letters and the second not. In both halves, the order was kept from earlier, so once we finished the first half starting from the highest score to lowest, the same would repeat on the second.</p>
+
+<p>At this point I decided I was done and felt that I had the most “efficient” list.</p>
+
+<h3>Where to start</h3>
+
+<p>Now that we have this list, we need to know what word to start off with. I’ve seen a lot of people suggest words like “audio” and “ports”, but the one I seem to find works best is “cares”.</p>
+
+<p>“Cares” has a word score of 967.4, whereas “audio” gets 288.4 and “ports” has 796.6. The point of the game is to produce an answer in as few steps as possible and while you will knock off a lot of vowels and consonants with those two, you are likely reducing the chances of answering in the fewest attempts.</p>
+
+<p>My choice of word also includes the letter “e”, which is the most common letter used in the English language. On average, you should see that letter appear about 10–13% of the time, with the letter “a” being about 7–9%, and “s” being 6–9%.</p>
+
+<p>You can also order it as “scare” or “races” too if you desire, but I believe that with “s” at the end and putting “r” in the middle, you cover all initial possibilities quite effectively here.</p>
+
+<h3>Writing code to deal with this</h3>
+
+<p>Wordle’s rules are very straight forward: you have five letters and six attempts. On each attempt, the game will inform you on whether or not each letter is valid based on colour. If the letter in a position is valid, it’ll give it a background colour of green, if invalid then grey, and if invalid but elsewhere in the word, amber.</p>
+
+<p>With this knowledge, I went and created a Python script to churn through a word list and find words based on inputs I give. I am solely responsible for the starting word, but the script itself will use my inputs and produce an answer based on the first hit in a list of words which matches the patterns.</p>
+
+<p>The script works by dynamically generating a regular expression pattern for words that are not valid and then goes through to confirm that the letters that are suggested to be anywhere in the word are then only included. It then spits out the first word from the list created which itself is based off of the scoring method I wrote earlier.</p>
+
+<p>It’s fairly simple and runs from a command line.</p>
+
+<h3>Testing it out</h3>
+
+<p>One hiccup is that Wordle only allows one guess per day. Now, while I could just erase my browser session data to test this out, there is fortunately a <a href="http://foldr.moe/hello-wordl/">clone</a> which not only allows for the same five-letter words, but can also be used on words of which are much longer — and my script can be used on words of any length provided there is a word list.</p>
+
+<p>This clone allows you to keep playing to your hearts content so it became my test bed.</p>
+
+<p><img src="/img/1mLJh9ZA1Q6X5eN9prQU0wQ_1.png" alt="" /></p>
+
+<p>Feeding letters to the script to find the word</p>
+
+<p><img src="/img/1Lgs691dA9nklv24FCzCvJg_1.png" alt="" /></p>
+
+<p>Even if the first guess is completely incorrect, we can do it in three steps</p>
+
+<p>The positional arguments in the script are simple. You supply a wordlist (“words_efficient_er.txt”), the letters you wish to completely discard (“c”, “a”, “r”, “e”, “s”, “o”, and “l”), the letters you want to find anywhere (“d” and “i”, or just “_” for none), and then for each position you either put “_” as a wildcard, the known letter, or you precede letters in that position with a “.”, so if you want to exclude “r”, you can do “.r”, or if you wanted “h” and “y” to be exempted, you just do “.hy”.</p>
+
+<p>Because we have the list ordered in a way that allows us to find the most likely word based on positional letter placement scores, it’s entirely possible to have an answer in just two guesses if your first guess isn’t correct. This has in fact happened with my attempts.</p>
+
+<p><img src="/img/1gL7dJtiiyNQB4ZIXxg1XSw_1.png" alt="" /></p>
+
+<p>Two attempts and we have our answer</p>
+
+<p>This is of course not fool-proof and I have had it take six attempts.</p>
+
+<p><img src="/img/1K_wCM6YeZSJgymR_3fT-Lg_1.png" alt="" /></p>
+
+<p>It came very close to not winning here</p>
+
+<p>The placement of “V” and starting with “L” demonstrates that the scoring isn’t exactly fool-proof because it doesn’t take into account the prevalence of the word in the English language. I’d argue that “loves” is more common than the preceding two, but maybe in the case of a random word choice it does not matter?</p>
+
+<p>But sometimes it seems like it won’t get it and then it suddenly it has an answer.</p>
+
+<p><img src="/img/1E5SOfsuAVBOizypYXUGfEA_1.png" alt="" /></p>
+
+<p>“Girls”</p>
+
+<p>I guess what may have happened on the last one is that the scores for the other words being higher gave it precedence, but ultimately it came across “girls”. This is why I am only so confident in the efficiency of the list because there might be a way to do this better, but it is beyond my knowledge of statistics.</p>
+
+<h3>Closing</h3>
+
+<p>You can grab the script from <a href="https://gist.github.com/KateLibC/0838436b3284a150b734f870364f462f">this gist here</a> and any five-letter list from a Google search should suffice should you wish to try this all out.</p>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Cariad Heather Keigher - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="https://cariad.keigher.ca/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

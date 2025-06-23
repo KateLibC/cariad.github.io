@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Whatever Twitch is doing with machine learning is absolutely useless</title>
+  <meta name="description" content="Back in March, I wrote about harassment on Twitch towards individual streamers via its chat function. Then, a few months ago, I followed up with a small piece on them admitting to using machine learning when they filed a lawsuit against known bot users on their service. Finally, in late November, Twitch announced this machine learning feature and I have this short review: it’s absolutely useless. After its launch, there were still new bots Twitch has been dealing with a persistent and never-ending bot problem for a very long time. With a number of Black, persons of colour, LGBTQ+, and women streamers taking a stand and the media taking notice, the company finally relented and admitted that they were not meeting their end of the bargain. It should be repeated here: the only reason why Twitch has made any response is not because of streamers making an issue of this but because the media took notice of the streamers and asked Twitch about it. So now we have them admitting to using machine learning to track ban evasion and we also have them providing tools to verify users through their mobile phones, but even with all of that it appears that they haven’t dealt with the elephant in the room: they still have massive numbers of accounts being registered to engage in harassment. The thing about these hate raids is that the bots used them often have been known to have a pattern. With the case of the “hoss” bots, we saw them follow a rather consistent pattern. These bots ceased to exist a few months before the new feature, so did it stop similar patterns from emerging? The short answer is: no. On December 3rd, just a few days after Twitch made a big deal about machine learning, 472 accounts were registered in a small time frame. Each of these accounts started with the same 12 characters resembling a popular streamer and were then followed with four integers with the first one being a 0 and then the last three varying. The first account was registered at 18:58:10 UTC and the last account was registered at 20:01:06 UTC. However, the first 27 accounts were all registered within 2.5 minutes with the remaining 445 all being registered every few seconds starting from 19:47:28 UTC. How did Twitch’s machine learning not capture such a pattern of account registrations when this pattern was repeating itself nearly every two seconds? Why I know I lead moderation for two events run by one of Twitch’s largest channels. My day job is running a cyber security team, so I have a keen interest in knowing how to contend with the nonsense that streamers (including myself) face and how to mitigate the inadequacies the service has automatically. Twitch’s API is absolutely garbage to deal with when it comes to automating moderation and they make it spectacularly worse for trying to do anything useful that also flirts with violating their developer terms of service. So here’s the reality: want to know who followed you or another account? You have to have to have a web service receiving pushed messages. Want to ban or timeout a user account? You have to use their IRC-esque service and issue the same commands a human would. Want to pull the user profile? You have to use their REST API. These are the official ways to perform these tasks and the rate limiting around them is abysmal. The REST API by default limits you to 800 queries per minute and the IRC one is just over 200. If you wanted to ban every single account from one of the hate raid lists out there, it would take 16-hours to just get through 200,000 of them — there is one list that is almost 1.4 million accounts, which would take almost five days. There are unofficial ways but you raise the possibility of finding your account access suspended or a legal threat being sent your way. There’s an undocumented API that every Twitch user interfaces with all the time, but if you perform an action with it from outside of a browser, you’re violating those terms. Nonetheless I’ve endured and come up with ways to do all of these things in a way that is fast, doesn’t violate their terms of service, and can be flexible. It has sucked and Twitch hasn’t been helpful, but a year later and I know more about their developer tools than any non-Twitch employee should. So when these bots come up, I often notice that there are patterns. These patterns more often than not remain consistent and are predictable. In fact, some of these patterns are predictable enough that I literally can anticipate the accounts existing in the future and be aware of their existence within the minute they’re registered. When that example from before was made aware to me, I put the pattern into the prediction engine and look at that, hundreds of accounts. I am certain that the number I reported may be inaccurate because it’s possible that some were already suspended, but what the hell is Twitch doing when they see these reports? Do they not themselves look for patterns? If my report from March is indicative of anything, the answer is pretty obvious! And you know what? It’s ridiculous because everything I have been doing has been largely automated and is performing things faster than whatever machine learning feature Twitch has put out. And that is just one example. The hate raid lists that have been floating around have patterns too. When I examined one particular set, I was able to cover approximately 40% of them with just one single definition (of a sample set of 480,000 bots, 192,000 were covered). A simple regular expression was able to do that and it wasn’t even that complicated or computationally expensive. Yet here we are with some poorly implemented machine learning nonsense that could have been done with much simpler techniques. Making it worse, this whole security theatre they’ve put on isn’t even addressing the other problems the site faces. Spam bots are still around Here’s a line many streamers will know: want to become famous? The BigFollows spam bots themselves are indicative of Twitch’s machine learning really not working the way it should. The bots which spam the URLs inviting people to buy up followers, subscribers, and “actual” viewers are all tied together and can be tracked. Recent example of a bot spamming a URL which redirects to the BigFollows service. The service offers customers followers, viewers, and subscribers at varing prices. Need 200 followers? That’s $2.10 US. 30,000? That’s going to be $100. BigFollows showing available plans for gaining new followers. For as little as less than one penny per new follower, you can get 30,000 of them. The subscriber services they provide is very damning however. For $2, you can get a $5 subscription given to you. For $70, you can get 50 of them. Each subscription can pay out a customer about $2.50 US each if they’ve reached affiliate status. For $2, you can get a new Twitch subscriber. For $70, you can get 50. When you take into account that a Twitch subscription itself is typically $5, you can easily come to the same conclusion I am here. The problem is, I have already pointed this out and Twitch is aware of these things, but has done nothing. Based on my research, BigFollows has about 80,000 accounts available to be used for following customers or spamming its services with a sizeable number available to offer subscriptions. On October 31st of this year, the service registered 11,107 new accounts between 13:43:46 and 15:22:19 UTC. Every 3/4ths of a second, the service was registering new accounts and this is not just a single blip. I was able to find the same sort of mass account registrations in 2021 on October 19th, August 26th, and August 14th. For the 14th, we can see 3,700 accounts were all registered in a three hour period, so it has only become worse since. Personally, I do not care about who’s behind the scenes of this service because I can make a professional guess and say it’s likely affiliated with or linked to organized crime. However, the fact that this service persists on Twitch and is engaging in what cannot be anything other than fraud leaves me wondering what the hell is going on with Amazon’s audit, risk, and legal teams when it comes to Twitch. Looking at a buyer A recent user of BigFollows is Twitch user, yonkukaido. Between their account registration in mid-2018 and until just before last month (November 2021), the account had just 489 follows with just one in 2020 and most being in 2018. However, with zero activity until November, the account gained over 77,000 new follows starting on the 14th. This is of course for an account with what appears to be zero activity leading up to that point and with a Twitter account in their bio that was registered just this month (December 2021) and has no real activity. Profile of Twitch user, yonkukaido showing 78,200+ followers with links to the person’s Twitter, Instagram, and Facebook. Twitter account, yoku123414 which is linked from from the previous Twitch example. Their Instagram and Facebook accounts appear to indicate a man possibly living somewhere in the Middle East. The Instagram profile in particular implies that they’re “a gamer”. Previous videos by Twitch user, yonkukaido showing streams of Fortnite being played as recent as December 14th, 2021. When reviewing the video on demand (VOD) streams on the account, the amount of interaction in the saved chat is quite small for someone who has 78,200 followers. Even a streamer with 500 users is going to have a lot more interaction in chat in their hour-long stream than what was shown for this streamer here. Towards the tail-end of this streamer’s VOD, it shows a grand total of five chat messages in just one and a half hours. With 78,200 legitimate followers, this would be significantly more active. In reviewing some of these videos, there is little to suggest that they’re even talking on stream. However, evidence shows that they’re streaming from a desktop computer as their are using a Streamlabs progress bar on the bottom, something not possible when using console-based streaming. Overall, the content they’re streaming and how they interact with their stream plus the lack of progress on their on-screen donation bar should be enough to suggest that their sudden explosion in popularity is falsified. What is the problem? Twitch has requirements for becoming an affiliate and also a partner. To become an affiliate, you require a minimum of 500 minutes of stream time, 7 unique broadcasts, at least 3 average viewers per broadcast, and a minimum of 50 followers all across a block of 30 days. With partner, it’s 25 hours, 12 different broadcasts, and at least 75 average viewers per stream. In the case of the Twitch streamer example, they have already achieved affiliate status as their profile permits subscriptions, meaning that they can earn money from streaming on the service. When reviewing the view counts for their streams, it’s apparent that they’re also likely buying up viewers and may have achieved enough to meet partner. The wildcard in all of this is the subscriber count as unless the streamer divulges that information, it remains unknown. However, we can at least confirm that they’re just an affiliate as Twitch provides a purple checkmark in a user profile for anyone who achieves this status. The consequences of this manipulation on this user’s part are the same as I wrote back in March: it puts the whole affiliate and partner programs Twitch provides into question. Twitch’s inaction on this despite knowing about it seems to suggest that it is going to continue regardless of their ineffective machine learning components they keep promoting. The approach is misplaced and incorrect Here’s a question: how many Twitch users are going to know what machine learning is? If you’re me, then yeah, you understand it and you also groan whenever you hear it. But if you’re just someone who plays video games and doesn’t have any knowledge of computing programming, you’re going to see the term “machine learning” and see it as a buzzword. And that is just it: I don’t see a reason for why Twitch is going on about this because it’s simply all show. The extended moderation tools they’ve put out that allows you to “watch” and “restrict” suspicious users relies on the moderators themselves to engage with them. Twitch barely explains what they do and when I have used them personally, I don’t see their effectiveness especially when dealing with ban evasion. Twitch needs to investigate further these spam bots, they need to actually do research on these hate raids, and they also need to make meaningful tools that do the basics first. Give users the ability to ban people from their chats by allowing wildcards (similar to IRC) and make it clear that whatever moderation or reporting decisions are made are given a follow up and an outline of what has actually happened. Email excerpt showing a report has been sent to Twitch. To close out, I went and checked my inbox to see how many times I’ve reported accounts to Twitch and in 2021 alone I reported 152 users and of those 38 received a follow up. This meant that for every four reports I would make, only one would get actioned on and unfortunately Twitch doesn’t make it clear who you reported or who was actioned upon. This excerpt contains as much information as the whole email itself on what has actually occurred. I report not because I expect Twitch to do anything but because I wanted to know how often they actually bothered to enforce their terms of service. Twitch hasn’t done better.">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://cariad.keigher.ca/2021/12/17/whatever-twitch-is-doing-with-machine-learning-is-absolutely-useless/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="cariad.keigher.ca" href="https://cariad.keigher.ca/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Whatever Twitch is doing with machine learning is absolutely useless">
+  <meta property="og:site_name" content="cariad.keigher.ca">
+  <meta property="og:url" content="https://cariad.keigher.ca/2021/12/17/whatever-twitch-is-doing-with-machine-learning-is-absolutely-useless/">
+  <meta property="og:description" content="Back in March, I wrote about harassment on Twitch towards individual streamers via its chat function. Then, a few months ago, I followed up with a small piece on them admitting to using machine learning when they filed a lawsuit against known bot users on their service. Finally, in late November, Twitch announced this machine learning feature and I have this short review: it’s absolutely useless. After its launch, there were still new bots Twitch has been dealing with a persistent and never-ending bot problem for a very long time. With a number of Black, persons of colour, LGBTQ+, and women streamers taking a stand and the media taking notice, the company finally relented and admitted that they were not meeting their end of the bargain. It should be repeated here: the only reason why Twitch has made any response is not because of streamers making an issue of this but because the media took notice of the streamers and asked Twitch about it. So now we have them admitting to using machine learning to track ban evasion and we also have them providing tools to verify users through their mobile phones, but even with all of that it appears that they haven’t dealt with the elephant in the room: they still have massive numbers of accounts being registered to engage in harassment. The thing about these hate raids is that the bots used them often have been known to have a pattern. With the case of the “hoss” bots, we saw them follow a rather consistent pattern. These bots ceased to exist a few months before the new feature, so did it stop similar patterns from emerging? The short answer is: no. On December 3rd, just a few days after Twitch made a big deal about machine learning, 472 accounts were registered in a small time frame. Each of these accounts started with the same 12 characters resembling a popular streamer and were then followed with four integers with the first one being a 0 and then the last three varying. The first account was registered at 18:58:10 UTC and the last account was registered at 20:01:06 UTC. However, the first 27 accounts were all registered within 2.5 minutes with the remaining 445 all being registered every few seconds starting from 19:47:28 UTC. How did Twitch’s machine learning not capture such a pattern of account registrations when this pattern was repeating itself nearly every two seconds? Why I know I lead moderation for two events run by one of Twitch’s largest channels. My day job is running a cyber security team, so I have a keen interest in knowing how to contend with the nonsense that streamers (including myself) face and how to mitigate the inadequacies the service has automatically. Twitch’s API is absolutely garbage to deal with when it comes to automating moderation and they make it spectacularly worse for trying to do anything useful that also flirts with violating their developer terms of service. So here’s the reality: want to know who followed you or another account? You have to have to have a web service receiving pushed messages. Want to ban or timeout a user account? You have to use their IRC-esque service and issue the same commands a human would. Want to pull the user profile? You have to use their REST API. These are the official ways to perform these tasks and the rate limiting around them is abysmal. The REST API by default limits you to 800 queries per minute and the IRC one is just over 200. If you wanted to ban every single account from one of the hate raid lists out there, it would take 16-hours to just get through 200,000 of them — there is one list that is almost 1.4 million accounts, which would take almost five days. There are unofficial ways but you raise the possibility of finding your account access suspended or a legal threat being sent your way. There’s an undocumented API that every Twitch user interfaces with all the time, but if you perform an action with it from outside of a browser, you’re violating those terms. Nonetheless I’ve endured and come up with ways to do all of these things in a way that is fast, doesn’t violate their terms of service, and can be flexible. It has sucked and Twitch hasn’t been helpful, but a year later and I know more about their developer tools than any non-Twitch employee should. So when these bots come up, I often notice that there are patterns. These patterns more often than not remain consistent and are predictable. In fact, some of these patterns are predictable enough that I literally can anticipate the accounts existing in the future and be aware of their existence within the minute they’re registered. When that example from before was made aware to me, I put the pattern into the prediction engine and look at that, hundreds of accounts. I am certain that the number I reported may be inaccurate because it’s possible that some were already suspended, but what the hell is Twitch doing when they see these reports? Do they not themselves look for patterns? If my report from March is indicative of anything, the answer is pretty obvious! And you know what? It’s ridiculous because everything I have been doing has been largely automated and is performing things faster than whatever machine learning feature Twitch has put out. And that is just one example. The hate raid lists that have been floating around have patterns too. When I examined one particular set, I was able to cover approximately 40% of them with just one single definition (of a sample set of 480,000 bots, 192,000 were covered). A simple regular expression was able to do that and it wasn’t even that complicated or computationally expensive. Yet here we are with some poorly implemented machine learning nonsense that could have been done with much simpler techniques. Making it worse, this whole security theatre they’ve put on isn’t even addressing the other problems the site faces. Spam bots are still around Here’s a line many streamers will know: want to become famous? The BigFollows spam bots themselves are indicative of Twitch’s machine learning really not working the way it should. The bots which spam the URLs inviting people to buy up followers, subscribers, and “actual” viewers are all tied together and can be tracked. Recent example of a bot spamming a URL which redirects to the BigFollows service. The service offers customers followers, viewers, and subscribers at varing prices. Need 200 followers? That’s $2.10 US. 30,000? That’s going to be $100. BigFollows showing available plans for gaining new followers. For as little as less than one penny per new follower, you can get 30,000 of them. The subscriber services they provide is very damning however. For $2, you can get a $5 subscription given to you. For $70, you can get 50 of them. Each subscription can pay out a customer about $2.50 US each if they’ve reached affiliate status. For $2, you can get a new Twitch subscriber. For $70, you can get 50. When you take into account that a Twitch subscription itself is typically $5, you can easily come to the same conclusion I am here. The problem is, I have already pointed this out and Twitch is aware of these things, but has done nothing. Based on my research, BigFollows has about 80,000 accounts available to be used for following customers or spamming its services with a sizeable number available to offer subscriptions. On October 31st of this year, the service registered 11,107 new accounts between 13:43:46 and 15:22:19 UTC. Every 3/4ths of a second, the service was registering new accounts and this is not just a single blip. I was able to find the same sort of mass account registrations in 2021 on October 19th, August 26th, and August 14th. For the 14th, we can see 3,700 accounts were all registered in a three hour period, so it has only become worse since. Personally, I do not care about who’s behind the scenes of this service because I can make a professional guess and say it’s likely affiliated with or linked to organized crime. However, the fact that this service persists on Twitch and is engaging in what cannot be anything other than fraud leaves me wondering what the hell is going on with Amazon’s audit, risk, and legal teams when it comes to Twitch. Looking at a buyer A recent user of BigFollows is Twitch user, yonkukaido. Between their account registration in mid-2018 and until just before last month (November 2021), the account had just 489 follows with just one in 2020 and most being in 2018. However, with zero activity until November, the account gained over 77,000 new follows starting on the 14th. This is of course for an account with what appears to be zero activity leading up to that point and with a Twitter account in their bio that was registered just this month (December 2021) and has no real activity. Profile of Twitch user, yonkukaido showing 78,200+ followers with links to the person’s Twitter, Instagram, and Facebook. Twitter account, yoku123414 which is linked from from the previous Twitch example. Their Instagram and Facebook accounts appear to indicate a man possibly living somewhere in the Middle East. The Instagram profile in particular implies that they’re “a gamer”. Previous videos by Twitch user, yonkukaido showing streams of Fortnite being played as recent as December 14th, 2021. When reviewing the video on demand (VOD) streams on the account, the amount of interaction in the saved chat is quite small for someone who has 78,200 followers. Even a streamer with 500 users is going to have a lot more interaction in chat in their hour-long stream than what was shown for this streamer here. Towards the tail-end of this streamer’s VOD, it shows a grand total of five chat messages in just one and a half hours. With 78,200 legitimate followers, this would be significantly more active. In reviewing some of these videos, there is little to suggest that they’re even talking on stream. However, evidence shows that they’re streaming from a desktop computer as their are using a Streamlabs progress bar on the bottom, something not possible when using console-based streaming. Overall, the content they’re streaming and how they interact with their stream plus the lack of progress on their on-screen donation bar should be enough to suggest that their sudden explosion in popularity is falsified. What is the problem? Twitch has requirements for becoming an affiliate and also a partner. To become an affiliate, you require a minimum of 500 minutes of stream time, 7 unique broadcasts, at least 3 average viewers per broadcast, and a minimum of 50 followers all across a block of 30 days. With partner, it’s 25 hours, 12 different broadcasts, and at least 75 average viewers per stream. In the case of the Twitch streamer example, they have already achieved affiliate status as their profile permits subscriptions, meaning that they can earn money from streaming on the service. When reviewing the view counts for their streams, it’s apparent that they’re also likely buying up viewers and may have achieved enough to meet partner. The wildcard in all of this is the subscriber count as unless the streamer divulges that information, it remains unknown. However, we can at least confirm that they’re just an affiliate as Twitch provides a purple checkmark in a user profile for anyone who achieves this status. The consequences of this manipulation on this user’s part are the same as I wrote back in March: it puts the whole affiliate and partner programs Twitch provides into question. Twitch’s inaction on this despite knowing about it seems to suggest that it is going to continue regardless of their ineffective machine learning components they keep promoting. The approach is misplaced and incorrect Here’s a question: how many Twitch users are going to know what machine learning is? If you’re me, then yeah, you understand it and you also groan whenever you hear it. But if you’re just someone who plays video games and doesn’t have any knowledge of computing programming, you’re going to see the term “machine learning” and see it as a buzzword. And that is just it: I don’t see a reason for why Twitch is going on about this because it’s simply all show. The extended moderation tools they’ve put out that allows you to “watch” and “restrict” suspicious users relies on the moderators themselves to engage with them. Twitch barely explains what they do and when I have used them personally, I don’t see their effectiveness especially when dealing with ban evasion. Twitch needs to investigate further these spam bots, they need to actually do research on these hate raids, and they also need to make meaningful tools that do the basics first. Give users the ability to ban people from their chats by allowing wildcards (similar to IRC) and make it clear that whatever moderation or reporting decisions are made are given a follow up and an outline of what has actually happened. Email excerpt showing a report has been sent to Twitch. To close out, I went and checked my inbox to see how many times I’ve reported accounts to Twitch and in 2021 alone I reported 152 users and of those 38 received a follow up. This meant that for every four reports I would make, only one would get actioned on and unfortunately Twitch doesn’t make it clear who you reported or who was actioned upon. This excerpt contains as much information as the whole email itself on what has actually occurred. I report not because I expect Twitch to do anything but because I wanted to know how often they actually bothered to enforce their terms of service. Twitch hasn’t done better.">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Whatever Twitch is doing with machine learning is absolutely useless">
+  <meta name="twitter:description" content="Back in March, I wrote about harassment on Twitch towards individual streamers via its chat function. Then, a few months ago, I followed up with a small piece on them admitting to using machine lea...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+
+  
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">cariad.keigher.ca</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://hachyderm.io/@KateLibC">Mastodon</a>
+      
+        
+        <a class="page-link" href="https://bsky.app/profile/cariad.bsky.social">Bluesky</a>
+      
+        
+        <a class="page-link" href="https://github.com/katelibc">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">Whatever Twitch is doing with machine learning is absolutely useless</h1>
+    
+    <p class="post-meta"><time datetime="2021-12-17T00:00:00+00:00" itemprop="datePublished">Dec 17, 2021</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <hr />
+
+<p>Back in March, I <a href="https://katelibc.medium.com/twitch-chat-harassment-remains-unaddressed-despite-complaints-and-evidence-of-potential-fraud-d7fc66f95d88">wrote about harassment on Twitch</a> towards individual streamers via its chat function. Then, a few months ago, I <a href="https://katelibc.medium.com/twitch-has-made-a-good-step-with-preventing-harassment-but-it-has-pitfalls-also-what-the-hell-is-8f4ceb7debf5">followed up with a small piece</a> on them admitting to using machine learning when they filed a lawsuit against known bot users on their service.</p>
+
+<p>Finally, in late November, <a href="https://www.theverge.com/2021/11/30/22810180/twitch-machine-learning-suspicious-user-detection-bans">Twitch announced this machine learning feature</a> and I have this short review: it’s absolutely useless.</p>
+
+<h3>After its launch, there were still new bots</h3>
+
+<p>Twitch has been dealing with a persistent and never-ending bot problem for a very long time. With a number of Black, persons of colour, LGBTQ+, and women streamers taking a stand and the media taking notice, the company finally relented and admitted that they were not meeting their end of the bargain.</p>
+
+<p>It should be repeated here: the only reason why Twitch has made any response is not because of streamers making an issue of this but because the media took notice of the streamers and asked Twitch about it.</p>
+
+<p>So now we have them admitting to using machine learning to track ban evasion and we also have them providing tools to verify users through their mobile phones, but even with all of that it appears that they haven’t dealt with the elephant in the room: they still have massive numbers of accounts being registered to engage in harassment.</p>
+
+<p>The thing about these hate raids is that the bots used them often have been known to have a pattern. With the case of the “hoss” bots, we saw them follow a rather consistent pattern. These bots ceased to exist a few months before the new feature, so did it stop similar patterns from emerging?</p>
+
+<p>The short answer is: no.</p>
+
+<p>On December 3rd, just a few days after Twitch made a big deal about machine learning, 472 accounts were registered in a small time frame. Each of these accounts started with the same 12 characters resembling a popular streamer and were then followed with four integers with the first one being a 0 and then the last three varying.</p>
+
+<p>The first account was registered at 18:58:10 UTC and the last account was registered at 20:01:06 UTC. However, the first 27 accounts were all registered within 2.5 minutes with the remaining 445 all being registered every few seconds starting from 19:47:28 UTC.</p>
+
+<p>How did Twitch’s machine learning not capture such a pattern of account registrations when this pattern was repeating itself nearly every two seconds?</p>
+
+<h3>Why I know</h3>
+
+<p>I lead moderation for two events run by one of Twitch’s largest channels. My day job is running a cyber security team, so I have a keen interest in knowing how to contend with the nonsense that streamers (including myself) face and how to mitigate the inadequacies the service has automatically.</p>
+
+<p>Twitch’s API is absolutely garbage to deal with when it comes to automating moderation and they make it spectacularly worse for trying to do anything useful that also flirts with violating their developer terms of service.</p>
+
+<p>So here’s the reality: want to know who followed you or another account? You have to have to have a web service receiving pushed messages. Want to ban or timeout a user account? You have to use their IRC-esque service and issue the same commands a human would. Want to pull the user profile? You have to use their REST API.</p>
+
+<p>These are the official ways to perform these tasks and the rate limiting around them is abysmal. The REST API by default limits you to 800 queries per minute and the IRC one is just over 200. If you wanted to ban every single account from one of the hate raid lists out there, it would take 16-hours to just get through 200,000 of them — there is one list that is almost 1.4 million accounts, which would take almost five days.</p>
+
+<p>There are unofficial ways but you raise the possibility of finding your account access suspended or a legal threat being sent your way. There’s an undocumented API that every Twitch user interfaces with all the time, but if you perform an action with it from outside of a browser, you’re violating those terms.</p>
+
+<p>Nonetheless I’ve endured and come up with ways to do all of these things in a way that is fast, doesn’t violate their terms of service, and can be flexible. It has sucked and Twitch hasn’t been helpful, but a year later and I know more about their developer tools than any non-Twitch employee should.</p>
+
+<p>So when these bots come up, I often notice that there are patterns. These patterns more often than not remain consistent and are predictable. In fact, some of these patterns are predictable enough that I literally can anticipate the accounts existing in the future and be aware of their existence within the minute they’re registered.</p>
+
+<p>When that example from before was made aware to me, I put the pattern into the prediction engine and look at that, hundreds of accounts. I am certain that the number I reported may be inaccurate because it’s possible that some were already suspended, but what the hell is Twitch doing when they see these reports? Do they not themselves look for patterns?</p>
+
+<p>If my report from March is indicative of anything, the answer is pretty obvious!</p>
+
+<p>And you know what? It’s ridiculous because everything I have been doing has been largely automated and is performing things faster than whatever machine learning feature Twitch has put out.</p>
+
+<p>And that is just one example. The hate raid lists that have been floating around have patterns too. When I examined one particular set, I was able to cover approximately 40% of them with just one single definition (of a sample set of 480,000 bots, 192,000 were covered). A simple regular expression was able to do that and it wasn’t even that complicated or computationally expensive.</p>
+
+<p>Yet here we are with some poorly implemented machine learning nonsense that could have been done with much simpler techniques. Making it worse, this whole security theatre they’ve put on isn’t even addressing the other problems the site faces.</p>
+
+<h3>Spam bots are still around</h3>
+
+<p>Here’s a line many streamers will know: want to become famous?</p>
+
+<p>The BigFollows spam bots themselves are indicative of Twitch’s machine learning really not working the way it should. The bots which spam the URLs inviting people to buy up followers, subscribers, and “actual” viewers are all tied together and can be tracked.</p>
+
+<p><img src="/img/1HDBGhszZeW9Icn11CRK4Sw_1.png" alt="" /></p>
+
+<p>Recent example of a bot spamming a URL which redirects to the BigFollows service.</p>
+
+<p>The service offers customers followers, viewers, and subscribers at varing prices. Need 200 followers? That’s $2.10 US. 30,000? That’s going to be $100.</p>
+
+<p><img src="/img/1dcx0_MoX0taCe0Y-MjjQrQ_1.png" alt="" /></p>
+
+<p>BigFollows showing available plans for gaining new followers. For as little as less than one penny per new follower, you can get 30,000 of them.</p>
+
+<p>The subscriber services they provide is very damning however.</p>
+
+<p><img src="/img/1hvSQ4ffjZRGqopXj3gcq7Q_1.png" alt="" /></p>
+
+<p>For $2, you can get a $5 subscription given to you. For $70, you can get 50 of them. Each subscription can pay out a customer about $2.50 US each if they’ve reached affiliate status.</p>
+
+<p>For $2, you can get a new Twitch subscriber. For $70, you can get 50. When you take into account that a Twitch subscription itself is typically $5, you can easily come to the same conclusion I am here. The problem is, I have already pointed this out and Twitch is aware of these things, but has done nothing.</p>
+
+<p>Based on my research, BigFollows has about 80,000 accounts available to be used for following customers or spamming its services with a sizeable number available to offer subscriptions.</p>
+
+<p>On October 31st of this year, the service registered 11,107 new accounts between 13:43:46 and 15:22:19 UTC. Every 3/4ths of a second, the service was registering new accounts and this is not just a single blip.</p>
+
+<p>I was able to find the same sort of mass account registrations in 2021 on October 19th, August 26th, and August 14th. For the 14th, we can see 3,700 accounts were all registered in a three hour period, so it has only become worse since.</p>
+
+<p>Personally, I do not care about who’s behind the scenes of this service because I can make a professional guess and say it’s likely affiliated with or linked to organized crime.</p>
+
+<p>However, the fact that this service persists on Twitch and is engaging in what cannot be anything other than fraud leaves me wondering what the hell is going on with Amazon’s audit, risk, and legal teams when it comes to Twitch.</p>
+
+<h3>Looking at a buyer</h3>
+
+<p>A recent user of BigFollows is Twitch user, yonkukaido. Between their account registration in mid-2018 and until just before last month (November 2021), the account had just 489 follows with just one in 2020 and most being in 2018.</p>
+
+<p>However, with zero activity until November, the account gained over 77,000 new follows starting on the 14th. This is of course for an account with what appears to be zero activity leading up to that point and with a Twitter account in their bio that was registered just this month (December 2021) and has no real activity.</p>
+
+<p><img src="/img/1zrFXYF7f07bAY-yEnFucmA_1.png" alt="" /></p>
+
+<p>Profile of Twitch user, yonkukaido showing 78,200+ followers with links to the person’s Twitter, Instagram, and Facebook.</p>
+
+<p><img src="/img/1fnV_CQ0FagfQWxxnZrBwWw_1.png" alt="" /></p>
+
+<p>Twitter account, yoku123414 which is linked from from the previous Twitch example.</p>
+
+<p>Their Instagram and Facebook accounts appear to indicate a man possibly living somewhere in the Middle East. The Instagram profile in particular implies that they’re “a gamer”.</p>
+
+<p><img src="/img/1XS7PjPPtOETHsUIUHRf-Jw_1.png" alt="" /></p>
+
+<p>Previous videos by Twitch user, yonkukaido showing streams of Fortnite being played as recent as December 14th, 2021.</p>
+
+<p>When reviewing the video on demand (VOD) streams on the account, the amount of interaction in the saved chat is quite small for someone who has 78,200 followers. Even a streamer with 500 users is going to have a lot more interaction in chat in their hour-long stream than what was shown for this streamer here.</p>
+
+<p><img src="/img/11X9Se3fLyebnMuMocaKaeg_1.png" alt="" /></p>
+
+<p>Towards the tail-end of this streamer’s VOD, it shows a grand total of five chat messages in just one and a half hours. With 78,200 legitimate followers, this would be significantly more active.</p>
+
+<p>In reviewing some of these videos, there is little to suggest that they’re even talking on stream. However, evidence shows that they’re streaming from a desktop computer as their are using a Streamlabs progress bar on the bottom, something not possible when using console-based streaming.</p>
+
+<p>Overall, the content they’re streaming and how they interact with their stream plus the lack of progress on their on-screen donation bar should be enough to suggest that their sudden explosion in popularity is falsified.</p>
+
+<h3>What is the problem?</h3>
+
+<p>Twitch has requirements for becoming an <a href="https://help.twitch.tv/s/article/joining-the-affiliate-program?language=en_US">affiliate</a> and also a <a href="https://help.twitch.tv/s/article/achievements?language=en_US#Partner">partner</a>.</p>
+
+<p>To become an affiliate, you require a minimum of 500 minutes of stream time, 7 unique broadcasts, at least 3 average viewers per broadcast, and a minimum of 50 followers all across a block of 30 days.</p>
+
+<p>With partner, it’s 25 hours, 12 different broadcasts, and at least 75 average viewers per stream.</p>
+
+<p>In the case of the Twitch streamer example, they have already achieved affiliate status as their profile permits subscriptions, meaning that they can earn money from streaming on the service. When reviewing the view counts for their streams, it’s apparent that they’re also likely buying up viewers and may have achieved enough to meet partner.</p>
+
+<p>The wildcard in all of this is the subscriber count as unless the streamer divulges that information, it remains unknown. However, we can at least confirm that they’re just an affiliate as Twitch provides a purple checkmark in a user profile for anyone who achieves this status.</p>
+
+<p>The consequences of this manipulation on this user’s part are the same as I wrote back in March: it puts the whole affiliate and partner programs Twitch provides into question.</p>
+
+<p>Twitch’s inaction on this despite knowing about it seems to suggest that it is going to continue regardless of their ineffective machine learning components they keep promoting.</p>
+
+<h3>The approach is misplaced and incorrect</h3>
+
+<p>Here’s a question: how many Twitch users are going to know what machine learning is?</p>
+
+<p>If you’re me, then yeah, you understand it and you also groan whenever you hear it. But if you’re just someone who plays video games and doesn’t have any knowledge of computing programming, you’re going to see the term “machine learning” and see it as a buzzword.</p>
+
+<p>And that is just it: I don’t see a reason for why Twitch is going on about this because it’s simply all show. The extended moderation tools they’ve put out that allows you to “watch” and “restrict” suspicious users relies on the moderators themselves to engage with them. Twitch barely explains what they do and when I have used them personally, I don’t see their effectiveness especially when dealing with ban evasion.</p>
+
+<p>Twitch needs to investigate further these spam bots, they need to actually do research on these hate raids, and they also need to make meaningful tools that do the basics first.</p>
+
+<p>Give users the ability to ban people from their chats by allowing wildcards (similar to IRC) and make it clear that whatever moderation or reporting decisions are made are given a follow up and an outline of what has actually happened.</p>
+
+<p><img src="/img/1AgUKbBio7V7q45iJGt6Oqg_1.png" alt="" /></p>
+
+<p>Email excerpt showing a report has been sent to Twitch.</p>
+
+<p>To close out, I went and checked my inbox to see how many times I’ve reported accounts to Twitch and in 2021 alone I reported 152 users and of those 38 received a follow up. This meant that for every four reports I would make, only one would get actioned on and unfortunately Twitch doesn’t make it clear who you reported or who was actioned upon.</p>
+
+<p><img src="/img/1i7N_SowaoO6o62XbRnaxPA_1.png" alt="" /></p>
+
+<p>This excerpt contains as much information as the whole email itself on what has actually occurred.</p>
+
+<p>I report not because I expect Twitch to do anything but because I wanted to know how often they actually bothered to enforce their terms of service.</p>
+
+<p>Twitch hasn’t done better.</p>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Cariad Heather Keigher - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="https://cariad.keigher.ca/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

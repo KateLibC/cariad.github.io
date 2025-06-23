@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  
+  
+  <title>Thoughts on punditry during Facebook’s October 2021 outage</title>
+  <meta name="description" content="God. I hated and enjoyed the stories and wrong opinions which came out on October 4th, 2021, as Facebook and all of its associated services effectively “disappeared” from the Internet for a half-day. Some of them were the type I wanted to believe, some of them were outlandish, and some of them came from folks who probably need to learn a bit about Hanlon’s razor. This is probably my favourite tweet. It would have been pretty funny to have had the new Matrix movie release on the same day as this incident. A good primer on what actually happened can be read from CloudFlare and Facebook for their part posted a fairly reasonable explanation as well. I won’t dive into these two any further, but I do want to talk about some of the silliness I saw on Twitter, the only working social media outlet that day. Facebook could not get into their offices as a result of this Turn-key LDAP systems such as Active Directory are so yesterday. I want to believe this so bad because it would read as both funny and so many movie scenarios coming to life, but it isn’t true. Runner up for my favourite tweet. My last visit to Facebook’s Menlo Park campus (on “1 Hacker Way” no less) was a surreal experience because it was very much high-tech in terms of how you signed in, how you got around, and how people worked. Much has likely changed since my mid-2016 speaking engagement there, but advances in access control and so forth have not fundamentally changed. The company is in fact married to their ID badges. Everything from ordering food, getting office and computer supplies, booking and using conference rooms, and just opening doors is tied to the ID badge. However, at no point did it ever appear that there were no workarounds. Many came out to say that they had spoken with people who work at Facebook. It is likely that this messed with many of its internal systems, but the disruption was probably not as severe as many made it out to be. It is possible this whole incident disrupted physical access, but I don’t think that it lasted anywhere as long as some may suggest. Internal tools were disrupted and it likely affected access control systems, but I imagine they still had physical keys somewhere. I know that the Bay Area is rife for flaunting local municipal and state code, but nobody running physical security for a company as high-profile as Facebook is going to overlook the need to override the digital controls. It is likely that nobody could fix this remotely (as in working from home) as Facebook was “gone”, but it would be spectacularly unlikely to have completely locked everyone out. Many large corporations use IoT devices to operate their conference rooms. They’re not new at all and often are synchronized with the internal lighting, telephony, video conferencing, and electronic displays. The company also doesn’t have a data centre in its Menlo Park offices. In fact, the closest data centre to them is 800 KM north in Bend, Oregon. Additionally, they have multiple data centres, with at least a dozen in the United States, a few in Europe, and one in Asia — this is via unofficial sources I will add. If someone had to do this on site, it was likely at one of these locations. Lots of data was stolen and a panic button was hit A now deleted tweet from Twitter user, vx-underground: “At 19:07UTC a RaidForum account under the name ‘CBT’ released 600TB of Facebook data. They are claiming responsibility for the Facebook, Instagram, and WhatsApp outage.” 600 TB is a lot. How much is 600 TB? From a practical standpoint, let’s look at a 4K movie on Blu-Ray. In this scenario, a movie could be anywhere between 50 and 100 GB in size. On my 940 Mbps Internet connection, it can transfer about 117 MB every second at its maximum capacity. Assuming the maximum size of 100 GB (or 102,400 MB) was being used for the movie, it would take me under 15 minutes to download it via the Internet. The tweet about data being made available on a “popular hacking-related forum” made its rounds and spread like wildfire without taking into account the absurdity of the claim. 600 TB is 614,400 GB which is 629,145,600 MB. That’s 6,144 of those aforementioned Blu-Ray 4K movies. That means that it would take my connection approximately two months to transfer the data, assuming I could do it at peak and without disruption. Physically, to store all of that 600 TB on Blu-Ray discs alone would result in the discs alone being just over 7 metres tall. For reference, I am about 1.7 metres in height and as a result those discs would dwarf me. If we were to use hard drives, the largest capacity on the market today runs at 18 TB, meaning you’d just need 33 of them if redundancy is not important. At a minimum, you’re looking at about $600 (Canadian dollars) for just one drive, so that comes to just under $11,000 before taxes and recycling fees — maybe you can get a bulk discount. You’d also need somewhere to put those hard drives too, so it will then cost you at least another $10,000 more since you cannot stuff that many into your computer. And I guess physically speaking, the hard drives would be shorter than the Blu-Ray discs themselves as they’d just be a metre tall all combined. Since I am not fond of mechanical hard drives, solid state drives run you $1,100 for 8 TB each. We’d need 75 of those (again without redundancy), running you $82,500. Height wise, it wouldn’t be much different than the previous storage medium, but it would be considerably less noisy. You’d still have to add the cost of housing that many drives. Mirror it on the cloud then? Using Amazon Glacier, you can store data there at $0.004 (US dollars) per GB per month, or $2,460 for the whole 600 TB, assuming you have managed to get it into there. However, making use of the data would then cost you a lot more, as retrieval of the data will likely cost you $0.01 per GB. If you wanted to grab it all after storing it, it could set you back about $6,150, setting aside the costs of storing it locally to begin with. So no. Someone doesn’t have 600 TB of data for sale — at least not in this situation. If anything, it’s likely that they could have been packaging scraped data and some data floating about that connects Facebook users to their telephone numbers, but even then it doesn’t get close to a single terabyte and I know this first-hand. Why did I initially use Blu-Ray discs to demonstrate this then? Aside from their storage density, Facebook was reported to have used them to store data long-term as early as 2014. Whether or not it is still the case is uncertain. To add to this: moving 600 TB out of Facebook’s data centre should hopefully not go without notice despite the amount of data they move typically. There was a thought popped into my head where someone could walk out with a whole bunch of discs, but I don’t think that can and will happen as 10,000 discs would weigh about 160 KG and would be almost 12 metres if stacked high. You may as well steal a storage array, which would be needed for all of those hard drives I mentioned. It was all a “security reset” I am obscuring this tweet because the person in question has faced enough harassment in their life, but nonetheless, their tweet was so incredibly misinformed that it irritated the hell out of me. Quoting a tweet by Brian Krebs: “She downloaded tons of company data to use against the company. Any other employee can do the same. My guess is they took it all down to reset their security, cover their tracks and prevent people from whistleblowing.” The day before, former Facebook Product Manager, Frances Haugen revealed allegations (of which I do believe) of the company amplifying content that would be considered hateful, likely fuelling the fascist fervour surrounding the 2020 American presidential election and the subsequent January 6th failed coup (and let’s not mince words here, it was an attempt) on the U.S. Capitol building. This is of course incredibly damning for the company as they had continuously denied this in press releases and through its own founder and CEO, Mark Zuckerberg in front of congressional hearings. Why this person’s tweet is so incorrect is quite simple: why would you go about “resetting security” the day after? Nuking any way for people to get to any of the company’s services does not ease “resetting” in whatever form this persons believes and is also incredibly expensive. Facebook is a for-profit, service-oriented business and consequently downtime of any significance is going to cause them to incur financial penalties from their customers let alone their own revenue streams. Their business is in providing a functional service and data from its users. Being out of commission for a half-day means a loss of that data and in turn a loss in profit. So what if Facebook actually did do this? Well, the legal hot water they may presently face over these believable allegations would become significantly worse if it came to light that this downtime was all a ruse to get their “ducks in order” in the event that they were requested to provide information to law enforcement. Digital forensics would be all over this because there would have to be communications between higher ups and everyone required to pull off a such a ridiculous stunt. To add to this, it likely would result in another whistleblower situation. I would imagine that this would all bubble to the surface much faster than the time between Haugen’s departure from the company in May and her appearance on CBS’s 60 Minutes just this past Sunday. Someone in the chain who would have the ability to do all this would likely make noise. Assuming it were somehow successful and were to come to light, it would likely be a bigger corporate story than the Enron scandal, which coincidentally occurred almost twenty years ago prior. This would not be a financial crime of course (maybe a Sarbanes-Oxley violation due to a messing with controls perhaps — I am not a lawyer), but seeing that it would be an blatant attempt to erase evidence and there are already enough within Washington D.C. who have a bone to pick with the company, I don’t think they’d ride this one out with the same ease Microsoft did when they faced anti-trust suits the same year as Enron broke. Now that we are at the end: it was aliens. That, or sun spots. So no. I don’t see it at all possible as hitting a “reset switch” here as the ramifications would be enormous. In truth and all likelihood, someone coincidentally committed code that messed up production, which then cascaded to catastrophic collapse of vital systems. It fits in with Hanlon’s razor as mentioned at the start of this piece and there is just no evidence to suggest otherwise. The one theory I did have is maybe a “white knight” situation, where someone opted to fall on their own sword for some misguided reason, but even then I don’t buy that possibility.">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://cariad.keigher.ca/2021/10/05/thoughts-on-punditry-during-facebook-s-october-2021-outage/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="cariad.keigher.ca" href="https://cariad.keigher.ca/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="Thoughts on punditry during Facebook’s October 2021 outage">
+  <meta property="og:site_name" content="cariad.keigher.ca">
+  <meta property="og:url" content="https://cariad.keigher.ca/2021/10/05/thoughts-on-punditry-during-facebook-s-october-2021-outage/">
+  <meta property="og:description" content="God. I hated and enjoyed the stories and wrong opinions which came out on October 4th, 2021, as Facebook and all of its associated services effectively “disappeared” from the Internet for a half-day. Some of them were the type I wanted to believe, some of them were outlandish, and some of them came from folks who probably need to learn a bit about Hanlon’s razor. This is probably my favourite tweet. It would have been pretty funny to have had the new Matrix movie release on the same day as this incident. A good primer on what actually happened can be read from CloudFlare and Facebook for their part posted a fairly reasonable explanation as well. I won’t dive into these two any further, but I do want to talk about some of the silliness I saw on Twitter, the only working social media outlet that day. Facebook could not get into their offices as a result of this Turn-key LDAP systems such as Active Directory are so yesterday. I want to believe this so bad because it would read as both funny and so many movie scenarios coming to life, but it isn’t true. Runner up for my favourite tweet. My last visit to Facebook’s Menlo Park campus (on “1 Hacker Way” no less) was a surreal experience because it was very much high-tech in terms of how you signed in, how you got around, and how people worked. Much has likely changed since my mid-2016 speaking engagement there, but advances in access control and so forth have not fundamentally changed. The company is in fact married to their ID badges. Everything from ordering food, getting office and computer supplies, booking and using conference rooms, and just opening doors is tied to the ID badge. However, at no point did it ever appear that there were no workarounds. Many came out to say that they had spoken with people who work at Facebook. It is likely that this messed with many of its internal systems, but the disruption was probably not as severe as many made it out to be. It is possible this whole incident disrupted physical access, but I don’t think that it lasted anywhere as long as some may suggest. Internal tools were disrupted and it likely affected access control systems, but I imagine they still had physical keys somewhere. I know that the Bay Area is rife for flaunting local municipal and state code, but nobody running physical security for a company as high-profile as Facebook is going to overlook the need to override the digital controls. It is likely that nobody could fix this remotely (as in working from home) as Facebook was “gone”, but it would be spectacularly unlikely to have completely locked everyone out. Many large corporations use IoT devices to operate their conference rooms. They’re not new at all and often are synchronized with the internal lighting, telephony, video conferencing, and electronic displays. The company also doesn’t have a data centre in its Menlo Park offices. In fact, the closest data centre to them is 800 KM north in Bend, Oregon. Additionally, they have multiple data centres, with at least a dozen in the United States, a few in Europe, and one in Asia — this is via unofficial sources I will add. If someone had to do this on site, it was likely at one of these locations. Lots of data was stolen and a panic button was hit A now deleted tweet from Twitter user, vx-underground: “At 19:07UTC a RaidForum account under the name ‘CBT’ released 600TB of Facebook data. They are claiming responsibility for the Facebook, Instagram, and WhatsApp outage.” 600 TB is a lot. How much is 600 TB? From a practical standpoint, let’s look at a 4K movie on Blu-Ray. In this scenario, a movie could be anywhere between 50 and 100 GB in size. On my 940 Mbps Internet connection, it can transfer about 117 MB every second at its maximum capacity. Assuming the maximum size of 100 GB (or 102,400 MB) was being used for the movie, it would take me under 15 minutes to download it via the Internet. The tweet about data being made available on a “popular hacking-related forum” made its rounds and spread like wildfire without taking into account the absurdity of the claim. 600 TB is 614,400 GB which is 629,145,600 MB. That’s 6,144 of those aforementioned Blu-Ray 4K movies. That means that it would take my connection approximately two months to transfer the data, assuming I could do it at peak and without disruption. Physically, to store all of that 600 TB on Blu-Ray discs alone would result in the discs alone being just over 7 metres tall. For reference, I am about 1.7 metres in height and as a result those discs would dwarf me. If we were to use hard drives, the largest capacity on the market today runs at 18 TB, meaning you’d just need 33 of them if redundancy is not important. At a minimum, you’re looking at about $600 (Canadian dollars) for just one drive, so that comes to just under $11,000 before taxes and recycling fees — maybe you can get a bulk discount. You’d also need somewhere to put those hard drives too, so it will then cost you at least another $10,000 more since you cannot stuff that many into your computer. And I guess physically speaking, the hard drives would be shorter than the Blu-Ray discs themselves as they’d just be a metre tall all combined. Since I am not fond of mechanical hard drives, solid state drives run you $1,100 for 8 TB each. We’d need 75 of those (again without redundancy), running you $82,500. Height wise, it wouldn’t be much different than the previous storage medium, but it would be considerably less noisy. You’d still have to add the cost of housing that many drives. Mirror it on the cloud then? Using Amazon Glacier, you can store data there at $0.004 (US dollars) per GB per month, or $2,460 for the whole 600 TB, assuming you have managed to get it into there. However, making use of the data would then cost you a lot more, as retrieval of the data will likely cost you $0.01 per GB. If you wanted to grab it all after storing it, it could set you back about $6,150, setting aside the costs of storing it locally to begin with. So no. Someone doesn’t have 600 TB of data for sale — at least not in this situation. If anything, it’s likely that they could have been packaging scraped data and some data floating about that connects Facebook users to their telephone numbers, but even then it doesn’t get close to a single terabyte and I know this first-hand. Why did I initially use Blu-Ray discs to demonstrate this then? Aside from their storage density, Facebook was reported to have used them to store data long-term as early as 2014. Whether or not it is still the case is uncertain. To add to this: moving 600 TB out of Facebook’s data centre should hopefully not go without notice despite the amount of data they move typically. There was a thought popped into my head where someone could walk out with a whole bunch of discs, but I don’t think that can and will happen as 10,000 discs would weigh about 160 KG and would be almost 12 metres if stacked high. You may as well steal a storage array, which would be needed for all of those hard drives I mentioned. It was all a “security reset” I am obscuring this tweet because the person in question has faced enough harassment in their life, but nonetheless, their tweet was so incredibly misinformed that it irritated the hell out of me. Quoting a tweet by Brian Krebs: “She downloaded tons of company data to use against the company. Any other employee can do the same. My guess is they took it all down to reset their security, cover their tracks and prevent people from whistleblowing.” The day before, former Facebook Product Manager, Frances Haugen revealed allegations (of which I do believe) of the company amplifying content that would be considered hateful, likely fuelling the fascist fervour surrounding the 2020 American presidential election and the subsequent January 6th failed coup (and let’s not mince words here, it was an attempt) on the U.S. Capitol building. This is of course incredibly damning for the company as they had continuously denied this in press releases and through its own founder and CEO, Mark Zuckerberg in front of congressional hearings. Why this person’s tweet is so incorrect is quite simple: why would you go about “resetting security” the day after? Nuking any way for people to get to any of the company’s services does not ease “resetting” in whatever form this persons believes and is also incredibly expensive. Facebook is a for-profit, service-oriented business and consequently downtime of any significance is going to cause them to incur financial penalties from their customers let alone their own revenue streams. Their business is in providing a functional service and data from its users. Being out of commission for a half-day means a loss of that data and in turn a loss in profit. So what if Facebook actually did do this? Well, the legal hot water they may presently face over these believable allegations would become significantly worse if it came to light that this downtime was all a ruse to get their “ducks in order” in the event that they were requested to provide information to law enforcement. Digital forensics would be all over this because there would have to be communications between higher ups and everyone required to pull off a such a ridiculous stunt. To add to this, it likely would result in another whistleblower situation. I would imagine that this would all bubble to the surface much faster than the time between Haugen’s departure from the company in May and her appearance on CBS’s 60 Minutes just this past Sunday. Someone in the chain who would have the ability to do all this would likely make noise. Assuming it were somehow successful and were to come to light, it would likely be a bigger corporate story than the Enron scandal, which coincidentally occurred almost twenty years ago prior. This would not be a financial crime of course (maybe a Sarbanes-Oxley violation due to a messing with controls perhaps — I am not a lawyer), but seeing that it would be an blatant attempt to erase evidence and there are already enough within Washington D.C. who have a bone to pick with the company, I don’t think they’d ride this one out with the same ease Microsoft did when they faced anti-trust suits the same year as Enron broke. Now that we are at the end: it was aliens. That, or sun spots. So no. I don’t see it at all possible as hitting a “reset switch” here as the ramifications would be enormous. In truth and all likelihood, someone coincidentally committed code that messed up production, which then cascaded to catastrophic collapse of vital systems. It fits in with Hanlon’s razor as mentioned at the start of this piece and there is just no evidence to suggest otherwise. The one theory I did have is maybe a “white knight” situation, where someone opted to fall on their own sword for some misguided reason, but even then I don’t buy that possibility.">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="Thoughts on punditry during Facebook’s October 2021 outage">
+  <meta name="twitter:description" content="God. I hated and enjoyed the stories and wrong opinions which came out on October 4th, 2021, as Facebook and all of its associated services effectively “disappeared” from the Internet for a half-da...">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+
+  
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">cariad.keigher.ca</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://hachyderm.io/@KateLibC">Mastodon</a>
+      
+        
+        <a class="page-link" href="https://bsky.app/profile/cariad.bsky.social">Bluesky</a>
+      
+        
+        <a class="page-link" href="https://github.com/katelibc">GitHub</a>
+      
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+      <h1 class="post-title" itemprop="name headline">Thoughts on punditry during Facebook’s October 2021 outage</h1>
+    
+    <p class="post-meta"><time datetime="2021-10-05T00:00:00+00:00" itemprop="datePublished">Oct 5, 2021</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <hr />
+
+<p>God. I hated and enjoyed the stories and wrong opinions which came out on October 4th, 2021, as Facebook and all of its associated services effectively “disappeared” from the Internet for a half-day. Some of them were the type I wanted to believe, some of them were outlandish, and some of them came from folks who probably need to learn a bit about <a href="https://en.wikipedia.org/wiki/Hanlon%27s_razor">Hanlon’s razor</a>.</p>
+
+<p>This is probably my favourite tweet. It would have been pretty funny to have had the new Matrix movie release on the same day as this incident.</p>
+
+<p>A good primer on what actually happened can be read from <a href="https://blog.cloudflare.com/october-2021-facebook-outage/">CloudFlare</a> and <a href="https://engineering.fb.com/2021/10/05/networking-traffic/outage-details/">Facebook for their part posted a fairly reasonable explanation as well</a>. I won’t dive into these two any further, but I do want to talk about some of the silliness I saw on Twitter, the only working social media outlet that day.</p>
+
+<h4>Facebook could not get into their offices as a result of this</h4>
+
+<p>Turn-key LDAP systems such as Active Directory are so yesterday.</p>
+
+<p>I want to believe this so bad because it would read as both funny and so many movie scenarios coming to life, but it isn’t true.</p>
+
+<p>Runner up for my favourite tweet.</p>
+
+<p>My last visit to Facebook’s Menlo Park campus (on “1 Hacker Way” no less) was a surreal experience because it was very much high-tech in terms of how you signed in, how you got around, and how people worked. Much has likely changed since my mid-2016 speaking engagement there, but advances in access control and so forth have not fundamentally changed.</p>
+
+<p>The company is in fact married to their ID badges. Everything from ordering food, getting office and computer supplies, booking and using conference rooms, and just opening doors is tied to the ID badge. However, at no point did it ever appear that there were no workarounds.</p>
+
+<p>Many came out to say that they had spoken with people who work at Facebook. It is likely that this messed with many of its internal systems, but the disruption was probably not as severe as many made it out to be.</p>
+
+<p>It is possible this whole incident disrupted physical access, but I don’t think that it lasted anywhere as long as some may suggest. Internal tools were disrupted and it likely affected access control systems, but I imagine they still had physical keys somewhere.</p>
+
+<p>I know that the Bay Area is rife for <a href="https://www.washingtonpost.com/technology/2020/06/25/tesla-plant-firings/">flaunting local municipal and state code</a>, but nobody running physical security for a company as high-profile as Facebook is going to overlook the need to override the digital controls. It is likely that nobody could fix this remotely (as in working from home) as Facebook was “gone”, but it would be spectacularly unlikely to have completely locked everyone out.</p>
+
+<p>Many large corporations use IoT devices to operate their conference rooms. They’re not new at all and often are synchronized with the internal lighting, telephony, video conferencing, and electronic displays.</p>
+
+<p>The company also doesn’t have a data centre in its Menlo Park offices. In fact, the closest data centre to them is 800 KM north in Bend, Oregon. Additionally, they have <a href="https://baxtel.com/data-centers/facebook#datacenter-map">multiple data centres</a>, with at least a dozen in the United States, a few in Europe, and one in Asia — this is via unofficial sources I will add. If someone had to do this on site, it was likely at one of these locations.</p>
+
+<h4>Lots of data was stolen and a panic button was hit</h4>
+
+<p><img src="/img/1lLOqs5z5fcT7EjLBxZzrGA_1.png" alt="" /></p>
+
+<p>A now deleted tweet from Twitter user, vx-underground: “At 19:07UTC a RaidForum account under the name ‘CBT’ released 600TB of Facebook data. They are claiming responsibility for the Facebook, Instagram, and WhatsApp outage.”</p>
+
+<p>600 TB is a lot. How much is 600 TB?</p>
+
+<p>From a practical standpoint, let’s look at a 4K movie on Blu-Ray. In this scenario, a movie could be anywhere between 50 and 100 GB in size. On my 940 Mbps Internet connection, it can transfer about 117 MB every second at its maximum capacity. Assuming the maximum size of 100 GB (or 102,400 MB) was being used for the movie, it would take me under 15 minutes to download it via the Internet.</p>
+
+<p>The tweet about data being made available on a “popular hacking-related forum” made its rounds and spread like wildfire without taking into account the absurdity of the claim.</p>
+
+<p>600 TB is 614,400 GB which is 629,145,600 MB. That’s 6,144 of those aforementioned Blu-Ray 4K movies. That means that it would take my connection approximately two months to transfer the data, assuming I could do it at peak and without disruption.</p>
+
+<p>Physically, to store all of that 600 TB on Blu-Ray discs alone would result in the discs alone being just over 7 metres tall. For reference, I am about 1.7 metres in height and as a result those discs would dwarf me.</p>
+
+<p>If we were to use hard drives, the largest capacity on the market today runs at 18 TB, meaning you’d just need 33 of them if redundancy is not important.</p>
+
+<p>At a minimum, you’re looking at about $600 (Canadian dollars) for just one drive, so that comes to just under $11,000 before taxes and recycling fees — maybe you can get a bulk discount. You’d also need somewhere to put those hard drives too, so it will then cost you at least another $10,000 more since you cannot stuff that many into your computer.</p>
+
+<p>And I guess physically speaking, the hard drives would be shorter than the Blu-Ray discs themselves as they’d just be a metre tall all combined.</p>
+
+<p>Since I am not fond of mechanical hard drives, solid state drives run you $1,100 for 8 TB each. We’d need 75 of those (again without redundancy), running you $82,500. Height wise, it wouldn’t be much different than the previous storage medium, but it would be considerably less noisy. You’d still have to add the cost of housing that many drives.</p>
+
+<p>Mirror it on the cloud then? Using <a href="https://aws.amazon.com/s3/glacier/pricing/">Amazon Glacier</a>, you can store data there at $0.004 (US dollars) per GB per month, or $2,460 for the whole 600 TB, assuming you have managed to get it into there. However, making use of the data would then cost you a lot more, as retrieval of the data will likely cost you $0.01 per GB. If you wanted to grab it all after storing it, it could set you back about $6,150, setting aside the costs of storing it locally to begin with.</p>
+
+<p>So no. Someone doesn’t have 600 TB of data for sale — at least not in this situation. If anything, it’s likely that they could have been packaging scraped data and some data floating about that <a href="https://www.businessinsider.com/stolen-data-of-533-million-facebook-users-leaked-online-2021-4">connects Facebook users to their telephone numbers</a>, but even then it doesn’t get close to a single terabyte and I know this first-hand.</p>
+
+<p>Why did I initially use Blu-Ray discs to demonstrate this then? Aside from their storage density, <a href="https://www.pcworld.com/article/443619/facebook-puts-10000-bluray-discs-in-lowpower-storage-system.html">Facebook was reported to have used them to store data long-term as early as 2014</a>. Whether or not it is still the case is uncertain.</p>
+
+<p>To add to this: moving 600 TB out of Facebook’s data centre should hopefully not go without notice despite the amount of data they move typically.</p>
+
+<p>There was a thought popped into my head where someone could walk out with a whole bunch of discs, but I don’t think that can and will happen as 10,000 discs would weigh about 160 KG and would be almost 12 metres if stacked high.</p>
+
+<p>You may as well steal a <a href="https://buy.hpe.com/us/en/storage/file-storage/flexible-file-application-storage/storeeasy-1000-x1000-storage/hpe-storeeasy-1000-storage/p/5335825">storage array</a>, which would be needed for all of those hard drives I mentioned.</p>
+
+<h4>It was all a “security reset”</h4>
+
+<p>I am obscuring this tweet because the person in question has faced enough harassment in their life, but nonetheless, their tweet was so incredibly misinformed that it irritated the hell out of me.</p>
+
+<p><img src="/img/1U3ghzOEFKmIaGQfibl2PSg_1.png" alt="" /></p>
+
+<p>Quoting a <a href="https://twitter.com/briankrebs/status/1445124635238993945">tweet by Brian Krebs</a>: “She downloaded tons of company data to use against the company. Any other employee can do the same. My guess is they took it all down to reset their security, cover their tracks and prevent people from whistleblowing.”</p>
+
+<p>The day before, former Facebook Product Manager, Frances Haugen <a href="https://www.cbsnews.com/news/facebook-whistleblower-frances-haugen-misinformation-public-60-minutes-2021-10-03/">revealed allegations</a> (of which I do believe) of the company amplifying content that would be considered hateful, likely fuelling the fascist fervour surrounding the 2020 American presidential election and the subsequent January 6th failed coup (and let’s not mince words here, it was an attempt) on the U.S. Capitol building.</p>
+
+<p>This is of course incredibly damning for the company as they had continuously denied this in press releases and through its own founder and CEO, Mark Zuckerberg <a href="https://www.washingtonpost.com/news/the-switch/wp/2018/04/10/transcript-of-mark-zuckerbergs-senate-hearing/">in front of congressional hearings</a>.</p>
+
+<p>Why this person’s tweet is so incorrect is quite simple: why would you go about “resetting security” the day after? Nuking any way for people to get to any of the company’s services does not ease “resetting” in whatever form this persons believes and is also incredibly expensive.</p>
+
+<p>Facebook is a for-profit, service-oriented business and consequently downtime of any significance is going to cause them to incur financial penalties from their customers let alone their own revenue streams. Their business is in providing a functional service and data from its users. Being out of commission for a half-day means a loss of that data and in turn a loss in profit.</p>
+
+<p>So what if Facebook actually did do this? Well, the legal hot water they may presently face over these believable allegations would become significantly worse if it came to light that this downtime was all a ruse to get their “ducks in order” in the event that they were requested to provide information to law enforcement. Digital forensics would be all over this because there would have to be communications between higher ups and everyone required to pull off a such a ridiculous stunt.</p>
+
+<p>To add to this, it likely would result in another whistleblower situation. I would imagine that this would all bubble to the surface much faster than the time between Haugen’s departure from the company in May and her appearance on CBS’s 60 Minutes just this past Sunday. Someone in the chain who would have the ability to do all this would likely make noise.</p>
+
+<p>Assuming it were somehow successful and were to come to light, it would likely be a bigger corporate story than the <a href="https://en.wikipedia.org/wiki/Enron_scandal">Enron scandal</a>, which coincidentally occurred almost twenty years ago prior.</p>
+
+<p>This would not be a financial crime of course (maybe a Sarbanes-Oxley violation due to a messing with controls perhaps — I am not a lawyer), but seeing that it would be an blatant attempt to erase evidence and there are already enough within Washington D.C. who have a bone to pick with the company, I don’t think they’d ride this one out with the same ease <a href="https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp.">Microsoft did when they faced anti-trust suits the same year as Enron broke</a>.</p>
+
+<p><img src="/img/1KVjaDzX6Wlx68RKxMqApqA_1.png" alt="" /></p>
+
+<p>Now that we are at the end: it was aliens. That, or <a href="https://www.swpc.noaa.gov/products/alerts-watches-and-warnings">sun spots</a>.</p>
+
+<p>So no. I don’t see it at all possible as hitting a “reset switch” here as the ramifications would be enormous. In truth and all likelihood, someone coincidentally committed code that messed up production, which then cascaded to catastrophic collapse of vital systems. It fits in with Hanlon’s razor as mentioned at the start of this piece and there is just no evidence to suggest otherwise.</p>
+
+<p>The one theory I did have is maybe a “white knight” situation, where someone opted to fall on their own sword for some misguided reason, but even then I don’t buy that possibility.</p>
+
+  </div>
+
+  
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Cariad Heather Keigher - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="https://cariad.keigher.ca/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

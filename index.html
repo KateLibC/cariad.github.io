@@ -1,159 +1,454 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="main.css">
-    <title>Cariad Heather Keigher</title>
+<html lang="en">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
-<body>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div class="header">
-    <img src="/images/layout_me_emote.png" />
-    <h1>Cariad Heather Keigher</h1>
-</div>
-
-<div class="topnav">
-    <a href="/">Home</a>
-    <a href="/about/">About Me</a>
-    <a href="/travels/">Travels</a>
-    <a href="/crypto/">Crypto Challenges</a>
-    <a href="/speedrunning/">Speedrunning</a>
-    <a href="/projects/">Projects</a>
-    <a href="/contact/">Contact</a>
-</div>
-
-<div class="row">
-    <div class="content">
-        <p>
-            My name is Cariad Heather Keigher and I live in the unceded territories of the Sḵwx̱wú7mesh (Squamish), Stó:lō (Stolo), Səl̓ílwətaʔ/Selilwitulh (Tsleil-Waututh), and xʷməθkʷəy̓əm (Musqueam) first nations, otherwise known as Vancouver, British Columbia in Canada. My pronouns are "she" and "they", and I am of Irish ancestory, holding citizenship in both Canada and Ireland. 
-        </p>
-        <p>
-            In many places on the Internet, I'm known as "KateLibC". My name is of course not Kate, but the name itself is a portmanteau of Kate Libby, a character from the movie, <em>Hackers</em>, and the C programming language, which was the successor to B. It's a really silly joke, but it has stuck for years.
-        </p>
-        <p>
-            I lead a cyber security team for a Canadian company and have worked in the field for over a decade as an engineer, software developer, consultant, and incident responder in environments ranging from corporate networks to industrial control. In my off time, I stream on Twitch where I speedrun video games, enjoy the outdoors by rollerskating and cycling, travel to random places, and I also like to dabble in photography.
-        </p>
-
-	<p>
-	   I'm also one-half of the podcast, <a href="https://shawiniganmoments.ca">Shawinigan Moments</a>, a show about Canadian history. If you want to hear two queer leftists discuss their takes on the country, then check us out.
-	</p>
-
-        <h2>Recently on cohost</h2>
-
-        <div id="cohost">
-            <em>Coming soon...</em>
-            <script type="text/javascript">
-                const user = "Cariad";
-                const atuser = "@" + user;
-
-                var cohostxhr = new XMLHttpRequest();
-                var base_url = "https://cohost.org/" + user + "/rss/public.json";
-                var content = document.getElementById('cohost');
-
-                cohostxhr.onreadystatechange = function(){
-                    if (cohostxhr.readyState==4 && cohostxhr.status==200)
-                    {
-                        var data = JSON.parse(cohostxhr.responseText);
-                        var itemsContainer = document.createElement('DIV');
-
-                        if(data.status == 'ok'){
-                            for( var i=0,t = data.items.length ; i < t ; ++i ){
-                                var item = data.items[i];
-                                if (item.author.name == atuser) {
-                                    var itemContainer = document.createElement('DIV');
-                                    var itemTitleElement = document.createElement('h3');
-                                    var itemLinkElement = document.createElement('A');
-                                    var itemDateElement = document.createElement('P')
-                                    
-                                    itemLinkElement.setAttribute('href' , item.url);
-                                    itemLinkElement.innerText = item.summary;
-                                    itemDateElement.innerText = item.date_published;
-
-                                    itemTitleElement.appendChild(itemLinkElement);
-                                    itemContainer.appendChild(itemTitleElement);
-                                    itemContainer.appendChild(itemDateElement);
-                                    itemsContainer.appendChild(itemContainer);
-                                }
-                            }
-                            content.appendChild(itemsContainer);
-                        }
-                    }
-                };
-
-                cohostxhr.open(
-                    'GET',
-                    base_url,
-                    true
-                );
-                cohostxhr.send();
-            </script>
-        </div>
-
-        <h2>Blog Posts</h2>
-
-        <div id="articles">
-            <script type="text/javascript">
-                var content = document.getElementById('articles');
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.onreadystatechange = function(){
-                    if (xhr.readyState==4 && xhr.status==200)
-                    {
-                        var data = JSON.parse(xhr.responseText);
-                        var itemsContainer = document.createElement('DIV');
-
-                        if(data.status == 'ok'){
-
-
-                            for( var i=0,t = data.items.length ; i < t ; ++i ){
-                                var item = data.items[i];
-                                var itemContainer = document.createElement('DIV');
-
-                                var itemTitleElement = document.createElement('h3');
-                                var itemLinkElement = document.createElement('A');
-                                var itemDateElement = document.createElement('P')
-
-                                itemLinkElement.setAttribute('href' , item.link);
-                                itemLinkElement.innerText = item.title;
-                                itemDateElement.innerText = item.pubDate;
-
-                                itemTitleElement.appendChild(itemLinkElement);
-                                itemContainer.appendChild(itemTitleElement);
-                                itemContainer.appendChild(itemDateElement);
-                                itemsContainer.appendChild(itemContainer);
-                            }
-                            content.appendChild(itemsContainer);
-                        }
-                    }
-                };
-                xhr.open(
-                    'GET',
-                    'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@katelibc',
-                    true
-                );
-                xhr.send();
-            </script>
-        </div>
-    </div>
   
-  <div class="side">
-    <div class="subnav">
-        <a href="https://cohost.org/Cariad"> cohost</a>
-        <a href="https://github.com/katelibc"><img src="/images/icon_github.png" class="contacticon" /> Github</a>
-        <a href="https://foxes.live"><img src="/images/icon_twitch.png" class="contacticon" /> Twitch</a>
-    </div>
-    
-    <img src="/images/layout_me_main.jpg" class="side_img">
+  
+  
+  <title>cariad.keigher.ca</title>
+  <meta name="description" content="Personal website and journal for Cariad Heather Keigher.">
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="https://cariad.keigher.ca/">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="cariad.keigher.ca" href="https://cariad.keigher.ca/feed.xml">
+
+  
+
+  
+  <meta property="og:title" content="cariad.keigher.ca">
+  <meta property="og:site_name" content="cariad.keigher.ca">
+  <meta property="og:url" content="https://cariad.keigher.ca/">
+  <meta property="og:description" content="Personal website and journal for Cariad Heather Keigher.">
+  
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:title" content="cariad.keigher.ca">
+  <meta name="twitter:description" content="Personal website and journal for Cariad Heather Keigher.">
+  
+  
+
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+
+  
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">cariad.keigher.ca</a>
+
+    <nav class="site-nav">
+      
+        
+        <a class="page-link" href="/about/">About</a>
+      
+        
+        <a class="page-link" href="/archives/">Archives</a>
+      
+        
+        <a class="page-link" href="https://hachyderm.io/@KateLibC">Mastodon</a>
+      
+        
+        <a class="page-link" href="https://bsky.app/profile/cariad.bsky.social">Bluesky</a>
+      
+        
+        <a class="page-link" href="https://github.com/katelibc">GitHub</a>
+      
+    </nav>
 
   </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="home">
+
+  
+
+  
+
+  <ul class="post-list">
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2024/12/31/2024-ai-and-my-side-in-the-butlerian-jihad/">2024, AI, and my side in the Butlerian Jihad</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Dec 31, 2024
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p><img src="/img/0vChTdqoDivbqEG5__1" alt="" /></p>
+
+<p>Depiction of the Butlerian Jihad from the books</p>
+
+<p>Earlier this year, my friend asked me to come over to her place to watch Dune Part One so she could the next day drag me to see Part Two in cinema. After that weekend, I gained a new set of worlds to explore: a universe once tainted by artificial intelligence but no longer thanks to a war with “<a href="https://breezewiki.com/dune/wiki/Thinking_Machines">thinking machines</a>”.</p>
+
+<p>This wasn’t my first experience with Dune, as I had at one point in my past watched the <a href="https://en.wikipedia.org/wiki/Dune_%281984_film%29">David Lynch rendition</a>, which came out the year I was born. However, the Denis Villeneuve version captured my attention due to its non-goofy approach to the story, and as a consequence I now find myself reading through the books.</p>
+
+<p>One plot device of the (known) universe in Frank Herbert’s Dune is the lack of anything resembling a computer as we know it. Approximately ten thousand years before protagonist <a href="https://en.wikipedia.org/wiki/Paul_Atreides">Paul Atreides</a> appearance in the story, the established royal houses were engaged in a war — dubbed the “<a href="https://breezewiki.com/dune/wiki/Butlerian_Jihad">Butlerian Jihad</a>” — with thinking machines where humanity was victorious.</p>
+
+<p><img src="/img/0Qbo4gkyFYhTL6MqV_1" alt="" /></p>
+
+<p>Thufir Hawat, a mentat as depicted in Dune (2021), played by Stephen McKinley</p>
+
+<p>This victory led to anything resembling a thinking machine considered as forbidden technology and instead led to humanity being dependent on but not limited to <a href="https://breezewiki.com/dune/wiki/Mentat">mentats</a> (human computers basically), analogue technology, and genetic modification including eugenics (unfortunate).</p>
+
+<p>In the real world of 2024, we don’t have to worry about computers having sentience and we never will in 2025, 2026, 2032, or 2038 — check in with me in 2039 for an update. <a href="https://gizmodo.com/openai-claims-its-new-model-reached-human-level-on-a-test-for-general-intelligence-what-does-that-mean-2000543834">The suggestion that it will achieve artificial general intelligence</a> (AGI) any time soon is absolute nonsense — the power requirements that AI-championing OpenAI is desiring <a href="https://finance.yahoo.com/news/openai-reportedly-wants-build-5-115944436.html?guccounter=1&amp;guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&amp;guce_referrer_sig=AQAAAKGpMqYtIi0gew2IJPTVRrBWdZuBooCyleaDSdj3BwoDaivqVu2AxLMjfVv-8v9nG8MzT-i9dp8U77u8pJpRpHyLFXdHFX88H3vSQRIkoHjxzLIvReCvgncpICZnvN9EzSiaDlwJsIFLp-TdP1HWEUaMUGR7BIql1DTJeTQS8tdQ">is the equivalent to the output of some countries</a>.</p>
+
+<p>Just <a href="https://www.scientificamerican.com/article/a-cubic-millimeter-of-a-human-brain-has-been-mapped-in-spectacular-detail/">to map one cubic millimetre of the human brain required 1.4 petabytes of storage</a>, meaning that to do its entirety, based on its average <a href="https://www.verywellmind.com/how-big-is-the-brain-2794888">size</a> of 2,174,340 mm², you’d need 3,044,076 petabytes of storage. If you convert that to zettabytes, you’d end up with about 3, which <a href="https://rivery.io/blog/big-data-statistics-how-much-data-is-there-in-the-world/">about 2% of what is suggested as the entire Internet’s total storage capability</a>.</p>
+
+<p>This is for one human brain. The entire Internet infrastructure is <a href="https://thundersaidenergy.com/downloads/internet-energy-consumpion-data-models-forecasts/#:~:text=Our%20best%20estimate%20is%20that,2.5%25%20of%20all%20global%20electricity.">suggested to consume about 800 TWh of electricity</a>, meaning that to simulate this one human brain, you’d need 16 TWh just for storage — this is enough to <a href="https://en.wikipedia.org/wiki/List_of_countries_by_electricity_production">power all of Cuba</a> just to put it all into context and we’re not even considering all of the other technicals we’d need to examine to pull it off.</p>
+
+<p><img src="/img/1gaZdChB_XbH-9wsh_2lYSA_1.png" alt="" /></p>
+
+<p>At 640 grams each, you’d have 64,000,000 KG of these bad boys floating around for just one brain, putting them all at around 20% the total weight of the Empire State Building</p>
+
+<p>We cannot map the entire brain without having to have nearly <a href="https://www.westerndigital.com/products/internal-drives/data-center-drives/ultrastar-dc-hc690-hdd?sku=WSH723220AL4201">100 million of these hard drives</a> spinning at any given time (imagine the failure rate you’d have to contend with) and yet we’re expected to believe arrogant pricks like <a href="https://en.wikipedia.org/wiki/Sam_Altman">Sam Altman</a> have any clue about what its usefulness is?</p>
+
+<p>Even if we play into the fool’s statement that we only use 10% of our brains (this is untrue), we’d still need just over 1 TWh for storage for a human brain. Why are we suggesting that we go and speed up climate change in favour of a machine that relies on a garbage in garbage out philosophy?</p>
+
+<p>Recently, I became aware that I was put on someone’s list as “someone who doesn’t get AI/NFTs/crypto” — here’s the thing: I do understand it, but what I don’t get is why do these types of people who champion these fads never take a step back to understand them?</p>
+
+<p>I have a decade and a half experience with computer security and have seen so much change, but what hasn’t changed is the creature in front of the display. Humans are complex creatures; <a href="https://en.wikipedia.org/wiki/Consciousness#Scientific_study">we don’t understand why we have consciousness</a> and yet we have clowns in the world who suggest we can replicate some or all of it?</p>
+
+<p><img src="/img/0Sl7c2Aacvr2G8oyM_1" alt="" /></p>
+
+<p>Quantum computers probably won’t help either here — if they even ever work.</p>
+
+<p>The idea of classical computers with their binary states achieving the intelligence of a human brain is short-sighted — the idiocy I already am making an argument for here.</p>
+
+<p>A thousand lines of code is more than enough to power a <a href="https://en.wikipedia.org/wiki/Large_language_model">large language model</a>, which forms the basis for the AI software we see commonly today, but to suggest that is enough in contrast to the billions of years of evolution that led to our species being here today is pure hubris and will lead to us hoisting ourselves by our own petard.</p>
+
+<p>Were the Butlerian Jihad were to start today, I know which side I’d find myself on. Stop boiling the damn ocean to make soulless art, worthless and insecure code, and education materials of which are lacking in facts.</p>
+
+<p>You have a brain; use it, exercise it, and find what you’re actually capable of.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2024/09/28/drunk-driving-is-ok-in-canada/">Drunk Driving is OK in Canada</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Sep 28, 2024
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p><img src="/img/0niZCH57ngx5QVrE0_1" alt="" /></p>
+
+<p>Press release from the Saskatchewan Party on September 13, 2024</p>
+
+<p>Often I find myself writing about transit and thinking that many lives would not have been lost were we to have more publicly funded transit options. However, despite all of that, we have governments that don’t ever equate the use of transit and the reduction of vehicular alcohol abuse.</p>
+
+<p>Earlier this month, <a href="https://www.cbc.ca/news/canada/saskatoon/candidates-prior-dui-convictions-1.7327522">The Saskatchewan Party released details about its slate of candidates ahead of the election writ being dropped</a>. What was interesting was a line stating that there are five candidates who have past drunk driving charges.</p>
+
+<p>Scott Moe, both current leader of the Saskatchewan Party and Premier of Saskatchewan, is also included in this list of having an impaired driving charge in 1992.</p>
+
+<p>However, what is not mentioned here is that he has had t<a href="https://pressprogress.ca/saskatchewan-premier-scott-moe-failed-to-disclose-his-other-impaired-driving-arrest-an-alleged-hit-and-run/">wo other incidents including a 1994 charge of a hit-and-run and a 1997 collision that took the life of a mother of two sons</a>.</p>
+
+<p>In the 1994 incident, Scott Moe never received a breathalyzer test but did admit that he had consumed alcohol earlier in the day. However, there is a contradiction in all of this because this is what the police charge stating:</p>
+
+<blockquote>
+  <p>…control of a motor vehicle that was involved in an accident with a vehicle at the Shellbrook Co-op with intent to escape civil or criminal liability, fail to stop his vehicle and give his name and address…</p>
+</blockquote>
+
+<p>With Moe clarifying in an interview when he was confronted over it:</p>
+
+<blockquote>
+  <p>I exchanged information with the owner of the other vehicle and I called in the accident to the police.</p>
+</blockquote>
+
+<p>Of course, since he apparently only called in the accident to police, there would be no evidence of him being under the influence at the time. We will just have to take him at his word that in 1997 when he killed 39-year old Joanne Bolog and injured her 18-year old son.</p>
+
+<p>No alcohol was cited here, but he was charged with driving without “due care” and “failing to come to a complete stop”.</p>
+
+<p>Especially rich considering that in 2019, the Humboldt Broncos junior hockey team <a href="https://en.wikipedia.org/wiki/Humboldt_Broncos_bus_crash">had sixteen players killed when their bus was hit by a truck</a> in a much similar fashion. The driver of the truck, who was just a permanent resident at the time, is now <a href="https://www.cbc.ca/news/canada/saskatchewan/humboldt-bus-driver-applies-to-reinstate-permanent-residency-1.7264031">facing deportation</a>.</p>
+
+<p>Scott Moe <a href="https://globalnews.ca/news/5137008/scott-moe-humboldt-broncos-crash/">commented on the tragedy</a>:</p>
+
+<blockquote>
+  <p>“Nobody sets out one morning with any intent of being in a car accident of any type […] [to] some degree I feel for Mr. Sidhu and his family.”</p>
+</blockquote>
+
+<p>Moe is just lucky that he has a certain degree of privilege that lets him get away with his past behaviour.</p>
+
+<p>I could comment on other reasons for why <a href="https://www.cbc.ca/news/canada/saskatoon/cupe-sask-moe-threat-statement-1.7157484">Scott Moe (and his Saskatchewan Party) are a danger to others</a>, but it doesn’t really matter what happens before you enter public life because it won’t matter when you are in office as Premier of a province anyhow.</p>
+
+<p><img src="/img/0-svaop15n5rNPAs3_1.jpg" alt="" /></p>
+
+<p>Then-Premier of British Columbia, Gordon Campbell</p>
+
+<p>In January 2003, while leaving friend and Vancouver-area broadcaster Fred Latremouille’s Hawaiian home, Premier Gordon Campbell was arrested and pled no contest to driving under the influence of alcohol.</p>
+
+<p>In Hawaii, it was merely a misdemeanour and not a criminal offence such as the case is in Canada, so he was fined US$913 and sent on his merry way under the condition he be checked for alcoholism and participate in a substance abuse program.</p>
+
+<p>Calls for his resignation were made from <a href="https://www.cbc.ca/news/canada/b-c-premier-should-quit-over-drunk-driving-charge-madd-1.372946">groups such as MADD</a>, but he managed to survive another seven years in office only resigning in March 2011 after being bogged down by a poorly implemented sales tax.</p>
+
+<p>Drunk driving is OK because these two idiots never faced the music for it.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2024/09/13/british-rail-and-its-attempt-to-sell-vancouver-on-a-railbus/">British Rail and its attempt to sell Vancouver on a Railbus</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Sep 13, 2024
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p><img src="/img/0o557v1tTvd63pDNJ_1" alt="" /></p>
+
+<p>Promotional image showing a Class 142 railbus somewhere in the Fraser Valley (British Rail)</p>
+
+<p>The theme of Expo 86 was transportation and many, many countries took advantage of the show to demonstrate their developments in this field. Of course, the star of the show was Canada’s SkyTrain, but Japan showed its maglev train, America its cars, and the United Kingdom showed its conventional rail.</p>
+
+<p><img src="/img/06Dah5PbvbOECUHR1_1.png" alt="" /></p>
+
+<p>Said railbus being transported to Vancouver (Colin Arnot/RRPicturesArchives.NET)</p>
+
+<p>British Rail, the then government corporation behind operation and development of rail transportation in the United Kingdom decided to send one of its <a href="https://en.wikipedia.org/wiki/British_Rail_Class_142">Class 142 train sets</a> (aka “Pacer”) diesel trains (dubbed as “railbus”) to tour Metro Vancouver.</p>
+
+<p>They regularly ran service from a temporary station in Abbotsford to New Westminster during the summer months of 1986 along the railway once referred to as the Fraser Valley Line during the BC Electric Railway days.</p>
+
+<p><img src="/img/0GnkAjhGZcWGkhgiJ_1.jpg" alt="" /></p>
+
+<p>Railbus parked at the railyards in Strathcona (City of Vancouver Archives)</p>
+
+<p>It did make an appearance near the Expo grounds at Pacific Central and was given a largely lukewarm reception by locals and government officials. The common critique of the train was the one shared by those back in the UK: it was an uncomfortable ride.</p>
+
+<p><img src="/img/0mWXCaPSn8sHBJ0VX_1.jpg" alt="" /></p>
+
+<p>Railbus parked in New Westminster (J.W. Booth)</p>
+
+<p>The reasons behind the uncomfortable ride are known: unlike most trains, this was based on a bus made by British Leyland. A rail chassis was fixed to the bus body and then some slight modifications were made to the cab to make it “rail-ready”. Unlike a typical train, the wheels were fixed in place which made them noisy. To add to this, there were only two axels per car unlike the typical four you’d see on other trains including all of the ones used by SkyTrain today, which resulted in a rougher ride.</p>
+
+<p><img src="/img/0UhOckj36dtTUra3X_1.jpg" alt="" /></p>
+
+<p>Railbus parked somewhere in the Fraser Valley (City of Vancouver Archives)</p>
+
+<p>After the summer, the train set was sent back to the UK where it operated on various different services until all Pacers were retired at the end of 2020.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2024/05/23/the-history-of-new-westminster-station/">The History of New Westminster Station</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            May 23, 2024
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p><img src="/img/0ZfUm4OqObsWW8Wot_1.jpg" alt="" /></p>
+
+<p><em>BC Electric train at New Westminster Station during the Duke of Connaught visit (City of New Westminster)</em></p>
+
+<p><img src="/img/0rmFGR3VLsRJuzHOE_1.jpg" alt="" /></p>
+
+<p>New Westminster Station today</p>
+
+<p>For those who use New Westminster Station on the regular, it’s a place you either pass through, you get off to see a movie, or you catch a bus from to go up the steep hills of the city is named for. However, it has a long history of being a terminus going back to the early 20th Century.</p>
+
+<p>The original station building was located adjacent to the present-day station and is now a thrift store and office. It was opened in 1891 and sat directly next to the Canadian Pacific Railway’s station.</p>
+
+<p><img src="/img/0JSUn5MKtXyaYtCL5_1.jpg" alt="" /></p>
+
+<p>Interurban as seen from the entrance of New Westminster Station (City of Vancouver Archives)</p>
+
+<p>It was a terminus for the Burnaby Lake and Central Park BC Electric Railway (BCER) interurban lines plus provided through service for the Vancouver to Chilliwack service as well. Add on top the street cars that littered New Westminster and a connection to Richmond (Lulu Island) and also to Vancouver via the Marpole line, you find yourself with a major hub for railway services in the region.</p>
+
+<p><img src="/img/0KUCSpRwM-pAo5GRA_1.jpg" alt="" /></p>
+
+<p>New Westminster Station’s current location as seen in the early 1980s (City of New Westminster)</p>
+
+<p>With the dissolution of passenger service provided by the BCER, New Westminster being a transportation hub in what was then Greater Vancouver came to an end. It became an area dominated by the car especially after the City of New Westminster opted to build a giant parkade on its waterfront in order to “revitalise” the area.</p>
+
+<p><img src="/img/0rbh9XK4wG0DpORDk_1.jpg" alt="" /></p>
+
+<p>New Westminster Station as seen in 1986 (City of Vancouver Archives)</p>
+
+<p>In 1985, New Westminster returned to being a transportation focal point with the opening of SkyTrain service and once again it became a terminus station. To facilitate it being a terminus station, half of the tracks were covered over with a temporary platform. This was because there was a planned extension to another station in the downtown area and then off to Surrey.</p>
+
+<p><img src="/img/0exe-qvxG6-jAac7-_1.jpg" alt="" /></p>
+
+<p>New Westminster Station as seen in the 1990s</p>
+
+<p>This station became important to New Westminster’s efforts to revitalise its downtown core and in the 2000s, it became a focal point for densification. The former grounds of a car dealership, a parking lot, and a retail complex were all to be used as part of turning the station into a hub for residences and shopping.</p>
+
+<p><img src="/img/0nKYWEtWLAJ7XE0nO_1.jpg" alt="" /></p>
+
+<p>New Westminster Station is now part of a shopping centre</p>
+
+<p>Today, New Westminster station is not only a hub for connections elsewhere in the city and beyond, but you can go there to get your groceries, eat a meal, and watch a movie. It even acts as an intermodal as a brief walk can take you to <a href="https://www.newwestcity.ca/qtoqferry">a ferry</a> which connects downtown New Westminster with Queensborough.</p>
+
+<p>Perhaps <a href="https://dailyhive.com/vancouver/north-fraser-rapid-transit-line-vancouver-translink">in the future it will be a connection to Vancouver via the old Marpole line</a>?</p>
+
+<p><em>This was originally posted to cohost.org/VancouverTransit.</em></p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2023/08/21/all-about-mission-city-station/">All about Mission City station</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Aug 21, 2023
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p><img src="/img/0oJAwhQO1zQh0PCt5_1" alt="" /></p>
+
+<p>When you think about TransLink, you think about how it goes as far north as Lions Bay, as far south as White Rock, and as far west as Bowen Island. However, it does offer services outside of what is traditionally thought of as Metro Vancouver and that is where the curious case of Mission City station comes in.</p>
+
+<p><img src="/img/0xklzDo5285T-QGLO_1.png" alt="" /></p>
+
+<p>Opened in 1995, Mission City station is the easternmost TransLink-operated service and yet Mission itself is not under the jurisdiction of TransLink; instead it’s BC Transit. Its West Coast Express service only operates on weekdays minus holidays with five trains in the morning towards Vancouver with them all returning in the evening to then be serviced.</p>
+
+<p><img src="/img/0kvoXsoJc1O1eW-hm_1.png" alt="" /></p>
+
+<p>Outside of these times, bus service to Coquitlam Central is provided but only on the days the West Coast Express operates. With one bus late in the morning, one mid-afternoon, and two in the evening, its existence is solely to be supportive to commuters and nothing more.</p>
+
+<p>Prior to the pandemic, the station handled under 550 passengers per day.</p>
+
+<p>BC Transit service is available all day and has connections all over Mission and to parts of Abbotsford. It’s one of two train stations operated by TransLink which another agency provide service to; the other being Lougheed Town Centre.</p>
+
+<p><img src="/img/0FNIXll_fI3w8ryoM_1.jpeg" alt="" /></p>
+
+<p>It’s also the only point where the West Coast Express and Via Rail, Canada’s national passenger railway service, meet even though the stop for Via is located at another station located 300 metres away down track at Mission Harbour Road. However, this sort of wasn’t always the case.</p>
+
+<p><img src="/img/0ZjWMt28htRcp9NfE_1.png" alt="" /></p>
+
+<p>Prior to the dissolution of passenger rail service by the Canadian Pacific Railway, Mission Junction was the city’s railway station. Named for the junction which Mission City sits just east of, the station was located on the west side and became a heritage building in the early-1980s. Service to the station ceased in 1990 and for five years the street known as Railway Street which it sat on lacked a station until the West Coast Express came into being.</p>
+
+<p>Sadly, a fire in 1999 burnt down the original CPR station and it is suspected that arson played responsibility. Prior to the fire, plans were made to turn it into some sort of community hall but a lack of funds led to it being disused.</p>
+
+<p><em>This was originally posted to cohost.org/VancouverTransit.</em></p>
+
+        </div>
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="pagination">
+    
+      <a class="previous" href="/posts/2/">&laquo; Older</a>
+    
+
+    
+  </div>
+
+
+
 </div>
 
-<div class="footer">
-    <p>&copy; Cariad Keigher. All rights reserved.
-</div>
+      </div>
+    </main>
 
-</body>
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <p>
+      
+
+&copy; Cariad Heather Keigher - Powered by <a href="https://jekyllrb.com">Jekyll</a> &amp; <a href="https://github.com/yous/whiteglass">whiteglass</a> - Subscribe via <a href="https://cariad.keigher.ca/feed.xml">RSS</a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
 </html>
