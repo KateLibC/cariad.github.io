@@ -242,43 +242,31 @@
         <header class="post-header">
           <h1 class="post-title">
             
-              <a class="post-link" href="/2023/04/06/ghosts-connaught-hill/">Ghosts: Connaught Hill</a>
+              <a class="post-link" href="/2023/05/15/twitch-mod-bot/">Sunsetting a moderation bot</a>
             
           </h1>
 
           <p class="post-meta">
-            Apr 6, 2023
+            May 15, 2023
             
             
           </p>
         </header>
 
         <div class="post-content">
-          <hr />
+          <p>Years ago, I wrote <a href="https://web.archive.org/web/20250102001603mp_/https://katelibc.medium.com/twitch-chat-harassment-remains-unaddressed-despite-complaints-and-evidence-of-potential-fraud-d7fc66f95d88">in-depth</a> about Twitch being a complete trash fire. As a response to it, I made a bot which I shared with about 40 different streamers that addressed Twitch’s shortcomings.</p>
 
-<p><img src="/img/0EQSQDDm2kBZUHNGs_1.png" alt="" /></p>
+<p>For about a year and a half, this bot ran largely uninterrupted and had all sorts of features such as predictive bans, exemptions, algorithmic bans, and so forth. It was far more advanced than whatever Twitch had out there and I believe it probably prevented a few hate raids against marginalised streamers.</p>
 
-<p>Approximate location of the former station, Connaught Hill (Google Street View)</p>
+<p><a href="https://web.archive.org/web/20250102001603mp_/https://discuss.dev.twitch.tv/t/deprecation-of-chat-commands-through-irc/40486">In February</a>, Twitch removed the ability to perform bans via its chat interface and instead shifted everything to requiring a user access token in conjunction with its HTTP API.</p>
 
-<p>When riding down the Expo Line from Edmonds to 22nd Street, one may notice that it is a rather lengthy ride. At nearly 2 KM, it’s nowhere near the longest distance between stations, but when it was the interurban Central Park Line, there was a station in-between the two.</p>
+<p>On the surface, this is fine in the grand scheme of things, but it required me to completely rejig the entire authentication model from just simply using a <code class="language-plaintext highlighter-rouge">/mod</code> command on the bot and then me joining the channel to asking for <a href="https://web.archive.org/web/20250102001603mp_/https://dev.twitch.tv/docs/authentication/#user-access-tokens">everyone to sign in and pass me a token</a>. This is a piss-poor design because it would be just easier to assign the permissions via legacy means, but nope, you have to re-authenticate that bot.</p>
 
-<p>The BC Electric Railway (BCER) had a station around what is now 9th Avenue in Burnaby or simply situated south of a SkyTrain maintenance facility. Connaught Hill, named after after the <a href="https://en.wikipedia.org/wiki/Provinces_of_Ireland">western province of Ireland named Connaught</a>, was a small station serving the now-residential area straddling the Burnaby and New Westminster border.</p>
+<p>I might be overthinking or misunderstanding this, but the bot also has become more onerous to update and is also costing me CA$40/month of which I largely pay out of pocket–not complaining, but it is a personal expense that would have not occurred if Twitch had made good tools years ago. Combine with increasing living expenses, I have decided that it’s not fun to pay for this anymore.</p>
 
-<p><img src="/img/0aDPvuKJ2ViH0_2Wj_1.jpg" alt="" /></p>
+<p>In any event, because of the cost and Twitch finally has tooling that makes it easier to deal with bullshit after much, much yelling in their direction from all sorts of groups, I feel it is time to officially state that I have sunsetted the bot. I hope that it did benefit those who needed it most and I am always willing to provide a hand should anything come up in the future. ❤️</p>
 
-<p>Station location in New Westminster (Google)</p>
-
-<p>Back then, it was a large gravel pit. The hole created conveniently ended up becoming the SkyTrain maintenance facility we have today.</p>
-
-<p><img src="/img/0SBkId7uE8qauIaEM_1.png" alt="" /></p>
-
-<p>Connaught Hill as it appeared in the 1950s (TransLink / BC Transit)</p>
-
-<p>Today, there sits no station but you can visit its old location when travelling along the BC Parkway.</p>
-
-<p><img src="/img/0VJJ4ymcv-f55a5Cj_1.jpg" alt="" /></p>
-
-<p>Stopped to take a photo as I cycled on by. You can see the remnants of the old tracks left behind.</p>
+<p>In case you’re wondering: all data is being deleted from the database and backups are going with!</p>
 
         </div>
         
@@ -291,53 +279,25 @@
         <header class="post-header">
           <h1 class="post-title">
             
-              <a class="post-link" href="/2023/02/05/harvie-rd-and-surrey-s-lost-railway/">Harvie Rd. and Surrey’s Lost Railway</a>
+              <a class="post-link" href="/2023/05/15/softlock-mi2/">I managed to softlock Monkey Island 2: LeChuck&#39;s Revenge</a>
             
           </h1>
 
           <p class="post-meta">
-            Feb 5, 2023
+            May 15, 2023
             
             
           </p>
         </header>
 
         <div class="post-content">
-          <hr />
+          <p><img src="/img/talkie1.png" alt="" /></p>
 
-<p><img src="/img/0k0whuKnn8tiOHj-r_1" alt="" /></p>
+<p>It turns out that in the <a href="https://web.archive.org/web/20250102001603mp_/http://gratissaugen.de/ultimatetalkies/">Ultimate Talkie Edition of Monkey Island 2: LeChuck’s Revenge</a>, touching the model lighthouse in Phatt Island but not retrieving its lens creates a softlock condition. When returning to Scabb Island, Dredd leaves to go “do errands” and consequently makes you stuck without the ability to get the map reassembled. The cartographer in Scabb needs that lens but you have no boat to go back!</p>
 
-<p>Map showing the Port Kells area of Surrey (Google)</p>
+<p><img src="/img/talkie2.png" alt="" /></p>
 
-<p>In a few years, you’ll be able to ride SkyTrain all the way into Langley, passing by one of Cloverdale’s quiet landmarks: the Honeybee Centre. However, if you go just the building, you’ll notice a road that runs on an angle, which is odd considering most of Surrey’s roads tend to run in cardinal directions save for Fraser Highway and a few others.</p>
-
-<p>Harvie Rd. is a shortcut from Port Kells to the rest of Surrey, but its origins as a road do not come from being a shortcut but instead a railway. There are a few roads that do not conform to the grid system and they too share this history as well.</p>
-
-<p><img src="/img/0mCx-epomuxyTCg6j_1.png" alt="" /></p>
-
-<p>Approximate path that the railway took</p>
-
-<p>In 1891, the New Westminster-Southern Railway opened a passenger railway crossing across the US border into Cloverdale and then to New Westminster via Port Kells. This route followed what is now Highway 15 with a deviation around a hill in Hazlemere.</p>
-
-<p>For some time, it was the only rail service connecting the United States and Canada west of the Rockies. Its construction was of major concern to the federal government due to possible threat to sovereignty by the Americans.</p>
-
-<p><img src="/img/09Kn3oJF2bWpXBsfc_1.jpg" alt="" /></p>
-
-<p>Southern portion of the railway about 3 KM north of the United States border</p>
-
-<p>In 1907, the Great Northern Railway, the parent company to the NWSR, opted to reroute all rail service to its line which straddled the Semiahmoo peninsula and subsequently ended its inland rail connection going through Blaine. The NWSR struggled to remain competitive in the face of the BC Electric Railway providing similar service, which intersected in Cloverdale.</p>
-
-<p>By 1929, the railway was declared abandoned and as time has gone on much of the right of way has been usurped by the highway it once ran alongside. However, remnants of it are still visible if you know where to look.</p>
-
-<p><img src="/img/0NodtNz7s3b7Id41I_1.jpg" alt="" /></p>
-
-<p>Harvey Rd. as seen from near the Port Kells Library</p>
-
-<p>As for road itself, it got its name from NWSR’s first engineer, Robert Harvie. It has since received heritage right of way status from the City of Surrey, which protects it as a roadway.</p>
-
-<p><em>If you’re interested in additional information,</em> <a href="https://oppositethecity.wordpress.com/2014/02/12/new-westminster-southern-railway-survey/"><em>this blog article from 2014</em></a> <em>is also worth a read! I used the custom Google Maps link they created to generate the above maps.</em></p>
-
-<p><em>This is also a post archived from cohost.org/VancouverTransit.</em></p>
+<p>This bug does not exist in the non-Talkie versions as far as I can tell. I did some searching in various places and it appears that I am not the first person to run across it.</p>
 
         </div>
         
