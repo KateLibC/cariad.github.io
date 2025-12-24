@@ -93,6 +93,103 @@
         <header class="post-header">
           <h1 class="post-title">
             
+              <a class="post-link" href="/2021/09/08/what-is-in-your-bc-vaccine-passport/">What is in your BC Vaccine Passport?</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Sep 8, 2021
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p>As you may be aware, those in British Columbia are joining other jurisdictions in issuing “vaccine passports”, which is basically a verification system to show your vaccination status. This is to combat the spread of COVID-19, and is intended to ensure that those who are unvaccinated do not pose a threat to those who are.</p>
+
+<p><img src="/img/1TQE1-lLWyA6iIZ9I697cww_1.jpeg" alt="" /></p>
+
+<p>BC Government Health Gateway showing my “BC Vaccine Card”</p>
+
+<p>If you’re reading this and are about to go tweet at me or write some diatribe to my e-mail address about vaccines being tyranny, I have a simple response: fuck off.</p>
+
+<p>I have professional concerns about the passport myself, but they’re based on equity for those who are unable procure a personal health card for whatever reason. If your concerns align with the thousands who opted to hinder access to local hospitals, you’re a fucking dickhead and I do not care about your baseless and factless opinions.</p>
+
+<hr />
+
+<p>Anyway, historically, <a href="https://www.theglobeandmail.com/opinion/article-my-vaccine-passport-from-the-1970s-tells-the-story-of-disease-in-our/">these are not new at all</a> as during my own parents’ lifetimes before my being born, they existed for Canadians who needed to travel abroad. However, we’re now in the age where our mobile phones are capable of providing an aspect of verification of vaccination status.</p>
+
+<p><img src="/img/1YTQ_lxEunLQIPdClX4xMWA_1.png" alt="" /></p>
+
+<p>Website for SMART Health Cards</p>
+
+<p>It was feared initially that every jurisdiction would adopt a system of their own to work with the data, but fortunately it seems that British Columbia has adopted the same system as Québec, which is to use the <a href="https://smarthealth.cards">SMART Health Card</a> system, a standard developed by the W3C Consortium, who are behind the standards for the <a href="https://www.w3.org">world wide web</a>.</p>
+
+<p>Much like how the world wide web work with establishing encrypted connections for online banking, the SMART Health Card (“SHC”) uses the same methodology to verify the contents of the presented QR code. The QR code can be shown to anyone with <a href="https://thecommonsproject.org/smart-health-card-verifier">an mobile phone running an application capable of reading it</a>, and then the details on the application can be compared with some photo identification to confirm that the QR code belongs to the person they’re interacting with.</p>
+
+<p>The QR code can be on your phone, a piece of paper, or in one case with someone in Québec, printed on a t-shirt so it could be read metres away.</p>
+
+<p>Anyone can read this QR code and with that it may raise some eyebrows.</p>
+
+<hr />
+
+<p>So now you’re wondering: what makes it safe? How does someone not get my personal details? These are legitimate and important questions and it can be answered quite easily: the issuing health authority is only supposed to put as much information as needed on the card.</p>
+
+<p><img src="/img/1KQNVSwakCiCjaRJDjNwMrA_1.png" alt="" /></p>
+
+<p>The SMART Health System is clear about what can be on a person’s card.</p>
+
+<p>As it stands, the standard should contain your legal name, date of birth, tests if relevant, vaccinations, and contraindications should you have any. It is spelt out as per the image about that it should not contain your phone number, your address, an identifier such as a personal health or drivers licence number, and other health information. The SHC standard straight up outlines keeping data at a minimum and has <a href="https://spec.smarthealth.cards/#privacy">a whole section on privacy</a>.</p>
+
+<p><img src="/img/1QUpdpfSQ5hTqxBO34Ev_5w_1.jpeg" alt="" /></p>
+
+<p>Output from a SHC QR code reader. The “issuer not recognized” remark at the bottom should be of no concern until the programme goes live in a week. I would expect that to go away by then.</p>
+
+<p>So does British Columbia adhere to the recommendations?</p>
+
+<hr />
+
+<p>I have gone ahead and decoded my passport (<a href="https://marcan2020.medium.com/reversing-smart-health-cards-e765157fae9">using this methodology as a guide</a>) and was able to glean from the data that it has the following:</p>
+
+<ul>
+  <li>The issuer (ISS), which is remarked as the Provincial Health Services Authority (PHSA)</li>
+  <li>The creation date (NBF), which is an epoch time stamp of seconds since January 1, 1970 00:00:00 UTC (standard for most computer data)</li>
+  <li>The type of card it is, with the data outlining it is for COVID-19, immunization, and is a health card</li>
+  <li>The family name of the passport holder</li>
+  <li>The first or given name of the passport holder</li>
+  <li>Their birth date</li>
+  <li>Their immunization records and date of occurrence for each plus the vaccine type, lot number (which box or order the vaccine came in), and where it was given</li>
+</ul>
+
+<p>That is it. There are no health numbers, no address, and surprisingly, no mention of the person’s gender. I have concerns about the name aspect for those who are transgender as it could out them, but that is it.</p>
+
+<p>You can safely show this QR code to someone else if someone requests you of that information. If you’re running a wedding, you can have your guests confirmed that they have been vaccinated. All you need is to have photo identification to verify the contents of the QR code and through the power of mathematics, it is incredibly difficult and likely impossible to forge a QR code that can thwart this system.</p>
+
+<p>Go ahead and print this out, <a href="https://gist.github.com/dotsam/1ed47617fbf960862345353aaaeb79ea">make an iOS shortcut that is super useful</a>, or put it on a t-shirt. It’ll be a piece of identification until we get through this mess we’re still in.</p>
+
+<p>All we are waiting on is for the PHSA to become an recognized issuer and anyone can trust this vaccine passport. A vaccine passport issued in British Columbia will also work in Québec and vice-versa and while it may have issues internationally as I am certain that someone in Florida or Belgium may not know what the PHSA is, they’d still be able to read the data anyway.</p>
+
+<hr />
+
+<p>Go get your passport if you have gotten your vaccine and if you haven’t gotten your vaccine yet, go get it. If you don’t want to get your vaccine, leave everyone alone and wait out the pandemic so you don’t spread it or worse get sick.</p>
+
+<p>My remaining concern right now is: what do we do about those who cannot get access to the website? Equity is still my problem with all of this, and my concern lies with those who are undocumented or are of no fixed address, just to name a few.</p>
+
+<p><em>Update: it seems that you can just call in to get a non-digital copy of the passport should you run into some issues related to equity.</em></p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
               <a class="post-link" href="/2021/08/12/scott-road-is-the-worst-but-what-else-is-to-be-said-about-the-skytrain-and-west-coast-express/">Scott Road is the worst, but what else is to be said about the SkyTrain and West Coast Express…</a>
             
           </h1>
@@ -825,52 +922,6 @@
 <p>Most of the skipped games (33.9%) were sports games, entirely in Japanese, or were RPGs. 55.1% of the library as a whole was played by me and 11% I did not get around to.</p>
 
 <p>About eight months into going through the catalogue almost every week, I had to give up. I was burnt out from trying to play these games even though my goal was never to finish them — just play them. I just could not do this anymore; and after chatting with a friend, I decided to end it. I’m still streaming, but the Game Gear and I are for the most part done.</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2021/06/01/an-open-letter-to-my-member-of-parliament-with-respect-to-the-deaths-of-215-children-at-the-hands/">An open-letter to my Member of Parliament with respect to the deaths of 215 children at the hands…</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Jun 1, 2021
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <hr />
-
-<p><em>For context, you may read</em> <a href="https://www.cbc.ca/news/canada/british-columbia/survivors-faith-leaders-call-on-catholic-church-to-take-responsibility-for-residential-schools-1.6048077"><em>this article here</em></a><em>. This was written to my Member of Parliament (MP),</em> <a href="https://www.dondavies.ca"><em>Don Davies</em></a><em>, who represents my riding of Vancouver- Kingsway, which once was part of lands shared by the indigenous peoples of the Sḵwx̱wú7mesh (Squamish), Stó:lō (Stolo), Səl̓ílwətaʔ/Selilwitulh (Tsleil-Waututh), and xʷməθkʷəy̓əm (Musqueam).</em></p>
-
-<p><em>A copy of this letter has been sent to his mailing address. I encourage you to write to your MP about this as well, as remaining silent is a privilege of which must remain unused.</em></p>
-
-<p>Mr. Davies,</p>
-
-<p>As the white daughter of settlers, I am quite disturbed and furious that indigenous persons of the lands we occupy are once again subject to sorrow and grief at the hands of racist policies of the federal government and proselytization of the Catholic church. The discovery of two hundred and fifteen (215) dead children in a mass grave is reprehensible and any suggestion that this is remnants of a “dark past” is ignorant of the fact that indigenous persons remain a systemic underclass to this very day.</p>
-
-<p>While many of the individuals responsible for the deaths of these children are now deceased, many are not and furthermore, the organizations that ran these residential schools — including the aforementioned Catholic church — are still operating and often amongst the wealthiest in the world. Dismissing the deaths of children who were as young as three years old as merely succumbing to severe illness ignores that the school had seen just about five hundred (500) pupils in its operation, suggesting that two-fifths of those who entered the school’s doors never returned home to their loved ones.</p>
-
-<p>These children would have grown up into adults who would have had a measurable number of them with us living today if it weren’t for the negligence of the school. Some involved with schools adjacent to this one are still alive today in particular one who was prominent with a recent major event in Vancouver.</p>
-
-<p>I am a former Catholic who left the church due to its mishandling of child abuse at the hands of its priests and its continuation to suggest that those of us in the LGBTQ+ community are “of sin”. For an organization who is quick to demonize women for having ownership over their bodies and imply that I am of sin because of who I am, they’re just as quick to attempt to sweep under the rug their responsibility of the harms they’ve made against children. I often believe that the only reason why the church responded to child abuse claims and not what it did to indigenous persons in residential schools is because it was often enough that the former victims were white.</p>
-
-<p>While I cannot speak on behalf of indigenous persons, I can at the very least express my anger and resentment over our government’s token gestures and inadequate actions in taking responsibility and holding persons to account for their mistreatment. The discovery of this mass grave is just the tip of the iceberg.</p>
-
-<p>Do something.</p>
-
-<p>Regards,<br />
-Cariad Heather Keigher</p>
 
         </div>
         
