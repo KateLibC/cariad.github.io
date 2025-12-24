@@ -93,6 +93,393 @@
         <header class="post-header">
           <h1 class="post-title">
             
+              <a class="post-link" href="/2021/09/08/what-is-in-your-bc-vaccine-passport/">What is in your BC Vaccine Passport?</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Sep 8, 2021
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p>As you may be aware, those in British Columbia are joining other jurisdictions in issuing “vaccine passports”, which is basically a verification system to show your vaccination status. This is to combat the spread of COVID-19, and is intended to ensure that those who are unvaccinated do not pose a threat to those who are.</p>
+
+<p><img src="/img/1TQE1-lLWyA6iIZ9I697cww_1.jpeg" alt="" /></p>
+
+<p>BC Government Health Gateway showing my “BC Vaccine Card”</p>
+
+<p>If you’re reading this and are about to go tweet at me or write some diatribe to my e-mail address about vaccines being tyranny, I have a simple response: fuck off.</p>
+
+<p>I have professional concerns about the passport myself, but they’re based on equity for those who are unable procure a personal health card for whatever reason. If your concerns align with the thousands who opted to hinder access to local hospitals, you’re a fucking dickhead and I do not care about your baseless and factless opinions.</p>
+
+<hr />
+
+<p>Anyway, historically, <a href="https://www.theglobeandmail.com/opinion/article-my-vaccine-passport-from-the-1970s-tells-the-story-of-disease-in-our/">these are not new at all</a> as during my own parents’ lifetimes before my being born, they existed for Canadians who needed to travel abroad. However, we’re now in the age where our mobile phones are capable of providing an aspect of verification of vaccination status.</p>
+
+<p><img src="/img/1YTQ_lxEunLQIPdClX4xMWA_1.png" alt="" /></p>
+
+<p>Website for SMART Health Cards</p>
+
+<p>It was feared initially that every jurisdiction would adopt a system of their own to work with the data, but fortunately it seems that British Columbia has adopted the same system as Québec, which is to use the <a href="https://smarthealth.cards">SMART Health Card</a> system, a standard developed by the W3C Consortium, who are behind the standards for the <a href="https://www.w3.org">world wide web</a>.</p>
+
+<p>Much like how the world wide web work with establishing encrypted connections for online banking, the SMART Health Card (“SHC”) uses the same methodology to verify the contents of the presented QR code. The QR code can be shown to anyone with <a href="https://thecommonsproject.org/smart-health-card-verifier">an mobile phone running an application capable of reading it</a>, and then the details on the application can be compared with some photo identification to confirm that the QR code belongs to the person they’re interacting with.</p>
+
+<p>The QR code can be on your phone, a piece of paper, or in one case with someone in Québec, printed on a t-shirt so it could be read metres away.</p>
+
+<p>Anyone can read this QR code and with that it may raise some eyebrows.</p>
+
+<hr />
+
+<p>So now you’re wondering: what makes it safe? How does someone not get my personal details? These are legitimate and important questions and it can be answered quite easily: the issuing health authority is only supposed to put as much information as needed on the card.</p>
+
+<p><img src="/img/1KQNVSwakCiCjaRJDjNwMrA_1.png" alt="" /></p>
+
+<p>The SMART Health System is clear about what can be on a person’s card.</p>
+
+<p>As it stands, the standard should contain your legal name, date of birth, tests if relevant, vaccinations, and contraindications should you have any. It is spelt out as per the image about that it should not contain your phone number, your address, an identifier such as a personal health or drivers licence number, and other health information. The SHC standard straight up outlines keeping data at a minimum and has <a href="https://spec.smarthealth.cards/#privacy">a whole section on privacy</a>.</p>
+
+<p><img src="/img/1QUpdpfSQ5hTqxBO34Ev_5w_1.jpeg" alt="" /></p>
+
+<p>Output from a SHC QR code reader. The “issuer not recognized” remark at the bottom should be of no concern until the programme goes live in a week. I would expect that to go away by then.</p>
+
+<p>So does British Columbia adhere to the recommendations?</p>
+
+<hr />
+
+<p>I have gone ahead and decoded my passport (<a href="https://marcan2020.medium.com/reversing-smart-health-cards-e765157fae9">using this methodology as a guide</a>) and was able to glean from the data that it has the following:</p>
+
+<ul>
+  <li>The issuer (ISS), which is remarked as the Provincial Health Services Authority (PHSA)</li>
+  <li>The creation date (NBF), which is an epoch time stamp of seconds since January 1, 1970 00:00:00 UTC (standard for most computer data)</li>
+  <li>The type of card it is, with the data outlining it is for COVID-19, immunization, and is a health card</li>
+  <li>The family name of the passport holder</li>
+  <li>The first or given name of the passport holder</li>
+  <li>Their birth date</li>
+  <li>Their immunization records and date of occurrence for each plus the vaccine type, lot number (which box or order the vaccine came in), and where it was given</li>
+</ul>
+
+<p>That is it. There are no health numbers, no address, and surprisingly, no mention of the person’s gender. I have concerns about the name aspect for those who are transgender as it could out them, but that is it.</p>
+
+<p>You can safely show this QR code to someone else if someone requests you of that information. If you’re running a wedding, you can have your guests confirmed that they have been vaccinated. All you need is to have photo identification to verify the contents of the QR code and through the power of mathematics, it is incredibly difficult and likely impossible to forge a QR code that can thwart this system.</p>
+
+<p>Go ahead and print this out, <a href="https://gist.github.com/dotsam/1ed47617fbf960862345353aaaeb79ea">make an iOS shortcut that is super useful</a>, or put it on a t-shirt. It’ll be a piece of identification until we get through this mess we’re still in.</p>
+
+<p>All we are waiting on is for the PHSA to become an recognized issuer and anyone can trust this vaccine passport. A vaccine passport issued in British Columbia will also work in Québec and vice-versa and while it may have issues internationally as I am certain that someone in Florida or Belgium may not know what the PHSA is, they’d still be able to read the data anyway.</p>
+
+<hr />
+
+<p>Go get your passport if you have gotten your vaccine and if you haven’t gotten your vaccine yet, go get it. If you don’t want to get your vaccine, leave everyone alone and wait out the pandemic so you don’t spread it or worse get sick.</p>
+
+<p>My remaining concern right now is: what do we do about those who cannot get access to the website? Equity is still my problem with all of this, and my concern lies with those who are undocumented or are of no fixed address, just to name a few.</p>
+
+<p><em>Update: it seems that you can just call in to get a non-digital copy of the passport should you run into some issues related to equity.</em></p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2021/08/12/scott-road-is-the-worst-but-what-else-is-to-be-said-about-the-skytrain-and-west-coast-express/">Scott Road is the worst, but what else is to be said about the SkyTrain and West Coast Express…</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Aug 12, 2021
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p><em>If you have not read</em> <a href="https://katelibc.medium.com/the-worst-skytrain-station-is-scott-road-26e2b4c34ad0"><em>my previous piece on Scott Road being the worst SkyTrain station</em></a><em>, I suggest giving it a read first as it will help give better context to this article as well! If you want to take a look at the raw data,</em> <a href="https://katelibc.medium.com/7ad4c55b54dc"><em>you can read this too</em></a><em>.</em></p>
+
+<p><img src="/img/1d-P-2Ifnpx1P95QWcJmf7A_1.png" alt="" /></p>
+
+<p>All will tremble as they approach this sign.</p>
+
+<p>After poll after poll, we have finally determined that the worst station operated by TransLink is Scott Road. However, Scott Road was not the only station given negative attention.</p>
+
+<p>None of this should be taken as anything more than my uneducated observations as I don’t really think it’s that important overall. We all know Scott Road sucks!</p>
+
+<h3>Engagement and results</h3>
+
+<p>As mentioned in the original piece, this was a super-scientific Internet poll where there was absolutely no bias and everyone knows what they are doing.</p>
+
+<p>One big thing: no station tied. I did vote in every poll and would have removed myself or gotten someone to break it had it occurred.</p>
+
+<p>There were 5,455 total votes counted across six rounds. As the polls went on, the engagement did drop, which does make sense considering the number of match ups reducing with each step. Each match up on average had 104 votes, with the opening round having the most at 127 and the third having the least with 59. The final match stood alone of course at 222 total votes.</p>
+
+<p>Losers in each match up (which are really “winners”) tended to get a score of just about 25 points. With exception to the first round which saw an average of about 29 votes, all losers received an average of either 15 or 16. The final loser saw a loss of 56.</p>
+
+<p>Winners (or “losers”) saw stability in the same rounds with the second to the fifth seeing 47, 44, 53, and 66 respectively, but the first saw 98 votes. The winner received 166.</p>
+
+<p>Some close matchups were to be had as well. When Gilmore faced Port Haney in the second round, the resulting score was 27 to 23, pushing Gilmore into the third round.</p>
+
+<p>Then there were some matchups where the outcome was so obvious that it was tempting to break the rules. A good example was where in the first round, Joyce-Collingwood received a meagre 14 votes to Lansdowne’s 115.</p>
+
+<p>The winner of the tournament, Scott Road, averaged 75% of the vote share in each poll, with the worst at 65.7% and the best with 85.7%.</p>
+
+<h3>Ranking the worst by round weight</h3>
+
+<p>The way data was presented by Challonge made some stations who lost in other rounds as being tied with others. This makes ranks rather awkward as we end up with four stations tied for fifth and eight for ninth with no indication of what sits inbetween.</p>
+
+<p>To combat this, I came up with this idea: we have six rounds, so the first round would give a score a weight of 1/6th, second would be 1/3rd, and so forth until the sixth and final round just being a weight of 1. What we can do with this is then apply this to the scores awarded in each round.</p>
+
+<p>An example would be where Royal Oak had a score of 16 to Gateway’s 29, meaning that it was actually a score of 5.3 to 9.6 due to the match being in the second round. Another would be the first round’s Metrotown’s 52 to Production Way-University’s 189 becoming 8.6 to 31.5.</p>
+
+<p>With this information, let’s rank the top ten worst stations overall using their combined weighted votes.</p>
+
+<ol>
+  <li>Scott Road (319.16)</li>
+  <li>Lake City Way (214.16)</li>
+  <li>Gateway (103.5)</li>
+  <li>Holdom (103.17)</li>
+  <li>King George (72.17)</li>
+  <li>Port Coquitlam (64)</li>
+  <li>Edmonds (48.67)</li>
+  <li>Sapperton (47)</li>
+  <li>Maple Meadows (43.17)</li>
+  <li>Nanaimo (38.84)</li>
+</ol>
+
+<p>Of note for municipalities, we have three stations in Surrey, three stations in Burnaby, one both in New Westminster and Vancouver, and then Port Coquitlam and Maple Ridge each getting in as well. All stations mentioned are on the Expo Line except for Maple Meadows and Port Coquitlam being West Coast Express; and Lake City Way and Holdom being Millennium Line.</p>
+
+<p>If you hate this idea, let it be known that I am not a statistician. The idea I have here is to look at the popular vote and which polls received the most engagement. If you wish to play with the data differently, please do check out the link at the start of the article!</p>
+
+<h3>Using the weighted scores on service and line</h3>
+
+<p>While the West Coast Express operates on regular locomotives, sharing tracks with freight rail services, the SkyTrain system is completely separate. There are however three stations where both systems do meet as transfer points, with all three SkyTrain lines having connections.</p>
+
+<h4>SkyTrain</h4>
+
+<p>This system was first introduced in 1985 and has expanded since to provide via three lines.</p>
+
+<p><img src="/img/1QqeYjEDLZSP-1npEpMnziw_2.png" alt="" /></p>
+
+<p>Most of the stations in the tournament are shown here. (<a href="https://commons.wikimedia.org/wiki/User:Zacharycmango#/media/File:Vancouver_Rail_Transit_Map.png">Source</a>)</p>
+
+<p>The Expo Line and Millennium Line both use the same technologies and service Vancouver, Burnaby, Coquitlam, Port Moody, New Westminster, and Surrey. The extension of the Millennium Line is the most recent addition, providing service as far east as Coquitlam. Presently, both lines are being extended with the Millennium going further west into Vancouver towards Arbutus Street and the Expo Line terminating to the southeast in Langley.</p>
+
+<p>The Canada Line serves just Richmond and Vancouver and notably provides service to the airport. Unlike the other two lines, it only provides two car trains and has much shorter platforms and is incompatible physically and technologically.</p>
+
+<p><img src="/img/18dzwCkOqJw2DMC1ZAoDvmw_1.jpeg" alt="" /></p>
+
+<p>The Expo Line is home to Commercial-Broadway, a station which lets you enter or exit a train on either side.</p>
+
+<p>The Expo Line is home to the winner, Scott Road and also received a score of 32.05. It also received the lowest score for a single station, which will be discussed later.</p>
+
+<p>It ranked as follows:</p>
+
+<ol>
+  <li>Scott Road (319.17)</li>
+  <li>Gateway (103.5)</li>
+  <li>King George (72.17)</li>
+  <li>Edmonds (48.67)</li>
+  <li>Sapperton (47)</li>
+</ol>
+
+<p><img src="/img/1TXFzE-kOlzeUQ1AwoB2Ncw_1.jpeg" alt="" /></p>
+
+<p>Somehow I only have one photo of a Millennium Line station.</p>
+
+<p>With the Millennium Line, it had the runner up, Lake City Way, and received an average of 35.26. It is home to the youngest of all SkyTrain stations, with the extension to Coquitlam opening in 2016 alongside an upgrade of Lougheed Town Centre as well — all of those new stations plus Lougheed scored 14.67.</p>
+
+<ol>
+  <li>Lake City Way (214.17)</li>
+  <li>Holdom (103.17)</li>
+  <li>Production Way-University (38.17)</li>
+  <li>Renfrew (28.67)</li>
+  <li>Gilmore (26.67)</li>
+</ol>
+
+<p><img src="/img/1wWRST11wRSQy5nqb_0Jxeg_1.jpeg" alt="" /></p>
+
+<p>Canada Line trains are wider than their Expo and Millennium Line siblings.</p>
+
+<p>And lastly, the Canada Line, which has its trains physically separate from the other two lines scored 13.04, making it the least disliked of the three lines.</p>
+
+<ol>
+  <li>Richmond-Brighouse (34.17)</li>
+  <li>Yaletown-Roundhouse (32.67)</li>
+  <li>Templeton (29.17)</li>
+  <li>Lansdowne (22.5)</li>
+  <li>Aberdeen (19.5)</li>
+</ol>
+
+<p>Overall, SkyTrain received a score of 26.78.</p>
+
+<h4>West Coast Express</h4>
+
+<p>The service provided by the West Coast Express (WCE) is different from SkyTrain in that it doesn’t provide service throughout the majority of the day and it also is unusual in that it extends outside of TransLink’s jurisdictions with its one station in Mission.</p>
+
+<p><img src="/img/1SplzU3qAggEkRfCO69ktrA_1.jpeg" alt="" /></p>
+
+<p>One cool trick about the West Coast Express now is that you may have the option to use it if SkyTrain has problems but isn’t completely down.</p>
+
+<p>Because of it being a commuter rail service with single-direction service in the mornings into Waterfront and in the evenings towards Mission City, its stations reflect that nature by being quite spartan.</p>
+
+<p>It was anticipated that at least one of them would place top-five when I started the polls, but it fell short by only placing sixth after adjusting for weight. Challonge tied two stations for fifth — Maple Meadows and Port Coquitlam — but I am more interested in the weighted score.</p>
+
+<p>Of the eight stations served, three tie in with SkyTrain, which I do believe alters the score quite a bit as there is a larger pool of non-WCE users available to alter the outcome.</p>
+
+<p>With the SkyTrain stations included, we get the following result:</p>
+
+<ol>
+  <li>Port Coquitlam (64)</li>
+  <li>Maple Meadows (43.17)</li>
+  <li>Pitt Meadows (34.33)</li>
+  <li>Coquitlam Central (22.17)</li>
+  <li>Mission City (17.67)</li>
+</ol>
+
+<p>Of those above five, only one ties in with SkyTrain, which is Coquitlam Central. Stations without that connection produced a score of 34.8, which makes it score worse than SkyTrain. However, if we add the removed stations back in, the score becomes 25.</p>
+
+<h4>Transfer stations</h4>
+
+<p>As mentioned with the West Coast Express, many of the stations act as transfer points and the same is true with SkyTrain. With some stations, the service is interlined — such as Production Way-University having a single platform for Expo and Millennium Line trains — and in others, everything is separate — see Waterfront with its Expo and Canada Line platforms and also West Coast Express.</p>
+
+<p><img src="/img/1X2U-gmLAG-URUvLDPkCDEw_1.jpeg" alt="" /></p>
+
+<p>The platform just above where the SkyTrain vehicle is located is about as close as it gets for where the West Coast Express and Expo Line will meet.</p>
+
+<p>I’ve opted to define the transfer points as any station where you must leave the train to go elsewhere without necessarily leaving the station. This would include connections to other lines or the WCE, but it also includes where the line would split into a spur such as what occurs on the Expo Line and Canada Line.</p>
+
+<p>This gives us eight stations to work with, with two shared between the Expo Line and Millennium Line (Production Way-University and Lougheed Town Centre), one shared between the Canada Line, Expo Line, and WCE (Waterfront); two shared with the Millennium Line and WCE (Moody Centre and Coquitlam Central), one each on the Expo Line and Canada Line (Columbia and Bridgeport).</p>
+
+<p>It ends up looking like this:</p>
+
+<ol>
+  <li>Production Way-University (38.17)</li>
+  <li>Columbia (35.17)</li>
+  <li>Coquitlam Central (22.17)</li>
+  <li>Bridgeport (15.5)</li>
+  <li>Commercial-Broadway (5.5)</li>
+</ol>
+
+<p>In reviewing Production Way-University, which is shared as a terminus station for the Expo Line and a regular station on the Millennium, it was interesting how it scored so poorly considering it didn’t make it past the second round and had only one comment about its lack of available escalators.</p>
+
+<p>Columbia did make it into the third round and ultimately lost to Scott Road, but had received less votes. The complaints were all focused on it being a terrible transfer point as the stations two separate platforms means it is very difficult to make a quick transfer.</p>
+
+<p>Overall, transfer stations received a score of 15.6.</p>
+
+<h3>Ranking by municipality</h3>
+
+<p>Using the weighted votes we determined earlier, we can determine how individual municipalities fared.</p>
+
+<h4>Vancouver</h4>
+
+<p>Stations within the city limits received an overall score of 10.87. It is the only municipality with all three SkyTrain lines and West Coast Express service.</p>
+
+<p><img src="/img/1kBxlx4zQEaTFfQq83xzaVQ_1.jpeg" alt="" /></p>
+
+<p>One day I will write about my love affair with Waterfront.</p>
+
+<p>Notably, the original SkyTrain station, Main Street-Science World received the lowest score of 0.83, making it the last-disliked station in the tournament.</p>
+
+<ol>
+  <li>Nanaimo (38.83)</li>
+  <li>Yaletown-Roundhouse (32.67)</li>
+  <li>Renfrew (28.67)</li>
+  <li>Rupert (23.17)</li>
+  <li>Broadway-City Hall (12.33)</li>
+</ol>
+
+<p>With the upcoming interchange at Broadway-City Hall, this score could change should this tournament run again.</p>
+
+<h4>Burnaby</h4>
+
+<p>This city was host to the runner up, so it is easy to determine which would place first. The scoring average here was 47.85.</p>
+
+<ol>
+  <li>Lake City Way (214.17)</li>
+  <li>Holdom (103.17)</li>
+  <li>Edmonds (48.67)</li>
+  <li>Production Way-University (38.17)</li>
+  <li>Gilmore (26.67)</li>
+</ol>
+
+<p><img src="/img/1ov0p4bicdyV8Flbyc4JRnQ_1.jpeg" alt="" /></p>
+
+<p>Escalators are plentiful at Metrotown which isn’t easy to be said for most stations.</p>
+
+<p>Expansion of rapid transit in Burnaby isn’t in the near future, but I am curious to how Brentwood Town Centre’s changes will have an impact on things.</p>
+
+<h4>Richmond</h4>
+
+<p>Richmond only has a single line (Canada Line) entering its city limits and is home to Vancouver International Airport, which is one of the two termini for the city. Its stations received average score of 19.9.</p>
+
+<ol>
+  <li>Richmond-Brighouse (34.17)</li>
+  <li>Templeton (29.17)</li>
+  <li>Lansdowne (22.5)</li>
+  <li>Aberdeen (19.5)</li>
+  <li>Bridgeport (15.5)</li>
+</ol>
+
+<p><img src="/img/17QJc0NHSZuNS6KezTZjKdA_1.jpeg" alt="" /></p>
+
+<p>On its first day open to the public, it was free to ride and I happened to be in Richmond at the time.</p>
+
+<p>The city will receive its newest station, Capstan Way, in <a href="https://www.translink.ca/plans-and-projects/projects/rapid-transit-projects/capstan-station">2023</a>, which will sit between Aberdeen and Bridgeport.</p>
+
+<h4>Tri-cities and elsewhere</h4>
+
+<p>The tri-cities (Coquitlam, Port Coquitlam, and Port Moody) plus Maple Ridge, Pitt Meadows, and Mission do not have enough stations to make a top five list each — Mission is also the only station completely outside of TransLink’s jurisdiction.</p>
+
+<p>Combined, they received an average score of 19.24, but for the municipalities which have more than two stations (which is just Coquitlam and Port Moody), it changes. Port Moody with its two stations received an average of 2.83 and Coquitlam scored 17.5. Both municipalities each have one station which provides connecting service to the West Coast Express — Moody Centre and Coquitlam Central.</p>
+
+<ol>
+  <li>Port Coquitlam (64)</li>
+  <li>Maple Meadows (43.17)</li>
+  <li>Pitt Meadows (34.34)</li>
+  <li>Burquitlam (23.5)</li>
+  <li>Coquitlam Central (22.17)</li>
+</ol>
+
+<p>There are no plans to expand service further eastward for SkyTrain services although there are design considerations for it in place.</p>
+
+<h4>Surrey and New Westminster</h4>
+
+<p>With New Westminster having exactly five stations and Surrey just having four, it was given the thought to combine their stations into one list. However, the roles and areas the stations serve are different and it didn’t feel right to combine them as one list.</p>
+
+<p>While Surrey did have the worst station and a high average score of 125.84, it did also have one of the least-hated stations with Surrey Central scoring 8.5, placing it 33rd out of 50 — many stations had tied despite the weights.</p>
+
+<p>The challenge with this score is that the city does not have that many stations and it doesn’t extend as deep into its borders as elsewhere in the tournament, with this of course changing in the next few years.</p>
+
+<p><img src="/img/1eYeBLOsv0-V_Rxq-WwtQvQ_1.jpeg" alt="" /></p>
+
+<p>At one point in their lifetimes, both Sapperton and Braid stations were exclusively Millennium Line stations.</p>
+
+<p>New Westminster’s least favourite station, Sapperton received a score of 47, with Columbia getting 35.17. The average for the city was 23.17. Like Burnaby, there are no real major changes in the city’s future with perhaps upgrades to Columbia, proposed to alleviate its problems with being a transfer point for the Expo Line spurs.</p>
+
+<h3>I hate these numbers!</h3>
+
+<p>That is okay! So do I! Midway through writing this article, I wanted to talk more about the percentages rather than the weights, but I was already pretty tired of staring at spreadsheets and data. If you’re interested in playing with the data yourself, <a href="https://katelibc.medium.com/7ad4c55b54dc">I have a separate piece you can read</a>!</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
               <a class="post-link" href="/2021/08/12/data-from-the-worst-skytrain-west-coast-express-tournament/">Data from the Worst SkyTrain/West Coast Express Tournament</a>
             
           </h1>
@@ -535,161 +922,6 @@
 <p>Most of the skipped games (33.9%) were sports games, entirely in Japanese, or were RPGs. 55.1% of the library as a whole was played by me and 11% I did not get around to.</p>
 
 <p>About eight months into going through the catalogue almost every week, I had to give up. I was burnt out from trying to play these games even though my goal was never to finish them — just play them. I just could not do this anymore; and after chatting with a friend, I decided to end it. I’m still streaming, but the Game Gear and I are for the most part done.</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2021/06/01/an-open-letter-to-my-member-of-parliament-with-respect-to-the-deaths-of-215-children-at-the-hands/">An open-letter to my Member of Parliament with respect to the deaths of 215 children at the hands…</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Jun 1, 2021
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <hr />
-
-<p><em>For context, you may read</em> <a href="https://www.cbc.ca/news/canada/british-columbia/survivors-faith-leaders-call-on-catholic-church-to-take-responsibility-for-residential-schools-1.6048077"><em>this article here</em></a><em>. This was written to my Member of Parliament (MP),</em> <a href="https://www.dondavies.ca"><em>Don Davies</em></a><em>, who represents my riding of Vancouver- Kingsway, which once was part of lands shared by the indigenous peoples of the Sḵwx̱wú7mesh (Squamish), Stó:lō (Stolo), Səl̓ílwətaʔ/Selilwitulh (Tsleil-Waututh), and xʷməθkʷəy̓əm (Musqueam).</em></p>
-
-<p><em>A copy of this letter has been sent to his mailing address. I encourage you to write to your MP about this as well, as remaining silent is a privilege of which must remain unused.</em></p>
-
-<p>Mr. Davies,</p>
-
-<p>As the white daughter of settlers, I am quite disturbed and furious that indigenous persons of the lands we occupy are once again subject to sorrow and grief at the hands of racist policies of the federal government and proselytization of the Catholic church. The discovery of two hundred and fifteen (215) dead children in a mass grave is reprehensible and any suggestion that this is remnants of a “dark past” is ignorant of the fact that indigenous persons remain a systemic underclass to this very day.</p>
-
-<p>While many of the individuals responsible for the deaths of these children are now deceased, many are not and furthermore, the organizations that ran these residential schools — including the aforementioned Catholic church — are still operating and often amongst the wealthiest in the world. Dismissing the deaths of children who were as young as three years old as merely succumbing to severe illness ignores that the school had seen just about five hundred (500) pupils in its operation, suggesting that two-fifths of those who entered the school’s doors never returned home to their loved ones.</p>
-
-<p>These children would have grown up into adults who would have had a measurable number of them with us living today if it weren’t for the negligence of the school. Some involved with schools adjacent to this one are still alive today in particular one who was prominent with a recent major event in Vancouver.</p>
-
-<p>I am a former Catholic who left the church due to its mishandling of child abuse at the hands of its priests and its continuation to suggest that those of us in the LGBTQ+ community are “of sin”. For an organization who is quick to demonize women for having ownership over their bodies and imply that I am of sin because of who I am, they’re just as quick to attempt to sweep under the rug their responsibility of the harms they’ve made against children. I often believe that the only reason why the church responded to child abuse claims and not what it did to indigenous persons in residential schools is because it was often enough that the former victims were white.</p>
-
-<p>While I cannot speak on behalf of indigenous persons, I can at the very least express my anger and resentment over our government’s token gestures and inadequate actions in taking responsibility and holding persons to account for their mistreatment. The discovery of this mass grave is just the tip of the iceberg.</p>
-
-<p>Do something.</p>
-
-<p>Regards,<br />
-Cariad Heather Keigher</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2021/03/15/twitch-chat-harassment-remains-unaddressed-despite-complaints-and-evidence-of-potential-fraud/">Twitch chat harassment remains unaddressed despite complaints and evidence of potential fraud</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Mar 15, 2021
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <hr />
-
-<p><strong><em>CW: sexual content and obscene language will be displayed in this Medium story as well as the accompanying report.</em></strong></p>
-
-<p>This is a blog post for a report I have written (titled “<em>The ineffectiveness of Twitch with respect to serial harassers and the consequences therein</em><strong>”)</strong> Twitch’s shortcomings on addressing harassment from chat. If you’re interested in reading the report in its entirety (it is long), it is available at the end of this post.</p>
-
-<hr />
-
-<p>One of the outlets that I found during the pandemic which helped me was getting more involved with being a streamer on Twitch. I’ve had an account on the service since 2014, when <a href="https://en.wikipedia.org/wiki/Twitch_Plays_Pokémon">Twitch Plays Pokémon</a> debuted, but after my partner and a close friend both suggested I start to stream and speedrun, I found myself immersed in the culture that the site has.</p>
-
-<p>Naturally, when harassment claims became front and centre in mid-2020, the arms of Twitch were twisted enough to finally address them. While the verdict is still out on how effective they’ve been since, the <a href="https://www.theverge.com/2020/6/25/21303185/twitch-sexual-harassment-assault-permanent-bans-streamers">focus has primarily been on streamers’ sexual behaviour towards other streamers and their audience</a>.</p>
-
-<p>This has been all well and good, but while streamers often hold the majority of power while they are off and on screen, there is an aspect Twitch has overlooked and outright ignored: the audience.</p>
-
-<p><img src="/img/1yrvzXgUtdSdepovEXB3X-g_1.png" alt="Cropped portion of a Twitch stream showing obscene chat." /></p>
-
-<p>Crop from a Twitch stream of mine where an individual came into chat to post something sexually obscene.</p>
-
-<p>Twitch encourages community participation and provides tools which third-parties rely on to enable this in the video stream. Most common are displaying alongside the main content are the ongoing chat, events such as subscriptions or new followers, and in some cases even manipulating aspects of the game being played on stream. However, this participation comes as a double-edged sword.</p>
-
-<p>While these interactions may drive traffic to the streamer and in turn potential revenue (many streamers rely on Twitch as their main source of income — this author does not and has no intention to do so, but has received money from streaming on the service), it may also provide an avenue for harassment.</p>
-
-<p>It would be easy to say that removing audience participation could lessen the impact of harassment, but Twitch again makes it apparent that this aspect is important and even allows someone to obtain a refund for their subscription should the streamer not meet their expectations.</p>
-
-<p>The audience harassment problem has on the surface remained unaddressed by Twitch for years. This has been further compounded by their legal team demanding any tools used to help coordinate moderation across multiple channels discontinue operating, with examples being <a href="https://www.reddit.com/r/DataHoarder/comments/g3p9tk/overrustlelogsnet_twitch_chat_logs_got_a_cd_from/">OverRustle</a> and <a href="https://twitch-tools.rootonline.de/twitch_legal_notice.php">Root Online</a>.</p>
-
-<p>When users complain to the company directly about problematic users, there is nary a response from <a href="https://twitter.com/PMillzTime/status/1310387845752815616">on social media</a> or via <a href="https://twitch.uservoice.com/forums/933812-safety/suggestions/41620438-help-the-entire-mario-community-stop-the-abuse-and">their own public support portal</a>.</p>
-
-<p>Should one try and follow the process Twitch provides, <a href="https://help.twitch.tv/s/article/how-to-manage-harassment-in-chat?language=en_US#TheBanFeature">the solution is documented</a> in such a way that resembles an infinite loop or <a href="https://help.twitch.tv/s/article/how-to-manage-harassment-in-chat?language=en_US#ConsiderModerationBot">you have to rely on third parties or a skillset not possessed by many</a>, which of course is hampered by the chilling effect produced by the company’s terms of service.</p>
-
-<p>The lacking response, the chilling effect by their legal team, and the lacklustre tools provided make Twitch’s remarks about “taking action against [harassment]” on social media ring hollow.</p>
-
-<p><img src="/img/1uYPOTfEDJVpcHLigLIHLeQ_1.png" alt="" /></p>
-
-<p>Tweet from January 12, 2021 where Twitch discusses <a href="https://twitter.com/twitch/status/1349188693337141258">its new harassment policy</a>.</p>
-
-<p>One problematic user often cited (referred to as MoS) when discussing chat harassment became present to me mid-way through 2020. After seeing them a number of times in friends’ streams and then eventually my own, I became interested in who they are and why they were so capable of being prolific across the service.</p>
-
-<p>They first came to attention of Twitch streamers around 2017, but shortly before the pandemic hit in 2020, their behaviour intensified to the point where they registered well over a thousand accounts by the end of the year — data shows there were approximately 1,200 registrations, but in the year prior (2019) only had around 380. It was determined that these accounts and all of their behaviour is likely being performed by hand.</p>
-
-<p><img src="/img/1Am5HQRoBk5nKyH9RZsdRSg_1.png" alt="" /></p>
-
-<p>New accounts created by MoS on Twitch throughout 2020.</p>
-
-<p>What became apparent through investigating the actions of MoS was that the process of becoming a Twitch user had a much lower bar than Twitter, which itself has been the constant source of news with respect to large numbers of accounts created to <a href="https://www.cbc.ca/news/technology/twitter-bots-canada-influence-unclear-1.5240778">manipulate elections</a> and <a href="https://www.npr.org/sections/coronavirus-live-updates/2020/05/20/859814085/researchers-nearly-half-of-accounts-tweeting-about-coronavirus-are-likely-bots">public health</a>.</p>
-
-<p>Twitch’s inaction combined with the low bar to create accounts is likely enabling fraud and that may undermine their partner and affiliate programs.</p>
-
-<p><img src="/img/1A0G5sHSk2qj2dOTWYYkmmg_1.png" alt="" /></p>
-
-<p>Sample of offerings from “BigFollows”, a service which can provide you with inflated numbers of viewers, followers, and most concerning, subscribers. This service is spammed heavily in Twitch chats.</p>
-
-<p>The ease of signing up for Twitch has enabled the ability for services to exist where you can pay to not only have additional followers, but “active” viewers (where you can pay a fee to have a larger viewer count for a period of time) and most curiously, new subscribers at a fraction of what would cost to pay directly to Twitch.</p>
-
-<p>These services rely on the ease of account creation on Twitch which is the same ease that permits harassment by the likes of MoS and many more.</p>
-
-<p>In one such example, using PayPal or cryptocurrency, you can purchase yourself or another streamer 50 additional subscribers for $70 USD, which is 28% of the price of what would have been spent if bought via Twitch themselves (approximately $250 USD).</p>
-
-<p>Twitch does not openly offer bulk discounts for subscriptions — even if they did, it is unlikely to be at such a steep discount.</p>
-
-<p>Based on my professional experience, it is likely that these subscriptions are fraudulently acquired using stolen credit cards or via <a href="https://www.cbc.ca/news/canada/toronto/gift-card-scams-fraud-1.5338439">gift cards acquired by scams</a>. These subscriptions have to be attached to accounts in order for them to apply to the streamer.</p>
-
-<p>Should someone inorganically wish to make <a href="https://help.twitch.tv/s/article/achievements?language=en_US#Partner">partner</a>, allowing them to earn more money from Twitch and have more prominence in attracting more viewers, meeting some of the more difficult requirements could be achieved by spending $200 to acquire the necessary subscribers and followers.</p>
-
-<p>If this seems outlandish and improbable, there are bots which have made partner status — it is not my opinion that any examples shown or any accounts mentioned by me did so by the aforementioned means.</p>
-
-<p><img src="/img/1-8NKgQU41rJdjiU3aRSr1w_1.png" alt="" /></p>
-
-<p>Twitch account “CommanderRoot” displaying statistics about users playing a game, with a purple-coloured checkmark next to their name on the bottom-right, indicating their partner status. Their account’s sole purpose is to idle in other people’s streams and collect data and nothing more with an obnoxious message delivered via Twitch’s moderation appeal system should you ban them.</p>
-
-<p>Twitch’s continued silence on addressing harassments may continue. Though, I have hope that by pointing out the suspected fraud, the company will examine its account creation process and in turn make the bar to engage in such harassment significantly higher.</p>
-
-<p>Increasing the difficulty of creating new accounts on the service could be a start towards making the site better for streamers and the audience alike.</p>
-
-<p>However, I sincerely hope that this does not translate into making becoming partner more difficult for those who deserve and earned it.</p>
-
-<hr />
-
-<p>If you’re interested in reading about this problem in detail, a PDF is available which outlines the issues in detail, where Twitch falls short, potential mitigations for streamers, details on who MoS might be, and much more.</p>
-
-<p>This document is written as if this were a consulting gig by myself (I allocate time for pro-bono/subsidized work each month and have details about this service in the document) and should be treated as such due to the density of the material.</p>
-
-<p><a href="https://share.vulpine.dev/documents/ProjectJetFuelReport.pdf">Download the PDF</a> (5.4 MB)</p>
-
-<p>As this document may be subject to revisions and is the copyright of me, do not share this on a public service (such as Scribd for example) and instead link to this blog post — I will enforce this as necessary.</p>
 
         </div>
         

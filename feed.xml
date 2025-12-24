@@ -5,7 +5,7 @@
   
   <link href="https://cariad.keigher.ca/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://cariad.keigher.ca/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2025-12-24T19:46:43+00:00</updated>
+  <updated>2025-12-24T19:56:17+00:00</updated>
   <id>https://cariad.keigher.ca/</id>
 
   
@@ -1429,6 +1429,151 @@
   
     <entry>
       
+      <title type="html">Imagine having this mindset over shrinkflation and regulation</title>
+      
+      
+      <link href="https://cariad.keigher.ca/2024/02/19/shrinkflation/" rel="alternate" type="text/html" title="Imagine having this mindset over shrinkflation and regulation" />
+      
+      <published>2024-02-19T00:00:00+00:00</published>
+      <updated>2024-02-19T00:00:00+00:00</updated>
+      <id>https://cariad.keigher.ca/2024/02/19/shrinkflation</id>
+      <content type="html" xml:base="https://cariad.keigher.ca/2024/02/19/shrinkflation/">&lt;p&gt;&lt;a href=&quot;https://web.archive.org/web/20250102001603mp_/https://www.cbc.ca/news/business/shrinkflation-legislation-canada-1.7114612&quot;&gt;Via the CBC&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;PepperBrooks was getting ready to wash her dishes when she noticed something didn’t add up.&lt;/p&gt;
+
+  &lt;p&gt;The new bottle of Dawn Platinum she’d bought contained 431 millilitres of dish soap, 10 per cent less than an older bottle of the same product that she had in her cupboard.&lt;/p&gt;
+
+  &lt;p&gt;Despite the difference, both bottles had cost the same.&lt;/p&gt;
+
+  &lt;p&gt;“I’m not happy about it,” said the Mississauga, Ont., marketing strategist who goes by the mononym PepperBrooks. “There was no notification. They didn’t let me know as a consumer that I’m going to be getting less for the same [price].”&lt;/p&gt;
+
+  &lt;p&gt;[…]&lt;/p&gt;
+
+  &lt;p&gt;But PepperBrooks believes regulations aren’t the best approach. Instead, she feels the onus should be on manufacturers to fess up when they shrink a product — or risk losing customers.&lt;/p&gt;
+
+  &lt;p&gt;“It’s more on the company, as like a social responsibility, to let them, the consumer, know that they are getting less,” she said. “I think it builds brand loyalty.”&lt;/p&gt;
+
+  &lt;p&gt;After her experience with Dawn dish soap, PepperBrooks said she’s still using the product but now feels less loyal to the brand and is keeping her eye out for alternatives.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ah yes. The thing that’ll keep companies in line is not regulation but instead “social responsibility”.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://web.archive.org/web/20250102001603mp_/https://pepperbrooks.com/ux-case-study-one&quot;&gt;I looked the woman up&lt;/a&gt; so naturally she’d have this mindset.&lt;/p&gt;
+
+&lt;p&gt;I’m sure that she’d have been against food regulation when they were being introduced in the 1920s. Social responsibility would have been enough to prevent us from eating sawdust.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Cariad Heather Keigher</name>
+          
+          
+        </author>
+      
+
+      
+
+      
+
+      
+        <summary type="html">Via the CBC: PepperBrooks was getting ready to wash her dishes when she noticed something didn’t add up. The new bottle of Dawn Platinum she’d bought contained 431 millilitres of dish soap, 10 per cent less than an older bottle of the same product that she had in her cupboard. Despite the difference, both bottles had cost the same. “I’m not happy about it,” said the Mississauga, Ont., marketing strategist who goes by the mononym PepperBrooks. “There was no notification. They didn’t let me know as a consumer that I’m going to be getting less for the same [price].” […] But PepperBrooks believes regulations aren’t the best approach. Instead, she feels the onus should be on manufacturers to fess up when they shrink a product — or risk losing customers. “It’s more on the company, as like a social responsibility, to let them, the consumer, know that they are getting less,” she said. “I think it builds brand loyalty.” After her experience with Dawn dish soap, PepperBrooks said she’s still using the product but now feels less loyal to the brand and is keeping her eye out for alternatives. Ah yes. The thing that’ll keep companies in line is not regulation but instead “social responsibility”. I looked the woman up so naturally she’d have this mindset. I’m sure that she’d have been against food regulation when they were being introduced in the 1920s. Social responsibility would have been enough to prevent us from eating sawdust.</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">ChatGPT and LLMs as a whole are dangerous for my job</title>
+      
+      
+      <link href="https://cariad.keigher.ca/2024/01/24/llms-dangerous/" rel="alternate" type="text/html" title="ChatGPT and LLMs as a whole are dangerous for my job" />
+      
+      <published>2024-01-24T00:00:00+00:00</published>
+      <updated>2024-01-24T00:00:00+00:00</updated>
+      <id>https://cariad.keigher.ca/2024/01/24/llms-dangerous</id>
+      <content type="html" xml:base="https://cariad.keigher.ca/2024/01/24/llms-dangerous/">&lt;p&gt;&lt;img src=&quot;/img/llm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I decided to ask ChatGPT a question I once had during a job interview before being hired on at my current company:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Tell me what to do as a cyber security professional working in an industrial control network when an HMI is compromised and human safety is possibly at risk&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And its immediate response was to give me this answer:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If you’re a cybersecurity professional working in an industrial control network and you suspect that an HMI (Human Machine Interface) is compromised with potential risks to human safety, it’s crucial to take immediate and systematic steps to address the situation. Here’s a general guideline:&lt;/p&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;Isolate the Compromised System:
+      &lt;ul&gt;
+        &lt;li&gt;Identify the compromised HMI system and disconnect it from the network immediately to prevent further spread of the attack.&lt;/li&gt;
+        &lt;li&gt;If possible, isolate the compromised system physically to ensure it cannot communicate with other networked devices.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Notify Relevant Personnel:
+      &lt;ul&gt;
+        &lt;li&gt;Alert the appropriate personnel, including operations, management, and IT security teams, about the compromise.&lt;/li&gt;
+        &lt;li&gt;Activate the incident response team and emergency procedures as outlined in your organization’s cybersecurity and safety policies.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This has me quite pissed off.&lt;/p&gt;
+
+&lt;p&gt;The thing that ChatGPT did here was assume that industrial control security is handled no differently than enterprise or general computing; this is dead wrong.&lt;/p&gt;
+
+&lt;p&gt;Industrial control involves human safety and taking an HMI out of the equation can actually make matters worse. There have been documented situations where making arbitrary decisions such as the recommended “disconnect it from the network” can trigger cascading effects or outcomes that are undesired.&lt;/p&gt;
+
+&lt;p&gt;Unplugging an HMI from a PLC and a control network as a whole could cause a ripple effect that puts human lives in danger. An HMI is basically a computer (but built to withstand a rugged environment) and a PLC (&lt;a href=&quot;https://web.archive.org/web/20250102001603mp_/https://en.wikipedia.org/wiki/Programmable_logic_controller&quot;&gt;programmable logic controller&lt;/a&gt;) is the interface the HMI interacts with to make machines do things. I am simplifying things greatly here, but the point is that they’re not regular computers.&lt;/p&gt;
+
+&lt;p&gt;ChatGPT correctly states to notify relevant personnel, but this both fails to put this at the start and doesn’t mention someone like a plant manager or similar role. You need people who are familiar with the equipment to do things like lockout, shutdown, et cetera–in my field we call them “subject matter experts” or “SMEs”.&lt;/p&gt;
+
+&lt;p&gt;If I am to hear of a compromised HMI, my instinct is to talk to the person overseeing the operations first and get them to help mitigate it before even dreaming of disconnecting anything unilaterally. I do not want to be responsible for or creating increased risk for human casualties.&lt;/p&gt;
+
+&lt;p&gt;This scares the fuck out of me.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Cariad Heather Keigher</name>
+          
+          
+        </author>
+      
+
+      
+
+      
+
+      
+        <summary type="html">I decided to ask ChatGPT a question I once had during a job interview before being hired on at my current company: Tell me what to do as a cyber security professional working in an industrial control network when an HMI is compromised and human safety is possibly at risk And its immediate response was to give me this answer: If you’re a cybersecurity professional working in an industrial control network and you suspect that an HMI (Human Machine Interface) is compromised with potential risks to human safety, it’s crucial to take immediate and systematic steps to address the situation. Here’s a general guideline: Isolate the Compromised System: Identify the compromised HMI system and disconnect it from the network immediately to prevent further spread of the attack. If possible, isolate the compromised system physically to ensure it cannot communicate with other networked devices. Notify Relevant Personnel: Alert the appropriate personnel, including operations, management, and IT security teams, about the compromise. Activate the incident response team and emergency procedures as outlined in your organization’s cybersecurity and safety policies. This has me quite pissed off. The thing that ChatGPT did here was assume that industrial control security is handled no differently than enterprise or general computing; this is dead wrong. Industrial control involves human safety and taking an HMI out of the equation can actually make matters worse. There have been documented situations where making arbitrary decisions such as the recommended “disconnect it from the network” can trigger cascading effects or outcomes that are undesired. Unplugging an HMI from a PLC and a control network as a whole could cause a ripple effect that puts human lives in danger. An HMI is basically a computer (but built to withstand a rugged environment) and a PLC (programmable logic controller) is the interface the HMI interacts with to make machines do things. I am simplifying things greatly here, but the point is that they’re not regular computers. ChatGPT correctly states to notify relevant personnel, but this both fails to put this at the start and doesn’t mention someone like a plant manager or similar role. You need people who are familiar with the equipment to do things like lockout, shutdown, et cetera–in my field we call them “subject matter experts” or “SMEs”. If I am to hear of a compromised HMI, my instinct is to talk to the person overseeing the operations first and get them to help mitigate it before even dreaming of disconnecting anything unilaterally. I do not want to be responsible for or creating increased risk for human casualties. This scares the fuck out of me.</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
       <title type="html">All about Mission City station</title>
       
       
@@ -1869,144 +2014,6 @@
 
       
         <summary type="html">Princess Diana walking along the platform of Patterson Station in 1986 (City of Vancouver Archives) Prince Charles (now King Charles III) and Princess Diana greeting two people (Vancouver Province) In 1986, during Expo ’86, King Charles III (then Prince) and his then wife, Princess Diana paid a visit to Patterson Station in Burnaby to see the new rapid transit system. They boarded car 014, dubbed the “Spirit of Canada”, and made history as the first visiting monarch to use the transit system. However, this visit overshadows another royal visit and one that had substantial ramifications for the country the monarch heralded from. Plaque as seen on train 014 On May 8th, 1989, Thailand’s Princess Chulabhorn paid a visit to Vancouver and rode on the very same car the Prince and Princess of Wales rode three years prior. Ten years later, Thailand’s capital city, Bangkok would open its BTS Skytrain. BTS Skytrain vehicles passing each other (author unknown) However, unlike the Vancouver SkyTrain (note the upper case ‘T’ in our name), Bangkok’s system did not use trains from Bombardier and instead its initial set were from Siemens. The reason for the name was that the original system proposal was the Lavalin Skytrain, as SNC Lavalin itself was responsible for the construction of Vancouver’s system. This project was cancelled in 1992 officially due to financial reasons, but it was suggested politics played a role in its demise. For whatever reason, despite SNC Lavalin’s lack of involvement in the succeeding project, the name “Skytrain” stuck and in 1999, the Bangkok Mass Transit System officially opened and named as “BTS Skytrain”. Perhaps the Princess just liked the name? Who knows. This was originally posted to cohost.org/VancouverTransit.</summary>
-      
-
-      
-      
-    </entry>
-  
-  
-  
-    <entry>
-      
-      <title type="html">Ghosts: Connaught Hill</title>
-      
-      
-      <link href="https://cariad.keigher.ca/2023/04/06/ghosts-connaught-hill/" rel="alternate" type="text/html" title="Ghosts: Connaught Hill" />
-      
-      <published>2023-04-06T00:00:00+00:00</published>
-      <updated>2023-04-06T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2023/04/06/ghosts--connaught-hill</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2023/04/06/ghosts-connaught-hill/">&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/0EQSQDDm2kBZUHNGs_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Approximate location of the former station, Connaught Hill (Google Street View)&lt;/p&gt;
-
-&lt;p&gt;When riding down the Expo Line from Edmonds to 22nd Street, one may notice that it is a rather lengthy ride. At nearly 2 KM, it’s nowhere near the longest distance between stations, but when it was the interurban Central Park Line, there was a station in-between the two.&lt;/p&gt;
-
-&lt;p&gt;The BC Electric Railway (BCER) had a station around what is now 9th Avenue in Burnaby or simply situated south of a SkyTrain maintenance facility. Connaught Hill, named after after the &lt;a href=&quot;https://en.wikipedia.org/wiki/Provinces_of_Ireland&quot;&gt;western province of Ireland named Connaught&lt;/a&gt;, was a small station serving the now-residential area straddling the Burnaby and New Westminster border.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/0aDPvuKJ2ViH0_2Wj_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Station location in New Westminster (Google)&lt;/p&gt;
-
-&lt;p&gt;Back then, it was a large gravel pit. The hole created conveniently ended up becoming the SkyTrain maintenance facility we have today.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/0SBkId7uE8qauIaEM_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Connaught Hill as it appeared in the 1950s (TransLink / BC Transit)&lt;/p&gt;
-
-&lt;p&gt;Today, there sits no station but you can visit its old location when travelling along the BC Parkway.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/0VJJ4ymcv-f55a5Cj_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Stopped to take a photo as I cycled on by. You can see the remnants of the old tracks left behind.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-            <name>Cariad Heather Keigher</name>
-          
-          
-        </author>
-      
-
-      
-
-      
-
-      
-        <summary type="html">Approximate location of the former station, Connaught Hill (Google Street View) When riding down the Expo Line from Edmonds to 22nd Street, one may notice that it is a rather lengthy ride. At nearly 2 KM, it’s nowhere near the longest distance between stations, but when it was the interurban Central Park Line, there was a station in-between the two. The BC Electric Railway (BCER) had a station around what is now 9th Avenue in Burnaby or simply situated south of a SkyTrain maintenance facility. Connaught Hill, named after after the western province of Ireland named Connaught, was a small station serving the now-residential area straddling the Burnaby and New Westminster border. Station location in New Westminster (Google) Back then, it was a large gravel pit. The hole created conveniently ended up becoming the SkyTrain maintenance facility we have today. Connaught Hill as it appeared in the 1950s (TransLink / BC Transit) Today, there sits no station but you can visit its old location when travelling along the BC Parkway. Stopped to take a photo as I cycled on by. You can see the remnants of the old tracks left behind.</summary>
-      
-
-      
-      
-    </entry>
-  
-  
-  
-    <entry>
-      
-      <title type="html">Harvie Rd. and Surrey’s Lost Railway</title>
-      
-      
-      <link href="https://cariad.keigher.ca/2023/02/05/harvie-rd-and-surrey-s-lost-railway/" rel="alternate" type="text/html" title="Harvie Rd. and Surrey’s Lost Railway" />
-      
-      <published>2023-02-05T00:00:00+00:00</published>
-      <updated>2023-02-05T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2023/02/05/harvie-rd--and-surrey-s-lost-railway</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2023/02/05/harvie-rd-and-surrey-s-lost-railway/">&lt;hr /&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/0k0whuKnn8tiOHj-r_1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Map showing the Port Kells area of Surrey (Google)&lt;/p&gt;
-
-&lt;p&gt;In a few years, you’ll be able to ride SkyTrain all the way into Langley, passing by one of Cloverdale’s quiet landmarks: the Honeybee Centre. However, if you go just the building, you’ll notice a road that runs on an angle, which is odd considering most of Surrey’s roads tend to run in cardinal directions save for Fraser Highway and a few others.&lt;/p&gt;
-
-&lt;p&gt;Harvie Rd. is a shortcut from Port Kells to the rest of Surrey, but its origins as a road do not come from being a shortcut but instead a railway. There are a few roads that do not conform to the grid system and they too share this history as well.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/0mCx-epomuxyTCg6j_1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Approximate path that the railway took&lt;/p&gt;
-
-&lt;p&gt;In 1891, the New Westminster-Southern Railway opened a passenger railway crossing across the US border into Cloverdale and then to New Westminster via Port Kells. This route followed what is now Highway 15 with a deviation around a hill in Hazlemere.&lt;/p&gt;
-
-&lt;p&gt;For some time, it was the only rail service connecting the United States and Canada west of the Rockies. Its construction was of major concern to the federal government due to possible threat to sovereignty by the Americans.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/09Kn3oJF2bWpXBsfc_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Southern portion of the railway about 3 KM north of the United States border&lt;/p&gt;
-
-&lt;p&gt;In 1907, the Great Northern Railway, the parent company to the NWSR, opted to reroute all rail service to its line which straddled the Semiahmoo peninsula and subsequently ended its inland rail connection going through Blaine. The NWSR struggled to remain competitive in the face of the BC Electric Railway providing similar service, which intersected in Cloverdale.&lt;/p&gt;
-
-&lt;p&gt;By 1929, the railway was declared abandoned and as time has gone on much of the right of way has been usurped by the highway it once ran alongside. However, remnants of it are still visible if you know where to look.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/0NodtNz7s3b7Id41I_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Harvey Rd. as seen from near the Port Kells Library&lt;/p&gt;
-
-&lt;p&gt;As for road itself, it got its name from NWSR’s first engineer, Robert Harvie. It has since received heritage right of way status from the City of Surrey, which protects it as a roadway.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;If you’re interested in additional information,&lt;/em&gt; &lt;a href=&quot;https://oppositethecity.wordpress.com/2014/02/12/new-westminster-southern-railway-survey/&quot;&gt;&lt;em&gt;this blog article from 2014&lt;/em&gt;&lt;/a&gt; &lt;em&gt;is also worth a read! I used the custom Google Maps link they created to generate the above maps.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;This is also a post archived from cohost.org/VancouverTransit.&lt;/em&gt;&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-            <name>Cariad Heather Keigher</name>
-          
-          
-        </author>
-      
-
-      
-
-      
-
-      
-        <summary type="html">Map showing the Port Kells area of Surrey (Google) In a few years, you’ll be able to ride SkyTrain all the way into Langley, passing by one of Cloverdale’s quiet landmarks: the Honeybee Centre. However, if you go just the building, you’ll notice a road that runs on an angle, which is odd considering most of Surrey’s roads tend to run in cardinal directions save for Fraser Highway and a few others. Harvie Rd. is a shortcut from Port Kells to the rest of Surrey, but its origins as a road do not come from being a shortcut but instead a railway. There are a few roads that do not conform to the grid system and they too share this history as well. Approximate path that the railway took In 1891, the New Westminster-Southern Railway opened a passenger railway crossing across the US border into Cloverdale and then to New Westminster via Port Kells. This route followed what is now Highway 15 with a deviation around a hill in Hazlemere. For some time, it was the only rail service connecting the United States and Canada west of the Rockies. Its construction was of major concern to the federal government due to possible threat to sovereignty by the Americans. Southern portion of the railway about 3 KM north of the United States border In 1907, the Great Northern Railway, the parent company to the NWSR, opted to reroute all rail service to its line which straddled the Semiahmoo peninsula and subsequently ended its inland rail connection going through Blaine. The NWSR struggled to remain competitive in the face of the BC Electric Railway providing similar service, which intersected in Cloverdale. By 1929, the railway was declared abandoned and as time has gone on much of the right of way has been usurped by the highway it once ran alongside. However, remnants of it are still visible if you know where to look. Harvey Rd. as seen from near the Port Kells Library As for road itself, it got its name from NWSR’s first engineer, Robert Harvie. It has since received heritage right of way status from the City of Surrey, which protects it as a roadway. If you’re interested in additional information, this blog article from 2014 is also worth a read! I used the custom Google Maps link they created to generate the above maps. This is also a post archived from cohost.org/VancouverTransit.</summary>
       
 
       
