@@ -93,123 +93,70 @@
         <header class="post-header">
           <h1 class="post-title">
             
-              <a class="post-link" href="/2022/01/30/more-hacking-on-automating-wordle/">More hacking on automating Wordle</a>
+              <a class="post-link" href="/2022/07/25/iphone-stream/">The perils of streaming an iPhone</a>
             
           </h1>
 
           <p class="post-meta">
-            Jan 30, 2022
+            Jul 25, 2022
             
             
           </p>
         </header>
 
         <div class="post-content">
-          <hr />
+          <p><img src="/img/iphonestream.png" alt="" /></p>
 
-<p><em>Just a warning: if you are playing Wordle and don’t want any hints, this is not the Medium entry for you. Also, I am not a mathematician or statistician, so everything is just based on my knowledge of cryptanalysis and nothing more.</em></p>
+<p>I’ve been working through playing all of the Ace Attorney games with having completed Ace Attorney Investigations: Miles Edgeworth just yesterday. About a third of them required me to use an iPhone to play based on some silly standard I have for my Twitch stream. So let’s talk about this!</p>
 
-<p><em>One other thing to note is that the word list I am working with is not Wordle’s as I intentionally wanted to avoid looking at its source code.</em></p>
+<h1>What games are on mobile?</h1>
 
-<p>Okay. So I had one remaining question from <a href="https://katelibc.medium.com/hacking-wordle-through-automation-and-cryptanalysis-85b438328936">my last entry on Wordle</a>: what is the most efficient starting word overall?</p>
+<p>As it stands, this is a list of the games that required me to use an iPhone in order to play:</p>
 
-<blockquote>
-  <p>“Cares” has a word score of 967.4, whereas “audio” gets 288.4 and “ports” has 796.6. The point of the game is to produce an answer in as few steps as possible and while you will knock off a lot of vowels and consonants with those two, you are likely reducing the chances of answering in the fewest attempts.</p>
-</blockquote>
+<ul>
+  <li>Apollo Justice: Ace Attorney</li>
+  <li>Phoenix Wright: Ace Attorney – Dual Destinies</li>
+  <li>Phoenix Wright: Ace Attorney – Spirit of Justice</li>
+  <li>Ace Attorney Investigations: Miles Edgeworth</li>
+</ul>
 
-<blockquote>
-  <p>My choice of word also includes the letter “e”, which is the most common letter used in the English language. On average, you should see that letter appear about 10–13% of the time, with the letter “a” being about 7–9%, and “s” being 6–9%.</p>
-</blockquote>
+<p>The sequel to the last one, Ace Attorney Investigations 2 is available for iOS, but unlike its predecessor, it has never been translated into English. A patch for its DS release is available and there were efforts to bring the patch to Android, but it hasn’t had an update since late-last year.</p>
 
-<blockquote>
-  <p>You can also order it as “scare” or “races” too if you desire, but I believe that with “s” at the end and putting “r” in the middle, you cover all initial possibilities quite effectively here.</p>
-</blockquote>
+<p>I bought a copy of the game and have already dumped the game and patched it already! It is likely I’ll write about how easy it was to dump my cartridge and do all this work myself sometime soon.</p>
 
-<p>I did not like what I wrote here, but at the time I didn’t really run numbers on outcomes. However, I was working on this because you cannot really automate Wordle without a good starting word.</p>
+<p>The first three in that list are available on 3DS and Investigations was on DS (Apollo Justice is on both). However, the 3DS and DS have resolutions that make the content appear pixelated and even though I stream at 720p60, I notice this. Additionally, I don’t have a capture-able 3DS and must resort to emulation such as the case with Layton vs. Wright.</p>
 
-<h3>Methodology</h3>
+<p>So the iPhone version is the option I chose. Namely it’s because I am a heavy user of the Apple ecosystem and I have an iPhone 8 I don’t use much any more. Additionally, the games run at an HD resolution so downscaling them doesn’t end up looking bad.</p>
 
-<p>Using the same logic from before, the process to find the winning word was fairly simple.</p>
+<h1>Hardware and why AirPlay is not an option</h1>
 
-<p>For each starting word, we then ran through each possible five letter word other than itself. It would run each guess against an implementation of Wordle in my own code with the same hints and correct guesses. Once it got to an answer, it would then record all attempts into a set and then move on to the next word.</p>
+<p>To stream an iOS device, you can use <a href="https://web.archive.org/web/20250107101303mp_/https://www.apple.com/ca/shop/product/MD826AM/A/lightning-digital-av-adapter">an official lightning to HDMI adapter</a>. This provides both an HDMI output and an additional lightning port so you can keep the phone charged.</p>
 
-<p><img src="/img/10sPLTqitT_TdO16_lziu1A_1.png" alt="" /></p>
+<p>This works really well and is plug and play. My capture card had no issues with the video output and while I did need to trim the unused space, it wasn’t at all a problem.</p>
 
-<p>The word “bases” was guessed with a starting word of “caves” and made five other guesses before coming to an eventual answer. This obviously would have failed if I used it against Wordle.</p>
+<p>One problem with this arrangement is since the device is attached via a dongle with ah HDMI and power cord attached to that, my hands lose a lot of mobility with one side of the device being pulled down in a rather uncomfortable manner.</p>
 
-<p>Unlike Wordle, there was no guess limit as I wanted to know how many attempts it would take using the methodology I did before where I came up with a list based on efficiency. So the first word based on possibilities made by the hints and correct letter guesses available from the list was the word chosen.</p>
+<p>So you’re then thinking: why not use AirPlay? That way I can just charge the phone after the stream or just have one cable attached to it as opposed to two. This idea is great on paper, but testing it unfortunately led to problems.</p>
 
-<p>There are flaws with this list sorting as <a href="https://twitter.com/authorblues/status/1481292670769192962">discussed on Twitter</a>, but I wanted to stick to my current methodology, so we’ll proceed forward.</p>
+<p>With Dual Destinies and Spirit of Justice in particular, the majority of the game content is 2D, but the moment you end up in 3D, AirPlay becomes a real nightmare. I have an Apple TV attached to my streaming set up, but the moment you encounter anything with 3D is when AirPlay just struggles. The frame rate from the game content becomes no better than a slideshow and there is not much I can do about it.</p>
 
-<h3>The worst words</h3>
+<p>This problem is either a limitation of AirPlay or with using wireless networking (the Apple TV is attached via ethernet), but nonetheless it is not ideal.</p>
 
-<p>Defining the worst word can be achieved one of two ways. We can either look for a group of words or a single word that has the most guess attempts or we can look at them on average.</p>
+<h1>Two games will refuse to run without a trick</h1>
 
-<p>A minimum of the number of guesses is quite simple: one if you’re lucky, but if the word doesn’t match, then two. Guessing what the largest number of guesses will be took a little bit of magic.</p>
+<p>Both Apollo Justice and Investigations share two things in common: the games are presented in a 4:3 aspect ratio and they both hate the HDMI connection.</p>
 
-<p>The words that managed to hit a the maximum-seen attempts of 14 were: “agile”, “anile”, “dells”, “duels”, “dulls”, “dully”, “exile”, “gaily”, “guile”, “gulls”, “gully”, “jails”, “jello”, “jells”, “jelly”, “jinns”, “jolly”, “keels”, “kelly”, “lolls”, “lolly”, “lulls”, “nails”, “ninny”, “nulls”, “quell”, “rails”, “rials”, “villa”, “ville”, “villi”, “yella”, “yells”, and “yield”. If you are to notice a pattern here, almost all of them have the letter ‘l’ in them, but this isn’t really the reason why they performed badly.</p>
+<p>When I would launch either game, it would show the game’s logo and then immediately crash. This was super confusing as the problem did not exhibit itself on my iPad or my iPhone XR. All of my devices are running the same version of iOS and the XR and iPad both have wildly different resolutions, so I was super confused to why the iPhone 8 was so special.</p>
 
-<p>Word scores are all over the place with these words, which leads me to believe that it is not necessarily indicative of a good start. For example, “quells” is amongst that list and had a score of 307.4, but then “rails” received 768.6. The average score for all of the words was 531.1, so I’m not confident all that much in using that as a metric for a good starting word.</p>
+<p>It wasn’t until when I was trying out things on my iPhone did I conclude the problem: it only happened when the dongle was attached. Sure enough when I launched the game with no tethering the game launch. If I killed the game, attached the dongle back in, and then launched again, it would crash.</p>
 
-<p>So then what about averages? This gives us a better picture because Wordle limits us to six guesses. I would suggest if a word has a minimum average of 4 or higher that it should not be used at the start.</p>
+<p>The trick to fixing this was simple: launch the game and then attach the dongle. I have no idea why these two games in particular hated the attachment, but after launch they didn’t seem to care and I was able to move on.</p>
 
-<p>The worst performing word had an average of 4.26 attempts, which was “jujus”. This was followed by “wheee” at 4.23, and “yukky” at 4.21. There were three tied for 4.2, and they were “vexes”, “sexes”, and “esses”.</p>
+<h1>I wish these games worked on my M1</h1>
 
-<p>The word score “jujus” was 506.6, but interestingly, “sexes” received 888.6.</p>
+<p>There is no reason for why Capcom doesn’t permit these games on macOS. They’d run natively on my M1 MacBook Pro just fine, but alas.</p>
 
-<h3>Is there a guaranteed winner?</h3>
-
-<p>The short answer is: no.</p>
-
-<p>All words with this methodology ranged from 8 to 14 maximum attempts. No single word went below 8 attempts, meaning there are starting words which will lead to failure.</p>
-
-<p>There is a silver-lining, the number of words with the smallest maximum is only slightly larger than the number of words with the largest maximum.</p>
-
-<p>There are 1,764 words of which had 12 maximum attempts, 2,085 with 11, 984 with 10, and 411 with 9. However, with 8, there are only 39 words, and all of them might justifiably be the best candidates.</p>
-
-<p>The words that performed the best were “blest”, “deism”, “doest”, “durst”, “feist”, “heist”, “least”, “liest”, “merse”, “midst”, “obese”, “pseud”, “sebum”, “sedan”, “sedge”, “sedgy”, “sedum”, “seize”, “sepia”, “serge”, “serif”, “serum”, “sheaf”, “sheik”, “sherd”, “siege”, “sieve”, “skein”, “skirt”, “slept”, “speck”, “spend”, “sperm”, “steal”, “suede”, “swell”, “swift”, “welsh”, and “wrist”.</p>
-
-<p><img src="/img/1Ka5sISDp-NUVVWlfsGT_8A_1.png" alt="" /></p>
-
-<p>“Obese” has a word score of 277.8 and “pseud” is 281.6.</p>
-
-<p>Going back to word scores, we arrive upon something curious: the range of scores is between 277.8 and 526, with the average being 398.4. Perhaps the way to look at the word score is not at whether it is strong at the start, but instead if it eliminates all of the least likely? This would suggest that words such as “obese” or “pseud” could be good starting candidates.</p>
-
-<h3>Could we find a most-likely?</h3>
-
-<p>This is where I want to deviate: a maximum does not imply that it is the worst choice. And in this case, I am willing to believe this because I did find something amongst all of the words that allows me to suggest that there is either a flaw in my methodology or I am looking at this all wrong.</p>
-
-<p>The words “estop”, “epsom”, and “serum” had an average attempt count of 2.74, 2.77, and 2.79 each respectively. When I looked at their word scores, “estop” had 160.4, “epsom” had 165.8, and “serum” had 418.</p>
-
-<p>I decided to look at all words of which were lower than 2.9, and within the the 54 words, the minimum score was 106.6 and the maximum was 496, with an average of 336.3. I think I know where the word score’s usefulness may lie: it’s better to start with a lower than a higher one.</p>
-
-<p>When I spoke about maximums earlier, “estop” found itself with a maximum of 9 attempts. In fact, “serum”, which had a slightly higher average than “estop” found itself with a maximum of 8 — “epsom” received 9.</p>
-
-<p>But this is still an incorrect approach.</p>
-
-<p>We’re looking at the average and what I’d like to know is what has the highest percentage of wins within the limitations imposed by the game. We have six guesses, so what word is best suited on average to produce an outcome.</p>
-
-<p>With these parameters in mind, we can then use the following methodology: which word is most likely to get a guess correct within those six attempts and then not consider the steps beyond that point since they’re not indicative of what would be considered a success.</p>
-
-<p>Of the 5,756 words tested, one word managed to achieve a win in three moves 69.4% of the time: “verso”. It also achieved a win in two moves 10.8% of the time, four was 13.1%, five was 4.6%, and six was 1.5% — a 99.4% successful starting word.</p>
-
-<p>But this is not the best word even though it is the best word for the quickest win — fortunately we already know the best one to use in order to win.</p>
-
-<p>As mentioned before, “estop” had an average of 2.74 attempts before a win, but importantly it has the highest success rate. It edged out “verso” by achieving a 99.6% win rate with 46% of all attempts being achieved in its first two guesses and then three in 40% — four was 9.4%, five was 3.2%, and six was 0.9%.</p>
-
-<p>With a failure on only 19 words from the word list — compared to 30 for the other word I was testing with — starting with just “estop” should net you a win most of the time.</p>
-
-<p>So in my opinion: “estop” is by far the best word.</p>
-
-<p><img src="/img/1DezAoeADAebHml6mnxXMOA_1.png" alt="" /></p>
-
-<p>From January 30th’s Wordle: “estop” showed that despite failing the first two guesses, the algorithm did it in four tries whereas “verso” had to make an extra guess.</p>
-
-<h3>The data</h3>
-
-<p><a href="https://github.com/KateLibC/WordleStats">I’m happy to share the data I have made</a> and I welcome you to demonstrate anything you have done with it. However, I must reiterate that I am not a statistician nor do I consider myself adept with mathematics. What I will say that I was out to have fun to solve this challenge and I feel like I have.</p>
-
-<p>I wanted to play this game unconventionally and I think I accomplished that goal. There are some further ideas to achieve a 100% success rate or at least get extremely close to it, but being that I am at 99.6% successful on just this algorithm alone, it does make me think that this little project can be considered “ended”.</p>
+<p>That will be all 11 Ace Attorney games done in less than a year! I also plan to play Ghost Trick!</p>
 
         </div>
         
@@ -222,103 +169,41 @@
         <header class="post-header">
           <h1 class="post-title">
             
-              <a class="post-link" href="/2022/01/12/hacking-wordle-through-automation-and-cryptanalysis/">Hacking Wordle through automation and cryptanalysis</a>
+              <a class="post-link" href="/2022/07/12/100basevg/">Weird network shit: 100BaseVG</a>
             
           </h1>
 
           <p class="post-meta">
-            Jan 12, 2022
+            Jul 12, 2022
             
             
           </p>
         </header>
 
         <div class="post-content">
-          <hr />
+          <p><img src="/img/100basevg.png" alt="" /></p>
 
-<p>Recently, a game called <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a> has exploded in popularity with its simple five-letter guessing game. I’ve been playing it for a few weeks but have also been musing over how to automate this all using my knowledge of classical cryptography.</p>
+<p>Since <a href="https://web.archive.org/web/20250107101303mp_/https://cohost.org/cathoderaydude/post/46816-i-lied-this-pos">CRD’s post about two-port Ethernet switches came up</a>, I was reminded about another technology: <a href="https://web.archive.org/web/20250107101303mp_/https://en.wikipedia.org/wiki/100BaseVG">100BaseVG</a>.</p>
 
-<p>So let’s dive in!</p>
+<blockquote>
+  <p>100BaseVG is a 100 Mbit/s Ethernet standard specified to run over four pairs of category 3 cable (cable also known as voice grade, hence the “VG”). It is also called 100VG-AnyLAN because it was defined to carry both Ethernet and Token Ring frame types.</p>
+</blockquote>
 
-<h3>Patterns in the English language</h3>
+<p>Compared to <a href="https://web.archive.org/web/20250107101303mp_/https://en.wikipedia.org/wiki/Fast_Ethernet">Fast Ethernet</a>, 100BaseVG had a slight competitive edge as it was able to achieve 95% of its advertise speeds in real world tests compared to the 45% of its Ethernet counterpart. It was less susceptible to interference from outside signals and it was able to take advantage of Token Ring’s frame timing. On paper, this was pretty incredible as it was able to make use of the same cabling as 10BaseT.</p>
 
-<p>While English is a very complicated language, it is also rather predictable and it is because of this we can play around with statistics. <a href="https://en.wikipedia.org/wiki/Letter_frequency">Letter frequency</a> is often spoken about in cryptanalysis and is often a basis for solving cryptographic puzzles I release periodically.</p>
+<p>So how did 100BaseVG become the Betamax equal to Ethernet? For one thing, like Betamax, only one vendor truly supported it and it was its creator Hewlett-Packard. To make matters worse, it required you to replace every single network card on any system you wanted to be part of your new fast network.</p>
 
-<p>With Wordle, we’re limited to five-letter words, so what I wanted to do is figure out what are the most common letters per position. The use of letter frequency is helpful, but because we’re dealing with restrictions, the base statistics are merely a guide and not a rule.</p>
+<p>With most Fast Ethernet switches, you could have it run at 10 or 100 Mbps (and 1000 Mbps) without worrying about having to gut out the card on the other end. In 1995, <a href="https://web.archive.org/web/20250107101303mp_/http://www.hpmuseum.net/document.php?hwfile=3716">this was seen as rather acceptable apparently</a>:</p>
 
-<p>Using a list of five-letter words, I generated some statistics and came up with some answers for each position. In order, the first position had the most common letter of “s”, the second “a”, the third “a”, the fourth “e”, and the last being “s”. Now obviously, the word “saaes” does not exist in this word list, but we can use this knowledge to build a score for each word.</p>
+<blockquote>
+  <p>Upgrading [to 100BaseVG from a 10BaseT network] is, in most cases, simply a matter of replacing existing hubs and network cards…</p>
+</blockquote>
 
-<p>By going through the list, we can use the counts of each position to its letter within that position and then come up with a score. For example, the word “sores” in a set of the highest word score and has the values of 724, 911, 475, 1228, and 1764. If we create an average of those numbers, we come up with an answer of 1,020.4.</p>
+<p>In the PDF I link to, it quotes AU$6,613 for a 20-port hub and AU$496 to AU$757 for a network card depending on either ISA or EISA. Adjusting for inflation and converting to US dollars, you’re looking at US$8,200 for that hub and US$640 to US$980 for the cards.</p>
 
-<p>Using these averages to create a score for each, we can then order a list. That is all right? Well, not exactly, because there’s one other hiccup.</p>
+<p>I think it’s pretty clear that you were better off keeping your 10BaseT gear and slowly upgrading to Fast Ethernet where necessary. It was pushed starting in 1995 and then died a silent death in 1998. If you have never heard of this before until now, it is no surprise.</p>
 
-<p>Of the 5,756 words I am working with, 38% of them end in the letter “s”. This is not really all that surprising seeing that four-letter words made plural should not be uncommon. However, I don’t want them to be dominant when I go to automate this later on, so I need to fix this.</p>
-
-<p>While maybe not the best way to do this, I sorted the list in to two halves. The first half were words with all unique letters and the second not. In both halves, the order was kept from earlier, so once we finished the first half starting from the highest score to lowest, the same would repeat on the second.</p>
-
-<p>At this point I decided I was done and felt that I had the most “efficient” list.</p>
-
-<h3>Where to start</h3>
-
-<p>Now that we have this list, we need to know what word to start off with. I’ve seen a lot of people suggest words like “audio” and “ports”, but the one I seem to find works best is “cares”.</p>
-
-<p>“Cares” has a word score of 967.4, whereas “audio” gets 288.4 and “ports” has 796.6. The point of the game is to produce an answer in as few steps as possible and while you will knock off a lot of vowels and consonants with those two, you are likely reducing the chances of answering in the fewest attempts.</p>
-
-<p>My choice of word also includes the letter “e”, which is the most common letter used in the English language. On average, you should see that letter appear about 10–13% of the time, with the letter “a” being about 7–9%, and “s” being 6–9%.</p>
-
-<p>You can also order it as “scare” or “races” too if you desire, but I believe that with “s” at the end and putting “r” in the middle, you cover all initial possibilities quite effectively here.</p>
-
-<h3>Writing code to deal with this</h3>
-
-<p>Wordle’s rules are very straight forward: you have five letters and six attempts. On each attempt, the game will inform you on whether or not each letter is valid based on colour. If the letter in a position is valid, it’ll give it a background colour of green, if invalid then grey, and if invalid but elsewhere in the word, amber.</p>
-
-<p>With this knowledge, I went and created a Python script to churn through a word list and find words based on inputs I give. I am solely responsible for the starting word, but the script itself will use my inputs and produce an answer based on the first hit in a list of words which matches the patterns.</p>
-
-<p>The script works by dynamically generating a regular expression pattern for words that are not valid and then goes through to confirm that the letters that are suggested to be anywhere in the word are then only included. It then spits out the first word from the list created which itself is based off of the scoring method I wrote earlier.</p>
-
-<p>It’s fairly simple and runs from a command line.</p>
-
-<h3>Testing it out</h3>
-
-<p>One hiccup is that Wordle only allows one guess per day. Now, while I could just erase my browser session data to test this out, there is fortunately a <a href="http://foldr.moe/hello-wordl/">clone</a> which not only allows for the same five-letter words, but can also be used on words of which are much longer — and my script can be used on words of any length provided there is a word list.</p>
-
-<p>This clone allows you to keep playing to your hearts content so it became my test bed.</p>
-
-<p><img src="/img/1mLJh9ZA1Q6X5eN9prQU0wQ_1.png" alt="" /></p>
-
-<p>Feeding letters to the script to find the word</p>
-
-<p><img src="/img/1Lgs691dA9nklv24FCzCvJg_1.png" alt="" /></p>
-
-<p>Even if the first guess is completely incorrect, we can do it in three steps</p>
-
-<p>The positional arguments in the script are simple. You supply a wordlist (“words_efficient_er.txt”), the letters you wish to completely discard (“c”, “a”, “r”, “e”, “s”, “o”, and “l”), the letters you want to find anywhere (“d” and “i”, or just “_” for none), and then for each position you either put “_” as a wildcard, the known letter, or you precede letters in that position with a “.”, so if you want to exclude “r”, you can do “.r”, or if you wanted “h” and “y” to be exempted, you just do “.hy”.</p>
-
-<p>Because we have the list ordered in a way that allows us to find the most likely word based on positional letter placement scores, it’s entirely possible to have an answer in just two guesses if your first guess isn’t correct. This has in fact happened with my attempts.</p>
-
-<p><img src="/img/1gL7dJtiiyNQB4ZIXxg1XSw_1.png" alt="" /></p>
-
-<p>Two attempts and we have our answer</p>
-
-<p>This is of course not fool-proof and I have had it take six attempts.</p>
-
-<p><img src="/img/1K_wCM6YeZSJgymR_3fT-Lg_1.png" alt="" /></p>
-
-<p>It came very close to not winning here</p>
-
-<p>The placement of “V” and starting with “L” demonstrates that the scoring isn’t exactly fool-proof because it doesn’t take into account the prevalence of the word in the English language. I’d argue that “loves” is more common than the preceding two, but maybe in the case of a random word choice it does not matter?</p>
-
-<p>But sometimes it seems like it won’t get it and then it suddenly it has an answer.</p>
-
-<p><img src="/img/1E5SOfsuAVBOizypYXUGfEA_1.png" alt="" /></p>
-
-<p>“Girls”</p>
-
-<p>I guess what may have happened on the last one is that the scores for the other words being higher gave it precedence, but ultimately it came across “girls”. This is why I am only so confident in the efficiency of the list because there might be a way to do this better, but it is beyond my knowledge of statistics.</p>
-
-<h3>Closing</h3>
-
-<p>You can grab the script from <a href="https://gist.github.com/KateLibC/0838436b3284a150b734f870364f462f">this gist here</a> and any five-letter list from a Google search should suffice should you wish to try this all out.</p>
+<p>When I was a teenager, I was given a 100BaseVG network switch from a school which used it briefly and then ditched it in favour of Fast Ethernet. I eventually realised it was absolutely junk and traded it for a Macross Plus DVD, so I think I got the better deal here.</p>
 
         </div>
         
@@ -331,173 +216,67 @@
         <header class="post-header">
           <h1 class="post-title">
             
-              <a class="post-link" href="/2021/12/17/whatever-twitch-is-doing-with-machine-learning-is-absolutely-useless/">Whatever Twitch is doing with machine learning is absolutely useless</a>
+              <a class="post-link" href="/2022/07/11/alert-fatigue/">Thoughts around alert fatigue</a>
             
           </h1>
 
           <p class="post-meta">
-            Dec 17, 2021
+            Jul 11, 2022
             
             
           </p>
         </header>
 
         <div class="post-content">
-          <hr />
+          <p><img src="/img/alerts.jpg" alt="" /></p>
 
-<p>Back in March, I <a href="https://katelibc.medium.com/twitch-chat-harassment-remains-unaddressed-despite-complaints-and-evidence-of-potential-fraud-d7fc66f95d88">wrote about harassment on Twitch</a> towards individual streamers via its chat function. Then, a few months ago, I <a href="https://katelibc.medium.com/twitch-has-made-a-good-step-with-preventing-harassment-but-it-has-pitfalls-also-what-the-hell-is-8f4ceb7debf5">followed up with a small piece</a> on them admitting to using machine learning when they filed a lawsuit against known bot users on their service.</p>
+<p>I think about four times since I have moved into my current home, I have had the building’s fire alarm pulled with three of those times being when I’d otherwise be sleeping. Last night was no exception and fortunately like the previous times, the night was temperate and dry.</p>
 
-<p>Finally, in late November, <a href="https://www.theverge.com/2021/11/30/22810180/twitch-machine-learning-suspicious-user-detection-bans">Twitch announced this machine learning feature</a> and I have this short review: it’s absolutely useless.</p>
+<p>When the alarm went off, I hesitated to leave my unit. It’s a concrete and steel building and would be rather difficult to simply burn down. However, this is very poor thinking as my tired brain was not considering the possibility of smoke and either suffering inhalation or simply being trapped. But as a safety and security conscious person, I eventually recognised what I should do and left after a futile attempt to get my cat to leave.</p>
 
-<h3>After its launch, there were still new bots</h3>
+<p>As I was standing outside while the Vancouver Fire Department determined the situation, I thought about how I was considering ignoring the evacuation alert. On the surface, the idea that another alarm late at night was yet again going to be another false positive seems innocent, but there is going to be that time where that self-assurance is incorrect.</p>
 
-<p>Twitch has been dealing with a persistent and never-ending bot problem for a very long time. With a number of Black, persons of colour, LGBTQ+, and women streamers taking a stand and the media taking notice, the company finally relented and admitted that they were not meeting their end of the bargain.</p>
+<p>We’ve seen this play out in society before as with the Homeland Security Advisory System (now National Terrorism Advisory System) with its colour-coded system indicating the possibility of a terrorist attack on American soil and foreign services. News outlets really loved to latch on to whenever it was changed, but it provided inadequate information and was too broad for the typical person to understand.</p>
 
-<p>It should be repeated here: the only reason why Twitch has made any response is not because of streamers making an issue of this but because the media took notice of the streamers and asked Twitch about it.</p>
+<p>Homeland Security eventually admitted during the Obama administration that it was ineffective and subsequently <a href="https://web.archive.org/web/20250107101303mp_/https://www.dhs.gov/files/programs/ntas.shtm">adopted a new version</a> which outlines current threats. I have a lot of opinions on HSAS/NTAS and its role as security theatre, but that is a different discussion.</p>
 
-<p>So now we have them admitting to using machine learning to track ban evasion and we also have them providing tools to verify users through their mobile phones, but even with all of that it appears that they haven’t dealt with the elephant in the room: they still have massive numbers of accounts being registered to engage in harassment.</p>
+<p>Here at home, <a href="https://web.archive.org/web/20250107101303mp_/https://www.alertready.ca">Alert Ready</a>–a system associated with alerting via mobile devices–has faced criticism for not being used enough or used too much. As evident in the <a href="https://web.archive.org/web/20250107101303mp_/https://www.cbc.ca/news/canada/british-columbia/bc-heat-dome-sudden-deaths-revised-2021-1.6232758">severe heat</a> and then <a href="https://web.archive.org/web/20250107101303mp_/https://dailyhive.com/vancouver/bc-flood-response-failures">severe rain</a> my province of British Columbia faced in 2021, <a href="https://web.archive.org/web/20250107101303mp_/https://www.cbc.ca/news/canada/british-columbia/alert-ready-system-bc-1.6254583">criticism over the government’s lack of response</a> did eventually lead to <a href="https://web.archive.org/web/20250107101303mp_/https://bc.ctvnews.ca/b-c-expands-alert-ready-system-to-provide-heat-warnings-1.5935694">changes to their use of it</a>.</p>
 
-<p>The thing about these hate raids is that the bots used them often have been known to have a pattern. With the case of the “hoss” bots, we saw them follow a rather consistent pattern. These bots ceased to exist a few months before the new feature, so did it stop similar patterns from emerging?</p>
+<p>Outside of British Columbia, <a href="https://web.archive.org/web/20250107101303mp_/https://www.cbc.ca/news/canada/nova-scotia/expert-sounds-alarm-on-canada-s-emergency-alert-system-1.6449801">similar remarks were made during Nova Scotia’s public inquiry over the mass shootings</a> which led to the death of 22 people in 2020. It was revealed that hesitation as well as jurisdictional clashing over roles and responsibilities led to a lack of sending an alert at all.</p>
 
-<p>The short answer is: no.</p>
+<blockquote>
+  <p>RCMP in Nova Scotia considered issuing an alert on April 19 after multiple calls from the provincial Emergency Management Office (EMO), but ultimately that didn’t happen.</p>
 
-<p>On December 3rd, just a few days after Twitch made a big deal about machine learning, 472 accounts were registered in a small time frame. Each of these accounts started with the same 12 characters resembling a popular streamer and were then followed with four integers with the first one being a 0 and then the last three varying.</p>
+  <p>At the time of the mass shooting, all agencies had to go through EMO to request an alert, which the provincial agency would then issue. The inquiry heard this week that the RCMP and regional police forces in Halifax and Cape Breton had been offered direct access to the alert system in 2016 and 2017, but declined.</p>
+</blockquote>
 
-<p>The first account was registered at 18:58:10 UTC and the last account was registered at 20:01:06 UTC. However, the first 27 accounts were all registered within 2.5 minutes with the remaining 445 all being registered every few seconds starting from 19:47:28 UTC.</p>
+<p>Who ultimately should send these alerts and when? British Columbia’s severe weather and Nova Scotia’s mass shooting are two examples of lacking organizational preparedness. But it is this part from the CBC article I linked to earlier that stands out about my original problem with alert fatigue:</p>
 
-<p>How did Twitch’s machine learning not capture such a pattern of account registrations when this pattern was repeating itself nearly every two seconds?</p>
+<blockquote>
+  <p>He said this was a devastating lesson to learn after the 2011 Norway shooting, where dozens of teens who were killed by a gunman on a remote island were given away by the alert sounds on their phones.</p>
 
-<h3>Why I know</h3>
+  <p>Australia and other countries have systems that don’t override user settings, Hallowes said, but Canada does not. Currently he said someone hiding from a shooter in Canada would have to turn off their phone completely and give up the ability to call for help to ensure their location wasn’t revealed.</p>
+</blockquote>
 
-<p>I lead moderation for two events run by one of Twitch’s largest channels. My day job is running a cyber security team, so I have a keen interest in knowing how to contend with the nonsense that streamers (including myself) face and how to mitigate the inadequacies the service has automatically.</p>
+<p>Should users be allowed to override settings? The <a href="https://web.archive.org/web/20250107101303mp_/https://en.wikipedia.org/wiki/2011_Norway_attacks">2011 Norway attacks</a> were an extreme example, but of course it cannot be ignored that the alarms emanating from the victims’ mobile devices made them targets. Is this a failure of the alert system itself or its use? Were the alerts too broad in geographic scope? Or would it be better for the alerts to have sounds controlled by the issuing authority?</p>
 
-<p>Twitch’s API is absolutely garbage to deal with when it comes to automating moderation and they make it spectacularly worse for trying to do anything useful that also flirts with violating their developer terms of service.</p>
+<p>And that is really just it: can you entrust users to ignore the sounds? I had the option to just sit in my apartment and endure the loud clanging coming from my apartment’s alarm, but its persistence and my ability to hear it led to me evacuating anyway. If someone sets their phone to silence such alarms, is it defeating its purpose?</p>
 
-<p>So here’s the reality: want to know who followed you or another account? You have to have to have a web service receiving pushed messages. Want to ban or timeout a user account? You have to use their IRC-esque service and issue the same commands a human would. Want to pull the user profile? You have to use their REST API.</p>
+<p>In my world of cyber security, it is this sort of problem I fear. When Target was breached in 2013, there were <a href="https://web.archive.org/web/20250107101303mp_/https://slate.com/technology/2022/04/breached-excerpt-hartzog-solove-target.html">many indications that a problem existed</a>, but nobody was answering the call.</p>
 
-<p>These are the official ways to perform these tasks and the rate limiting around them is abysmal. The REST API by default limits you to 800 queries per minute and the IRC one is just over 200. If you wanted to ban every single account from one of the hate raid lists out there, it would take 16-hours to just get through 200,000 of them — there is one list that is almost 1.4 million accounts, which would take almost five days.</p>
+<blockquote>
+  <p>At first, the malware went undetected, and it began compiling millions of records during peak business hours. This data was being readied to be transferred to the hackers’ location in Eastern Europe. But very soon, FireEye flagged the malware and issued an alert. Target’s security team in Bangalore noted the alert and notified the security center in Minneapolis. But the red light was ignored.</p>
 
-<p>There are unofficial ways but you raise the possibility of finding your account access suspended or a legal threat being sent your way. There’s an undocumented API that every Twitch user interfaces with all the time, but if you perform an action with it from outside of a browser, you’re violating those terms.</p>
+  <p>FireEye flagged as many as five different versions of the malware. The alerts even provided the addresses for the “staging ground” servers, and a gaffe by the hackers meant that the malware code contained usernames and passwords for these servers, meaning Target security could have logged on and seen the stolen data for themselves. Unfortunately, the alerts all went unheeded. Furthermore, given that several alerts were issued before any data were actually removed from the Target systems, FireEye’s automated malware deletion feature could have ended the assault without the need for any human action. However, the Target security team had turned that feature off, preferring a final manual overview of security decisions.</p>
+</blockquote>
 
-<p>Nonetheless I’ve endured and come up with ways to do all of these things in a way that is fast, doesn’t violate their terms of service, and can be flexible. It has sucked and Twitch hasn’t been helpful, but a year later and I know more about their developer tools than any non-Twitch employee should.</p>
+<p>Trained cyber security personnel as well as an experienced security vendor did not respond to these alerts in a timely fashion. The alerts were seen, forwarded to the appropriate party, and then nothing happened until it was too late. This was alert fatigue at its finest and is now used as <a href="https://web.archive.org/web/20250107101303mp_/https://www.capitalone.com/tech/software-engineering/what-is-alert-fatigue-3-steps-to-tackle-it/">a case study by other cyber security teams</a>.</p>
 
-<p>So when these bots come up, I often notice that there are patterns. These patterns more often than not remain consistent and are predictable. In fact, some of these patterns are predictable enough that I literally can anticipate the accounts existing in the future and be aware of their existence within the minute they’re registered.</p>
+<p>My long-time boss very much likes to make the statement “let no incident go to waste”, but it’s still not a badge of honour to be made an example of.</p>
 
-<p>When that example from before was made aware to me, I put the pattern into the prediction engine and look at that, hundreds of accounts. I am certain that the number I reported may be inaccurate because it’s possible that some were already suspended, but what the hell is Twitch doing when they see these reports? Do they not themselves look for patterns?</p>
+<p>I guess a more current matter would be the response to COVID-19. It’s still a pandemic and it’s still raging through many workplaces, homes, and events, but I feel as if the exhaustion around lockdowns and news about variants has similarities to the fears public officials have using public alerting systems. Are we just doomed to have failure in light of the information we are presented with?</p>
 
-<p>If my report from March is indicative of anything, the answer is pretty obvious!</p>
-
-<p>And you know what? It’s ridiculous because everything I have been doing has been largely automated and is performing things faster than whatever machine learning feature Twitch has put out.</p>
-
-<p>And that is just one example. The hate raid lists that have been floating around have patterns too. When I examined one particular set, I was able to cover approximately 40% of them with just one single definition (of a sample set of 480,000 bots, 192,000 were covered). A simple regular expression was able to do that and it wasn’t even that complicated or computationally expensive.</p>
-
-<p>Yet here we are with some poorly implemented machine learning nonsense that could have been done with much simpler techniques. Making it worse, this whole security theatre they’ve put on isn’t even addressing the other problems the site faces.</p>
-
-<h3>Spam bots are still around</h3>
-
-<p>Here’s a line many streamers will know: want to become famous?</p>
-
-<p>The BigFollows spam bots themselves are indicative of Twitch’s machine learning really not working the way it should. The bots which spam the URLs inviting people to buy up followers, subscribers, and “actual” viewers are all tied together and can be tracked.</p>
-
-<p><img src="/img/1HDBGhszZeW9Icn11CRK4Sw_1.png" alt="" /></p>
-
-<p>Recent example of a bot spamming a URL which redirects to the BigFollows service.</p>
-
-<p>The service offers customers followers, viewers, and subscribers at varing prices. Need 200 followers? That’s $2.10 US. 30,000? That’s going to be $100.</p>
-
-<p><img src="/img/1dcx0_MoX0taCe0Y-MjjQrQ_1.png" alt="" /></p>
-
-<p>BigFollows showing available plans for gaining new followers. For as little as less than one penny per new follower, you can get 30,000 of them.</p>
-
-<p>The subscriber services they provide is very damning however.</p>
-
-<p><img src="/img/1hvSQ4ffjZRGqopXj3gcq7Q_1.png" alt="" /></p>
-
-<p>For $2, you can get a $5 subscription given to you. For $70, you can get 50 of them. Each subscription can pay out a customer about $2.50 US each if they’ve reached affiliate status.</p>
-
-<p>For $2, you can get a new Twitch subscriber. For $70, you can get 50. When you take into account that a Twitch subscription itself is typically $5, you can easily come to the same conclusion I am here. The problem is, I have already pointed this out and Twitch is aware of these things, but has done nothing.</p>
-
-<p>Based on my research, BigFollows has about 80,000 accounts available to be used for following customers or spamming its services with a sizeable number available to offer subscriptions.</p>
-
-<p>On October 31st of this year, the service registered 11,107 new accounts between 13:43:46 and 15:22:19 UTC. Every 3/4ths of a second, the service was registering new accounts and this is not just a single blip.</p>
-
-<p>I was able to find the same sort of mass account registrations in 2021 on October 19th, August 26th, and August 14th. For the 14th, we can see 3,700 accounts were all registered in a three hour period, so it has only become worse since.</p>
-
-<p>Personally, I do not care about who’s behind the scenes of this service because I can make a professional guess and say it’s likely affiliated with or linked to organized crime.</p>
-
-<p>However, the fact that this service persists on Twitch and is engaging in what cannot be anything other than fraud leaves me wondering what the hell is going on with Amazon’s audit, risk, and legal teams when it comes to Twitch.</p>
-
-<h3>Looking at a buyer</h3>
-
-<p>A recent user of BigFollows is Twitch user, yonkukaido. Between their account registration in mid-2018 and until just before last month (November 2021), the account had just 489 follows with just one in 2020 and most being in 2018.</p>
-
-<p>However, with zero activity until November, the account gained over 77,000 new follows starting on the 14th. This is of course for an account with what appears to be zero activity leading up to that point and with a Twitter account in their bio that was registered just this month (December 2021) and has no real activity.</p>
-
-<p><img src="/img/1zrFXYF7f07bAY-yEnFucmA_1.png" alt="" /></p>
-
-<p>Profile of Twitch user, yonkukaido showing 78,200+ followers with links to the person’s Twitter, Instagram, and Facebook.</p>
-
-<p><img src="/img/1fnV_CQ0FagfQWxxnZrBwWw_1.png" alt="" /></p>
-
-<p>Twitter account, yoku123414 which is linked from from the previous Twitch example.</p>
-
-<p>Their Instagram and Facebook accounts appear to indicate a man possibly living somewhere in the Middle East. The Instagram profile in particular implies that they’re “a gamer”.</p>
-
-<p><img src="/img/1XS7PjPPtOETHsUIUHRf-Jw_1.png" alt="" /></p>
-
-<p>Previous videos by Twitch user, yonkukaido showing streams of Fortnite being played as recent as December 14th, 2021.</p>
-
-<p>When reviewing the video on demand (VOD) streams on the account, the amount of interaction in the saved chat is quite small for someone who has 78,200 followers. Even a streamer with 500 users is going to have a lot more interaction in chat in their hour-long stream than what was shown for this streamer here.</p>
-
-<p><img src="/img/11X9Se3fLyebnMuMocaKaeg_1.png" alt="" /></p>
-
-<p>Towards the tail-end of this streamer’s VOD, it shows a grand total of five chat messages in just one and a half hours. With 78,200 legitimate followers, this would be significantly more active.</p>
-
-<p>In reviewing some of these videos, there is little to suggest that they’re even talking on stream. However, evidence shows that they’re streaming from a desktop computer as their are using a Streamlabs progress bar on the bottom, something not possible when using console-based streaming.</p>
-
-<p>Overall, the content they’re streaming and how they interact with their stream plus the lack of progress on their on-screen donation bar should be enough to suggest that their sudden explosion in popularity is falsified.</p>
-
-<h3>What is the problem?</h3>
-
-<p>Twitch has requirements for becoming an <a href="https://help.twitch.tv/s/article/joining-the-affiliate-program?language=en_US">affiliate</a> and also a <a href="https://help.twitch.tv/s/article/achievements?language=en_US#Partner">partner</a>.</p>
-
-<p>To become an affiliate, you require a minimum of 500 minutes of stream time, 7 unique broadcasts, at least 3 average viewers per broadcast, and a minimum of 50 followers all across a block of 30 days.</p>
-
-<p>With partner, it’s 25 hours, 12 different broadcasts, and at least 75 average viewers per stream.</p>
-
-<p>In the case of the Twitch streamer example, they have already achieved affiliate status as their profile permits subscriptions, meaning that they can earn money from streaming on the service. When reviewing the view counts for their streams, it’s apparent that they’re also likely buying up viewers and may have achieved enough to meet partner.</p>
-
-<p>The wildcard in all of this is the subscriber count as unless the streamer divulges that information, it remains unknown. However, we can at least confirm that they’re just an affiliate as Twitch provides a purple checkmark in a user profile for anyone who achieves this status.</p>
-
-<p>The consequences of this manipulation on this user’s part are the same as I wrote back in March: it puts the whole affiliate and partner programs Twitch provides into question.</p>
-
-<p>Twitch’s inaction on this despite knowing about it seems to suggest that it is going to continue regardless of their ineffective machine learning components they keep promoting.</p>
-
-<h3>The approach is misplaced and incorrect</h3>
-
-<p>Here’s a question: how many Twitch users are going to know what machine learning is?</p>
-
-<p>If you’re me, then yeah, you understand it and you also groan whenever you hear it. But if you’re just someone who plays video games and doesn’t have any knowledge of computing programming, you’re going to see the term “machine learning” and see it as a buzzword.</p>
-
-<p>And that is just it: I don’t see a reason for why Twitch is going on about this because it’s simply all show. The extended moderation tools they’ve put out that allows you to “watch” and “restrict” suspicious users relies on the moderators themselves to engage with them. Twitch barely explains what they do and when I have used them personally, I don’t see their effectiveness especially when dealing with ban evasion.</p>
-
-<p>Twitch needs to investigate further these spam bots, they need to actually do research on these hate raids, and they also need to make meaningful tools that do the basics first.</p>
-
-<p>Give users the ability to ban people from their chats by allowing wildcards (similar to IRC) and make it clear that whatever moderation or reporting decisions are made are given a follow up and an outline of what has actually happened.</p>
-
-<p><img src="/img/1AgUKbBio7V7q45iJGt6Oqg_1.png" alt="" /></p>
-
-<p>Email excerpt showing a report has been sent to Twitch.</p>
-
-<p>To close out, I went and checked my inbox to see how many times I’ve reported accounts to Twitch and in 2021 alone I reported 152 users and of those 38 received a follow up. This meant that for every four reports I would make, only one would get actioned on and unfortunately Twitch doesn’t make it clear who you reported or who was actioned upon.</p>
-
-<p><img src="/img/1i7N_SowaoO6o62XbRnaxPA_1.png" alt="" /></p>
-
-<p>This excerpt contains as much information as the whole email itself on what has actually occurred.</p>
-
-<p>I report not because I expect Twitch to do anything but because I wanted to know how often they actually bothered to enforce their terms of service.</p>
-
-<p>Twitch hasn’t done better.</p>
+<p>At least I left my apartment, but I wish I didn’t hesitate and I also wish my cat would have cooperated.</p>
 
         </div>
         
@@ -510,115 +289,75 @@
         <header class="post-header">
           <h1 class="post-title">
             
-              <a class="post-link" href="/2021/10/05/thoughts-on-punditry-during-facebook-s-october-2021-outage/">Thoughts on punditry during Facebook’s October 2021 outage</a>
+              <a class="post-link" href="/2022/07/06/tells-vancouver/">Little tells about you and Vancouver</a>
             
           </h1>
 
           <p class="post-meta">
-            Oct 5, 2021
+            Jul 6, 2022
             
             
           </p>
         </header>
 
         <div class="post-content">
-          <hr />
+          <p>I’ve been a resident of Metro Vancouver for most of my life and a resident of the city for two years. There are little things that are super apparent about you that tell me that you’re not from around here or spend little time in the city itself.</p>
 
-<p>God. I hated and enjoyed the stories and wrong opinions which came out on October 4th, 2021, as Facebook and all of its associated services effectively “disappeared” from the Internet for a half-day. Some of them were the type I wanted to believe, some of them were outlandish, and some of them came from folks who probably need to learn a bit about <a href="https://en.wikipedia.org/wiki/Hanlon%27s_razor">Hanlon’s razor</a>.</p>
+<p>This is all tongue and cheek and should not be taken at all as serious.</p>
 
-<p>This is probably my favourite tweet. It would have been pretty funny to have had the new Matrix movie release on the same day as this incident.</p>
+<h1>Transit</h1>
 
-<p>A good primer on what actually happened can be read from <a href="https://blog.cloudflare.com/october-2021-facebook-outage/">CloudFlare</a> and <a href="https://engineering.fb.com/2021/10/05/networking-traffic/outage-details/">Facebook for their part posted a fairly reasonable explanation as well</a>. I won’t dive into these two any further, but I do want to talk about some of the silliness I saw on Twitter, the only working social media outlet that day.</p>
+<p>You run for the train presently idling at the platform despite the fact that the trains run every two to five minutes.</p>
 
-<h4>Facebook could not get into their offices as a result of this</h4>
+<p><img src="/img/tells01.png" alt="" /></p>
 
-<p>Turn-key LDAP systems such as Active Directory are so yesterday.</p>
+<p>This means one or more of the following:</p>
 
-<p>I want to believe this so bad because it would read as both funny and so many movie scenarios coming to life, but it isn’t true.</p>
+<ul>
+  <li>You rarely take transit despite living in the region</li>
+  <li>You’re on the Millennium Line and it’s off-peak, a weekend, or a holiday</li>
+  <li>You’re from out of town</li>
+</ul>
 
-<p>Runner up for my favourite tweet.</p>
+<p>Even though you do not need to run, I still root for you making it for the train.</p>
 
-<p>My last visit to Facebook’s Menlo Park campus (on “1 Hacker Way” no less) was a surreal experience because it was very much high-tech in terms of how you signed in, how you got around, and how people worked. Much has likely changed since my mid-2016 speaking engagement there, but advances in access control and so forth have not fundamentally changed.</p>
+<p>Be sure to not run into someone as they get off the train. That isn’t necessary I can assure you.</p>
 
-<p>The company is in fact married to their ID badges. Everything from ordering food, getting office and computer supplies, booking and using conference rooms, and just opening doors is tied to the ID badge. However, at no point did it ever appear that there were no workarounds.</p>
+<p>Also the train going away from downtown may not be going to Surrey if that is where you need to go.</p>
 
-<p>Many came out to say that they had spoken with people who work at Facebook. It is likely that this messed with many of its internal systems, but the disruption was probably not as severe as many made it out to be.</p>
+<p>On top of that, don’t hold the doors. It’s a bad idea.</p>
 
-<p>It is possible this whole incident disrupted physical access, but I don’t think that it lasted anywhere as long as some may suggest. Internal tools were disrupted and it likely affected access control systems, but I imagine they still had physical keys somewhere.</p>
+<h1>Clothing</h1>
 
-<p>I know that the Bay Area is rife for <a href="https://www.washingtonpost.com/technology/2020/06/25/tesla-plant-firings/">flaunting local municipal and state code</a>, but nobody running physical security for a company as high-profile as Facebook is going to overlook the need to override the digital controls. It is likely that nobody could fix this remotely (as in working from home) as Facebook was “gone”, but it would be spectacularly unlikely to have completely locked everyone out.</p>
+<p>This one is super tricky.</p>
 
-<p>Many large corporations use IoT devices to operate their conference rooms. They’re not new at all and often are synchronized with the internal lighting, telephony, video conferencing, and electronic displays.</p>
+<p><img src="/img/tells02.png" alt="" /></p>
 
-<p>The company also doesn’t have a data centre in its Menlo Park offices. In fact, the closest data centre to them is 800 KM north in Bend, Oregon. Additionally, they have <a href="https://baxtel.com/data-centers/facebook#datacenter-map">multiple data centres</a>, with at least a dozen in the United States, a few in Europe, and one in Asia — this is via unofficial sources I will add. If someone had to do this on site, it was likely at one of these locations.</p>
+<p>One story I have is my then-girlfriend was visiting me from Texas and was woefully unaware of the our January climate. From October to March, you’re better off wearing waterproof shoes and best have a jacket and umbrella. In her case, she wore some chucks and had a jacket that was perfect for a rainy spring day but not one in winter where it is barely above freezing.</p>
 
-<h4>Lots of data was stolen and a panic button was hit</h4>
+<p>It only snows maybe two or three days out of the year and most of the time the snow disappears by the end of the day and if not, the day after.</p>
 
-<p><img src="/img/1lLOqs5z5fcT7EjLBxZzrGA_1.png" alt="" /></p>
+<p>However, her situation is just a funny story.</p>
 
-<p>A now deleted tweet from Twitter user, vx-underground: “At 19:07UTC a RaidForum account under the name ‘CBT’ released 600TB of Facebook data. They are claiming responsibility for the Facebook, Instagram, and WhatsApp outage.”</p>
+<p>It’s harder to spot this situation instead of seeing a random couple wandering down Burrard on a Wednesday summer afternoon wearing clothing you’d find best-suited in some gated community in Palm Springs. That ball cap for an American hotel chain that is well-weathered or even just something on your person donning has an American flag just makes quite apparent you’re a tourist.</p>
 
-<p>600 TB is a lot. How much is 600 TB?</p>
+<p>Wear what is comfortable! Just let it be known that we probably will figure out that you’re not from around here sometimes.</p>
 
-<p>From a practical standpoint, let’s look at a 4K movie on Blu-Ray. In this scenario, a movie could be anywhere between 50 and 100 GB in size. On my 940 Mbps Internet connection, it can transfer about 117 MB every second at its maximum capacity. Assuming the maximum size of 100 GB (or 102,400 MB) was being used for the movie, it would take me under 15 minutes to download it via the Internet.</p>
+<h1>Gastown</h1>
 
-<p>The tweet about data being made available on a “popular hacking-related forum” made its rounds and spread like wildfire without taking into account the absurdity of the claim.</p>
+<p>Everyone loves to rag on this one, but here’s my take.</p>
 
-<p>600 TB is 614,400 GB which is 629,145,600 MB. That’s 6,144 of those aforementioned Blu-Ray 4K movies. That means that it would take my connection approximately two months to transfer the data, assuming I could do it at peak and without disruption.</p>
+<p><img src="/img/vancouver_clock.png" alt="" /></p>
 
-<p>Physically, to store all of that 600 TB on Blu-Ray discs alone would result in the discs alone being just over 7 metres tall. For reference, I am about 1.7 metres in height and as a result those discs would dwarf me.</p>
+<p>If you’re taking photos of the steam clock at Water and Cambie, you are absolutely a tourist or at a minimum an Instagram influencer (or trying to be).</p>
 
-<p>If we were to use hard drives, the largest capacity on the market today runs at 18 TB, meaning you’d just need 33 of them if redundancy is not important.</p>
+<p>If you’re the local that complains about it and you don’t live near there, just avoid walking along Water street near Cambie on a the weekend or any nice day in the summer.</p>
 
-<p>At a minimum, you’re looking at about $600 (Canadian dollars) for just one drive, so that comes to just under $11,000 before taxes and recycling fees — maybe you can get a bulk discount. You’d also need somewhere to put those hard drives too, so it will then cost you at least another $10,000 more since you cannot stuff that many into your computer.</p>
+<p>The clock is fine and if someone likes it despite being built in the late 1970s, that is totally okay too. If you cannot accept that, once again avoid Water and Cambie if you are able to.</p>
 
-<p>And I guess physically speaking, the hard drives would be shorter than the Blu-Ray discs themselves as they’d just be a metre tall all combined.</p>
+<h1>Closing</h1>
 
-<p>Since I am not fond of mechanical hard drives, solid state drives run you $1,100 for 8 TB each. We’d need 75 of those (again without redundancy), running you $82,500. Height wise, it wouldn’t be much different than the previous storage medium, but it would be considerably less noisy. You’d still have to add the cost of housing that many drives.</p>
-
-<p>Mirror it on the cloud then? Using <a href="https://aws.amazon.com/s3/glacier/pricing/">Amazon Glacier</a>, you can store data there at $0.004 (US dollars) per GB per month, or $2,460 for the whole 600 TB, assuming you have managed to get it into there. However, making use of the data would then cost you a lot more, as retrieval of the data will likely cost you $0.01 per GB. If you wanted to grab it all after storing it, it could set you back about $6,150, setting aside the costs of storing it locally to begin with.</p>
-
-<p>So no. Someone doesn’t have 600 TB of data for sale — at least not in this situation. If anything, it’s likely that they could have been packaging scraped data and some data floating about that <a href="https://www.businessinsider.com/stolen-data-of-533-million-facebook-users-leaked-online-2021-4">connects Facebook users to their telephone numbers</a>, but even then it doesn’t get close to a single terabyte and I know this first-hand.</p>
-
-<p>Why did I initially use Blu-Ray discs to demonstrate this then? Aside from their storage density, <a href="https://www.pcworld.com/article/443619/facebook-puts-10000-bluray-discs-in-lowpower-storage-system.html">Facebook was reported to have used them to store data long-term as early as 2014</a>. Whether or not it is still the case is uncertain.</p>
-
-<p>To add to this: moving 600 TB out of Facebook’s data centre should hopefully not go without notice despite the amount of data they move typically.</p>
-
-<p>There was a thought popped into my head where someone could walk out with a whole bunch of discs, but I don’t think that can and will happen as 10,000 discs would weigh about 160 KG and would be almost 12 metres if stacked high.</p>
-
-<p>You may as well steal a <a href="https://buy.hpe.com/us/en/storage/file-storage/flexible-file-application-storage/storeeasy-1000-x1000-storage/hpe-storeeasy-1000-storage/p/5335825">storage array</a>, which would be needed for all of those hard drives I mentioned.</p>
-
-<h4>It was all a “security reset”</h4>
-
-<p>I am obscuring this tweet because the person in question has faced enough harassment in their life, but nonetheless, their tweet was so incredibly misinformed that it irritated the hell out of me.</p>
-
-<p><img src="/img/1U3ghzOEFKmIaGQfibl2PSg_1.png" alt="" /></p>
-
-<p>Quoting a <a href="https://twitter.com/briankrebs/status/1445124635238993945">tweet by Brian Krebs</a>: “She downloaded tons of company data to use against the company. Any other employee can do the same. My guess is they took it all down to reset their security, cover their tracks and prevent people from whistleblowing.”</p>
-
-<p>The day before, former Facebook Product Manager, Frances Haugen <a href="https://www.cbsnews.com/news/facebook-whistleblower-frances-haugen-misinformation-public-60-minutes-2021-10-03/">revealed allegations</a> (of which I do believe) of the company amplifying content that would be considered hateful, likely fuelling the fascist fervour surrounding the 2020 American presidential election and the subsequent January 6th failed coup (and let’s not mince words here, it was an attempt) on the U.S. Capitol building.</p>
-
-<p>This is of course incredibly damning for the company as they had continuously denied this in press releases and through its own founder and CEO, Mark Zuckerberg <a href="https://www.washingtonpost.com/news/the-switch/wp/2018/04/10/transcript-of-mark-zuckerbergs-senate-hearing/">in front of congressional hearings</a>.</p>
-
-<p>Why this person’s tweet is so incorrect is quite simple: why would you go about “resetting security” the day after? Nuking any way for people to get to any of the company’s services does not ease “resetting” in whatever form this persons believes and is also incredibly expensive.</p>
-
-<p>Facebook is a for-profit, service-oriented business and consequently downtime of any significance is going to cause them to incur financial penalties from their customers let alone their own revenue streams. Their business is in providing a functional service and data from its users. Being out of commission for a half-day means a loss of that data and in turn a loss in profit.</p>
-
-<p>So what if Facebook actually did do this? Well, the legal hot water they may presently face over these believable allegations would become significantly worse if it came to light that this downtime was all a ruse to get their “ducks in order” in the event that they were requested to provide information to law enforcement. Digital forensics would be all over this because there would have to be communications between higher ups and everyone required to pull off a such a ridiculous stunt.</p>
-
-<p>To add to this, it likely would result in another whistleblower situation. I would imagine that this would all bubble to the surface much faster than the time between Haugen’s departure from the company in May and her appearance on CBS’s 60 Minutes just this past Sunday. Someone in the chain who would have the ability to do all this would likely make noise.</p>
-
-<p>Assuming it were somehow successful and were to come to light, it would likely be a bigger corporate story than the <a href="https://en.wikipedia.org/wiki/Enron_scandal">Enron scandal</a>, which coincidentally occurred almost twenty years ago prior.</p>
-
-<p>This would not be a financial crime of course (maybe a Sarbanes-Oxley violation due to a messing with controls perhaps — I am not a lawyer), but seeing that it would be an blatant attempt to erase evidence and there are already enough within Washington D.C. who have a bone to pick with the company, I don’t think they’d ride this one out with the same ease <a href="https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp.">Microsoft did when they faced anti-trust suits the same year as Enron broke</a>.</p>
-
-<p><img src="/img/1KVjaDzX6Wlx68RKxMqApqA_1.png" alt="" /></p>
-
-<p>Now that we are at the end: it was aliens. That, or <a href="https://www.swpc.noaa.gov/products/alerts-watches-and-warnings">sun spots</a>.</p>
-
-<p>So no. I don’t see it at all possible as hitting a “reset switch” here as the ramifications would be enormous. In truth and all likelihood, someone coincidentally committed code that messed up production, which then cascaded to catastrophic collapse of vital systems. It fits in with Hanlon’s razor as mentioned at the start of this piece and there is just no evidence to suggest otherwise.</p>
-
-<p>The one theory I did have is maybe a “white knight” situation, where someone opted to fall on their own sword for some misguided reason, but even then I don’t buy that possibility.</p>
+<p>I am sure I can come up with other things but these came to mind earlier today and I felt like dumping this post here.</p>
 
         </div>
         
@@ -631,124 +370,181 @@
         <header class="post-header">
           <h1 class="post-title">
             
-              <a class="post-link" href="/2021/10/02/twitch-has-made-a-good-step-with-preventing-harassment-but-it-has-pitfalls-also-what-the-hell-is/">Twitch has made a good step with preventing harassment but it has pitfalls — also what the hell is…</a>
+              <a class="post-link" href="/2022/06/30/layton-wright/">I&#39;m still angry about Professor Layton vs. Phoenix Wright</a>
             
           </h1>
 
           <p class="post-meta">
-            Oct 2, 2021
+            Jun 30, 2022
             
             
           </p>
         </header>
 
         <div class="post-content">
-          <hr />
+          <p>Late last year, I tried playing the original Phoenix Wright: Ace Attorney trilogy for the first time ever. Within a week, I was hooked and was determined to play every single Ace Attorney game by the end of 2022.</p>
 
-<p>I have <a href="https://katelibc.medium.com/twitch-chat-harassment-remains-unaddressed-despite-complaints-and-evidence-of-potential-fraud-d7fc66f95d88">written extensively</a> about the problems Twitch has with harassment via user interactions, so it should come as no surprise that I have been keeping myself informed of the the activities that eventually lead to <a href="https://www.polygon.com/22652063/a-day-off-twitch-streaming-platform-hate-raids-boycott">A Day Off Twitch</a>, where many streamers protested against the company’s milquetoast response to the problem by not streaming. While I have many opinions about how everything was co-opted and mutated from what the <a href="https://twitter.com/search?q=%23twitchdobetter&amp;lang=en">#TwitchDoBetter</a> movement, I am of the opinion that the media attention it receive was likely beneficial.</p>
+<p><img src="/img/laytonwright.jpg" alt="" /></p>
 
-<p>Earlier this week, <a href="https://blog.twitch.tv/en/2021/09/29/securing-your-chat-with-phone-and-email-verification/">Twitch finally announced</a> seemingly effective tools to contend with harassment. Streamers can now enforce a requirement for users to have either or both e-mail and phone-based verification (via SMS) before they are permitted to participate in chat. Being that many users legitimately may not have done either prior to this new feature, streamers can permit users who have accounts with a specific age to avoid either, they can elevate them to VIP or moderator status, or require them to subscribe (as in pay the streamer) to participate.</p>
+<p>As of today, I have completed the original trilogy, Apollo Justice: Ace Attorney, Phoenix Wright: Ace Attorney - Dual Destinies, and the subject of this post, Professor Layton vs. Phoenix Wright. While, Dual Destinies is often lamented as the worst of the mainline games, it never left me as angry as the Layton/Wright did–hereby referred to as “PLvPW” moving forward.</p>
 
-<p><img src="/img/1s_oEmF3_BGljdwhhk17nSg_1.png" alt="" /></p>
+<p>This post is going to contain spoilers so be warned. Also preemptive content warning around some matters relevant to the story. Also enjoy the typos and linear inconsistencies.</p>
 
-<p>Moderation configuration settings from a Twitch dashboard. Options show e-mail verification and phone verification with settings for first time chatters, with additional features for chatters without verification being granted permission to participate with a minimum account age.</p>
+<h1>This game should have been good</h1>
 
-<p>The one thing many streamers had called for that is not mentioned at all in the above screenshot is this one pertinent feature from the announcement:</p>
+<p>PLvPW is an interesting game as we’re taking the mechanics of the Layton series with using puzzles to investigate mysteries and merging them with the defence and logic approach with defending the accused from the Ace Attorney games. The thing that makes this even more interesting is that the logic approach has a slight twist: we’re dealing with witch trials.</p>
 
-<blockquote>
-  <p>We know there are many reasons someone may need to manage more than one account, so you can verify up to five accounts per phone number. That said, to help prevent ban evasion, if one phone-verified account is suspended site-wide, all accounts tied to that number will also be suspended site-wide. Users won’t be able to verify additional accounts using a phone number that is already tied to an actively suspended account.</p>
-</blockquote>
+<p>Historically, witch trials were baseless in logic and instead rooted in everything from fear to economics. With the Salem witch trials in particular, 80% of the accused were women and many found themselves in the crosshairs of these trials due to petty disputes with neighbours or were behaving outside of the expectations of gender. Of those who were accused, 15% of them were imprisoned and around two-thirds of convicts found themselves executed with another 15% dying due to neglect.</p>
 
-<blockquote>
-  <p>At the channel-level, if one phone-verified or email-verified account is banned by a channel, all other accounts tied to that phone number or email will also be banned from chatting in that channel.</p>
-</blockquote>
+<p>The stakes are high enough that introducing the Ace Attorney world to the concept of a witch trial should be a slam dunk. Out goes the frustrations of expecting to be punished for perjury and inadequate evidence handling and in comes the reasonable frustrations of being made to counter the beliefs around witches. It isn’t really outlandish to have this plot considering your legal assistant, Maya Fey is herself a spirit medium and can channel the dead–this is also a point of frustration of which I’ll address later on.</p>
 
-<p>This is huge as for the longest time, a harassing user could just register multiple accounts to a single e-mail address without consequence. While it is easy to have multiple e-mail addresses, there is a much larger barrier to having multiple phone numbers capable of receiving SMS.</p>
+<p>With Layton, I’ll admit my ignorance: up until this point, I was familiar with the Tumblr memes about him and Luke, but overall I was out to lunch. However, he’s known for dealing with unusual mysteries and having learnt a little bit about the games since completing PLvPW, I feel that it works–sort of.</p>
 
-<p><img src="/img/1aBKB4SwqChOQvjXy4q0dHA_1.png" alt="" /></p>
+<p>So we have witch trials, puzzle solving, confusion how we ended up in this situation, and a need to completely rethink our use of logic in solving the case. This should be a slam dunk right? I’m afraid not.</p>
 
-<p>User account settings showing that a phone number and e-mail address are linked.</p>
+<h1>There is always something “wrong”</h1>
 
-<p>However, be that it may, it comes with many caveats and one in particular comes to mind: not everyone has access to mobile phone service, and this could lead to an inequity situation for some. Twitch themselves even point this out in the announcement.</p>
+<p>As I streamed my progress through PLvPW, there was something always unusual with the scenery I was observing. The city (named “Labyrinthia”) is walled off, there are slight anachronisms about the clothes and mechanics of the world we’re in, and the references to the city’s past are extremely cloudy.</p>
 
-<blockquote>
-  <p><strong>If I don’t have a mobile phone, does this mean I can’t participate in chat anymore?</strong></p>
-</blockquote>
+<p>We’re at least given the impression that time has passed because when Layton and Luke first meet Phoenix and Maya, they claim to have been bakers for the past five years and have no recollection of their past. And this is where I start to get really confused: if our AA dual are unaware of their pasts, why is it that our Layton counterparts are not too? Perhaps I missed this, but I felt like the reason why we were all here were due to one person.</p>
 
-<blockquote>
-  <p>If your account is not phone-verified, this will not prevent you from watching and enjoying a stream — but it does mean there may be some channels you are unable to chat in if they have phone-verified chat enabled. Creators can also choose to make exceptions to phone-verified chat for accounts of a certain age or following time, as well as VIPs, moderators, and subscribers.</p>
-</blockquote>
+<p>And that one person is: Espella. She claims that she left her father who is known as “the Storyteller” due to vague circumstances with his behaviour and in turn the entire town have many suspicions about her. Her only confidant aside from her cat, Eve is also her aunt who is claimed to be her sole ally in all of Labyrinthia.</p>
 
-<p>This comes down to the creator being benevolent or permissive with how individuals can participate and could just outright exclude anyone who is unable to verify via their mobile phone. The minimum age for a user to have a Twitch account is <a href="https://help.twitch.tv/s/article/children-on-twitch?language=en_US">on paper thirteen years</a>, and while many who are younger often have mobile phone service, there are many who do not. While I personally do not want anyone younger than 18-years old to participate in my stream, I do know that this is not desired by everyone.</p>
+<p>It has been supposedly years since Espella has found herself the subject of much ire by the city folk. This itself is weird because the Storyteller himself is apparently in control of the fate of every person residing within the city walls. And then it happens: Espella is accused of being the “Great Witch Bezella” because her father decreed in his most recent parade that this must occur.</p>
 
-<p>The other problem is that this likely has some limitations. Twitch’s goal is to make harassment more expensive and is something I advocated when I wrote about this problem earlier this year, but based on how I am seeing it written about by the company, I do believe that there are workarounds.</p>
+<h1>How did we end up here?</h1>
 
-<p>My burning question for one workaround is this: how do the e-mail address-based ban evasion avoidance techniques take tags into account? Many e-mail services, including Google’s, support the appending a tag to an e-mail address wherein you append ‘+’ to the end of the first half of your address (also known as the “local part”) with a label following soon after.</p>
+<p>I need to explain how we end up in this world because when I discuss the ending, you’ll understand where my discontent comes from.</p>
 
-<p>Many do not and perhaps should not scan for this sort of thing as the rules for what can and should be in a local part are <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">sort of defined</a>, you cannot be assured that the use of a tag is implicit of anything as it is dependent on the e-mail service to start with. Does Twitch scan for this potential problem? I have my doubts and may consider testing this if someone else hasn’t already.</p>
+<p>The game opens up with an epic car chase scene where these “witches” are flying through the sky, chasing a vehicle resembling a <a href="https://web.archive.org/web/20250107101303mp_/https://en.wikipedia.org/wiki/Morris_Oxford_Farina">Morris Oxford</a>–no wonder it didn’t end well. Statues are coming alive and the witches are flying around effortlessly as the man driving attempts to protect Espella.</p>
 
-<p>I also pointed out that there are throwaway e-mail services, and those can be used to verify an account. What is Twitch doing about that? There are lists that are freely available for them to use to detect the use of the, but are they doing this?</p>
+<p>We’re then introduced to supportive characters from the Layton series who then segue to a scene introducing Professor Layton and his assistant, Luke. Coincidentally, they end up speaking about witch trials and the existence of witches, with Layton stating that they’re no more than mere fantasy as a thunderstorm rolls on.</p>
 
-<p><img src="/img/1XrDhT8SWvsvXhLZGuAAyxA_1.png" alt="" /></p>
+<p>Parallel to all of this, we’re then taken to a scene showing Maya and Phoenix on a flight approaching into London. Phoenix is here as part of an exchange trip for the Legal League of Attorneys–which is a weird name consider “attorney” is an American word–to observe and participate in the British court system.</p>
 
-<p>From page 35 of my March 2021 report on Twitch harassment. This shows a throwaway e-mail service granting me a verification code for my new account.</p>
+<p>We’re then taken back to Luke and Layton introduce the mechanics of puzzle solving, with its completion leading to Espella visiting their home. Through her accounts, we’re introduced to her protector (a detective) who she gives to Layton as instructed by him. At this point, he’s no longer important, but after a bit prelude, a witch breaks into Layton’s residence and Espella is kidnapped. Witches are real?</p>
 
-<p>So then we’re led into this scenario: let’s verify by mobile phone? This seems to be straightforward as surely it is hard to evade that way?</p>
+<p><img src="/img/pw1.png" alt="" /></p>
 
-<p>It is a valid assumption as while I have had to buy disposable SIM cards for consulting engagements, not everyone is going to have more than one or two mobile phones. However, this assumption is still wrong as there are throwaway SMS services.</p>
+<p>And now we spend the next bit meeting some Layton characters we’ll never see again, solve a few puzzles, and finally with one remaining puzzle, we come to find Espella and meet the witches. We’re given the trope of “this is bigger than you think” from the lead witch and with a diversion, Espella escapes on to a freighter moving by on the Thames.</p>
 
-<p><img src="/img/1VD-i14Df6Ff3ahu6X1zi1g_1.png" alt="" /></p>
+<p><img src="/img/pw2.png" alt="" /></p>
 
-<p>A service showing available mobile phone numbers for web-based reception of SMS messages.</p>
+<p>Layton and Luke find this book that Espella had been running around with and upon reading the text, they find it starts to move and see themselves in it. They’re then thrusted in a forested scene and fade out. At which point, Espella finds herself party to a crime.</p>
 
-<p>Now, I will admit that these numbers provided by this and similar services are often exhausted extremely quickly. There is also the consideration that there is a finite quantity of available numbers on these services, but it is a matter to give thought to when relying on this scheme.</p>
+<p>So naturally this is somehow becomes Phoenix’s problem and we have defend Espella from the accusations laid upon her. Her guardian, Darklaw informs him and Maya that she doesn’t see the need to defend her and that we should let the whims of the court decide her fate. This is an affront to our trusty lawyer of course and we proceed to do what he does best anyway. All the while, Espella is very different from before. Aside from her attire resembling that of a school uniform, her eyes and voice appear lifeless as if she was under the control of something greater than her.</p>
 
-<p>Overall, I am supportive of this new feature, but the equity issue and the potential evasion techniques remain.</p>
+<p>The usual AA mechanics for how the court proceeds and flows exist here and upon victory, Espella is cleared and the real culprit is arrested. After being congratulated by Darklaw for a job well done, they depart but curiously the same book that Layton and Luke saw earlier was left behind.</p>
 
-<h4>So what about this lawsuit?</h4>
+<p>Maya insists on reading the book and just like before, the same moving text appears but this time the image we saw before is replaced with them instead. At this point, they’re teleported into the book and the book lands to the ground.</p>
 
-<p>On September 10th, which was two and a half weeks before announcing these features, Twitch <a href="https://www.scribd.com/document/524416914/Twitch-Interactive-vs-Cruzzcontrol-and-CreatineOverdose">filed a civil suit</a> in Northern California against two Europeans who are alleged to have created software to engage in harassment on the streaming service.</p>
+<p><img src="/img/pw3.png" alt="" /></p>
 
-<p>The timing has always baffled me because it would have made sense to drop this feature and this lawsuit on the same day. Many found that this was Twitch trying to look like they were doing something instead of anything concrete and this further alienated streamers from the company. In my case, <a href="https://twitter.com/KateLibc/status/1436403378314092547">I found the filing rather damning towards the company themselves</a>, because they admitted a few things that I find rather embarassing.</p>
+<p>Layton and Luke plus Maya and Phoenix have been sucked into another world.</p>
 
-<blockquote>
-  <p>However, despite Twitch’s best efforts, the hate raids continue. On information and belief, Defendants created software code to conduct hate raids via automated means. And they continue to develop their software code to avoid Twitch’s efforts at preventing Defendants’ bots from accessing the Twitch Services.</p>
-</blockquote>
+<h1>This was a good approach to an isekai</h1>
 
-<p>This paragraph (51) was rather interesting because I want to know more about “Twitch’s best efforts”, There have been rumours for many years that there remains a workaround that permits harassers to create en-masse accounts to engage in harassment without any response from the company. I cannot elaborate further on this problem, but honestly it isn’t here where I raise my eyebrow.</p>
+<p>The term “isekai” (異世界) means “other world” in Japanese and in my opinion, this is a good execution of the trope. A mysterious book and this blurring overlap between what seems to be our world and the realm of magic really do make for a good story. While I cannot comment on the Layton games, it’s at least to me plausible for Ace Attorney to have this situation because we’re constantly coming across Maya channeling her dead sister in the original trilogy.</p>
 
-<blockquote>
-  <p>To further curb Defendants’ hate-raids, Twitch updated its software to employ additional measures that better detect malicious bot software in chat messages.</p>
-</blockquote>
+<p>Things are extremely curious once we find ourselves in Labyrinthia. We’re made to solve puzzles as somehow the entire city is into them and then eventually introduced to the the Storyteller through a parade. He’s writing and copies of his writings are being thrown out to the towns people. However, a curious individual steps out to the front: it’s Darklaw, the woman Maya and Phoenix had met earlier in London.</p>
 
-<blockquote>
-  <p>Twitch expended significant resources combatting Defendants’ attacks. Twitch spent time and money investigating Defendants, including through use of its fraud detection team. Twitch also engineered technological and other fixes in an attempt to stop Defendants’ harassing and hateful conduct. These updates include but are not limited to implementing stricter identity controls with accounts, machine learning algorithms to detect bot accounts that are used to engage in harmful chat and augmenting the banned word list. Twitch mobilized its communications staff to address the community harm flowing from the hate raids and assured its community that it was taking proactive measures to stop them. Twitch also worked with impacted streamers to educate them on moderation toolkits for their chats and solicited and responded to streamers’ and users’ comments and concerns.</p>
-</blockquote>
+<p><img src="/img/pw4.png" alt="" /></p>
 
-<p>These “stricter identity controls” stand out as we did not see tools for streamers being made available to leverage this until recently, but what really raises my ire is them stating they’re using “machine learning algorithms to detect bot accounts”.</p>
+<p>Why is she here? Is she the reason why we’re here? What is going on? What did that book actually do? Espella eventually rescues us because Layton opines against the writings of the divine texts of the Storyteller, raising the ire of the city folk and nearby guards. It is at this point she leads us to meeting her aunt and now we have Layton and Luke finally meeting Maya and Phoenix for the first time–except they’re both bakers.</p>
 
-<p>What the hell sort of “machine learning” have they deployed? I even criticised this on Twitter.</p>
+<p><img src="/img/pw5.png" alt="" /></p>
 
-<p>Of the 174 “hoss” follow bots that have been known to exist at the time of this writing, with the majority appearing since mid-August, they all share a common pattern which can be easily snuffed out with just two very basic <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>:</p>
+<p>We’re then introduced to more of the lore through Labyrinthia’s archives, leading to additional backstory. After we leave, it’s time to defend Espella in a witch trial.</p>
 
-<blockquote>
-  <p>^hoss0{0,2}312_{0,1}.*<br />
-^.*_{0,1}hoss0{0,2}312$</p>
-</blockquote>
+<p>The game goes to eleven out of ten as for the first time ever, we walk into a court room at the tail end of a prior trial, watching as someone convicted thrusted into a fire pit at full force–in all previous AA games, executions are implied but never shown.</p>
 
-<p>Just what the fuck? How is this so complicated? You can do this with just one regular expression, but it isn’t that much more costly to do it with two and it is much easier to maintain.</p>
+<p>It’s time to go to court, except with a twist.</p>
 
-<p>My only theory about this “machine learning” nonsense can be summed up in this Discord conversation I had on the day I read the filing:</p>
+<h1>The courtroom mechanics are awkwardly augmented</h1>
 
-<p><img src="/img/1eB1xHbutR-B044C3xXU5Dw_1.png" alt="" /></p>
+<p>Typically in an AA game, we have evidence, profiles, and choices in order to provide our defence. However, we learn quickly that this is all useless as evidence and logic has to battle against conjecture and irrationality. Phoenix suddenly learns through his suggestion we examine fingerprints that the concept of modern forensics is as alien to the people we’re battling as computers would be to pre-common era mathematicians. This is exciting and should be again a slam dunk, right?</p>
 
-<p>My parodic interpretation of a meeting at Twitch HQ about the chat moderation problem: “this is my theory about a meeting [on] moderation […] recently: a: “okay. so these fucks are asking us to make moderation better. what do we do?” b: “well, i have been doing machine learning for funsies on udemy and i think it would work well?” a: “that is hot shit. we can’t do this with blockchain?” b: “working on that later. nft stuff first ya know” c: “hey. why don’t we revisit my idea of just allowing bans based on how they work on irc?” a &amp; b: “no. fuck you” a: “besides, we don’t get to do machine learning for anything beyond marketing””</p>
+<p><img src="/img/pw6.png" alt="" /></p>
 
-<p>I have rather poor opinions about Twitch’s approach as evident above.</p>
+<p>And it is at this point Layton introduces Phoenix to the book that brought us here in the first place: The Grand Grimoire. It’s a book which outlines the incantations witches can use alongside accompanying stones in order to cast magic. At no time can a witch other than Bezella make use of these words without the accompanying stone and to add to that, they are only able to have two of those stones on their staff at any given time.</p>
 
-<p>The solution of using machine learning at least to me appears to be something “hot and sexy” when in reality we need something conventional. I have done a lot of work around using entropy to detect malicious activity in my line of work, but it was only done after making other attack methods more expensive, which should be done first as it is often easier to do.</p>
+<p>The book is cool but is also a problem. It’s pivotal to the story of this game but the way the overall story is paced and how we’re to argue our cases, the logic and reason Phoenix still ends up using collides with the book’s purpose. We have to use the evidence we have and this magic book, but as the game progresses, the importance of this magic book becomes less so.</p>
 
-<p>At least we finally got these new verification tools, but honestly, Twitch has a lot remaining to do and I am not holding my breath.</p>
+<h1>The importance of magic</h1>
+
+<p>And that is where things just get weird. What is this magic? Why is it that the Great Witch Bezella is seemingly capable of using magic but the rest of the witches are limited to one of two stones and their staff? This becomes clear as the story inches a long when the anachronisms we noticed earlier appear more and more.</p>
+
+<p>As mentioned earlier, there are a lot of spoilers, but we eventually find ourselves having to defend Espella once again as she opts to lay claim to being the Great Witch despite the woman herself being a century old and she is merely 18. When she is found guilty, we’re treated a scene where Maya and Phoenix object and through some mishaps, Maya finds herself in the contraption, landing in the fire pit below.</p>
+
+<p><img src="/img/pw7.png" alt="" /></p>
+
+<p>Espella has escaped and Maya is dead? Well, no. Eventually we go to investigate what is below and we discover that the fire pit itself is merely an illusion. The contraption that the witches are put inside is essentially an elevator which passes safely through the flames to a tunnel below. It is unlikely that anyone who goes through here is dead at all and we eventually are led to a chase scene where Layton rescues Maya.</p>
+
+<p>It was at this point I asked: is this something akin to Westworld, the Running Man, or better yet, The Truman Show? The latter of the three happens to be a favourite movie of mine as it centres around a single man unknowingly held captive to entertain the masses. He is kept with a confined space with artificial lighting and cameras in every single nook and cranny. The outcome of the movie is that he comes to discover the truth of the world he lives in is al a sham.</p>
+
+<p><img src="/img/pw8.png" alt="" /></p>
+
+<p>My thoughts were not baseless considering that in every single past Ace Attorney game I played, there was always a reason behind the unusual circumstances of whatever story faced. Ockham’s Razor is the antithesis of the AA universe and I found myself convinced that there was something sort of rational about everything going on.</p>
+
+<p>There was no magic and I was also about to find out how on the nose my thoughts were.</p>
+
+<h1>The unravelling of the world</h1>
+
+<p>After meeting someone claiming to be the Great Witch with her unusual mansion built atop of ancient ruins, we find ourselves at the Great Witch Trial with Espella herself charged after she claimed to be the witch who killed her father earlier in the day. Phoenix once again has to defend her in court, but now faces Darklaw as the inquisitor (instead of prosecutor) for the trial as our previous foe, Barnham was accused of treason after the Storyteller’s death.</p>
+
+<p>Parallel to this trial, Layton once and for all decides to visit the residence of the Storyteller himself. It is here that we come to discover a curious photograph.</p>
+
+<p>And yeah. A photograph. This is a society that seems to straddle the line between medieval and renaissance and yet in his hand he’s holding a full colour print showing a young Espella holding hands with someone who resembles Darklaw, the woman presently tasked with convicting her of being a witch.</p>
+
+<p>This world is not at all an isekai; it’s still made up however. After a battle with the Storyteller himself (oh what a surprise that he is not dead either), he relents after Layton points out what is happening and opts to accompany him and Luke to the trial.</p>
+
+<p>Layton finally shows up just when Darklaw herself has been formally accused by Wright as the Great Witch. There’s no inquisitor to convict her so the Professor volunteers him and finally we get where the “versus” in the game’s title comes from. We get something akin to Edgeworth and Wright from game two’s final case where it’s now Layton in Miles’ role.</p>
+
+<p>The truth is finally revealed: there was no Great Witch Bezella. It turns out that every year the Labyrithians would have a giant pyre in the square. During that time, it was revealed that a much younger Espella and Darklaw (who is revealed to be named “Eve”) were hanging out atop of the local bell tower. They decided to ring the bell against the wishes of their respective fathers (their fathers were friends and business partners), leading to a great catastrophe.</p>
+
+<p>And why was the bell forbidden to be wrung? Because the whole concept of Labyrinthia was a research facility on some island, largely funded by the British government. Everyone had been contractually living on the island in a mind-altering drug programme which had been going on for over a decade. The sheer legal nonsense around this had me recalling my readings about the <a href="https://web.archive.org/web/20250107101303mp_/https://en.wikipedia.org/wiki/Pitcairn_Islands#Sexual_misconduct_in_modern_times">troubles with the Pitcairn Islands</a> (content warning: sexual assault).</p>
+
+<p>The ringing of the bell caused a side-effect due to the frequency emitted, causing everyone who was drugged to collapse and fall unconscious. This coinciding with the pyre led to the entire town being engulfed in flames and because of Espella’s father using a made up story to prevent her from messing with the bell in the first place, when she looked at the fire through the grates of the fence, she was led to believe that she herself was seeing the Great Witch and thought that it was all her fault.</p>
+
+<p>Espella was so traumatized that her involvement in difficult situations (such as being in court) would lead to her mentally shutting down. Her trauma combined with herself being subject to the drugs led to believing that she was the great witch. Because of Eve’s involvement in all of this, she had to take on a special role in effectively playing a central role in building a whole world where nobody suffered in a great fire because she only dreamt it. It was all because her father couldn’t tell her the truth and instead of therapy, he’d just drug her and make a fucked up reality world for her to live in.</p>
+
+<p>So how did this whole charade persist? Easy. Nobody had any recollection of their lives prior to being placed in this facility. The drugs were part of the water they drank so they constantly had a dose of whatever medication suppressed their past memories and additionally the writings on the paper were written with an ink which as it gassed out would convince someone of what was to happen. It was all brainwashing and it was claimed that everybody living on this island signed contracts <a href="https://web.archive.org/web/20250107101303mp_/https://wikileaks.org/wiki/Scientology_cult_contract">that only Scientology could dream of legally enforcing</a>.</p>
+
+<p>As a consequence of this, it led to Eve’s father (who’s also the Storyteller’s business partner) to commit suicide midway through the game’s story. We were never given details about Eve being his daughter as we’re given the impression that his adoptive daughter was his only kin, but it speaks volumes to the impact and horror this island has made.</p>
+
+<p>To make people “see” the magic, they were told that they could not see black. If you review all of the things you see in the game, there isn’t much of that. The writers decided to really lean into the idea of <a href="https://web.archive.org/web/20250107101303mp_/https://en.wikipedia.org/wiki/Vantablack">Vantablack paint</a>, which at the time was rather controversial. Everything required to make things appear other worldly were merely painted in this paint and because people were convinced through this brainwashing medication that they couldn’t see anything painted with this colour, they would substitute it out of their sights.</p>
+
+<p><img src="/img/pw9.png" alt="" /></p>
+
+<p>So with one magic word said to everyone involved, Layton says “taelende” and those subject to the drug’s effects would see that they were not living in a world of magic but something akin to movie magic instead.</p>
+
+<p>I was right.</p>
+
+<p>This was not my problem
+The reveal at the end was admittedly in line with a lot of things I have seen so far in Ace Attorney. The intensity of the story had me thinking back to some emotions I had when finishing off the final story of the original trilogy.</p>
+
+<p>But unlike that story which had me sobbing at the end, this one decided to make a hard left turn straight into a concrete wall, ruining everything it built up.</p>
+
+<p>Legal ramifications are a weird area for Ace Attorney games, but you are able to roll along with the outcomes because it usually makes sense. However, I brought up the story of Pitcairn because the legal nonsense around that island was an actual think the UK government faced and I cannot think of any way an island in the middle of the ocean could past muster with anybody marginally capable of performing a legal review.</p>
+
+<p>I cannot see how an island funded by the UK government with dubious contracts and outright brainwashing could go without any scrutiny in the House of Commons. <a href="https://web.archive.org/web/20250107101303mp_/https://en.wikipedia.org/wiki/MKUltra">MKUltra was highly controversial in the United States</a> and it would equally be so in the UK–the parallels between this story and the real-life CIA one are rather staggering.</p>
+
+<p>You’d think that with Espella aware of her father’s unethical behaviour that she’d not be pining for a return to normalcy in the relationship, but she does and why wouldn’t she? Having been sheltered on a remote island for so long, I guess you probably wouldn’t have developed that level of critical thinking that her father is actually a huge problem.</p>
+
+<p>And of course, he reveals that he is dying! Of course he is! But then three sentences later, his research team has developed a new “wonder drug” and that he is going to take it after having surgery. Yep. No consequences. Happy family. Too bad about Eve’s dad, though.</p>
+
+<p>Closing
+I’ve wanted to complete this rant for a month now. Having learnt about the development of this game and how it led to the problems around Phoenix Wright: Ace Attorney - Dual Destinies (they were developed in parallel with PW’s creator, Shu Takumi on this game instead), I am still annoyed.</p>
+
+<p>One of the things about Layton games I’ve learnt is that the happy ending is always the one the writers go for. However, that is not really the case in Ace Attorney.</p>
+
+<p>After we finished game three of the original PW trilogy, we come to realise the impact the abuse one character faced at the hands of her mother will have lasting impacts as she becomes an adult. Espella herself was about the same age as Pearl when she started to be manipulated, but consequences be damned, we must be happy. I guess it’s obvious that Shu didn’t get his way on this outcome.</p>
+
+<p>This game had fantastic story, probably one of the best soundtracks of any Ace Attorney game I’ve played thus far, and mechanics and concepts that were rather refreshing, but because of this desire to make everything seem “okay” as we depart the island, I’m not left feeling anything like that at all.</p>
+
+<p><img src="/img/pw10.png" alt="" /></p>
+
+<p>At least we got an Edgeworth cameo at the end.</p>
 
         </div>
         
