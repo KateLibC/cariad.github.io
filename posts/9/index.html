@@ -342,51 +342,80 @@
         <header class="post-header">
           <h1 class="post-title">
             
-              <a class="post-link" href="/2022/11/10/when-stadium-chinatown-station-also-had-monorail/">When Stadium-Chinatown station also had monorail</a>
+              <a class="post-link" href="/2022/11/24/holy-grail-soc/">A Fool&#39;s Errand in Cyber Security and Beyond</a>
             
           </h1>
 
           <p class="post-meta">
-            Nov 10, 2022
+            Nov 24, 2022
             
             
           </p>
         </header>
 
         <div class="post-content">
-          <hr />
+          <p><img src="/img/soc01.png" alt="" /></p>
 
-<p><img src="/img/1zYXlaC4NP-rImwpQiVw3EA_1.png" alt="" /></p>
+<p>One of the “holy grails” of cyber security is reducing all panes of glass used by incident responders to just one. This is a pipe dream many managers chase after in the name of efficiency and it is not unlikely to have reporting staff desire this too.</p>
 
-<p>Plaza of Nations at Expo 86 (City of Vancouver Archives)</p>
+<p>Despite all of this, I have long had the opinion that the single pane of glass concept is a fool’s errand and prefer to chase after reducing the windows used in incident response.</p>
 
-<p>Expo 86 was Vancouver’s “coming out” party and its theme was transportation. This of course coincided with the opening of what is now the Expo Line from Waterfront to its then terminus at New Westminster. However, there were a few rapid transit systems built for the exposition including one very useful monorail system.</p>
+<h1>What is a “single pane of glass” anyway?</h1>
 
-<p><img src="/img/09xZnfaE659e4LuDG_1.jpg" alt="" /></p>
+<p>The “single pane of glass” (SPG) approach really is to reduce the complexity of performing tasks or absorbing information by making it solely available in one location only. This could be exemplified with a ticketing system which shows diagnostic data and have one-click tasks to handle basic functions.</p>
 
-<p>Map showing the transfer point between then “Stadium” station to the Expo 86 monorail (City of Vancouver Archives)</p>
+<p>Other examples that you may have seen include tools like Matrix and Hootsuite, which handle multiple online services.</p>
 
-<p>During the event, a monorail platform was situated to the west of what was then Stadium station and it provided speedy service across the sprawling World’s Fair. The entire length of the service spanned over five kilometres and it was vital in not only connecting the parts of the False Creek portion of the fair, but also back to SkyTrain itself which was a link to the Canada Pavilion at what is now Canada Place, next to Waterfront station.</p>
+<p>As you can tell, it is not a cyber security problem entirely.</p>
 
-<p><img src="/img/0dZI2LWXKVjdtmJag_1.jpg" alt="" /></p>
+<h1>Interoperability is a nightmare</h1>
 
-<p>Monorail cruising through the Expo 86 grounds (City of Vancouver Archives)</p>
+<p>Here are typical tools I could expect to make cyber security incident responders successful:</p>
 
-<p>The monorail itself had several other stops including two near what is now Yaletown-Roundhouse station on the Canada Line, inside of the Plaza of Nations near BC Place Stadium, one at the Cambie Street bridge, and one more just a block from Main Street-Science World (which would then have been just “Main Street” as Science World was simply “Expo Centre” during the fair).</p>
+<ul>
+  <li>Endpoint detection and response software (EDR)</li>
+  <li>Phishing email reporting</li>
+  <li>Network firewalls and detection</li>
+  <li>Logging software</li>
+  <li>Sandboxing for malware detonation</li>
+</ul>
 
-<p><img src="/img/1ee23Zt3FL6RZHW0fBowjOw_1.jpeg" alt="" /></p>
+<p>This is just a small list of software but is something I’ve had to try and make play nice.</p>
 
-<p>Expo 86 and the Monorail (City of Vancouver Archives)</p>
+<p>Here’s a fun scenario that I expect could easily play out:</p>
 
-<p>One interesting thing about the monorail was that it was envisioned as a possible rapid transit system for Metro Vancouver as early as the 1950s (at some point I should write about this). However, when finally built, it simply hugged False Creek and after the fair was over, was dismantled and sent off to England where it became a staple of an amusement park starting in summer 1987.</p>
+<blockquote>
+  <p>Jonathan in office services reports a phishing email. When the email is reported, an incident responder determines that it was malicious and that the URL the email linked to had mimicked the corporate login for a service which didn’t have two-factor. Said website was harvesting usernames and passwords and then offered a download to access a service.</p>
 
-<p><img src="/img/02L8u8xcWbHQUrfJM_1.jpg" alt="" /></p>
+  <p>The incident responder then takes the URL and checks to see who clicked on it and three employees were recorded to have visited the website. Web traffic logs were fortunately able to capture activity and it was determined that one of them who is in the help desk did sign in and download the file.</p>
 
-<p>Proposed tram or street car system (City of Vancouver)</p>
+  <p>Now the incident responder has to grab an audit log from the EDR to see if the file was executed and is also grabbing the file from the machine to then test in the sandbox environment. The responder has since isolated the machine to prevent any further harm.</p>
+</blockquote>
 
-<p>The route it took however is still an option under consideration for a street car service (see green-coloured line above), but Vancouver City Council has been speaking about this idea for decades and it probably could be decades more before we ever see that happen <a href="https://dailyhive.com/vancouver/downtown-vancouver-false-creek-streetcar-route-map">even though as early as last year it had another report released on it</a>.</p>
+<p>At this point, we’ve gone through five different software products, meaning five different windows had to be used. The single pane of glass approach would break down these functions into steps:</p>
 
-<p><em>This originally appeared on cohost.org/VancouverTransit but has been moved here due to the site’s shutdown.</em></p>
+<ol>
+  <li>Review the maliciousness of the email</li>
+  <li>Search logs from network firewall to see who visited the URL contained within</li>
+  <li>Retrieve EDR audit log</li>
+  <li>Review audit log for execution</li>
+  <li>Detonate the malware in the sandbox</li>
+  <li>Isolate the computer</li>
+</ol>
+
+<p>These are six steps and in theory all of these steps could be done with integrations. However, this is where it all begins to fall apart. I’m not even talking about the maturation required to get to the point where you’d consider all of this.</p>
+
+<p>The big problem is whether or not the vendors you work with have bothered to make their APIs capable of doing anything useful.</p>
+
+<p>Does your phishing email software have an API that allows you to pull the details into your ticketing system and close it off there? Do you have consistent firewalls across your environment so you know what websites are being visited? Can you remotely control your EDR software to pull a standard package of data from these systems? Can you also get the malware from said system to then automatically push into the sandbox?</p>
+
+<p>I’ve run across many, many barriers where trying to get 30% of the way is impossible because the vendor has assumed you only want to use the user interface they provide. The useful functions required just don’t exist in a public API and any attempt to circumvent this by reverse engineer any other API or directly accessing an internal database violates the support agreement–I am trying my best to avoid naming a vendor here.</p>
+
+<h1>Accepting your fate</h1>
+
+<p>So what do you do in this scenario? Don’t use the SPG approach and just accept the reality that you will work to reduce the windows needed but only where practical. Options beyond that may include finding better vendors to work with too.</p>
+
+<p>If you have a vendor promising you an automation tool that will give you that single pane of glass, press on them hard and maybe reconsider any future relationship with them because it’s again a fool’s errand and a waste of time.</p>
 
         </div>
         
@@ -399,49 +428,71 @@
         <header class="post-header">
           <h1 class="post-title">
             
-              <a class="post-link" href="/2022/10/25/when-vancouver-could-have-been-like-edmonton-and-calgary/">When Vancouver could have been like Edmonton and Calgary</a>
+              <a class="post-link" href="/2022/11/24/anime-fansub/">How I got my anime fansubs before the Internet</a>
             
           </h1>
 
           <p class="post-meta">
-            Oct 25, 2022
+            Nov 24, 2022
             
             
           </p>
         </header>
 
         <div class="post-content">
-          <hr />
+          <p><em>This is a repost from a Twitter thread I made back in September 2017.</em></p>
 
-<p><img src="/img/0dnWjkMeMImTGo4SL_1.jpg" alt="" /></p>
+<p>So on a Slack I am on, I ended up talking about how fan-subtitled (fansub) anime distribution used to work in the 90s.</p>
 
-<p>Light rail vehicle parked at a rail yard in New Westminster (City of Vancouver Archives)</p>
+<p>Anime would cost between $15 and $30 USD commercially depending if it was subbed or dubbed – $25-50 today.</p>
 
-<p>When Vancouver dismantled its interurban railway network in the 1950s, it wasn’t long until local officials and the provincial government began to discuss options to recreate it in the form of a rapid transit.</p>
+<p><img src="/img/fansub01.jpg" alt="" /></p>
 
-<p>In the 1970s, constant traffic problems and the oil crisis spurred the provincial government to start serious proposals for what would become the region’s rail system.</p>
+<p>However, LaserDiscs from Japan were super expensive. You’d have to order them via mail or phone and they’d be $300+ sometimes plus shipping.</p>
 
-<p><img src="/img/0k1CgaptZ6nv3PZkD_1.png" alt="" /></p>
+<p><img src="/img/fansub02.jpg" alt="" /></p>
 
-<p>Proposed rapid transit routes from the 1970s (University of British Columbia Archives)</p>
+<p>In some cases, one LD collection would just have 4 episodes and cost that much. You’d be looking at $80-$100 an episode in mid-90s money. These discs would typically be not available to purchase until 8-12 months after the show had aired–unlike Crunchyroll’s 1-hour!</p>
 
-<p>The above map isn’t too dissimilar to what we have today (Hastings and North Shore do not have rail as of today), but the government’s idea was to quickly revive the old BC Electric Railway by strong-arming it into existence.</p>
+<p>Fansubbers would buy these discs with their own money. Sometimes donations would be taken but typically it was out of pocket.</p>
 
-<p>And how do you force a railway to exist? By of course buying a Siemens vehicle from what was then West Germany to demonstrate the proposal along the Central Park BCER line (which is now the Expo Line).</p>
+<p><img src="/img/fansub03.jpg" alt="" /></p>
 
-<p>However, in 1976, a succeeding government who didn’t like the purchase but had to receive it anyway opted to keep the train in storage. It languished in a rail yard in New Westminster until 1987 when it sold it to a group in Edmonton for a loonie. At some point in the last decade, it was returned to its native Germany where it now resides in a museum.</p>
+<p>Typically the fansubbers would just stop distribution if the anime series was picked up by a distributor in the market they’re in.</p>
 
-<p><img src="/img/0gSnxHOMeJhvDucRk_1.png" alt="" /></p>
+<p>Fansubbers would spend late nights–whole weekends too–just going over the show, watching it endlessly, translating and timing a script.</p>
 
-<p>Public meeting announcement for rapid transit (City of Vancouver Archives)</p>
+<p><img src="/img/fansub04.jpg" alt="" /></p>
 
-<p>Interestingly, the government also had purchased back two former-BCER interurban vehicles from owners in Washington state. These two vehicles are still in Metro Vancouver with one residing in Steveston and the other in Cloverdale.</p>
+<p><img src="/img/fansub05.jpg" alt="" /></p>
 
-<p>It wasn’t the first time LRT was proposed nor the last. Almost every planned LRT implementation in Metro Vancouver has turned into some sort of light metro. There is this desire to replicate the Edmonton LRT or Calgary C-Train for some reason.</p>
+<p>It was tireless work. I had friends at Arctic Animation who did all sorts of great shows like MKR and Akazukin Chacha to name a few</p>
 
-<p>Perhaps when the City of Vancouver finally implements its street car network we’ll finally have such trains in use in the region once again?</p>
+<p><img src="/img/fansub06.jpg" alt="" /></p>
 
-<p><em>This originally appeared on cohost.org/VancouverTransit but has been moved here due to the site’s shutdown.</em></p>
+<p>Once translated and timed, you’d eventually feed the script into a computer and then use some fancy hardware to overlay the subtitles. It was a 1:1 copy by the way. There was no way to speed up the process. Play from LD, record to VHS or SVHS. Found a mistake as you watched the subtitle? Welp you’re out of luck! You’re going to have to fix the script and then restart!</p>
+
+<p>SVHS was used to keep the quality high but it only really benefited the subtitles, not the video since the LD was not able to output SVideo. You’d usually copy the SVHS “master” to other copies for use for distribution. I hate the term “master” and will only use it once.</p>
+
+<p>Once you’ve gotten your copies, you’re able to distribute the tapes assuming that nobody bought the rights in the three months it took.</p>
+
+<p><img src="/img/fansub07.jpg" alt="" /></p>
+
+<p>So now you want a copy of MKR? Well it is time to send a letter and a VHS tape or a few off to your favourite fansubber! You’d be waiting however long it would take to get your copy. Arctic was here in Vancouver so I’d just take a train to get my copies.</p>
+
+<p><img src="/img/fansub08.jpg" alt="" /></p>
+
+<p>Some fansubbers went overboard with their methods. Here is how VKLL did theirs. I had these copies at one point.</p>
+
+<p>VHS distribution died when it became effective using the Internet to distribute copies in DivX or even RealMedia format. It was around the time that anime got super popular and anime cons were just popping up everywhere.</p>
+
+<p>I cannot remember Arctic’s last release, but it was definitely in the early 2000s.</p>
+
+<p>Nonetheless, it was interesting to see the shift from VHS to digital distribution for fansubs and the rapid turnaround it got. You’d see fansub groups in the mid-2000s pumping out subtitled copies in a matter of hours after airtime. However, unlike when LDs were used, no money is going to the right holders in Japan for these shows.</p>
+
+<p>These days fansubbing is a lot less prevalent. Crunchyroll has the market cornered with its 1-hour after broadcast release schedule.</p>
+
+<p>But yeah! Subs not dubs.</p>
 
         </div>
         
