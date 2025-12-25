@@ -93,6 +93,127 @@
         <header class="post-header">
           <h1 class="post-title">
             
+              <a class="post-link" href="/2023/05/17/the-other-royal-visit-to-train-014-and-skytrain-s-influence-abroad/">The other Royal visit to train 014 and SkyTrain’s influence abroad</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            May 17, 2023
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p><img src="/img/0CBizWYtYWu4-CK6W_1.jpg" alt="" /></p>
+
+<p>Princess Diana walking along the platform of Patterson Station in 1986 (City of Vancouver Archives)</p>
+
+<p><img src="/img/0l-DHvDFBc33VHmrK_1.jpg" alt="" /></p>
+
+<p>Prince Charles (now King Charles III) and Princess Diana greeting two people (Vancouver Province)</p>
+
+<p>In 1986, during Expo ’86, King Charles III (then Prince) and his then wife, Princess Diana paid a visit to Patterson Station in Burnaby to see the new rapid transit system. They boarded car 014, dubbed the “Spirit of Canada”, and made history as the first visiting monarch to use the transit system.</p>
+
+<p>However, this visit overshadows another royal visit and one that had substantial ramifications for the country the monarch heralded from.</p>
+
+<p><img src="/img/0QTm3wU80YxCMeYsN_1.jpg" alt="" /></p>
+
+<p>Plaque as seen on train 014</p>
+
+<p>On May 8th, 1989, Thailand’s Princess Chulabhorn paid a visit to Vancouver and rode on the very same car the Prince and Princess of Wales rode three years prior. Ten years later, Thailand’s capital city, Bangkok would open its <a href="https://en.wikipedia.org/wiki/BTS_Skytrain">BTS Skytrain</a>.</p>
+
+<p><img src="/img/0F5UP8DmgM932SFeD_1.jpg" alt="" /></p>
+
+<p>BTS Skytrain vehicles passing each other (author unknown)</p>
+
+<p>However, unlike the Vancouver SkyTrain (note the upper case ‘T’ in our name), Bangkok’s system did not use trains from Bombardier and instead its initial set were from Siemens. The reason for the name was that the original system proposal was the <a href="https://en.wikipedia.org/wiki/Lavalin_Skytrain">Lavalin Skytrain</a>, as SNC Lavalin itself was responsible for the construction of Vancouver’s system. This project was cancelled in 1992 officially due to financial reasons, but it was suggested politics played a role in its demise.</p>
+
+<p>For whatever reason, despite SNC Lavalin’s lack of involvement in the succeeding project, the name “Skytrain” stuck and in 1999, the Bangkok Mass Transit System officially opened and named as “BTS Skytrain”. Perhaps the Princess just liked the name? Who knows.</p>
+
+<p><em>This was originally posted to cohost.org/VancouverTransit.</em></p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2023/05/15/twitch-mod-bot/">Sunsetting a moderation bot</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            May 15, 2023
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>Years ago, I wrote <a href="https://web.archive.org/web/20250102001603mp_/https://katelibc.medium.com/twitch-chat-harassment-remains-unaddressed-despite-complaints-and-evidence-of-potential-fraud-d7fc66f95d88">in-depth</a> about Twitch being a complete trash fire. As a response to it, I made a bot which I shared with about 40 different streamers that addressed Twitch’s shortcomings.</p>
+
+<p>For about a year and a half, this bot ran largely uninterrupted and had all sorts of features such as predictive bans, exemptions, algorithmic bans, and so forth. It was far more advanced than whatever Twitch had out there and I believe it probably prevented a few hate raids against marginalised streamers.</p>
+
+<p><a href="https://web.archive.org/web/20250102001603mp_/https://discuss.dev.twitch.tv/t/deprecation-of-chat-commands-through-irc/40486">In February</a>, Twitch removed the ability to perform bans via its chat interface and instead shifted everything to requiring a user access token in conjunction with its HTTP API.</p>
+
+<p>On the surface, this is fine in the grand scheme of things, but it required me to completely rejig the entire authentication model from just simply using a <code class="language-plaintext highlighter-rouge">/mod</code> command on the bot and then me joining the channel to asking for <a href="https://web.archive.org/web/20250102001603mp_/https://dev.twitch.tv/docs/authentication/#user-access-tokens">everyone to sign in and pass me a token</a>. This is a piss-poor design because it would be just easier to assign the permissions via legacy means, but nope, you have to re-authenticate that bot.</p>
+
+<p>I might be overthinking or misunderstanding this, but the bot also has become more onerous to update and is also costing me CA$40/month of which I largely pay out of pocket–not complaining, but it is a personal expense that would have not occurred if Twitch had made good tools years ago. Combine with increasing living expenses, I have decided that it’s not fun to pay for this anymore.</p>
+
+<p>In any event, because of the cost and Twitch finally has tooling that makes it easier to deal with bullshit after much, much yelling in their direction from all sorts of groups, I feel it is time to officially state that I have sunsetted the bot. I hope that it did benefit those who needed it most and I am always willing to provide a hand should anything come up in the future. ❤️</p>
+
+<p>In case you’re wondering: all data is being deleted from the database and backups are going with!</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2023/05/15/softlock-mi2/">I managed to softlock Monkey Island 2: LeChuck&#39;s Revenge</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            May 15, 2023
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p><img src="/img/talkie1.png" alt="" /></p>
+
+<p>It turns out that in the <a href="https://web.archive.org/web/20250102001603mp_/http://gratissaugen.de/ultimatetalkies/">Ultimate Talkie Edition of Monkey Island 2: LeChuck’s Revenge</a>, touching the model lighthouse in Phatt Island but not retrieving its lens creates a softlock condition. When returning to Scabb Island, Dredd leaves to go “do errands” and consequently makes you stuck without the ability to get the map reassembled. The cartographer in Scabb needs that lens but you have no boat to go back!</p>
+
+<p><img src="/img/talkie2.png" alt="" /></p>
+
+<p>This bug does not exist in the non-Talkie versions as far as I can tell. I did some searching in various places and it appears that I am not the first person to run across it.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
               <a class="post-link" href="/2023/04/06/ghosts-connaught-hill/">Ghosts: Connaught Hill</a>
             
           </h1>
@@ -177,270 +298,6 @@
 <h1>Green Line</h1>
 
 <p>Good lord. This line is weird. Level-crossings for pedestrians isn’t so weird, but it is extremely weird when they’re inside of the subway itself. Also, is this a subway or a tram? The use of low-floor trains kind of remind of Brussels’ tram network, but these cars are nowhere near as elegant.</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2023/02/18/skytrain-challenge/">Today is the SkyTrain challenge!</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Feb 18, 2023
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <p><em>This is a reproduction of a post made on cohost.org where my friend, Tam and I went on to travel on the entirety of Metro Vancouver’s SkyTrain network</em></p>
-
-<p><img src="/img/stc01.jpg" alt="" /></p>
-
-<p><img src="/img/stc02.jpeg" alt="" /></p>
-
-<p><img src="/img/stc03.jpg" alt="" /></p>
-
-<p><img src="/img/sct04.jpg" alt="" /></p>
-
-<p>Today, my friend, witchpixels and I are going to travel the entire length of the three-line, 79.6 KM rapid transit system known as SkyTrain! This will have us riding eight trains through 53 stations across seven municipalities in Metro Vancouver!</p>
-
-<p>I’ve been wanting to do this for a while and with the construction of the Broadway extension and the upcoming Surrey/Langley extension, this is our opportunity to ride the system using what we believe is the shortest path!</p>
-
-<h1>12:27 PM - VCC Clark</h1>
-
-<p><img src="/img/stc05.jpeg" alt="" /></p>
-
-<p><img src="/img/stc06.jpeg" alt="" /></p>
-
-<p>It begins! 12:27 pm we have left VCC Clark!</p>
-
-<h1>12:48 PM - Lougheed Town Centre</h1>
-
-<p><img src="/img/stc07.jpeg" alt="" /></p>
-
-<p>12:48 PM and we are at Lougheed Town Centre!</p>
-
-<h1>1:04 PM - Lafarge Lake-Douglas</h1>
-
-<p><img src="/img/stc08.jpeg" alt="" /></p>
-
-<p>1:04 PM and we completed the Millennium line! Now to go back! We lucked out as our train didn’t require us to deboard!</p>
-
-<h1>1:23 PM - Lougheed Town Centre</h1>
-
-<p><img src="/img/stc08.jpeg" alt="" /></p>
-
-<p><img src="/img/stc09.jpeg" alt="" /></p>
-
-<p><img src="/img/stc10.jpeg" alt="" /></p>
-
-<p><img src="/img/stc11.jpeg" alt="" /></p>
-
-<p>1:23 PM and we made it to Lougheed! Unfortunately we will be waiting for our transfer train to get us to Columbia.</p>
-
-<h1>1:37 PM - Columbia</h1>
-
-<p><img src="/img/stc12.jpeg" alt="" /></p>
-
-<p><img src="/img/stc13.jpeg" alt="" /></p>
-
-<p>1:37 PM and we managed to make a quick transfer at Columbia! Onward into Surrey!</p>
-
-<h1>1:45 PM - King George</h1>
-
-<p><img src="/img/stc14.jpeg" alt="" /></p>
-
-<p>1:45 PM and we made it on to the long leg all the way to Waterfront!</p>
-
-<h1>2:21 PM - Passing VCC-Clark</h1>
-
-<p><img src="/img/stc15.jpeg" alt="" /></p>
-
-<p>2:21 PM and we are just passing where we started!</p>
-
-<h1>2:31 PM - Waterfront</h1>
-
-<p><img src="/img/stc16.jpeg" alt="" /></p>
-
-<p><img src="/img/stc17.jpeg" alt="" /></p>
-
-<p><img src="/img/stc18.jpeg" alt="" /></p>
-
-<p><img src="/img/stc19.jpeg" alt="" /></p>
-
-<p>2:31 PM and we made it to Waterfront! We are going to Richmond-Brighouse first! We had to pass through the station hall but somehow boarded our waiting train effortlessly!</p>
-
-<p>So far we have lucked out on transfers with the worst being five minutes!</p>
-
-<h1>2:58 PM - Richmond-Brighouse</h1>
-
-<p><img src="/img/stc20.jpeg" alt="" /></p>
-
-<p>2:58 PM and we are at Richmond-Brighouse! One more transfer left and we will be at the end!</p>
-
-<h1>3:07 PM - Bridgeport</h1>
-
-<p><img src="/img/stc21.jpeg" alt="" /></p>
-
-<p><img src="/img/stc22.jpeg" alt="" /></p>
-
-<p>3:07 PM and we are about to do the last leg. The train we need is immediately next!</p>
-
-<h1>3:20 PM - YVR Airport</h1>
-
-<p><img src="/img/stc23.jpeg" alt="" /></p>
-
-<p><img src="/img/stc24.jpeg" alt="" /></p>
-
-<p>And time! 2 hours 49 minutes and 8 seconds to ride the entire SkyTrain system! I guess in 2025 or 2026 we can do this again with the Millennium Line extension to Arbutus.</p>
-
-<h1>Post-journey statistics</h1>
-
-<p>If anyone wants to know the splits, they’re as follows:</p>
-
-<ul>
-  <li>VCC Clark to Lafarge Lake/Douglas - 36m 36s</li>
-  <li>Lafarge Lake/Douglas to Lougheed Town Centre - 17m 28s *</li>
-  <li>Lougheed Town Centre to Columbia - 13m 50s</li>
-  <li>Columbia to King George - 10m 20s</li>
-  <li>King George to Waterfront - 43m 45s</li>
-  <li>Waterfront to Richmond-Brighouse - 29m 58s</li>
-  <li>Richmond-Brighouse to Bridgeport - 7m 55s *</li>
-  <li>Bridgeport to YVR-Airport - 9m 8s</li>
-</ul>
-
-<p>*Denotes that we never had to transfer trains to continue our journey!</p>
-
-<h1>Update (August 30, 2023)</h1>
-
-<p>Holy shit. <a href="https://web.archive.org/web/20241121054640mp_/https://www.guinnessworldrecords.com/world-records/485154-fastest-time-to-travel-to-all-vancouver-skytrain-stations">We beat the Guinness record for this speedrun</a>.</p>
-
-<p>The SkyTrain speedrun was beaten on this trip!</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2023/02/05/harvie-rd-and-surrey-s-lost-railway/">Harvie Rd. and Surrey’s Lost Railway</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Feb 5, 2023
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <hr />
-
-<p><img src="/img/0k0whuKnn8tiOHj-r_1" alt="" /></p>
-
-<p>Map showing the Port Kells area of Surrey (Google)</p>
-
-<p>In a few years, you’ll be able to ride SkyTrain all the way into Langley, passing by one of Cloverdale’s quiet landmarks: the Honeybee Centre. However, if you go just the building, you’ll notice a road that runs on an angle, which is odd considering most of Surrey’s roads tend to run in cardinal directions save for Fraser Highway and a few others.</p>
-
-<p>Harvie Rd. is a shortcut from Port Kells to the rest of Surrey, but its origins as a road do not come from being a shortcut but instead a railway. There are a few roads that do not conform to the grid system and they too share this history as well.</p>
-
-<p><img src="/img/0mCx-epomuxyTCg6j_1.png" alt="" /></p>
-
-<p>Approximate path that the railway took</p>
-
-<p>In 1891, the New Westminster-Southern Railway opened a passenger railway crossing across the US border into Cloverdale and then to New Westminster via Port Kells. This route followed what is now Highway 15 with a deviation around a hill in Hazlemere.</p>
-
-<p>For some time, it was the only rail service connecting the United States and Canada west of the Rockies. Its construction was of major concern to the federal government due to possible threat to sovereignty by the Americans.</p>
-
-<p><img src="/img/09Kn3oJF2bWpXBsfc_1.jpg" alt="" /></p>
-
-<p>Southern portion of the railway about 3 KM north of the United States border</p>
-
-<p>In 1907, the Great Northern Railway, the parent company to the NWSR, opted to reroute all rail service to its line which straddled the Semiahmoo peninsula and subsequently ended its inland rail connection going through Blaine. The NWSR struggled to remain competitive in the face of the BC Electric Railway providing similar service, which intersected in Cloverdale.</p>
-
-<p>By 1929, the railway was declared abandoned and as time has gone on much of the right of way has been usurped by the highway it once ran alongside. However, remnants of it are still visible if you know where to look.</p>
-
-<p><img src="/img/0NodtNz7s3b7Id41I_1.jpg" alt="" /></p>
-
-<p>Harvey Rd. as seen from near the Port Kells Library</p>
-
-<p>As for road itself, it got its name from NWSR’s first engineer, Robert Harvie. It has since received heritage right of way status from the City of Surrey, which protects it as a roadway.</p>
-
-<p><em>If you’re interested in additional information,</em> <a href="https://oppositethecity.wordpress.com/2014/02/12/new-westminster-southern-railway-survey/"><em>this blog article from 2014</em></a> <em>is also worth a read! I used the custom Google Maps link they created to generate the above maps.</em></p>
-
-<p><em>This is also a post archived from cohost.org/VancouverTransit.</em></p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2023/01/26/chad/">On a friend&#39;s death and my loneliness</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Jan 26, 2023
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <p>Last week, a friend of mine, who was not much older than I passed away in his sleep from a heart attack. I had been friends with him since I was a teenager so the sudden passing of him came as a complete shock to me.</p>
-
-<p>I have been wanting to write things about him on here, but I cannot bring myself to do so and I think it’s because there’s something looming over me. I feel awful about making this open because I do not want his death to be about me. But maybe I should say what is on my mind? The timing feels bad, but I also feel the need to let this come out.</p>
-
-<p>For almost two years, I have resided in my apartment alone with my cat. I love my cat, but she is a terrible conversationalist and my extroverted self really thrives on having other human beings around. I don’t lament the reasons for how I ended up living alone, but I think the pandemic and the consequences it has had on my socialisation have manifested in my inability to meet people who could be a potential “nesting partner” so to speak.</p>
-
-<p>I’ve never really lived alone for extended periods of time and when I last did live alone, I at least was able to have friends over or I was not home enough to worry about the lack of another body sharing that space with me. What is different now is that I don’t go into my office that often (twice a week really) and there are days where the lone human interaction I get other than from the rectangles that I stare at all the time are just the nameless people I share my apartment building with.</p>
-
-<p>In my life of not sharing a home with my family, I have spent seven of twelve years with someone else. Three of the five where I haven’t, I always had friends or family coming over, partners who’d spend time at my home or at theirs, or I’d be in the office every day and there would be ample opportunity to see folks after work. The pandemic really put a kink into these options and it has been incredibly painful for me to deal with.</p>
-
-<p>I’m not single. I am dating a wonderful girlfriend locally and have a not-so-serious relationship afar, but none of them are potential nesting partners. The death of Twitter, the shift from my being “very online” to basically not, and lack of travel aren’t really the sources of my problems, but it’s the lack of meeting new folks and being able to socialise without the anxiety of finding myself as ill has taken away my ability to meet new people.</p>
-
-<p>My most serious relationships came from socialising locally and while that is of course not a requirement for me to end up dating towards that partner desire, I cannot argue with its purported success rate–even after splitting, I am still good with two of the past three nesting partners I have had.</p>
-
-<p>Why I am so fixated on the lack of said partner comes back to my friend’s death. What if I were the one to have had that heart attack? Nobody would know for days.</p>
-
-<p>Dying alone scares the hell out of me. It is not something I make that open, but if anyone ever asks me for my number one fear, it’s literally that.</p>
-
-<p>I feel devastated for his wife I should add. This was far too early and they had only been married for just under seven years. He meant so much to her and to have him just die at middle-age without any real warning is something I cannot comprehend. They should have been able to go into retirement together.</p>
-
-<p>I’m seriously going to miss this friend of mine. He had been around for a lot of things in my life and the same for his. And now, I am saying goodbye to him. So many people left messages on his Facebook wall and so much support has been given to his widow. He had people who cared about him deeply.</p>
-
-<p>So while I feel selfish for posting about this on the eve of my friend’s funeral, I just cannot shake these feelings off and just want to vent this out to the world. It isn’t a pity plea or anything, but I sometimes feel that I should make others aware that the cool stuff I share on cohost is often missing the realities of my personal life.</p>
-
-<p>I also know many, many people care about me and many of you are probably reading this.</p>
-
-<p>One of the things I decided last year was to give more to myself rather than to others. I realised this hard during an event last summer that I really don’t do nice things for me. It’s hard because I want everyone around me to be happy, but I think it has come at the consequence of my happiness being pushed aside.</p>
-
-<p>So I quit being a lead and started to socialise a lot more. However, unlike four years ago, the world has an invisible threat that prevents me from being as “care-free” so to speak in terms of seeing everyone I know and love. I know that with time I’ll met this special person, but it’s not going to be as easy as I would prefer.</p>
-
-<p>Not everyone new I meet is going to be intended to be that sort of relationship either I must add. I am also demisexual and demiromantic so it’s a quagmire for me to grasp what I am feeling when it comes to other people. It’s all shades of grey when it comes to romantic feelings and it often sucks.</p>
-
-<p>Anyway, sorry for the real talk and I hope nobody thinks less of me for venting this out into the open. I guess I just want people to know a side of me that I keep under wraps.</p>
 
         </div>
         
