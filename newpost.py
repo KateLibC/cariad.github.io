@@ -17,6 +17,7 @@ def header(t):
     return o
 
 def filename(p, s):
+    s = '-'.join(s.split(' '))
     fname = f'{datestamp()}-{s}.md'
     return os.path.join(p, fname)
 
