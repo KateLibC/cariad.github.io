@@ -93,6 +93,544 @@
         <header class="post-header">
           <h1 class="post-title">
             
+              <a class="post-link" href="/2022/01/30/more-hacking-on-automating-wordle/">More hacking on automating Wordle</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Jan 30, 2022
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p><em>Just a warning: if you are playing Wordle and don’t want any hints, this is not the Medium entry for you. Also, I am not a mathematician or statistician, so everything is just based on my knowledge of cryptanalysis and nothing more.</em></p>
+
+<p><em>One other thing to note is that the word list I am working with is not Wordle’s as I intentionally wanted to avoid looking at its source code.</em></p>
+
+<p>Okay. So I had one remaining question from <a href="https://katelibc.medium.com/hacking-wordle-through-automation-and-cryptanalysis-85b438328936">my last entry on Wordle</a>: what is the most efficient starting word overall?</p>
+
+<blockquote>
+  <p>“Cares” has a word score of 967.4, whereas “audio” gets 288.4 and “ports” has 796.6. The point of the game is to produce an answer in as few steps as possible and while you will knock off a lot of vowels and consonants with those two, you are likely reducing the chances of answering in the fewest attempts.</p>
+</blockquote>
+
+<blockquote>
+  <p>My choice of word also includes the letter “e”, which is the most common letter used in the English language. On average, you should see that letter appear about 10–13% of the time, with the letter “a” being about 7–9%, and “s” being 6–9%.</p>
+</blockquote>
+
+<blockquote>
+  <p>You can also order it as “scare” or “races” too if you desire, but I believe that with “s” at the end and putting “r” in the middle, you cover all initial possibilities quite effectively here.</p>
+</blockquote>
+
+<p>I did not like what I wrote here, but at the time I didn’t really run numbers on outcomes. However, I was working on this because you cannot really automate Wordle without a good starting word.</p>
+
+<h3>Methodology</h3>
+
+<p>Using the same logic from before, the process to find the winning word was fairly simple.</p>
+
+<p>For each starting word, we then ran through each possible five letter word other than itself. It would run each guess against an implementation of Wordle in my own code with the same hints and correct guesses. Once it got to an answer, it would then record all attempts into a set and then move on to the next word.</p>
+
+<p><img src="/img/10sPLTqitT_TdO16_lziu1A_1.png" alt="" /></p>
+
+<p>The word “bases” was guessed with a starting word of “caves” and made five other guesses before coming to an eventual answer. This obviously would have failed if I used it against Wordle.</p>
+
+<p>Unlike Wordle, there was no guess limit as I wanted to know how many attempts it would take using the methodology I did before where I came up with a list based on efficiency. So the first word based on possibilities made by the hints and correct letter guesses available from the list was the word chosen.</p>
+
+<p>There are flaws with this list sorting as <a href="https://twitter.com/authorblues/status/1481292670769192962">discussed on Twitter</a>, but I wanted to stick to my current methodology, so we’ll proceed forward.</p>
+
+<h3>The worst words</h3>
+
+<p>Defining the worst word can be achieved one of two ways. We can either look for a group of words or a single word that has the most guess attempts or we can look at them on average.</p>
+
+<p>A minimum of the number of guesses is quite simple: one if you’re lucky, but if the word doesn’t match, then two. Guessing what the largest number of guesses will be took a little bit of magic.</p>
+
+<p>The words that managed to hit a the maximum-seen attempts of 14 were: “agile”, “anile”, “dells”, “duels”, “dulls”, “dully”, “exile”, “gaily”, “guile”, “gulls”, “gully”, “jails”, “jello”, “jells”, “jelly”, “jinns”, “jolly”, “keels”, “kelly”, “lolls”, “lolly”, “lulls”, “nails”, “ninny”, “nulls”, “quell”, “rails”, “rials”, “villa”, “ville”, “villi”, “yella”, “yells”, and “yield”. If you are to notice a pattern here, almost all of them have the letter ‘l’ in them, but this isn’t really the reason why they performed badly.</p>
+
+<p>Word scores are all over the place with these words, which leads me to believe that it is not necessarily indicative of a good start. For example, “quells” is amongst that list and had a score of 307.4, but then “rails” received 768.6. The average score for all of the words was 531.1, so I’m not confident all that much in using that as a metric for a good starting word.</p>
+
+<p>So then what about averages? This gives us a better picture because Wordle limits us to six guesses. I would suggest if a word has a minimum average of 4 or higher that it should not be used at the start.</p>
+
+<p>The worst performing word had an average of 4.26 attempts, which was “jujus”. This was followed by “wheee” at 4.23, and “yukky” at 4.21. There were three tied for 4.2, and they were “vexes”, “sexes”, and “esses”.</p>
+
+<p>The word score “jujus” was 506.6, but interestingly, “sexes” received 888.6.</p>
+
+<h3>Is there a guaranteed winner?</h3>
+
+<p>The short answer is: no.</p>
+
+<p>All words with this methodology ranged from 8 to 14 maximum attempts. No single word went below 8 attempts, meaning there are starting words which will lead to failure.</p>
+
+<p>There is a silver-lining, the number of words with the smallest maximum is only slightly larger than the number of words with the largest maximum.</p>
+
+<p>There are 1,764 words of which had 12 maximum attempts, 2,085 with 11, 984 with 10, and 411 with 9. However, with 8, there are only 39 words, and all of them might justifiably be the best candidates.</p>
+
+<p>The words that performed the best were “blest”, “deism”, “doest”, “durst”, “feist”, “heist”, “least”, “liest”, “merse”, “midst”, “obese”, “pseud”, “sebum”, “sedan”, “sedge”, “sedgy”, “sedum”, “seize”, “sepia”, “serge”, “serif”, “serum”, “sheaf”, “sheik”, “sherd”, “siege”, “sieve”, “skein”, “skirt”, “slept”, “speck”, “spend”, “sperm”, “steal”, “suede”, “swell”, “swift”, “welsh”, and “wrist”.</p>
+
+<p><img src="/img/1Ka5sISDp-NUVVWlfsGT_8A_1.png" alt="" /></p>
+
+<p>“Obese” has a word score of 277.8 and “pseud” is 281.6.</p>
+
+<p>Going back to word scores, we arrive upon something curious: the range of scores is between 277.8 and 526, with the average being 398.4. Perhaps the way to look at the word score is not at whether it is strong at the start, but instead if it eliminates all of the least likely? This would suggest that words such as “obese” or “pseud” could be good starting candidates.</p>
+
+<h3>Could we find a most-likely?</h3>
+
+<p>This is where I want to deviate: a maximum does not imply that it is the worst choice. And in this case, I am willing to believe this because I did find something amongst all of the words that allows me to suggest that there is either a flaw in my methodology or I am looking at this all wrong.</p>
+
+<p>The words “estop”, “epsom”, and “serum” had an average attempt count of 2.74, 2.77, and 2.79 each respectively. When I looked at their word scores, “estop” had 160.4, “epsom” had 165.8, and “serum” had 418.</p>
+
+<p>I decided to look at all words of which were lower than 2.9, and within the the 54 words, the minimum score was 106.6 and the maximum was 496, with an average of 336.3. I think I know where the word score’s usefulness may lie: it’s better to start with a lower than a higher one.</p>
+
+<p>When I spoke about maximums earlier, “estop” found itself with a maximum of 9 attempts. In fact, “serum”, which had a slightly higher average than “estop” found itself with a maximum of 8 — “epsom” received 9.</p>
+
+<p>But this is still an incorrect approach.</p>
+
+<p>We’re looking at the average and what I’d like to know is what has the highest percentage of wins within the limitations imposed by the game. We have six guesses, so what word is best suited on average to produce an outcome.</p>
+
+<p>With these parameters in mind, we can then use the following methodology: which word is most likely to get a guess correct within those six attempts and then not consider the steps beyond that point since they’re not indicative of what would be considered a success.</p>
+
+<p>Of the 5,756 words tested, one word managed to achieve a win in three moves 69.4% of the time: “verso”. It also achieved a win in two moves 10.8% of the time, four was 13.1%, five was 4.6%, and six was 1.5% — a 99.4% successful starting word.</p>
+
+<p>But this is not the best word even though it is the best word for the quickest win — fortunately we already know the best one to use in order to win.</p>
+
+<p>As mentioned before, “estop” had an average of 2.74 attempts before a win, but importantly it has the highest success rate. It edged out “verso” by achieving a 99.6% win rate with 46% of all attempts being achieved in its first two guesses and then three in 40% — four was 9.4%, five was 3.2%, and six was 0.9%.</p>
+
+<p>With a failure on only 19 words from the word list — compared to 30 for the other word I was testing with — starting with just “estop” should net you a win most of the time.</p>
+
+<p>So in my opinion: “estop” is by far the best word.</p>
+
+<p><img src="/img/1DezAoeADAebHml6mnxXMOA_1.png" alt="" /></p>
+
+<p>From January 30th’s Wordle: “estop” showed that despite failing the first two guesses, the algorithm did it in four tries whereas “verso” had to make an extra guess.</p>
+
+<h3>The data</h3>
+
+<p><a href="https://github.com/KateLibC/WordleStats">I’m happy to share the data I have made</a> and I welcome you to demonstrate anything you have done with it. However, I must reiterate that I am not a statistician nor do I consider myself adept with mathematics. What I will say that I was out to have fun to solve this challenge and I feel like I have.</p>
+
+<p>I wanted to play this game unconventionally and I think I accomplished that goal. There are some further ideas to achieve a 100% success rate or at least get extremely close to it, but being that I am at 99.6% successful on just this algorithm alone, it does make me think that this little project can be considered “ended”.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2022/01/12/hacking-wordle-through-automation-and-cryptanalysis/">Hacking Wordle through automation and cryptanalysis</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Jan 12, 2022
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p>Recently, a game called <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a> has exploded in popularity with its simple five-letter guessing game. I’ve been playing it for a few weeks but have also been musing over how to automate this all using my knowledge of classical cryptography.</p>
+
+<p>So let’s dive in!</p>
+
+<h3>Patterns in the English language</h3>
+
+<p>While English is a very complicated language, it is also rather predictable and it is because of this we can play around with statistics. <a href="https://en.wikipedia.org/wiki/Letter_frequency">Letter frequency</a> is often spoken about in cryptanalysis and is often a basis for solving cryptographic puzzles I release periodically.</p>
+
+<p>With Wordle, we’re limited to five-letter words, so what I wanted to do is figure out what are the most common letters per position. The use of letter frequency is helpful, but because we’re dealing with restrictions, the base statistics are merely a guide and not a rule.</p>
+
+<p>Using a list of five-letter words, I generated some statistics and came up with some answers for each position. In order, the first position had the most common letter of “s”, the second “a”, the third “a”, the fourth “e”, and the last being “s”. Now obviously, the word “saaes” does not exist in this word list, but we can use this knowledge to build a score for each word.</p>
+
+<p>By going through the list, we can use the counts of each position to its letter within that position and then come up with a score. For example, the word “sores” in a set of the highest word score and has the values of 724, 911, 475, 1228, and 1764. If we create an average of those numbers, we come up with an answer of 1,020.4.</p>
+
+<p>Using these averages to create a score for each, we can then order a list. That is all right? Well, not exactly, because there’s one other hiccup.</p>
+
+<p>Of the 5,756 words I am working with, 38% of them end in the letter “s”. This is not really all that surprising seeing that four-letter words made plural should not be uncommon. However, I don’t want them to be dominant when I go to automate this later on, so I need to fix this.</p>
+
+<p>While maybe not the best way to do this, I sorted the list in to two halves. The first half were words with all unique letters and the second not. In both halves, the order was kept from earlier, so once we finished the first half starting from the highest score to lowest, the same would repeat on the second.</p>
+
+<p>At this point I decided I was done and felt that I had the most “efficient” list.</p>
+
+<h3>Where to start</h3>
+
+<p>Now that we have this list, we need to know what word to start off with. I’ve seen a lot of people suggest words like “audio” and “ports”, but the one I seem to find works best is “cares”.</p>
+
+<p>“Cares” has a word score of 967.4, whereas “audio” gets 288.4 and “ports” has 796.6. The point of the game is to produce an answer in as few steps as possible and while you will knock off a lot of vowels and consonants with those two, you are likely reducing the chances of answering in the fewest attempts.</p>
+
+<p>My choice of word also includes the letter “e”, which is the most common letter used in the English language. On average, you should see that letter appear about 10–13% of the time, with the letter “a” being about 7–9%, and “s” being 6–9%.</p>
+
+<p>You can also order it as “scare” or “races” too if you desire, but I believe that with “s” at the end and putting “r” in the middle, you cover all initial possibilities quite effectively here.</p>
+
+<h3>Writing code to deal with this</h3>
+
+<p>Wordle’s rules are very straight forward: you have five letters and six attempts. On each attempt, the game will inform you on whether or not each letter is valid based on colour. If the letter in a position is valid, it’ll give it a background colour of green, if invalid then grey, and if invalid but elsewhere in the word, amber.</p>
+
+<p>With this knowledge, I went and created a Python script to churn through a word list and find words based on inputs I give. I am solely responsible for the starting word, but the script itself will use my inputs and produce an answer based on the first hit in a list of words which matches the patterns.</p>
+
+<p>The script works by dynamically generating a regular expression pattern for words that are not valid and then goes through to confirm that the letters that are suggested to be anywhere in the word are then only included. It then spits out the first word from the list created which itself is based off of the scoring method I wrote earlier.</p>
+
+<p>It’s fairly simple and runs from a command line.</p>
+
+<h3>Testing it out</h3>
+
+<p>One hiccup is that Wordle only allows one guess per day. Now, while I could just erase my browser session data to test this out, there is fortunately a <a href="http://foldr.moe/hello-wordl/">clone</a> which not only allows for the same five-letter words, but can also be used on words of which are much longer — and my script can be used on words of any length provided there is a word list.</p>
+
+<p>This clone allows you to keep playing to your hearts content so it became my test bed.</p>
+
+<p><img src="/img/1mLJh9ZA1Q6X5eN9prQU0wQ_1.png" alt="" /></p>
+
+<p>Feeding letters to the script to find the word</p>
+
+<p><img src="/img/1Lgs691dA9nklv24FCzCvJg_1.png" alt="" /></p>
+
+<p>Even if the first guess is completely incorrect, we can do it in three steps</p>
+
+<p>The positional arguments in the script are simple. You supply a wordlist (“words_efficient_er.txt”), the letters you wish to completely discard (“c”, “a”, “r”, “e”, “s”, “o”, and “l”), the letters you want to find anywhere (“d” and “i”, or just “_” for none), and then for each position you either put “_” as a wildcard, the known letter, or you precede letters in that position with a “.”, so if you want to exclude “r”, you can do “.r”, or if you wanted “h” and “y” to be exempted, you just do “.hy”.</p>
+
+<p>Because we have the list ordered in a way that allows us to find the most likely word based on positional letter placement scores, it’s entirely possible to have an answer in just two guesses if your first guess isn’t correct. This has in fact happened with my attempts.</p>
+
+<p><img src="/img/1gL7dJtiiyNQB4ZIXxg1XSw_1.png" alt="" /></p>
+
+<p>Two attempts and we have our answer</p>
+
+<p>This is of course not fool-proof and I have had it take six attempts.</p>
+
+<p><img src="/img/1K_wCM6YeZSJgymR_3fT-Lg_1.png" alt="" /></p>
+
+<p>It came very close to not winning here</p>
+
+<p>The placement of “V” and starting with “L” demonstrates that the scoring isn’t exactly fool-proof because it doesn’t take into account the prevalence of the word in the English language. I’d argue that “loves” is more common than the preceding two, but maybe in the case of a random word choice it does not matter?</p>
+
+<p>But sometimes it seems like it won’t get it and then it suddenly it has an answer.</p>
+
+<p><img src="/img/1E5SOfsuAVBOizypYXUGfEA_1.png" alt="" /></p>
+
+<p>“Girls”</p>
+
+<p>I guess what may have happened on the last one is that the scores for the other words being higher gave it precedence, but ultimately it came across “girls”. This is why I am only so confident in the efficiency of the list because there might be a way to do this better, but it is beyond my knowledge of statistics.</p>
+
+<h3>Closing</h3>
+
+<p>You can grab the script from <a href="https://gist.github.com/KateLibC/0838436b3284a150b734f870364f462f">this gist here</a> and any five-letter list from a Google search should suffice should you wish to try this all out.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2021/12/17/whatever-twitch-is-doing-with-machine-learning-is-absolutely-useless/">Whatever Twitch is doing with machine learning is absolutely useless</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Dec 17, 2021
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p>Back in March, I <a href="https://katelibc.medium.com/twitch-chat-harassment-remains-unaddressed-despite-complaints-and-evidence-of-potential-fraud-d7fc66f95d88">wrote about harassment on Twitch</a> towards individual streamers via its chat function. Then, a few months ago, I <a href="https://katelibc.medium.com/twitch-has-made-a-good-step-with-preventing-harassment-but-it-has-pitfalls-also-what-the-hell-is-8f4ceb7debf5">followed up with a small piece</a> on them admitting to using machine learning when they filed a lawsuit against known bot users on their service.</p>
+
+<p>Finally, in late November, <a href="https://www.theverge.com/2021/11/30/22810180/twitch-machine-learning-suspicious-user-detection-bans">Twitch announced this machine learning feature</a> and I have this short review: it’s absolutely useless.</p>
+
+<h3>After its launch, there were still new bots</h3>
+
+<p>Twitch has been dealing with a persistent and never-ending bot problem for a very long time. With a number of Black, persons of colour, LGBTQ+, and women streamers taking a stand and the media taking notice, the company finally relented and admitted that they were not meeting their end of the bargain.</p>
+
+<p>It should be repeated here: the only reason why Twitch has made any response is not because of streamers making an issue of this but because the media took notice of the streamers and asked Twitch about it.</p>
+
+<p>So now we have them admitting to using machine learning to track ban evasion and we also have them providing tools to verify users through their mobile phones, but even with all of that it appears that they haven’t dealt with the elephant in the room: they still have massive numbers of accounts being registered to engage in harassment.</p>
+
+<p>The thing about these hate raids is that the bots used them often have been known to have a pattern. With the case of the “hoss” bots, we saw them follow a rather consistent pattern. These bots ceased to exist a few months before the new feature, so did it stop similar patterns from emerging?</p>
+
+<p>The short answer is: no.</p>
+
+<p>On December 3rd, just a few days after Twitch made a big deal about machine learning, 472 accounts were registered in a small time frame. Each of these accounts started with the same 12 characters resembling a popular streamer and were then followed with four integers with the first one being a 0 and then the last three varying.</p>
+
+<p>The first account was registered at 18:58:10 UTC and the last account was registered at 20:01:06 UTC. However, the first 27 accounts were all registered within 2.5 minutes with the remaining 445 all being registered every few seconds starting from 19:47:28 UTC.</p>
+
+<p>How did Twitch’s machine learning not capture such a pattern of account registrations when this pattern was repeating itself nearly every two seconds?</p>
+
+<h3>Why I know</h3>
+
+<p>I lead moderation for two events run by one of Twitch’s largest channels. My day job is running a cyber security team, so I have a keen interest in knowing how to contend with the nonsense that streamers (including myself) face and how to mitigate the inadequacies the service has automatically.</p>
+
+<p>Twitch’s API is absolutely garbage to deal with when it comes to automating moderation and they make it spectacularly worse for trying to do anything useful that also flirts with violating their developer terms of service.</p>
+
+<p>So here’s the reality: want to know who followed you or another account? You have to have to have a web service receiving pushed messages. Want to ban or timeout a user account? You have to use their IRC-esque service and issue the same commands a human would. Want to pull the user profile? You have to use their REST API.</p>
+
+<p>These are the official ways to perform these tasks and the rate limiting around them is abysmal. The REST API by default limits you to 800 queries per minute and the IRC one is just over 200. If you wanted to ban every single account from one of the hate raid lists out there, it would take 16-hours to just get through 200,000 of them — there is one list that is almost 1.4 million accounts, which would take almost five days.</p>
+
+<p>There are unofficial ways but you raise the possibility of finding your account access suspended or a legal threat being sent your way. There’s an undocumented API that every Twitch user interfaces with all the time, but if you perform an action with it from outside of a browser, you’re violating those terms.</p>
+
+<p>Nonetheless I’ve endured and come up with ways to do all of these things in a way that is fast, doesn’t violate their terms of service, and can be flexible. It has sucked and Twitch hasn’t been helpful, but a year later and I know more about their developer tools than any non-Twitch employee should.</p>
+
+<p>So when these bots come up, I often notice that there are patterns. These patterns more often than not remain consistent and are predictable. In fact, some of these patterns are predictable enough that I literally can anticipate the accounts existing in the future and be aware of their existence within the minute they’re registered.</p>
+
+<p>When that example from before was made aware to me, I put the pattern into the prediction engine and look at that, hundreds of accounts. I am certain that the number I reported may be inaccurate because it’s possible that some were already suspended, but what the hell is Twitch doing when they see these reports? Do they not themselves look for patterns?</p>
+
+<p>If my report from March is indicative of anything, the answer is pretty obvious!</p>
+
+<p>And you know what? It’s ridiculous because everything I have been doing has been largely automated and is performing things faster than whatever machine learning feature Twitch has put out.</p>
+
+<p>And that is just one example. The hate raid lists that have been floating around have patterns too. When I examined one particular set, I was able to cover approximately 40% of them with just one single definition (of a sample set of 480,000 bots, 192,000 were covered). A simple regular expression was able to do that and it wasn’t even that complicated or computationally expensive.</p>
+
+<p>Yet here we are with some poorly implemented machine learning nonsense that could have been done with much simpler techniques. Making it worse, this whole security theatre they’ve put on isn’t even addressing the other problems the site faces.</p>
+
+<h3>Spam bots are still around</h3>
+
+<p>Here’s a line many streamers will know: want to become famous?</p>
+
+<p>The BigFollows spam bots themselves are indicative of Twitch’s machine learning really not working the way it should. The bots which spam the URLs inviting people to buy up followers, subscribers, and “actual” viewers are all tied together and can be tracked.</p>
+
+<p><img src="/img/1HDBGhszZeW9Icn11CRK4Sw_1.png" alt="" /></p>
+
+<p>Recent example of a bot spamming a URL which redirects to the BigFollows service.</p>
+
+<p>The service offers customers followers, viewers, and subscribers at varing prices. Need 200 followers? That’s $2.10 US. 30,000? That’s going to be $100.</p>
+
+<p><img src="/img/1dcx0_MoX0taCe0Y-MjjQrQ_1.png" alt="" /></p>
+
+<p>BigFollows showing available plans for gaining new followers. For as little as less than one penny per new follower, you can get 30,000 of them.</p>
+
+<p>The subscriber services they provide is very damning however.</p>
+
+<p><img src="/img/1hvSQ4ffjZRGqopXj3gcq7Q_1.png" alt="" /></p>
+
+<p>For $2, you can get a $5 subscription given to you. For $70, you can get 50 of them. Each subscription can pay out a customer about $2.50 US each if they’ve reached affiliate status.</p>
+
+<p>For $2, you can get a new Twitch subscriber. For $70, you can get 50. When you take into account that a Twitch subscription itself is typically $5, you can easily come to the same conclusion I am here. The problem is, I have already pointed this out and Twitch is aware of these things, but has done nothing.</p>
+
+<p>Based on my research, BigFollows has about 80,000 accounts available to be used for following customers or spamming its services with a sizeable number available to offer subscriptions.</p>
+
+<p>On October 31st of this year, the service registered 11,107 new accounts between 13:43:46 and 15:22:19 UTC. Every 3/4ths of a second, the service was registering new accounts and this is not just a single blip.</p>
+
+<p>I was able to find the same sort of mass account registrations in 2021 on October 19th, August 26th, and August 14th. For the 14th, we can see 3,700 accounts were all registered in a three hour period, so it has only become worse since.</p>
+
+<p>Personally, I do not care about who’s behind the scenes of this service because I can make a professional guess and say it’s likely affiliated with or linked to organized crime.</p>
+
+<p>However, the fact that this service persists on Twitch and is engaging in what cannot be anything other than fraud leaves me wondering what the hell is going on with Amazon’s audit, risk, and legal teams when it comes to Twitch.</p>
+
+<h3>Looking at a buyer</h3>
+
+<p>A recent user of BigFollows is Twitch user, yonkukaido. Between their account registration in mid-2018 and until just before last month (November 2021), the account had just 489 follows with just one in 2020 and most being in 2018.</p>
+
+<p>However, with zero activity until November, the account gained over 77,000 new follows starting on the 14th. This is of course for an account with what appears to be zero activity leading up to that point and with a Twitter account in their bio that was registered just this month (December 2021) and has no real activity.</p>
+
+<p><img src="/img/1zrFXYF7f07bAY-yEnFucmA_1.png" alt="" /></p>
+
+<p>Profile of Twitch user, yonkukaido showing 78,200+ followers with links to the person’s Twitter, Instagram, and Facebook.</p>
+
+<p><img src="/img/1fnV_CQ0FagfQWxxnZrBwWw_1.png" alt="" /></p>
+
+<p>Twitter account, yoku123414 which is linked from from the previous Twitch example.</p>
+
+<p>Their Instagram and Facebook accounts appear to indicate a man possibly living somewhere in the Middle East. The Instagram profile in particular implies that they’re “a gamer”.</p>
+
+<p><img src="/img/1XS7PjPPtOETHsUIUHRf-Jw_1.png" alt="" /></p>
+
+<p>Previous videos by Twitch user, yonkukaido showing streams of Fortnite being played as recent as December 14th, 2021.</p>
+
+<p>When reviewing the video on demand (VOD) streams on the account, the amount of interaction in the saved chat is quite small for someone who has 78,200 followers. Even a streamer with 500 users is going to have a lot more interaction in chat in their hour-long stream than what was shown for this streamer here.</p>
+
+<p><img src="/img/11X9Se3fLyebnMuMocaKaeg_1.png" alt="" /></p>
+
+<p>Towards the tail-end of this streamer’s VOD, it shows a grand total of five chat messages in just one and a half hours. With 78,200 legitimate followers, this would be significantly more active.</p>
+
+<p>In reviewing some of these videos, there is little to suggest that they’re even talking on stream. However, evidence shows that they’re streaming from a desktop computer as their are using a Streamlabs progress bar on the bottom, something not possible when using console-based streaming.</p>
+
+<p>Overall, the content they’re streaming and how they interact with their stream plus the lack of progress on their on-screen donation bar should be enough to suggest that their sudden explosion in popularity is falsified.</p>
+
+<h3>What is the problem?</h3>
+
+<p>Twitch has requirements for becoming an <a href="https://help.twitch.tv/s/article/joining-the-affiliate-program?language=en_US">affiliate</a> and also a <a href="https://help.twitch.tv/s/article/achievements?language=en_US#Partner">partner</a>.</p>
+
+<p>To become an affiliate, you require a minimum of 500 minutes of stream time, 7 unique broadcasts, at least 3 average viewers per broadcast, and a minimum of 50 followers all across a block of 30 days.</p>
+
+<p>With partner, it’s 25 hours, 12 different broadcasts, and at least 75 average viewers per stream.</p>
+
+<p>In the case of the Twitch streamer example, they have already achieved affiliate status as their profile permits subscriptions, meaning that they can earn money from streaming on the service. When reviewing the view counts for their streams, it’s apparent that they’re also likely buying up viewers and may have achieved enough to meet partner.</p>
+
+<p>The wildcard in all of this is the subscriber count as unless the streamer divulges that information, it remains unknown. However, we can at least confirm that they’re just an affiliate as Twitch provides a purple checkmark in a user profile for anyone who achieves this status.</p>
+
+<p>The consequences of this manipulation on this user’s part are the same as I wrote back in March: it puts the whole affiliate and partner programs Twitch provides into question.</p>
+
+<p>Twitch’s inaction on this despite knowing about it seems to suggest that it is going to continue regardless of their ineffective machine learning components they keep promoting.</p>
+
+<h3>The approach is misplaced and incorrect</h3>
+
+<p>Here’s a question: how many Twitch users are going to know what machine learning is?</p>
+
+<p>If you’re me, then yeah, you understand it and you also groan whenever you hear it. But if you’re just someone who plays video games and doesn’t have any knowledge of computing programming, you’re going to see the term “machine learning” and see it as a buzzword.</p>
+
+<p>And that is just it: I don’t see a reason for why Twitch is going on about this because it’s simply all show. The extended moderation tools they’ve put out that allows you to “watch” and “restrict” suspicious users relies on the moderators themselves to engage with them. Twitch barely explains what they do and when I have used them personally, I don’t see their effectiveness especially when dealing with ban evasion.</p>
+
+<p>Twitch needs to investigate further these spam bots, they need to actually do research on these hate raids, and they also need to make meaningful tools that do the basics first.</p>
+
+<p>Give users the ability to ban people from their chats by allowing wildcards (similar to IRC) and make it clear that whatever moderation or reporting decisions are made are given a follow up and an outline of what has actually happened.</p>
+
+<p><img src="/img/1AgUKbBio7V7q45iJGt6Oqg_1.png" alt="" /></p>
+
+<p>Email excerpt showing a report has been sent to Twitch.</p>
+
+<p>To close out, I went and checked my inbox to see how many times I’ve reported accounts to Twitch and in 2021 alone I reported 152 users and of those 38 received a follow up. This meant that for every four reports I would make, only one would get actioned on and unfortunately Twitch doesn’t make it clear who you reported or who was actioned upon.</p>
+
+<p><img src="/img/1i7N_SowaoO6o62XbRnaxPA_1.png" alt="" /></p>
+
+<p>This excerpt contains as much information as the whole email itself on what has actually occurred.</p>
+
+<p>I report not because I expect Twitch to do anything but because I wanted to know how often they actually bothered to enforce their terms of service.</p>
+
+<p>Twitch hasn’t done better.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2021/10/05/thoughts-on-punditry-during-facebook-s-october-2021-outage/">Thoughts on punditry during Facebook’s October 2021 outage</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Oct 5, 2021
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p>God. I hated and enjoyed the stories and wrong opinions which came out on October 4th, 2021, as Facebook and all of its associated services effectively “disappeared” from the Internet for a half-day. Some of them were the type I wanted to believe, some of them were outlandish, and some of them came from folks who probably need to learn a bit about <a href="https://en.wikipedia.org/wiki/Hanlon%27s_razor">Hanlon’s razor</a>.</p>
+
+<p>This is probably my favourite tweet. It would have been pretty funny to have had the new Matrix movie release on the same day as this incident.</p>
+
+<p>A good primer on what actually happened can be read from <a href="https://blog.cloudflare.com/october-2021-facebook-outage/">CloudFlare</a> and <a href="https://engineering.fb.com/2021/10/05/networking-traffic/outage-details/">Facebook for their part posted a fairly reasonable explanation as well</a>. I won’t dive into these two any further, but I do want to talk about some of the silliness I saw on Twitter, the only working social media outlet that day.</p>
+
+<h4>Facebook could not get into their offices as a result of this</h4>
+
+<p>Turn-key LDAP systems such as Active Directory are so yesterday.</p>
+
+<p>I want to believe this so bad because it would read as both funny and so many movie scenarios coming to life, but it isn’t true.</p>
+
+<p>Runner up for my favourite tweet.</p>
+
+<p>My last visit to Facebook’s Menlo Park campus (on “1 Hacker Way” no less) was a surreal experience because it was very much high-tech in terms of how you signed in, how you got around, and how people worked. Much has likely changed since my mid-2016 speaking engagement there, but advances in access control and so forth have not fundamentally changed.</p>
+
+<p>The company is in fact married to their ID badges. Everything from ordering food, getting office and computer supplies, booking and using conference rooms, and just opening doors is tied to the ID badge. However, at no point did it ever appear that there were no workarounds.</p>
+
+<p>Many came out to say that they had spoken with people who work at Facebook. It is likely that this messed with many of its internal systems, but the disruption was probably not as severe as many made it out to be.</p>
+
+<p>It is possible this whole incident disrupted physical access, but I don’t think that it lasted anywhere as long as some may suggest. Internal tools were disrupted and it likely affected access control systems, but I imagine they still had physical keys somewhere.</p>
+
+<p>I know that the Bay Area is rife for <a href="https://www.washingtonpost.com/technology/2020/06/25/tesla-plant-firings/">flaunting local municipal and state code</a>, but nobody running physical security for a company as high-profile as Facebook is going to overlook the need to override the digital controls. It is likely that nobody could fix this remotely (as in working from home) as Facebook was “gone”, but it would be spectacularly unlikely to have completely locked everyone out.</p>
+
+<p>Many large corporations use IoT devices to operate their conference rooms. They’re not new at all and often are synchronized with the internal lighting, telephony, video conferencing, and electronic displays.</p>
+
+<p>The company also doesn’t have a data centre in its Menlo Park offices. In fact, the closest data centre to them is 800 KM north in Bend, Oregon. Additionally, they have <a href="https://baxtel.com/data-centers/facebook#datacenter-map">multiple data centres</a>, with at least a dozen in the United States, a few in Europe, and one in Asia — this is via unofficial sources I will add. If someone had to do this on site, it was likely at one of these locations.</p>
+
+<h4>Lots of data was stolen and a panic button was hit</h4>
+
+<p><img src="/img/1lLOqs5z5fcT7EjLBxZzrGA_1.png" alt="" /></p>
+
+<p>A now deleted tweet from Twitter user, vx-underground: “At 19:07UTC a RaidForum account under the name ‘CBT’ released 600TB of Facebook data. They are claiming responsibility for the Facebook, Instagram, and WhatsApp outage.”</p>
+
+<p>600 TB is a lot. How much is 600 TB?</p>
+
+<p>From a practical standpoint, let’s look at a 4K movie on Blu-Ray. In this scenario, a movie could be anywhere between 50 and 100 GB in size. On my 940 Mbps Internet connection, it can transfer about 117 MB every second at its maximum capacity. Assuming the maximum size of 100 GB (or 102,400 MB) was being used for the movie, it would take me under 15 minutes to download it via the Internet.</p>
+
+<p>The tweet about data being made available on a “popular hacking-related forum” made its rounds and spread like wildfire without taking into account the absurdity of the claim.</p>
+
+<p>600 TB is 614,400 GB which is 629,145,600 MB. That’s 6,144 of those aforementioned Blu-Ray 4K movies. That means that it would take my connection approximately two months to transfer the data, assuming I could do it at peak and without disruption.</p>
+
+<p>Physically, to store all of that 600 TB on Blu-Ray discs alone would result in the discs alone being just over 7 metres tall. For reference, I am about 1.7 metres in height and as a result those discs would dwarf me.</p>
+
+<p>If we were to use hard drives, the largest capacity on the market today runs at 18 TB, meaning you’d just need 33 of them if redundancy is not important.</p>
+
+<p>At a minimum, you’re looking at about $600 (Canadian dollars) for just one drive, so that comes to just under $11,000 before taxes and recycling fees — maybe you can get a bulk discount. You’d also need somewhere to put those hard drives too, so it will then cost you at least another $10,000 more since you cannot stuff that many into your computer.</p>
+
+<p>And I guess physically speaking, the hard drives would be shorter than the Blu-Ray discs themselves as they’d just be a metre tall all combined.</p>
+
+<p>Since I am not fond of mechanical hard drives, solid state drives run you $1,100 for 8 TB each. We’d need 75 of those (again without redundancy), running you $82,500. Height wise, it wouldn’t be much different than the previous storage medium, but it would be considerably less noisy. You’d still have to add the cost of housing that many drives.</p>
+
+<p>Mirror it on the cloud then? Using <a href="https://aws.amazon.com/s3/glacier/pricing/">Amazon Glacier</a>, you can store data there at $0.004 (US dollars) per GB per month, or $2,460 for the whole 600 TB, assuming you have managed to get it into there. However, making use of the data would then cost you a lot more, as retrieval of the data will likely cost you $0.01 per GB. If you wanted to grab it all after storing it, it could set you back about $6,150, setting aside the costs of storing it locally to begin with.</p>
+
+<p>So no. Someone doesn’t have 600 TB of data for sale — at least not in this situation. If anything, it’s likely that they could have been packaging scraped data and some data floating about that <a href="https://www.businessinsider.com/stolen-data-of-533-million-facebook-users-leaked-online-2021-4">connects Facebook users to their telephone numbers</a>, but even then it doesn’t get close to a single terabyte and I know this first-hand.</p>
+
+<p>Why did I initially use Blu-Ray discs to demonstrate this then? Aside from their storage density, <a href="https://www.pcworld.com/article/443619/facebook-puts-10000-bluray-discs-in-lowpower-storage-system.html">Facebook was reported to have used them to store data long-term as early as 2014</a>. Whether or not it is still the case is uncertain.</p>
+
+<p>To add to this: moving 600 TB out of Facebook’s data centre should hopefully not go without notice despite the amount of data they move typically.</p>
+
+<p>There was a thought popped into my head where someone could walk out with a whole bunch of discs, but I don’t think that can and will happen as 10,000 discs would weigh about 160 KG and would be almost 12 metres if stacked high.</p>
+
+<p>You may as well steal a <a href="https://buy.hpe.com/us/en/storage/file-storage/flexible-file-application-storage/storeeasy-1000-x1000-storage/hpe-storeeasy-1000-storage/p/5335825">storage array</a>, which would be needed for all of those hard drives I mentioned.</p>
+
+<h4>It was all a “security reset”</h4>
+
+<p>I am obscuring this tweet because the person in question has faced enough harassment in their life, but nonetheless, their tweet was so incredibly misinformed that it irritated the hell out of me.</p>
+
+<p><img src="/img/1U3ghzOEFKmIaGQfibl2PSg_1.png" alt="" /></p>
+
+<p>Quoting a <a href="https://twitter.com/briankrebs/status/1445124635238993945">tweet by Brian Krebs</a>: “She downloaded tons of company data to use against the company. Any other employee can do the same. My guess is they took it all down to reset their security, cover their tracks and prevent people from whistleblowing.”</p>
+
+<p>The day before, former Facebook Product Manager, Frances Haugen <a href="https://www.cbsnews.com/news/facebook-whistleblower-frances-haugen-misinformation-public-60-minutes-2021-10-03/">revealed allegations</a> (of which I do believe) of the company amplifying content that would be considered hateful, likely fuelling the fascist fervour surrounding the 2020 American presidential election and the subsequent January 6th failed coup (and let’s not mince words here, it was an attempt) on the U.S. Capitol building.</p>
+
+<p>This is of course incredibly damning for the company as they had continuously denied this in press releases and through its own founder and CEO, Mark Zuckerberg <a href="https://www.washingtonpost.com/news/the-switch/wp/2018/04/10/transcript-of-mark-zuckerbergs-senate-hearing/">in front of congressional hearings</a>.</p>
+
+<p>Why this person’s tweet is so incorrect is quite simple: why would you go about “resetting security” the day after? Nuking any way for people to get to any of the company’s services does not ease “resetting” in whatever form this persons believes and is also incredibly expensive.</p>
+
+<p>Facebook is a for-profit, service-oriented business and consequently downtime of any significance is going to cause them to incur financial penalties from their customers let alone their own revenue streams. Their business is in providing a functional service and data from its users. Being out of commission for a half-day means a loss of that data and in turn a loss in profit.</p>
+
+<p>So what if Facebook actually did do this? Well, the legal hot water they may presently face over these believable allegations would become significantly worse if it came to light that this downtime was all a ruse to get their “ducks in order” in the event that they were requested to provide information to law enforcement. Digital forensics would be all over this because there would have to be communications between higher ups and everyone required to pull off a such a ridiculous stunt.</p>
+
+<p>To add to this, it likely would result in another whistleblower situation. I would imagine that this would all bubble to the surface much faster than the time between Haugen’s departure from the company in May and her appearance on CBS’s 60 Minutes just this past Sunday. Someone in the chain who would have the ability to do all this would likely make noise.</p>
+
+<p>Assuming it were somehow successful and were to come to light, it would likely be a bigger corporate story than the <a href="https://en.wikipedia.org/wiki/Enron_scandal">Enron scandal</a>, which coincidentally occurred almost twenty years ago prior.</p>
+
+<p>This would not be a financial crime of course (maybe a Sarbanes-Oxley violation due to a messing with controls perhaps — I am not a lawyer), but seeing that it would be an blatant attempt to erase evidence and there are already enough within Washington D.C. who have a bone to pick with the company, I don’t think they’d ride this one out with the same ease <a href="https://en.wikipedia.org/wiki/United_States_v._Microsoft_Corp.">Microsoft did when they faced anti-trust suits the same year as Enron broke</a>.</p>
+
+<p><img src="/img/1KVjaDzX6Wlx68RKxMqApqA_1.png" alt="" /></p>
+
+<p>Now that we are at the end: it was aliens. That, or <a href="https://www.swpc.noaa.gov/products/alerts-watches-and-warnings">sun spots</a>.</p>
+
+<p>So no. I don’t see it at all possible as hitting a “reset switch” here as the ramifications would be enormous. In truth and all likelihood, someone coincidentally committed code that messed up production, which then cascaded to catastrophic collapse of vital systems. It fits in with Hanlon’s razor as mentioned at the start of this piece and there is just no evidence to suggest otherwise.</p>
+
+<p>The one theory I did have is maybe a “white knight” situation, where someone opted to fall on their own sword for some misguided reason, but even then I don’t buy that possibility.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
               <a class="post-link" href="/2021/10/02/twitch-has-made-a-good-step-with-preventing-harassment-but-it-has-pitfalls-also-what-the-hell-is/">Twitch has made a good step with preventing harassment but it has pitfalls — also what the hell is…</a>
             
           </h1>
@@ -211,696 +749,6 @@
 <p>The solution of using machine learning at least to me appears to be something “hot and sexy” when in reality we need something conventional. I have done a lot of work around using entropy to detect malicious activity in my line of work, but it was only done after making other attack methods more expensive, which should be done first as it is often easier to do.</p>
 
 <p>At least we finally got these new verification tools, but honestly, Twitch has a lot remaining to do and I am not holding my breath.</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2021/09/08/what-is-in-your-bc-vaccine-passport/">What is in your BC Vaccine Passport?</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Sep 8, 2021
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <hr />
-
-<p>As you may be aware, those in British Columbia are joining other jurisdictions in issuing “vaccine passports”, which is basically a verification system to show your vaccination status. This is to combat the spread of COVID-19, and is intended to ensure that those who are unvaccinated do not pose a threat to those who are.</p>
-
-<p><img src="/img/1TQE1-lLWyA6iIZ9I697cww_1.jpeg" alt="" /></p>
-
-<p>BC Government Health Gateway showing my “BC Vaccine Card”</p>
-
-<p>If you’re reading this and are about to go tweet at me or write some diatribe to my e-mail address about vaccines being tyranny, I have a simple response: fuck off.</p>
-
-<p>I have professional concerns about the passport myself, but they’re based on equity for those who are unable procure a personal health card for whatever reason. If your concerns align with the thousands who opted to hinder access to local hospitals, you’re a fucking dickhead and I do not care about your baseless and factless opinions.</p>
-
-<hr />
-
-<p>Anyway, historically, <a href="https://www.theglobeandmail.com/opinion/article-my-vaccine-passport-from-the-1970s-tells-the-story-of-disease-in-our/">these are not new at all</a> as during my own parents’ lifetimes before my being born, they existed for Canadians who needed to travel abroad. However, we’re now in the age where our mobile phones are capable of providing an aspect of verification of vaccination status.</p>
-
-<p><img src="/img/1YTQ_lxEunLQIPdClX4xMWA_1.png" alt="" /></p>
-
-<p>Website for SMART Health Cards</p>
-
-<p>It was feared initially that every jurisdiction would adopt a system of their own to work with the data, but fortunately it seems that British Columbia has adopted the same system as Québec, which is to use the <a href="https://smarthealth.cards">SMART Health Card</a> system, a standard developed by the W3C Consortium, who are behind the standards for the <a href="https://www.w3.org">world wide web</a>.</p>
-
-<p>Much like how the world wide web work with establishing encrypted connections for online banking, the SMART Health Card (“SHC”) uses the same methodology to verify the contents of the presented QR code. The QR code can be shown to anyone with <a href="https://thecommonsproject.org/smart-health-card-verifier">an mobile phone running an application capable of reading it</a>, and then the details on the application can be compared with some photo identification to confirm that the QR code belongs to the person they’re interacting with.</p>
-
-<p>The QR code can be on your phone, a piece of paper, or in one case with someone in Québec, printed on a t-shirt so it could be read metres away.</p>
-
-<p>Anyone can read this QR code and with that it may raise some eyebrows.</p>
-
-<hr />
-
-<p>So now you’re wondering: what makes it safe? How does someone not get my personal details? These are legitimate and important questions and it can be answered quite easily: the issuing health authority is only supposed to put as much information as needed on the card.</p>
-
-<p><img src="/img/1KQNVSwakCiCjaRJDjNwMrA_1.png" alt="" /></p>
-
-<p>The SMART Health System is clear about what can be on a person’s card.</p>
-
-<p>As it stands, the standard should contain your legal name, date of birth, tests if relevant, vaccinations, and contraindications should you have any. It is spelt out as per the image about that it should not contain your phone number, your address, an identifier such as a personal health or drivers licence number, and other health information. The SHC standard straight up outlines keeping data at a minimum and has <a href="https://spec.smarthealth.cards/#privacy">a whole section on privacy</a>.</p>
-
-<p><img src="/img/1QUpdpfSQ5hTqxBO34Ev_5w_1.jpeg" alt="" /></p>
-
-<p>Output from a SHC QR code reader. The “issuer not recognized” remark at the bottom should be of no concern until the programme goes live in a week. I would expect that to go away by then.</p>
-
-<p>So does British Columbia adhere to the recommendations?</p>
-
-<hr />
-
-<p>I have gone ahead and decoded my passport (<a href="https://marcan2020.medium.com/reversing-smart-health-cards-e765157fae9">using this methodology as a guide</a>) and was able to glean from the data that it has the following:</p>
-
-<ul>
-  <li>The issuer (ISS), which is remarked as the Provincial Health Services Authority (PHSA)</li>
-  <li>The creation date (NBF), which is an epoch time stamp of seconds since January 1, 1970 00:00:00 UTC (standard for most computer data)</li>
-  <li>The type of card it is, with the data outlining it is for COVID-19, immunization, and is a health card</li>
-  <li>The family name of the passport holder</li>
-  <li>The first or given name of the passport holder</li>
-  <li>Their birth date</li>
-  <li>Their immunization records and date of occurrence for each plus the vaccine type, lot number (which box or order the vaccine came in), and where it was given</li>
-</ul>
-
-<p>That is it. There are no health numbers, no address, and surprisingly, no mention of the person’s gender. I have concerns about the name aspect for those who are transgender as it could out them, but that is it.</p>
-
-<p>You can safely show this QR code to someone else if someone requests you of that information. If you’re running a wedding, you can have your guests confirmed that they have been vaccinated. All you need is to have photo identification to verify the contents of the QR code and through the power of mathematics, it is incredibly difficult and likely impossible to forge a QR code that can thwart this system.</p>
-
-<p>Go ahead and print this out, <a href="https://gist.github.com/dotsam/1ed47617fbf960862345353aaaeb79ea">make an iOS shortcut that is super useful</a>, or put it on a t-shirt. It’ll be a piece of identification until we get through this mess we’re still in.</p>
-
-<p>All we are waiting on is for the PHSA to become an recognized issuer and anyone can trust this vaccine passport. A vaccine passport issued in British Columbia will also work in Québec and vice-versa and while it may have issues internationally as I am certain that someone in Florida or Belgium may not know what the PHSA is, they’d still be able to read the data anyway.</p>
-
-<hr />
-
-<p>Go get your passport if you have gotten your vaccine and if you haven’t gotten your vaccine yet, go get it. If you don’t want to get your vaccine, leave everyone alone and wait out the pandemic so you don’t spread it or worse get sick.</p>
-
-<p>My remaining concern right now is: what do we do about those who cannot get access to the website? Equity is still my problem with all of this, and my concern lies with those who are undocumented or are of no fixed address, just to name a few.</p>
-
-<p><em>Update: it seems that you can just call in to get a non-digital copy of the passport should you run into some issues related to equity.</em></p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2021/08/12/scott-road-is-the-worst-but-what-else-is-to-be-said-about-the-skytrain-and-west-coast-express/">Scott Road is the worst, but what else is to be said about the SkyTrain and West Coast Express…</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Aug 12, 2021
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <hr />
-
-<p><em>If you have not read</em> <a href="https://katelibc.medium.com/the-worst-skytrain-station-is-scott-road-26e2b4c34ad0"><em>my previous piece on Scott Road being the worst SkyTrain station</em></a><em>, I suggest giving it a read first as it will help give better context to this article as well! If you want to take a look at the raw data,</em> <a href="https://katelibc.medium.com/7ad4c55b54dc"><em>you can read this too</em></a><em>.</em></p>
-
-<p><img src="/img/1d-P-2Ifnpx1P95QWcJmf7A_1.png" alt="" /></p>
-
-<p>All will tremble as they approach this sign.</p>
-
-<p>After poll after poll, we have finally determined that the worst station operated by TransLink is Scott Road. However, Scott Road was not the only station given negative attention.</p>
-
-<p>None of this should be taken as anything more than my uneducated observations as I don’t really think it’s that important overall. We all know Scott Road sucks!</p>
-
-<h3>Engagement and results</h3>
-
-<p>As mentioned in the original piece, this was a super-scientific Internet poll where there was absolutely no bias and everyone knows what they are doing.</p>
-
-<p>One big thing: no station tied. I did vote in every poll and would have removed myself or gotten someone to break it had it occurred.</p>
-
-<p>There were 5,455 total votes counted across six rounds. As the polls went on, the engagement did drop, which does make sense considering the number of match ups reducing with each step. Each match up on average had 104 votes, with the opening round having the most at 127 and the third having the least with 59. The final match stood alone of course at 222 total votes.</p>
-
-<p>Losers in each match up (which are really “winners”) tended to get a score of just about 25 points. With exception to the first round which saw an average of about 29 votes, all losers received an average of either 15 or 16. The final loser saw a loss of 56.</p>
-
-<p>Winners (or “losers”) saw stability in the same rounds with the second to the fifth seeing 47, 44, 53, and 66 respectively, but the first saw 98 votes. The winner received 166.</p>
-
-<p>Some close matchups were to be had as well. When Gilmore faced Port Haney in the second round, the resulting score was 27 to 23, pushing Gilmore into the third round.</p>
-
-<p>Then there were some matchups where the outcome was so obvious that it was tempting to break the rules. A good example was where in the first round, Joyce-Collingwood received a meagre 14 votes to Lansdowne’s 115.</p>
-
-<p>The winner of the tournament, Scott Road, averaged 75% of the vote share in each poll, with the worst at 65.7% and the best with 85.7%.</p>
-
-<h3>Ranking the worst by round weight</h3>
-
-<p>The way data was presented by Challonge made some stations who lost in other rounds as being tied with others. This makes ranks rather awkward as we end up with four stations tied for fifth and eight for ninth with no indication of what sits inbetween.</p>
-
-<p>To combat this, I came up with this idea: we have six rounds, so the first round would give a score a weight of 1/6th, second would be 1/3rd, and so forth until the sixth and final round just being a weight of 1. What we can do with this is then apply this to the scores awarded in each round.</p>
-
-<p>An example would be where Royal Oak had a score of 16 to Gateway’s 29, meaning that it was actually a score of 5.3 to 9.6 due to the match being in the second round. Another would be the first round’s Metrotown’s 52 to Production Way-University’s 189 becoming 8.6 to 31.5.</p>
-
-<p>With this information, let’s rank the top ten worst stations overall using their combined weighted votes.</p>
-
-<ol>
-  <li>Scott Road (319.16)</li>
-  <li>Lake City Way (214.16)</li>
-  <li>Gateway (103.5)</li>
-  <li>Holdom (103.17)</li>
-  <li>King George (72.17)</li>
-  <li>Port Coquitlam (64)</li>
-  <li>Edmonds (48.67)</li>
-  <li>Sapperton (47)</li>
-  <li>Maple Meadows (43.17)</li>
-  <li>Nanaimo (38.84)</li>
-</ol>
-
-<p>Of note for municipalities, we have three stations in Surrey, three stations in Burnaby, one both in New Westminster and Vancouver, and then Port Coquitlam and Maple Ridge each getting in as well. All stations mentioned are on the Expo Line except for Maple Meadows and Port Coquitlam being West Coast Express; and Lake City Way and Holdom being Millennium Line.</p>
-
-<p>If you hate this idea, let it be known that I am not a statistician. The idea I have here is to look at the popular vote and which polls received the most engagement. If you wish to play with the data differently, please do check out the link at the start of the article!</p>
-
-<h3>Using the weighted scores on service and line</h3>
-
-<p>While the West Coast Express operates on regular locomotives, sharing tracks with freight rail services, the SkyTrain system is completely separate. There are however three stations where both systems do meet as transfer points, with all three SkyTrain lines having connections.</p>
-
-<h4>SkyTrain</h4>
-
-<p>This system was first introduced in 1985 and has expanded since to provide via three lines.</p>
-
-<p><img src="/img/1QqeYjEDLZSP-1npEpMnziw_2.png" alt="" /></p>
-
-<p>Most of the stations in the tournament are shown here. (<a href="https://commons.wikimedia.org/wiki/User:Zacharycmango#/media/File:Vancouver_Rail_Transit_Map.png">Source</a>)</p>
-
-<p>The Expo Line and Millennium Line both use the same technologies and service Vancouver, Burnaby, Coquitlam, Port Moody, New Westminster, and Surrey. The extension of the Millennium Line is the most recent addition, providing service as far east as Coquitlam. Presently, both lines are being extended with the Millennium going further west into Vancouver towards Arbutus Street and the Expo Line terminating to the southeast in Langley.</p>
-
-<p>The Canada Line serves just Richmond and Vancouver and notably provides service to the airport. Unlike the other two lines, it only provides two car trains and has much shorter platforms and is incompatible physically and technologically.</p>
-
-<p><img src="/img/18dzwCkOqJw2DMC1ZAoDvmw_1.jpeg" alt="" /></p>
-
-<p>The Expo Line is home to Commercial-Broadway, a station which lets you enter or exit a train on either side.</p>
-
-<p>The Expo Line is home to the winner, Scott Road and also received a score of 32.05. It also received the lowest score for a single station, which will be discussed later.</p>
-
-<p>It ranked as follows:</p>
-
-<ol>
-  <li>Scott Road (319.17)</li>
-  <li>Gateway (103.5)</li>
-  <li>King George (72.17)</li>
-  <li>Edmonds (48.67)</li>
-  <li>Sapperton (47)</li>
-</ol>
-
-<p><img src="/img/1TXFzE-kOlzeUQ1AwoB2Ncw_1.jpeg" alt="" /></p>
-
-<p>Somehow I only have one photo of a Millennium Line station.</p>
-
-<p>With the Millennium Line, it had the runner up, Lake City Way, and received an average of 35.26. It is home to the youngest of all SkyTrain stations, with the extension to Coquitlam opening in 2016 alongside an upgrade of Lougheed Town Centre as well — all of those new stations plus Lougheed scored 14.67.</p>
-
-<ol>
-  <li>Lake City Way (214.17)</li>
-  <li>Holdom (103.17)</li>
-  <li>Production Way-University (38.17)</li>
-  <li>Renfrew (28.67)</li>
-  <li>Gilmore (26.67)</li>
-</ol>
-
-<p><img src="/img/1wWRST11wRSQy5nqb_0Jxeg_1.jpeg" alt="" /></p>
-
-<p>Canada Line trains are wider than their Expo and Millennium Line siblings.</p>
-
-<p>And lastly, the Canada Line, which has its trains physically separate from the other two lines scored 13.04, making it the least disliked of the three lines.</p>
-
-<ol>
-  <li>Richmond-Brighouse (34.17)</li>
-  <li>Yaletown-Roundhouse (32.67)</li>
-  <li>Templeton (29.17)</li>
-  <li>Lansdowne (22.5)</li>
-  <li>Aberdeen (19.5)</li>
-</ol>
-
-<p>Overall, SkyTrain received a score of 26.78.</p>
-
-<h4>West Coast Express</h4>
-
-<p>The service provided by the West Coast Express (WCE) is different from SkyTrain in that it doesn’t provide service throughout the majority of the day and it also is unusual in that it extends outside of TransLink’s jurisdictions with its one station in Mission.</p>
-
-<p><img src="/img/1SplzU3qAggEkRfCO69ktrA_1.jpeg" alt="" /></p>
-
-<p>One cool trick about the West Coast Express now is that you may have the option to use it if SkyTrain has problems but isn’t completely down.</p>
-
-<p>Because of it being a commuter rail service with single-direction service in the mornings into Waterfront and in the evenings towards Mission City, its stations reflect that nature by being quite spartan.</p>
-
-<p>It was anticipated that at least one of them would place top-five when I started the polls, but it fell short by only placing sixth after adjusting for weight. Challonge tied two stations for fifth — Maple Meadows and Port Coquitlam — but I am more interested in the weighted score.</p>
-
-<p>Of the eight stations served, three tie in with SkyTrain, which I do believe alters the score quite a bit as there is a larger pool of non-WCE users available to alter the outcome.</p>
-
-<p>With the SkyTrain stations included, we get the following result:</p>
-
-<ol>
-  <li>Port Coquitlam (64)</li>
-  <li>Maple Meadows (43.17)</li>
-  <li>Pitt Meadows (34.33)</li>
-  <li>Coquitlam Central (22.17)</li>
-  <li>Mission City (17.67)</li>
-</ol>
-
-<p>Of those above five, only one ties in with SkyTrain, which is Coquitlam Central. Stations without that connection produced a score of 34.8, which makes it score worse than SkyTrain. However, if we add the removed stations back in, the score becomes 25.</p>
-
-<h4>Transfer stations</h4>
-
-<p>As mentioned with the West Coast Express, many of the stations act as transfer points and the same is true with SkyTrain. With some stations, the service is interlined — such as Production Way-University having a single platform for Expo and Millennium Line trains — and in others, everything is separate — see Waterfront with its Expo and Canada Line platforms and also West Coast Express.</p>
-
-<p><img src="/img/1X2U-gmLAG-URUvLDPkCDEw_1.jpeg" alt="" /></p>
-
-<p>The platform just above where the SkyTrain vehicle is located is about as close as it gets for where the West Coast Express and Expo Line will meet.</p>
-
-<p>I’ve opted to define the transfer points as any station where you must leave the train to go elsewhere without necessarily leaving the station. This would include connections to other lines or the WCE, but it also includes where the line would split into a spur such as what occurs on the Expo Line and Canada Line.</p>
-
-<p>This gives us eight stations to work with, with two shared between the Expo Line and Millennium Line (Production Way-University and Lougheed Town Centre), one shared between the Canada Line, Expo Line, and WCE (Waterfront); two shared with the Millennium Line and WCE (Moody Centre and Coquitlam Central), one each on the Expo Line and Canada Line (Columbia and Bridgeport).</p>
-
-<p>It ends up looking like this:</p>
-
-<ol>
-  <li>Production Way-University (38.17)</li>
-  <li>Columbia (35.17)</li>
-  <li>Coquitlam Central (22.17)</li>
-  <li>Bridgeport (15.5)</li>
-  <li>Commercial-Broadway (5.5)</li>
-</ol>
-
-<p>In reviewing Production Way-University, which is shared as a terminus station for the Expo Line and a regular station on the Millennium, it was interesting how it scored so poorly considering it didn’t make it past the second round and had only one comment about its lack of available escalators.</p>
-
-<p>Columbia did make it into the third round and ultimately lost to Scott Road, but had received less votes. The complaints were all focused on it being a terrible transfer point as the stations two separate platforms means it is very difficult to make a quick transfer.</p>
-
-<p>Overall, transfer stations received a score of 15.6.</p>
-
-<h3>Ranking by municipality</h3>
-
-<p>Using the weighted votes we determined earlier, we can determine how individual municipalities fared.</p>
-
-<h4>Vancouver</h4>
-
-<p>Stations within the city limits received an overall score of 10.87. It is the only municipality with all three SkyTrain lines and West Coast Express service.</p>
-
-<p><img src="/img/1kBxlx4zQEaTFfQq83xzaVQ_1.jpeg" alt="" /></p>
-
-<p>One day I will write about my love affair with Waterfront.</p>
-
-<p>Notably, the original SkyTrain station, Main Street-Science World received the lowest score of 0.83, making it the last-disliked station in the tournament.</p>
-
-<ol>
-  <li>Nanaimo (38.83)</li>
-  <li>Yaletown-Roundhouse (32.67)</li>
-  <li>Renfrew (28.67)</li>
-  <li>Rupert (23.17)</li>
-  <li>Broadway-City Hall (12.33)</li>
-</ol>
-
-<p>With the upcoming interchange at Broadway-City Hall, this score could change should this tournament run again.</p>
-
-<h4>Burnaby</h4>
-
-<p>This city was host to the runner up, so it is easy to determine which would place first. The scoring average here was 47.85.</p>
-
-<ol>
-  <li>Lake City Way (214.17)</li>
-  <li>Holdom (103.17)</li>
-  <li>Edmonds (48.67)</li>
-  <li>Production Way-University (38.17)</li>
-  <li>Gilmore (26.67)</li>
-</ol>
-
-<p><img src="/img/1ov0p4bicdyV8Flbyc4JRnQ_1.jpeg" alt="" /></p>
-
-<p>Escalators are plentiful at Metrotown which isn’t easy to be said for most stations.</p>
-
-<p>Expansion of rapid transit in Burnaby isn’t in the near future, but I am curious to how Brentwood Town Centre’s changes will have an impact on things.</p>
-
-<h4>Richmond</h4>
-
-<p>Richmond only has a single line (Canada Line) entering its city limits and is home to Vancouver International Airport, which is one of the two termini for the city. Its stations received average score of 19.9.</p>
-
-<ol>
-  <li>Richmond-Brighouse (34.17)</li>
-  <li>Templeton (29.17)</li>
-  <li>Lansdowne (22.5)</li>
-  <li>Aberdeen (19.5)</li>
-  <li>Bridgeport (15.5)</li>
-</ol>
-
-<p><img src="/img/17QJc0NHSZuNS6KezTZjKdA_1.jpeg" alt="" /></p>
-
-<p>On its first day open to the public, it was free to ride and I happened to be in Richmond at the time.</p>
-
-<p>The city will receive its newest station, Capstan Way, in <a href="https://www.translink.ca/plans-and-projects/projects/rapid-transit-projects/capstan-station">2023</a>, which will sit between Aberdeen and Bridgeport.</p>
-
-<h4>Tri-cities and elsewhere</h4>
-
-<p>The tri-cities (Coquitlam, Port Coquitlam, and Port Moody) plus Maple Ridge, Pitt Meadows, and Mission do not have enough stations to make a top five list each — Mission is also the only station completely outside of TransLink’s jurisdiction.</p>
-
-<p>Combined, they received an average score of 19.24, but for the municipalities which have more than two stations (which is just Coquitlam and Port Moody), it changes. Port Moody with its two stations received an average of 2.83 and Coquitlam scored 17.5. Both municipalities each have one station which provides connecting service to the West Coast Express — Moody Centre and Coquitlam Central.</p>
-
-<ol>
-  <li>Port Coquitlam (64)</li>
-  <li>Maple Meadows (43.17)</li>
-  <li>Pitt Meadows (34.34)</li>
-  <li>Burquitlam (23.5)</li>
-  <li>Coquitlam Central (22.17)</li>
-</ol>
-
-<p>There are no plans to expand service further eastward for SkyTrain services although there are design considerations for it in place.</p>
-
-<h4>Surrey and New Westminster</h4>
-
-<p>With New Westminster having exactly five stations and Surrey just having four, it was given the thought to combine their stations into one list. However, the roles and areas the stations serve are different and it didn’t feel right to combine them as one list.</p>
-
-<p>While Surrey did have the worst station and a high average score of 125.84, it did also have one of the least-hated stations with Surrey Central scoring 8.5, placing it 33rd out of 50 — many stations had tied despite the weights.</p>
-
-<p>The challenge with this score is that the city does not have that many stations and it doesn’t extend as deep into its borders as elsewhere in the tournament, with this of course changing in the next few years.</p>
-
-<p><img src="/img/1eYeBLOsv0-V_Rxq-WwtQvQ_1.jpeg" alt="" /></p>
-
-<p>At one point in their lifetimes, both Sapperton and Braid stations were exclusively Millennium Line stations.</p>
-
-<p>New Westminster’s least favourite station, Sapperton received a score of 47, with Columbia getting 35.17. The average for the city was 23.17. Like Burnaby, there are no real major changes in the city’s future with perhaps upgrades to Columbia, proposed to alleviate its problems with being a transfer point for the Expo Line spurs.</p>
-
-<h3>I hate these numbers!</h3>
-
-<p>That is okay! So do I! Midway through writing this article, I wanted to talk more about the percentages rather than the weights, but I was already pretty tired of staring at spreadsheets and data. If you’re interested in playing with the data yourself, <a href="https://katelibc.medium.com/7ad4c55b54dc">I have a separate piece you can read</a>!</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2021/08/12/data-from-the-worst-skytrain-west-coast-express-tournament/">Data from the Worst SkyTrain/West Coast Express Tournament</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Aug 12, 2021
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <hr />
-
-<p><em>If you have not read</em> <a href="https://katelibc.medium.com/the-worst-skytrain-station-is-scott-road-26e2b4c34ad0"><em>my previous piece on Scott Road being the worst SkyTrain station</em></a><em>, I suggest giving it a read first as it will help give better context to the data here.</em></p>
-
-<p>From late-June until the end of July, I ran a tournament to decide which of the stations on the SkyTrain and West Coast Express systems is the worst. Here is the data if you are at all interested in taking a look.</p>
-
-<h3>Challonge data</h3>
-
-<p>Challonge does not provide an API, but it did deliver the data via JSON, which is then rendered by the browser locally.</p>
-
-<p>You can view the data I extracted <a href="https://gist.github.com/KateLibC/850f4d85918f83fd89862a2d4da580bc">here</a>, which was sourced from this <a href="https://challonge.com/9miosktl">page</a>.</p>
-
-<h3>Facebook polls</h3>
-
-<p>Assuming you have access to the Facebook group, you should be able to see each poll from these links.</p>
-
-<p>The numbers in parenthesis are the scores they received at the time a snapshot was made. It is likely that some of them have changed since but they’re not reflected in the data provided earlier.</p>
-
-<h4>Round 1</h4>
-
-<p><a href="https://www.facebook.com/groups/1931784403538780/posts/4429981407052388/">Metrotown (52) versus Production Way–University (189)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4440827759301086/">Nanaimo (95) versus Lougheed Town Centre (27)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4438157259568136/">Inlet Centre (23) versus Aberdeen (85)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4427260657324463/">Braid (44) versus Columbia (106)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4432369240146938/">Main Street–Science World (5) versus Mission City (70)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4426647580719104/">Sea Island Centre (73) versus Scott Road (140)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4435376336512895/">Coquitlam Central (115) versus Granville (57)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4427273203989875/">Commercial–Broadway (33) versus Burquitlam (131)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4435292889854573/">Pitt Meadows (56) versus Oakridge–41st Avenue (14)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4427266517323877/">Lansdowne (115) versus Joyce–Collingwood (14)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4432350766815452/">Gateway (85) versus 29th Avenue (13)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4429984920385370/">Gilmore (85) versus Surrey Central (51)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4438159782901217/">22nd Street (19) versus Port Haney (43)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4432361013481094/">Brentwood Town Centre (43) versus Broadway–City Hall (56)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4440819735968555/">Bridgeport (75) versus Burrard (31)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4435385696511959/">Waterfront (12) versus Holdom (142)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4435382269845635/">New Westminster (19) versus Rupert (111)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4440822145968314/">Moody Centre (11) versus Edmonds (61)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4432356413481554/">Sapperton (78) versus Stadium–Chinatown (28)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4438155812901614/">YVR–Airport (38) versus Yaletown–Roundhouse (116)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4429998590384003/">Port Coquitlam (83) versus Olympic Village (23)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4435382269845635/">Marine Drive (27) versus Renfrew (120)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4438154522901743/">Richmond–Brighouse (99) versus King Edward (34)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4429989220384940/">Templeton (100) versus VCC–Clark (33)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4443484492368746/">Patterson (102) versus Lafarge Lake–Douglas (19)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4440817459302116/">Lake City Way (90) versus Langara–49th Avenue (18)</a></p>
-
-<h4>Round 2</h4>
-
-<p><a href="https://www.facebook.com/groups/1931784403538780/posts/4457907254259803/">King George (96) versus Production Way–University (20)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4463603050356890/">Nanaimo (30) versus Aberdeen (16)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4466086223441906/">Columbia (27) versus Mission City (18)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4460633290653866/">Scott Road (54) versus Coquitlam Central (9)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4463604433690085/">Maple Meadows (46) versus Burquitlam (5)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4457910457592816/">Pitt Meadows (42) versus Lansdowne (10)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4460642083986320/">Royal Oak (16) versus Gateway (29)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4466087330108462/">Gilmore (27) versus Port Haney (23)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4460635783986950/">Lincoln (50) versus Broadway–City Hall (9)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4466088603441668/">Bridgeport (9) versus Holdom (59)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4463605550356640/">Rupert (14) versus Edmonds (30)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4457909577592904/">Sapperton (72) versus Yaletown–Roundhouse (40)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4466091090108086/">Vancouver City Centre (9) versus Port Coquitlam (53)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4460638633986665/">Renfrew (26) versus Richmond–Brighouse (35)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4463607923689736/">Sperling–Burnaby Lake (16) versus Templeton (27)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4457908524259676/">Patterson (15) versus Lake City Way (78)</a></p>
-
-<h4>Round 3</h4>
-
-<p><a href="https://www.facebook.com/groups/1931784403538780/posts/4491777947539400/">King George (59) versus Nanaimo (26)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4494881250562403/">Columbia (17) versus Scott Road (42)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4491779237539271/">Maple Meadows (37) versus Pitt Meadows (22)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4494882673895594/">Gateway (43) versus Gilmore (7)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4491780530872475/">Lincoln (10) versus Holdom (63)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4494883700562158/">Edmonds (33) versus Sapperton (20)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4491781670872361/">Port Coquitlam (41) versus Richmond–Brighouse (12)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4494884747228720/">Templeton (7) versus Lake City Way (33)</a></p>
-
-<h4>Round 4</h4>
-
-<p><a href="https://www.facebook.com/groups/1931784403538780/posts/4503609293022932/">King George (16) versus Scott Road (65)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4503611309689397/">Maple Meadows (14) versus Gateway (56)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4503612859689242/">Holdom (35) versus Edmonds (18)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4503610109689517/">Port Coquitlam (18) versus Lake City Way (56)</a></p>
-
-<h4>Round 5</h4>
-
-<p><a href="https://www.facebook.com/groups/1931784403538780/posts/4511764692207392/">Scott Road (57) versus Gateway (25)</a><br />
-<a href="https://www.facebook.com/groups/1931784403538780/posts/4511766418873886/">Holdom (6) versus Lake City Way (76)</a></p>
-
-<h4>Round 6</h4>
-
-<p><a href="https://www.facebook.com/groups/1931784403538780/posts/4521077564609438/">Scott Road (166) versus Lake City Way (56)</a></p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2021/08/09/the-worst-skytrain-station-is-scott-road/">The Worst SkyTrain Station is Scott Road</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Aug 9, 2021
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <hr />
-
-<p><img src="/img/1xi12fNt_1XGk7HzFw7tI1A_1.jpeg" alt="" /></p>
-
-<p>If you have gotten off your train and are seeing this sign, you probably know why it is a bad station without having to read a Medium piece about it.</p>
-
-<p>One of the questions that is easy for me to answer is my favourite SkyTrain station, but the more difficult question is what is my most-hated.</p>
-
-<p>The answer to my favourite won’t be provided in this article, but it is rooted in my ability as a person, my commuting patterns, and where I live. This means that I cannot give an objective answer to a good or bad station because my needs and uses are different from everyone else.</p>
-
-<p>So how did I determine the worst SkyTrain station? Well, after being unable to come to a conclusion after a conversation with friends, I embarked on crowdsourcing the answer using a tournament bracket.</p>
-
-<h3>Asking ELMTOTs about every station in the SkyTrain and West Coast Express network</h3>
-
-<p><img src="/img/1QqeYjEDLZSP-1npEpMnziw_3.png" alt="" /></p>
-
-<p>SkyTrain and West Coast Express network as of 2021 (<a href="https://commons.wikimedia.org/wiki/User:Zacharycmango#/media/File:Vancouver_Rail_Transit_Map.png">Source</a>)</p>
-
-<p>SkyTrain consists of a handful of automated metro lines, with 53 stations spread across a total length of about 80 KM. The West Coast Express (WCE) provides commuter rail services to eight stations along 69 KM of shared track, with three of them sharing connections to the SkyTrain network itself.</p>
-
-<p>Because of the unevenness of the number of stations provided in the present-day SkyTrain network, WCE stations were included to make it easier to run a <a href="https://challonge.com/9miosktl">tournament bracket</a>. The thought was that since both are operated by TransLink (the parent agency) and were both rail services, it was fair to have them scrutinized.</p>
-
-<p>Expo Line Memes for TransLink Oriented Teens (ELTMOT), is a <a href="https://www.facebook.com/groups/1931784403538780/">Facebook group</a> where transit users can come together to chat about what they like or dislike about the network, share memes, and in my case, provide a “very scientific” tournament where each member of the group were invited to help select the worst station.</p>
-
-<p>With the tournament, there were six rounds. In each, a separate poll was posted for each match-up of two stations. With one vote per person permitted and three days passing, a winner (or “loser”, I guess) was decided. The station with the most votes went on to the next round and this kept repeating until the finals.</p>
-
-<p>Some stations did not appear until the second round, but the way the tournament was organized was done at random, avoiding any potential for bias when the list was given to the bracket software.</p>
-
-<p>There were dozens of posts made of which admittedly was a lot more work than I had expected. Somehow I managed to endure the 43 C heat dome at the onset of the poll too, but I was determined (or stubborn) enough to keep it going as it was a question requiring an answer.</p>
-
-<p>From June 21st to July 27th of this year, the voting kept going. After so many posts and data entry, the worst station was crowned as the winner.</p>
-
-<p>So let’s talk about the winner and also let’s pay it a visit.</p>
-
-<h3>What did everyone say against the station?</h3>
-
-<p><img src="/img/1tMs_sF4WLA9NbNh71XYH9w_1.jpeg" alt="" /></p>
-
-<p>In 2019, 3.3 million people had to endure seeing this sign.</p>
-
-<p>I have collected a few quotes from various ELMTOT members and have included them here.</p>
-
-<blockquote>
-  <p>“Scott Road Station is objectively … not a good place to be.”</p>
-</blockquote>
-
-<blockquote>
-  <p>“If you walk from Scott Road Station to Brownsville Park via the parking lot, you get stuck in the middle of a highway so that’s cool.”</p>
-</blockquote>
-
-<blockquote>
-  <p>“Scott Road is such a depressing station. Nothing interesting, nothing remotely aesthetically pleasing, It’s just sadness.”</p>
-</blockquote>
-
-<blockquote>
-  <p>“Wanna run all the way across a parking lot and then cross a road with no sidewalks and horribly placed crosswalks to get to a McDonalds”</p>
-</blockquote>
-
-<blockquote>
-  <p>“I hate Scott Road Station personally because for a couple years on Sundays as a teenager, I would miss the 312 [bus route] by a few minutes and end up waiting there an hour. Nothing to do, nowhere to pee, phone battery at 4%… fuck Scott Road Station.”</p>
-</blockquote>
-
-<p>One person did defend the highway connections and available parking, but overall the impressions of the station were negative.</p>
-
-<h3>Okay. So why specifically is Scott Road so bad?</h3>
-
-<p>The last time I visited this station was probably in 2008 when my then girlfriend and I chose to cross the Pattullo Bridge on foot at 11:30 PM at night to get back to my home via Scott Road Station instead of walking to the reasonably close Columbia Station, which would have taken just ten minutes.</p>
-
-<p>I can remember getting off of the bridge after a twenty minute walk, with her and I being completely unsure about how to get to the station despite it being in eyeshot. The were fences in the way, resulting in a need to figure out where to cross. After some trial and error, we managed to get into one of the parking lots and boarded a train to Surrey Central.</p>
-
-<p>She and I were both in our twenties then and it was one of those decisions you make because you like red wine too much. However, I am now in my thirties, no longer with said girlfriend, and additionally don’t like red wine anymore, so a sober trip to the station was in order with only a short walk from my home to a nearby station.</p>
-
-<p><img src="/img/16fQsgrAgt_a9LLxlxN1sMA_1.jpeg" alt="" /></p>
-
-<p>Scott Road Station on a gloomy August day.</p>
-
-<p>Scott Road is Surrey’s oldest SkyTrain station and for a few years was the only station south of the Fraser River. It sits prominently above Scott Road itself, which is the crux of its issues.</p>
-
-<p><img src="/img/1qlu5IZYz3BDJjJcf3_9_iw_1.png" alt="" /></p>
-
-<p>Scott Road Station as viewed from space (Google/Maxar).</p>
-
-<p>The road, Scott Road terminates just to the east of the station as it meets with King George Boulevard via an interchange, with north access leading to New Westminster via the Pattullo Bridge and south access towards Surrey’s city centre.</p>
-
-<p>The interchange itself should be indicative enough of how pedestrian unfriendly the area is, but it is even worse than that because the road does mean you cannot go from one part of the station’s outside services to the other without having to go into the station itself.</p>
-
-<p><img src="/img/11LGr6U7YV9BaKbfZ3tak-w_1.jpeg" alt="" /></p>
-
-<p>TransLink’s provided map for what is “walkable” around the area demonstrates the underwhelming amenities you could get to by foot unless you really want to visit the nearby Home Depot. Also, you cannot really make a five minute walk to anything to the east of you unless you like playing an augmented reality version of Frogger.</p>
-
-<p>Upon exiting a train, you have three options for available services: a bus loop and a car lot on the north end, and another car lot on the south end. This is extremely confusing.</p>
-
-<p><img src="/img/1tfdI9bz1GK-V1WyJHELp8A_1.jpeg" alt="" /></p>
-
-<p>Two exits lead to two identical parking lots and only one takes you to a bus.</p>
-
-<p>The confusion about the two parking lots stems from how this station was first designed: it was meant to be a park and ride. Cars would drive to the station and either park there or would wait to pick up any departing passengers.</p>
-
-<p>If you got off here during the era where your mobile phone did not have instant messaging, you’d have to ensure ahead of time that your awaiting car was in the correct location. This is less of an issue these days, but assuming everyone has a mobile phone which permits this functionality is problematic.</p>
-
-<p><img src="/img/18OYgx2SbxAmof_LmXH6AAw_1.jpeg" alt="" /></p>
-
-<p>Over here in parking lot B, you better hope you’re not getting picked up from parking lot A because you will be going back inside. If it is past 1:10 AM on a weekday, you’re going to be walking for a while.</p>
-
-<p><img src="/img/1yOZoLMRSVzfF2pUA7XWpGg_1.jpeg" alt="" /></p>
-
-<p>With design aesthetics lifted from an aging BC Ferry, you probably became quite familiar with these stairs when you figured out your ride is waiting on the other side.</p>
-
-<p>The station is a product of its time and is in dire need of being fixed.</p>
-
-<p>As someone put it to me while we were at the station: it’s a station I didn’t know about until today and it is also a station I wish to never visit ever again.</p>
-
-<h3>What future is there for Scott Road?</h3>
-
-<p><img src="/img/1oVPnp8NDEbhVm8Tx08issQ_1.jpeg" alt="" /></p>
-
-<p>While there is the TransLink-endorsed, walkable Home Depot in the distance, there is also now rental housing within a thirty second walk from the station’s south entrance. New housing is under construction all around the area and it is likely to become less of a commuter destination and instead an actual neighbourhood.</p>
-
-<p>The land around Scott Road Station is amongst the the easiest to develop in Metro Vancouver. While there are arguments against the removal of parking stalls around stations, the region has been shifting away from park and ride arrangements and instead towards expanding rail and rapid bus services and developing amenities.</p>
-
-<p><img src="/img/15nXTUFpXsmyDSb6EXEP89g_1.jpeg" alt="" /></p>
-
-<p>The new North Surrey Sport and Ice Complex was built atop of grounds once used for parking at the station.</p>
-
-<p>The station itself has also been undergoing upgrades with escalator replacements and has had its elevators improved. There are no long-term plans to add extra transit services to the station, but it isn’t hard to imagine this station being a hub for commuter rail or rapid rail service servicing areas such as North Delta.</p>
-
-<p><img src="/img/1ikWeHs16fRMZZ-bsXJ07eQ_1.jpeg" alt="" /></p>
-
-<p>Rendering of the new Pattullo Bridge with Scott Road Station towards the top (<a href="https://www.pattullobridgereplacement.ca/newsandinfo/renderings-maps/">BC Government</a>).</p>
-
-<p>Unfortunately, a missed opportunity for the Pattullo Bridge replacement project is the whole Scott Road Station pedestrian situation. None of the renderings show an improvement even with the better connections from the bridge to Highway 17.</p>
-
-<p>Considering the better connection to the highway from the new bridge, it may make Scott Road a much gentler road itself, but the arrangement does not appear to immediately suggest this.</p>
-
-<h3>What about other stations?</h3>
-
-<p>As mentioned before, all WCE and SkyTrain stations were evaluated.</p>
-
-<p>As with all Internet-based polls, this project of mine was super scientific and free of bias, requiring zero peer-review. The results are concrete and completely infallible evidence of the general population’s opinions.</p>
-
-<p>Thanks to science, we have details on who the runner ups were.</p>
-
-<h4>Lake City Way (Millennium Line)</h4>
-
-<p>This station was the runner up to Scott Road as it lost in a score of 166 to 56 in the final round. The arguments made for the station being the worst was that it was a rather unremarkable station, with not much around it other than industrial buildings and some homes within walking distance.</p>
-
-<h4>Maple Meadows (West Coast Express)</h4>
-
-<p>Surprisingly, West Coast Express stations didn’t get a lot of hate. The consensus about this station in Maple Ridge was simply how far away it was from everything else nearby. This station placed fifth overall in the tournament.</p>
-
-<h4>Templeton (Canada Line)</h4>
-
-<p>Simply put: a giant parking lot and a shopping centre. If you’re getting on here, you are probably parking your car to go to the airport as nobody seems to use the station to go buy clothes at the nearby outlet stores. It placed ninth.</p>
-
-<h3>Closing</h3>
-
-<p>After the Pattullo Bridge’s construction has concluded and with the upcoming extensions of the Millennium Line deeper into Vancouver and the Expo Line towards Langley, it may be worth revisiting this question: which station is the worst?</p>
-
-<p><img src="/img/1I_orkt9r2LZh4Xdv6ixt-Q_1.jpeg" alt="" /></p>
-
-<p>Taking the train home, which is far, far away from this terrible station.</p>
-
-<p>Perhaps in 2031, we’ll be able to talk about the worst station again and maybe then the crown will be given elsewhere.</p>
 
         </div>
         
