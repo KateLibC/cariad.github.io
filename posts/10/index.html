@@ -93,6 +93,92 @@
         <header class="post-header">
           <h1 class="post-title">
             
+              <a class="post-link" href="/2022/11/24/holy-grail-soc/">A Fool&#39;s Errand in Cyber Security and Beyond</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Nov 24, 2022
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p><img src="/img/soc01.png" alt="" /></p>
+
+<p>One of the “holy grails” of cyber security is reducing all panes of glass used by incident responders to just one. This is a pipe dream many managers chase after in the name of efficiency and it is not unlikely to have reporting staff desire this too.</p>
+
+<p>Despite all of this, I have long had the opinion that the single pane of glass concept is a fool’s errand and prefer to chase after reducing the windows used in incident response.</p>
+
+<h1>What is a “single pane of glass” anyway?</h1>
+
+<p>The “single pane of glass” (SPG) approach really is to reduce the complexity of performing tasks or absorbing information by making it solely available in one location only. This could be exemplified with a ticketing system which shows diagnostic data and have one-click tasks to handle basic functions.</p>
+
+<p>Other examples that you may have seen include tools like Matrix and Hootsuite, which handle multiple online services.</p>
+
+<p>As you can tell, it is not a cyber security problem entirely.</p>
+
+<h1>Interoperability is a nightmare</h1>
+
+<p>Here are typical tools I could expect to make cyber security incident responders successful:</p>
+
+<ul>
+  <li>Endpoint detection and response software (EDR)</li>
+  <li>Phishing email reporting</li>
+  <li>Network firewalls and detection</li>
+  <li>Logging software</li>
+  <li>Sandboxing for malware detonation</li>
+</ul>
+
+<p>This is just a small list of software but is something I’ve had to try and make play nice.</p>
+
+<p>Here’s a fun scenario that I expect could easily play out:</p>
+
+<blockquote>
+  <p>Jonathan in office services reports a phishing email. When the email is reported, an incident responder determines that it was malicious and that the URL the email linked to had mimicked the corporate login for a service which didn’t have two-factor. Said website was harvesting usernames and passwords and then offered a download to access a service.</p>
+
+  <p>The incident responder then takes the URL and checks to see who clicked on it and three employees were recorded to have visited the website. Web traffic logs were fortunately able to capture activity and it was determined that one of them who is in the help desk did sign in and download the file.</p>
+
+  <p>Now the incident responder has to grab an audit log from the EDR to see if the file was executed and is also grabbing the file from the machine to then test in the sandbox environment. The responder has since isolated the machine to prevent any further harm.</p>
+</blockquote>
+
+<p>At this point, we’ve gone through five different software products, meaning five different windows had to be used. The single pane of glass approach would break down these functions into steps:</p>
+
+<ol>
+  <li>Review the maliciousness of the email</li>
+  <li>Search logs from network firewall to see who visited the URL contained within</li>
+  <li>Retrieve EDR audit log</li>
+  <li>Review audit log for execution</li>
+  <li>Detonate the malware in the sandbox</li>
+  <li>Isolate the computer</li>
+</ol>
+
+<p>These are six steps and in theory all of these steps could be done with integrations. However, this is where it all begins to fall apart. I’m not even talking about the maturation required to get to the point where you’d consider all of this.</p>
+
+<p>The big problem is whether or not the vendors you work with have bothered to make their APIs capable of doing anything useful.</p>
+
+<p>Does your phishing email software have an API that allows you to pull the details into your ticketing system and close it off there? Do you have consistent firewalls across your environment so you know what websites are being visited? Can you remotely control your EDR software to pull a standard package of data from these systems? Can you also get the malware from said system to then automatically push into the sandbox?</p>
+
+<p>I’ve run across many, many barriers where trying to get 30% of the way is impossible because the vendor has assumed you only want to use the user interface they provide. The useful functions required just don’t exist in a public API and any attempt to circumvent this by reverse engineer any other API or directly accessing an internal database violates the support agreement–I am trying my best to avoid naming a vendor here.</p>
+
+<h1>Accepting your fate</h1>
+
+<p>So what do you do in this scenario? Don’t use the SPG approach and just accept the reality that you will work to reduce the windows needed but only where practical. Options beyond that may include finding better vendors to work with too.</p>
+
+<p>If you have a vendor promising you an automation tool that will give you that single pane of glass, press on them hard and maybe reconsider any future relationship with them because it’s again a fool’s errand and a waste of time.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
               <a class="post-link" href="/2022/11/24/anime-fansub/">How I got my anime fansubs before the Internet</a>
             
           </h1>
@@ -429,79 +515,6 @@
 <p>The route it took however is still an option under consideration for a street car service (see green-coloured line above), but Vancouver City Council has been speaking about this idea for decades and it probably could be decades more before we ever see that happen <a href="https://dailyhive.com/vancouver/downtown-vancouver-false-creek-streetcar-route-map">even though as early as last year it had another report released on it</a>.</p>
 
 <p><em>This originally appeared on cohost.org/VancouverTransit but has been moved here due to the site’s shutdown.</em></p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2022/11/09/thomas-space/">Sending Thomas the Tank Engine to space</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Nov 9, 2022
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <p><img src="/img/thomas01.webp" alt="" /></p>
-
-<p>This image bugs me. It has always bugged me. So I want to know: could Sodor send Thomas to space and if so, how much would it cost? Since Sodor is modelled on the Isle of Man, I figured I can have some fun here.</p>
-
-<p>The GDP of the island, the train and fuel, and then its cost will all be discussed here. I am not an economist nor a rocket scientist, so just enjoy this chost and get in the comments if you have a better answer.</p>
-
-<h1>Figuring out Sodor’s GDP</h1>
-
-<p>This is important since we want to know if the economy of the island could pull it off.</p>
-
-<p><a href="https://web.archive.org/web/20250107101303mp_/https://breezewiki.com/ttte/wiki/Island_of_Sodor_(T&amp;F)">The population of Sodor is suggested to be about 60,000</a>. The Isle of Man <a href="https://web.archive.org/web/20250107101303mp_/https://en.wikipedia.org/wiki/Isle_of_Man">is estimated to be around 81,000</a>, which makes Sodor 74% of its population size.</p>
-
-<p>We don’t have any details from Sodor about its economy, but it certainly has more railways than Isle of Man, which has only one and it is just a tourist steam line. I feel comfortable with just US$5.54 billion being Sodor’s annual GDP since it’s 74% that of the Isle of Man’s.</p>
-
-<p>Interestingly enough, the real world Isle has been home to a <a href="https://web.archive.org/web/20250107101303mp_/https://en.wikipedia.org/wiki/Isle_of_Man#Space_commerce">few private space ventures</a>.</p>
-
-<h1>Physical details on Thomas the Tank Engine</h1>
-
-<p>This wasn’t too hard to figure out as it turns out to be a <a href="https://web.archive.org/web/20250107101303mp_/https://en.wikipedia.org/wiki/LB%26SCR_E2_class">LB&amp;SCR E2 class engine</a> built in England between 1913 and 1916.</p>
-
-<p>Why this is important is pretty simple: we need to know how much he would weigh and how much water is required to allow him to function.</p>
-
-<p>As it stands, its dry weight is 53,600 kg. However, it also has to carry water, and its capacity there is 5,710 litres. Water is great since with the metric system we can immediately covert those litres into kilograms by switching the units, making the whole weight of the train sans coal 59,310 kg.</p>
-
-<p>The coal part is tricky. Steam locomotives traditionally used anthracite coal, which <a href="https://web.archive.org/web/20250107101303mp_/https://www.sciencedirect.com/topics/engineering/anthracite">weighs about 1.5 g per cm^3</a>. This information is otherwise useless to me because I have no idea how much coal Thomas requires in order to function.</p>
-
-<p><img src="/img/thomas02.webp" alt="" /></p>
-
-<p>However, I lucked out and found a <a href="https://web.archive.org/web/20250107101303mp_/https://www.deviantart.com/tankthehedgehog105/art/LBSCR-E2-Pic-2-858298253">diagram of the train</a> and it specifies 2.5 imperial tons of coal! That is an additional 2,540 kg, for a grand total of 61,850 kilograms for a fully-functional Thomas the Tank Engine.</p>
-
-<h1>Can a rocket send that much mass to space?</h1>
-
-<p>This is where the situation starts to get a bit dire: the best we’re going to do today is low-earth orbit.</p>
-
-<p>Most modern rockets are in the range of a few thousand kilograms and as we increase the mass of the payload, the shorter the distance we’re able to travel. Getting off the ground is expensive-fuel wise as we have to fight the gravitational forces that our planet forces on us.</p>
-
-<p>However, if we’re satisfied with low-earth orbit and just being a satellite or possibly docking with the International Space Station, the <a href="https://web.archive.org/web/20250107101303mp_/https://en.wikipedia.org/wiki/Falcon_Heavy">Falcon Heavy rocket</a> is capable of lifting 63,900 kg to around that height, meaning we’re just about 2,000 kg under its maximum payload capacity.</p>
-
-<h1>So how much will this cost Sodor?</h1>
-
-<p>SpaceX claims that <a href="https://web.archive.org/web/20250107101303mp_/https://en.wikipedia.org/wiki/Space_launch_market_competition">it will cost about US$1,200 per kilogram</a> to send something to space on its Falcon Heavy–it is also the cheapest out of any competitor government or private.</p>
-
-<p>At 61,850 kg, that translates to US$74.2 million to just lift Thomas up into orbit. This of course does not take into account the cost to prepare Thomas nor transporting him across the Atlantic to a launch site, but it’s a base cost. I’d pad this to US$100 million to just consider all the nonsense required to make this happen.</p>
-
-<p>Going back to Sodor’s GDP, this means that 2% of the island’s economic output would be devoted to this stunt. To compare this back to <a href="https://web.archive.org/web/20250107101303mp_/https://en.wikipedia.org/wiki/Economy_of_the_Isle_of_Man#Statistics">Isle of Man</a>, this would be on par with their entire tourist sector.</p>
-
-<h1>So it’s possible to send Thomas to space then?</h1>
-
-<p>It’s doable, but it would be a rather weird stunt. I have no idea how he’d get back.</p>
 
         </div>
         

@@ -399,80 +399,135 @@
         <header class="post-header">
           <h1 class="post-title">
             
-              <a class="post-link" href="/2022/11/24/holy-grail-soc/">A Fool&#39;s Errand in Cyber Security and Beyond</a>
+              <a class="post-link" href="/2022/12/02/skytrain-scada/">SkyTrain and Industrial Control</a>
             
           </h1>
 
           <p class="post-meta">
-            Nov 24, 2022
+            Dec 2, 2022
             
             
           </p>
         </header>
 
         <div class="post-content">
-          <p><img src="/img/soc01.png" alt="" /></p>
+          <p><em>This is a Twitter thread from July 2018 that I made into a blog entry.</em></p>
 
-<p>One of the “holy grails” of cyber security is reducing all panes of glass used by incident responders to just one. This is a pipe dream many managers chase after in the name of efficiency and it is not unlikely to have reporting staff desire this too.</p>
+<p><img src="/img/scada01.jpeg" alt="" /></p>
 
-<p>Despite all of this, I have long had the opinion that the single pane of glass concept is a fool’s errand and prefer to chase after reducing the windows used in incident response.</p>
+<p><img src="/img/scada02.jpeg" alt="" /></p>
 
-<h1>What is a “single pane of glass” anyway?</h1>
+<p>I want to talk about how important industrial control is and why the general public is woefully unaware of how they interact with it on a daily basis.</p>
 
-<p>The “single pane of glass” (SPG) approach really is to reduce the complexity of performing tasks or absorbing information by making it solely available in one location only. This could be exemplified with a ticketing system which shows diagnostic data and have one-click tasks to handle basic functions.</p>
+<p>This is a post on SkyTrain, Vancouver’s rapid transit system and how safe it is until users circumvent it.</p>
 
-<p>Other examples that you may have seen include tools like Matrix and Hootsuite, which handle multiple online services.</p>
+<p><img src="/img/scada03.webp" alt="" /></p>
 
-<p>As you can tell, it is not a cyber security problem entirely.</p>
+<p>SkyTrain has just about 80 KM of track and it’s 100% automated. This means that when you walk on to any of the trains on any of the three lines, there is no driver. Because of this, it can achieve and has achieved 70 sec headings, meaning you don’t have to wait long for a train.</p>
 
-<h1>Interoperability is a nightmare</h1>
+<p><img src="/img/scada04.webp" alt="" /></p>
 
-<p>Here are typical tools I could expect to make cyber security incident responders successful:</p>
+<p>More often than not it’s about 120 sec but still few systems in the world can achieve this maximum frequency.</p>
 
-<ul>
-  <li>Endpoint detection and response software (EDR)</li>
-  <li>Phishing email reporting</li>
-  <li>Network firewalls and detection</li>
-  <li>Logging software</li>
-  <li>Sandboxing for malware detonation</li>
-</ul>
+<p>Its frequency is also its biggest Achilles heel when things go awry, but I’ll touch on that shortly.</p>
 
-<p>This is just a small list of software but is something I’ve had to try and make play nice.</p>
+<p><img src="/img/scada05.webp" alt="" /></p>
 
-<p>Here’s a fun scenario that I expect could easily play out:</p>
+<p>For the very curious, the trains use the <a href="https://web.archive.org/web/20241223042620mp_/https://www.thalesgroup.com/en/markets/transport/urban-mobility/seltractm-g8">Seltrac moving block system</a>. This allows for the trains to run very close together to the point where trains can actually be right in front of each other with a few metres to spare.</p>
 
-<blockquote>
-  <p>Jonathan in office services reports a phishing email. When the email is reported, an incident responder determines that it was malicious and that the URL the email linked to had mimicked the corporate login for a service which didn’t have two-factor. Said website was harvesting usernames and passwords and then offered a download to access a service.</p>
+<p><img src="/img/scada06.webp" alt="" /></p>
 
-  <p>The incident responder then takes the URL and checks to see who clicked on it and three employees were recorded to have visited the website. Web traffic logs were fortunately able to capture activity and it was determined that one of them who is in the help desk did sign in and download the file.</p>
+<p><img src="/img/scada07.webp" alt="" /></p>
 
-  <p>Now the incident responder has to grab an audit log from the EDR to see if the file was executed and is also grabbing the file from the machine to then test in the sandbox environment. The responder has since isolated the machine to prevent any further harm.</p>
-</blockquote>
+<p><img src="/img/scada08.webp" alt="" /></p>
 
-<p>At this point, we’ve gone through five different software products, meaning five different windows had to be used. The single pane of glass approach would break down these functions into steps:</p>
+<p>To prevent people from going into the tracks, there are various sensors at entry points where humans could interact with the trains. The trains don’t have anything to detect a human is in its path; it just knows where it is.</p>
 
-<ol>
-  <li>Review the maliciousness of the email</li>
-  <li>Search logs from network firewall to see who visited the URL contained within</li>
-  <li>Retrieve EDR audit log</li>
-  <li>Review audit log for execution</li>
-  <li>Detonate the malware in the sandbox</li>
-  <li>Isolate the computer</li>
-</ol>
+<p><img src="/img/scada09.png" alt="" /></p>
 
-<p>These are six steps and in theory all of these steps could be done with integrations. However, this is where it all begins to fall apart. I’m not even talking about the maturation required to get to the point where you’d consider all of this.</p>
+<p>(<a href="https://twitter.com/thebuzzer/status/855588013430251520">View on Twitter</a>)</p>
 
-<p>The big problem is whether or not the vendors you work with have bothered to make their APIs capable of doing anything useful.</p>
+<p>Or in some cases wildlife gets into the track. This is a new extension of the system and it’s not too far from an interface zone, allowing for cougars to enter. The line was not operating at the time.</p>
 
-<p>Does your phishing email software have an API that allows you to pull the details into your ticketing system and close it off there? Do you have consistent firewalls across your environment so you know what websites are being visited? Can you remotely control your EDR software to pull a standard package of data from these systems? Can you also get the malware from said system to then automatically push into the sandbox?</p>
+<p><img src="/img/scada10.webp" alt="" /></p>
 
-<p>I’ve run across many, many barriers where trying to get 30% of the way is impossible because the vendor has assumed you only want to use the user interface they provide. The useful functions required just don’t exist in a public API and any attempt to circumvent this by reverse engineer any other API or directly accessing an internal database violates the support agreement–I am trying my best to avoid naming a vendor here.</p>
+<p><img src="/img/scada11.webp" alt="" /></p>
 
-<h1>Accepting your fate</h1>
+<p>So optimally, trains know where they are and humans never enter the track. Unfortunately, it does break from time to time…</p>
 
-<p>So what do you do in this scenario? Don’t use the SPG approach and just accept the reality that you will work to reduce the windows needed but only where practical. Options beyond that may include finding better vendors to work with too.</p>
+<p><img src="/img/scada12.png" alt="" /></p>
 
-<p>If you have a vendor promising you an automation tool that will give you that single pane of glass, press on them hard and maybe reconsider any future relationship with them because it’s again a fool’s errand and a waste of time.</p>
+<p>(<a href="https://www.youtube.com/watch?v=DYc9tuJ9SgA">View talk on elevator security on YouTube</a>)</p>
+
+<p>The way I look at our rapid transit system is like this: it’s like an elevator. An elevator is designed to never kill you provided that you don’t circumvent the safety controls.</p>
+
+<p><img src="/img/scada13.webp" alt="" /></p>
+
+<p><img src="/img/scada14.webp" alt="" /></p>
+
+<p>So what happens when humans circumvent the safety controls by opening doors when the trains are stopped? A lot of things and it messes up the balance of the system.</p>
+
+<p><img src="/img/scada15.webp" alt="" /></p>
+
+<p>SkyTrain operates using a third-rail system, meaning that electricity is provided by a rail on either side of the track to feed electricity. It is very easy to end up touching it if you are unaware.</p>
+
+<p><img src="/img/scada16.webp" alt="" /></p>
+
+<p>Also the trains operate at 80 KM/h at maximum speed.</p>
+
+<p>All of this means that if someone exits a stopped train, everything starts to go hairy fast.</p>
+
+<p><img src="/img/scada17.webp" alt="" /></p>
+
+<p>First off, SkyTrain has to have the section of track where people are thought to be walking through turned off and to stop all trains from approaching the stations between them. This means that a huge section of track going both ways is now disabled.</p>
+
+<p><img src="/img/scada18.webp" alt="" /></p>
+
+<p>Secondly, attendants have to assist the riders who opted to leave the trains with getting on to the platforms. This has to be completed before we can do anything further. It may take an hour or more.</p>
+
+<p><img src="/img/scada19.webp" alt="" /></p>
+
+<p>So here’s where the fun part comes in: what happens when you decide to knock out power to these trains? We lose the ability to trust their state.</p>
+
+<p>That’s right. We’ve lost the trains and now the system has no idea where any of them are.</p>
+
+<p><img src="/img/scada21.webp" alt="" /></p>
+
+<p>To bring the trains back to life we cannot just turn them on and tell them to go to the next station. They themselves do not know where they are and the system does not have the ability to make them trust their current position.</p>
+
+<p><img src="/img/scada22.webp" alt="" /></p>
+
+<p>These self-driving trains however have to meet requirements every few months by having them driven by an operator. Almost all attendants are trained to operate the train when need be–due to weather or maintenance.</p>
+
+<p><img src="/img/scada23.webp" alt="" /></p>
+
+<p>So to fix this: we have to have the train sets driven into their nearest station one set at a time. This is the longest part because there are sections of track that are nearly 3 KM long.</p>
+
+<p><img src="/img/scada24.webp" alt="" /></p>
+
+<p><img src="/img/scada25.webp" alt="" /></p>
+
+<p>Once this is done and we’ve ensured that nobody is in harm’s way, we can have the system come back to life.</p>
+
+<p>I’ve ridden this network every working day for the past decade and can [confidently] say that the system is very safe. However, the biggest problem it has is that when it breaks, people tend to get frustrated and cause the system to break further.</p>
+
+<p><img src="/img/scada26.webp" alt="" /></p>
+
+<p>In 2017, the system recorded a record 151 mn passengers (compared to 117 mn in 2010) and on average the majority of system delays are caused by humans interacting with the trains either intentionally or unintentionally–I will not elaborate further.</p>
+
+<p>(There is a train 069 BTW)</p>
+
+<p>How this all ties into industrial control [(IC)] of course is that this is the very definition of one that the public uses every day and pays no attention to how it works. Often we talk about IC in power plants, natural resources, and elsewhere, but our mass transit systems are IC!</p>
+
+<p>IC security is super important but it is also important to understand how much goes into making a good IC system work. It isn’t just having to worry about security matters but to also plan for humans interfering with the operations of things.</p>
+
+<p><img src="/img/scada27.webp" alt="" /></p>
+
+<p>So the next time you’re stuck on a train, don’t break the emergency seal. It may be 15 minutes for you but you may cause 120 minutes for others.</p>
+
+<p>I should add: I don’t work for TransLink! If I did I’d probably wouldn’t be allowed to [chost] about this stuff. I work for a company that heavily uses industrial control so as a result I have an interest in how things like SkyTrain works!</p>
+
+<p>Fun fact: I was DM’d by two TransLink employees asking me if I worked for them when this thread started to make the rounds locally. I literally just transposed my knowledge of industrial control to how these trains work! Knowledge of industrial control equipment is just something I gained from my career and it isn’t hard for me to look at systems and figure out how they tick.</p>
 
         </div>
         
