@@ -230,13 +230,13 @@ Nakayoshi.img: Macintosh HFS data (mounted) block size: 11264, number of blocks:
 
 <p>It’s interesting how ムービー translates to “movie” to indicate that it is a Quicktime file. This is something I am familiar with as files in HFS are treated differently than say in Linux or Windows. There are resource forks and data forks for files. The actual data of the file is in the data fork, but the resource fork indicates that why kind of data it is. You can remove <code class="language-plaintext highlighter-rouge">.mov</code> from a file and it will still launch in QuickTime because the resource fork says it is a QuickTime file.</p>
 
-<p>That is the reason why each filename ends with <code class="language-plaintext highlighter-rouge">.ムービー</code> or really <code class="language-plaintext highlighter-rouge">.ÉÄÅ[ÉrÅ[</code> because the resource fork is all that matters. An extension in Mac OS from this era is really a formality and is truly only required for cross-platform compatibility. Even today it barely matters as evident when taking a screenshot.</p>
+<p>That is the reason why each filename ends with <code class="language-plaintext highlighter-rouge">.ムービー</code> or really <code class="language-plaintext highlighter-rouge">.ÉÄÅ[ÉrÅ[</code> because the resource fork is all that matters. An extension in Mac OS from this era is really a formality and is truly only required for cross-platform compatibility. Even today it barely matters as evident when taking a screenshot as while it is a <code class="language-plaintext highlighter-rouge">.png</code>, it lacks the extension.</p>
 
-<p>In any event, getting it to play nice with VLC or FFMPEG also proved to be quite annoying. I will get back to these files later, as the lone executable is most interesting: it’s actually a container for a Macromedia Shockwave file.</p>
+<p>I think screenshots were originally <code class="language-plaintext highlighter-rouge">.ps</code> (PostScript) files back when Mac OS X came out, but I digress.</p>
 
-<p>Moral of the story for this part is that while Unicode may have its shortcomings, there’s an expectation everywhere today to use it and thus it’s cross-platform.</p>
+<p>In any event, getting any of these videos to play nice with VLC or FFMPEG also proved to be quite annoying. The lone executable is actually most interesting: it’s a container for a Macromedia Shockwave file.</p>
 
-<h1>ScummVM</h1>
+<h1>ScummVM cannot execute it</h1>
 
 <p>Since it was written with Macromedia Director 3, it should be supported by ScummVM right? Support for the format has been around <a href="https://djsrv.github.io/scummvm/shockwave/">for a few years now,</a> so I figured that I’d give it a go.</p>
 
@@ -254,9 +254,9 @@ Nakayoshi.img: Macintosh HFS data (mounted) block size: 11264, number of blocks:
 Codec unsupported: APPL
 </code></pre></div></div>
 
-<p>However, it ended up failing because the file was made for Macintosh System. The tool should likely execute on macOS with some work to get it compiled, but I already had a Windows computer handy and figured I’d save myself trying to compile anything.</p>
+<p>However, it ended up failing because the file was made for Macintosh System and this tool doesn’t know what an <code class="language-plaintext highlighter-rouge">APPL</code> binary is–it probably expects to see <code class="language-plaintext highlighter-rouge">PE</code>.</p>
 
-<p>But luck would have it that another tool, <a href="https://github.com/n0samu/director-files-extract">director-files-extract</a> would work with Macintosh files and so success–I was left with a bunch of files ending with the <code class="language-plaintext highlighter-rouge">.dxr</code> extension.</p>
+<p>But luck would have it that another tool, <a href="https://github.com/n0samu/director-files-extract">director-files-extract</a> would work with Macintosh files and so I was left with a bunch of files ending with the <code class="language-plaintext highlighter-rouge">.dxr</code> extension.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╭─cariad@donnager ~/Local/Nakayoshi/SAILORMOON
 ╰─➤  ls -la
@@ -293,17 +293,15 @@ drwxr-xr-x@ 20 cariad  staff        640 Dec 29 14:52 ..
 
 <p><img src="/img/smoon20.png" alt="" /></p>
 
-<p>DXR files cannot be opened with Macromedia Director, but can be converted into <code class="language-plaintext highlighter-rouge">.DIR</code> which can be. The aforementioned ProjectorRays tool has a <code class="language-plaintext highlighter-rouge">decompile</code> function which then made them compatible.</p>
-
-<p>So let’s open them up with Macromedia Director!</p>
+<p>DXR files by themselves cannot be opened with Macromedia Director, but they can be decompiled. The aforementioned ProjectorRays tool has a <code class="language-plaintext highlighter-rouge">decompile</code> function which will permit me to open everything.</p>
 
 <p><img src="/img/smoon21.png" alt="" /></p>
 
-<p>Great. The files are visible to the software.</p>
+<p>Great. After decompiling and bring them over to Basilisk II, the files are visible to the software.</p>
 
 <p><img src="/img/smoon22.png" alt="" /></p>
 
-<p>Man. I forgot about how miserable old Mac OS was. In any event, these are now readable Director files. However, I could not figure out how to get the data into readable files so another tool to the rescue.</p>
+<p>Man. I forgot about how miserable old Mac OS was–memory management then was a huge chore and is a consequence of the weak (and “weak” is really not saying much) multitasking that existed in this operating system. In any event, these are now readable Director files. However, I could not figure out how to get the data into readable files so another tool to the rescue.</p>
 
 <p><img src="/img/smoon19.png" alt="" /></p>
 
