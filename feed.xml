@@ -3,10 +3,10 @@
   <generator uri="http://jekyllrb.com" version="4.4.1">Jekyll</generator>
   
   
-  <link href="https://cariad.keigher.ca/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="https://cariad.keigher.ca/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2026-01-11T18:47:37+00:00</updated>
-  <id>https://cariad.keigher.ca/</id>
+  <link href="http://localhost:8000/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:8000/" rel="alternate" type="text/html" hreflang="en" />
+  <updated>2026-01-12T01:10:22+00:00</updated>
+  <id>http://localhost:8000/</id>
 
   
     <title type="html">cariad.keigher.ca</title>
@@ -31,12 +31,12 @@
       <title type="html">Adventures with a Sailor Moon CD-ROM</title>
       
       
-      <link href="https://cariad.keigher.ca/2025/12/29/sailor-moon-cdrom/" rel="alternate" type="text/html" title="Adventures with a Sailor Moon CD-ROM" />
+      <link href="http://localhost:8000/2025/12/29/sailor-moon-cdrom/" rel="alternate" type="text/html" title="Adventures with a Sailor Moon CD-ROM" />
       
       <published>2025-12-29T00:00:00+00:00</published>
       <updated>2025-12-29T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2025/12/29/sailor-moon-cdrom</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2025/12/29/sailor-moon-cdrom/">&lt;p&gt;A couple of years ago, I picked up this Sailor Moon disc. I think I got it from eBay.&lt;/p&gt;
+      <id>http://localhost:8000/2025/12/29/sailor-moon-cdrom</id>
+      <content type="html" xml:base="http://localhost:8000/2025/12/29/sailor-moon-cdrom/">&lt;p&gt;A couple of years ago, I picked up this Sailor Moon disc. I think I got it from eBay.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/IMG_3023.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -430,12 +430,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">My 2025 year-end post</title>
       
       
-      <link href="https://cariad.keigher.ca/2025/12/24/thoughts-on-the-year/" rel="alternate" type="text/html" title="My 2025 year-end post" />
+      <link href="http://localhost:8000/2025/12/24/thoughts-on-the-year/" rel="alternate" type="text/html" title="My 2025 year-end post" />
       
       <published>2025-12-24T00:00:00+00:00</published>
       <updated>2025-12-24T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2025/12/24/thoughts-on-the-year</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2025/12/24/thoughts-on-the-year/">&lt;p&gt;It’s that time where everybody has their two cents to offer on what their year has been about and this post is pretty much the same. Some years I’ve been really good about this and others not so much, but we’re here now and I’ve been writing this on and off for the past month so let’s go for it.&lt;/p&gt;
+      <id>http://localhost:8000/2025/12/24/thoughts-on-the-year</id>
+      <content type="html" xml:base="http://localhost:8000/2025/12/24/thoughts-on-the-year/">&lt;p&gt;It’s that time where everybody has their two cents to offer on what their year has been about and this post is pretty much the same. Some years I’ve been really good about this and others not so much, but we’re here now and I’ve been writing this on and off for the past month so let’s go for it.&lt;/p&gt;
 
 &lt;h1&gt;Health&lt;/h1&gt;
 
@@ -682,12 +682,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">Photos taken with Harman’s Red 125</title>
       
       
-      <link href="https://cariad.keigher.ca/2025/12/21/harman-red-photos/" rel="alternate" type="text/html" title="Photos taken with Harman&apos;s Red 125" />
+      <link href="http://localhost:8000/2025/12/21/harman-red-photos/" rel="alternate" type="text/html" title="Photos taken with Harman&apos;s Red 125" />
       
       <published>2025-12-21T00:00:00+00:00</published>
       <updated>2025-12-21T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2025/12/21/harman-red-photos</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2025/12/21/harman-red-photos/">&lt;hr /&gt;
+      <id>http://localhost:8000/2025/12/21/harman-red-photos</id>
+      <content type="html" xml:base="http://localhost:8000/2025/12/21/harman-red-photos/">&lt;hr /&gt;
 
 &lt;p&gt;All of these photos were taken using Harman’s Red 125 35 mm film. I bought this on a whim with the feeling that I would really like the output of this film; I was completely right.&lt;/p&gt;
 
@@ -760,12 +760,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">A tale of two very different cities</title>
       
       
-      <link href="https://cariad.keigher.ca/2025/12/08/a-tale-of-two-very-different-cities/" rel="alternate" type="text/html" title="A tale of two very different cities" />
+      <link href="http://localhost:8000/2025/12/08/a-tale-of-two-very-different-cities/" rel="alternate" type="text/html" title="A tale of two very different cities" />
       
       <published>2025-12-08T00:00:00+00:00</published>
       <updated>2025-12-08T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2025/12/08/a-tale-of-two-very-different-cities</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2025/12/08/a-tale-of-two-very-different-cities/">&lt;hr /&gt;
+      <id>http://localhost:8000/2025/12/08/a-tale-of-two-very-different-cities</id>
+      <content type="html" xml:base="http://localhost:8000/2025/12/08/a-tale-of-two-very-different-cities/">&lt;hr /&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/IMG_9329.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -932,12 +932,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">Comparing Film Purchased on AliExpress</title>
       
       
-      <link href="https://cariad.keigher.ca/2025/09/04/Comparing-Film-Aliexpress/" rel="alternate" type="text/html" title="Comparing Film Purchased on AliExpress" />
+      <link href="http://localhost:8000/2025/09/04/Comparing-Film-Aliexpress/" rel="alternate" type="text/html" title="Comparing Film Purchased on AliExpress" />
       
       <published>2025-09-04T00:00:00+00:00</published>
       <updated>2025-09-04T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2025/09/04/Comparing-Film-Aliexpress</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2025/09/04/Comparing-Film-Aliexpress/">&lt;p&gt;&lt;img src=&quot;/img/IMG_1818.jpeg&quot; alt=&quot;Collection of film with a Fed 3 camera&quot; /&gt;&lt;/p&gt;
+      <id>http://localhost:8000/2025/09/04/Comparing-Film-Aliexpress</id>
+      <content type="html" xml:base="http://localhost:8000/2025/09/04/Comparing-Film-Aliexpress/">&lt;p&gt;&lt;img src=&quot;/img/IMG_1818.jpeg&quot; alt=&quot;Collection of film with a Fed 3 camera&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Collection of film with a Fed 3 camera&lt;/em&gt;&lt;/p&gt;
 
@@ -1149,12 +1149,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">The Mark V is the future of transportation in Metro Vancouver</title>
       
       
-      <link href="https://cariad.keigher.ca/2025/07/16/the-mark-v-is-the-future/" rel="alternate" type="text/html" title="The Mark V is the future of transportation in Metro Vancouver" />
+      <link href="http://localhost:8000/2025/07/16/the-mark-v-is-the-future/" rel="alternate" type="text/html" title="The Mark V is the future of transportation in Metro Vancouver" />
       
       <published>2025-07-16T00:00:00+00:00</published>
       <updated>2025-07-16T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2025/07/16/the-mark-v-is-the-future</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2025/07/16/the-mark-v-is-the-future/">&lt;hr /&gt;
+      <id>http://localhost:8000/2025/07/16/the-mark-v-is-the-future</id>
+      <content type="html" xml:base="http://localhost:8000/2025/07/16/the-mark-v-is-the-future/">&lt;hr /&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/skytrain_markv.png&quot; alt=&quot;SkyTrain Mark V arriving at the station&quot; /&gt;&lt;/p&gt;
 
@@ -1255,12 +1255,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">2024, AI, and my side in the Butlerian Jihad</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/12/31/2024-ai-and-my-side-in-the-butlerian-jihad/" rel="alternate" type="text/html" title="2024, AI, and my side in the Butlerian Jihad" />
+      <link href="http://localhost:8000/2024/12/31/2024-ai-and-my-side-in-the-butlerian-jihad/" rel="alternate" type="text/html" title="2024, AI, and my side in the Butlerian Jihad" />
       
       <published>2024-12-31T00:00:00+00:00</published>
       <updated>2024-12-31T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/12/31/2024--ai--and-my-side-in-the-butlerian-jihad</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/12/31/2024-ai-and-my-side-in-the-butlerian-jihad/">&lt;hr /&gt;
+      <id>http://localhost:8000/2024/12/31/2024--ai--and-my-side-in-the-butlerian-jihad</id>
+      <content type="html" xml:base="http://localhost:8000/2024/12/31/2024-ai-and-my-side-in-the-butlerian-jihad/">&lt;hr /&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/0vChTdqoDivbqEG5__1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -1341,12 +1341,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">Drunk Driving is OK in Canada</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/09/28/drunk-driving-is-ok-in-canada/" rel="alternate" type="text/html" title="Drunk Driving is OK in Canada" />
+      <link href="http://localhost:8000/2024/09/28/drunk-driving-is-ok-in-canada/" rel="alternate" type="text/html" title="Drunk Driving is OK in Canada" />
       
       <published>2024-09-28T00:00:00+00:00</published>
       <updated>2024-09-28T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/09/28/drunk-driving-is-ok-in-canada</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/09/28/drunk-driving-is-ok-in-canada/">&lt;hr /&gt;
+      <id>http://localhost:8000/2024/09/28/drunk-driving-is-ok-in-canada</id>
+      <content type="html" xml:base="http://localhost:8000/2024/09/28/drunk-driving-is-ok-in-canada/">&lt;hr /&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/0niZCH57ngx5QVrE0_1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -1433,12 +1433,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">Goodbye cohost; don’t let perfect get in the way of good</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/09/16/goodbye-cohost/" rel="alternate" type="text/html" title="Goodbye cohost; don&apos;t let perfect get in the way of good" />
+      <link href="http://localhost:8000/2024/09/16/goodbye-cohost/" rel="alternate" type="text/html" title="Goodbye cohost; don&apos;t let perfect get in the way of good" />
       
       <published>2024-09-16T00:00:00+00:00</published>
       <updated>2024-09-16T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/09/16/goodbye-cohost</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/09/16/goodbye-cohost/">&lt;p&gt;&lt;em&gt;This was mirrored from cohost after being posted as my final piece there before it went into “read-only” mode.&lt;/em&gt;&lt;/p&gt;
+      <id>http://localhost:8000/2024/09/16/goodbye-cohost</id>
+      <content type="html" xml:base="http://localhost:8000/2024/09/16/goodbye-cohost/">&lt;p&gt;&lt;em&gt;This was mirrored from cohost after being posted as my final piece there before it went into “read-only” mode.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;This is my last long-form post on cohost and I figure I’d give you my thoughts before I go.&lt;/p&gt;
 
@@ -1525,12 +1525,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">British Rail and its attempt to sell Vancouver on a Railbus</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/09/13/british-rail-and-its-attempt-to-sell-vancouver-on-a-railbus/" rel="alternate" type="text/html" title="British Rail and its attempt to sell Vancouver on a Railbus" />
+      <link href="http://localhost:8000/2024/09/13/british-rail-and-its-attempt-to-sell-vancouver-on-a-railbus/" rel="alternate" type="text/html" title="British Rail and its attempt to sell Vancouver on a Railbus" />
       
       <published>2024-09-13T00:00:00+00:00</published>
       <updated>2024-09-13T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/09/13/british-rail-and-its-attempt-to-sell-vancouver-on-a-railbus</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/09/13/british-rail-and-its-attempt-to-sell-vancouver-on-a-railbus/">&lt;hr /&gt;
+      <id>http://localhost:8000/2024/09/13/british-rail-and-its-attempt-to-sell-vancouver-on-a-railbus</id>
+      <content type="html" xml:base="http://localhost:8000/2024/09/13/british-rail-and-its-attempt-to-sell-vancouver-on-a-railbus/">&lt;hr /&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/0o557v1tTvd63pDNJ_1&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -1597,12 +1597,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">250 KM north of Vancouver</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/06/25/north-of-vancouver/" rel="alternate" type="text/html" title="250 KM north of Vancouver" />
+      <link href="http://localhost:8000/2024/06/25/north-of-vancouver/" rel="alternate" type="text/html" title="250 KM north of Vancouver" />
       
       <published>2024-06-25T00:00:00+00:00</published>
       <updated>2024-06-25T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/06/25/north-of-vancouver</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/06/25/north-of-vancouver/">&lt;p&gt;&lt;img src=&quot;/img/birkenhead.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+      <id>http://localhost:8000/2024/06/25/north-of-vancouver</id>
+      <content type="html" xml:base="http://localhost:8000/2024/06/25/north-of-vancouver/">&lt;p&gt;&lt;img src=&quot;/img/birkenhead.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Waking up and seeing this mountain each morning while camping was just excellent.&lt;/p&gt;
 
@@ -1641,12 +1641,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">The History of New Westminster Station</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/05/23/the-history-of-new-westminster-station/" rel="alternate" type="text/html" title="The History of New Westminster Station" />
+      <link href="http://localhost:8000/2024/05/23/the-history-of-new-westminster-station/" rel="alternate" type="text/html" title="The History of New Westminster Station" />
       
       <published>2024-05-23T00:00:00+00:00</published>
       <updated>2024-05-23T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/05/23/the-history-of-new-westminster-station</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/05/23/the-history-of-new-westminster-station/">&lt;hr /&gt;
+      <id>http://localhost:8000/2024/05/23/the-history-of-new-westminster-station</id>
+      <content type="html" xml:base="http://localhost:8000/2024/05/23/the-history-of-new-westminster-station/">&lt;hr /&gt;
 
 &lt;p&gt;&lt;img src=&quot;/img/0ZfUm4OqObsWW8Wot_1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -1727,12 +1727,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">Ever wondered how a Breo Elipta works?</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/04/29/breo-elipta/" rel="alternate" type="text/html" title="Ever wondered how a Breo Elipta works?" />
+      <link href="http://localhost:8000/2024/04/29/breo-elipta/" rel="alternate" type="text/html" title="Ever wondered how a Breo Elipta works?" />
       
       <published>2024-04-29T00:00:00+00:00</published>
       <updated>2024-04-29T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/04/29/breo-elipta</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/04/29/breo-elipta/">&lt;p&gt;&lt;img src=&quot;/img/breo1.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+      <id>http://localhost:8000/2024/04/29/breo-elipta</id>
+      <content type="html" xml:base="http://localhost:8000/2024/04/29/breo-elipta/">&lt;p&gt;&lt;img src=&quot;/img/breo1.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Exterior of the inhaler&lt;/em&gt;&lt;/p&gt;
 
@@ -1789,12 +1789,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">Whistler selfie</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/04/06/whistler/" rel="alternate" type="text/html" title="Whistler selfie" />
+      <link href="http://localhost:8000/2024/04/06/whistler/" rel="alternate" type="text/html" title="Whistler selfie" />
       
       <published>2024-04-06T00:00:00+00:00</published>
       <updated>2024-04-06T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/04/06/whistler</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/04/06/whistler/">&lt;p&gt;&lt;img src=&quot;/img/whistlerselfie.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+      <id>http://localhost:8000/2024/04/06/whistler</id>
+      <content type="html" xml:base="http://localhost:8000/2024/04/06/whistler/">&lt;p&gt;&lt;img src=&quot;/img/whistlerselfie.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Hello from Whistler.&lt;/p&gt;</content>
 
@@ -1831,12 +1831,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">Gauging SkyTrain between the Canada Line and the Expo and Millennium Lines</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/02/19/skytrain-gauge/" rel="alternate" type="text/html" title="Gauging SkyTrain between the Canada Line and the Expo and Millennium Lines" />
+      <link href="http://localhost:8000/2024/02/19/skytrain-gauge/" rel="alternate" type="text/html" title="Gauging SkyTrain between the Canada Line and the Expo and Millennium Lines" />
       
       <published>2024-02-19T00:00:00+00:00</published>
       <updated>2024-02-19T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/02/19/skytrain-gauge</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/02/19/skytrain-gauge/">&lt;p&gt;&lt;img src=&quot;/img/guage01.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+      <id>http://localhost:8000/2024/02/19/skytrain-gauge</id>
+      <content type="html" xml:base="http://localhost:8000/2024/02/19/skytrain-gauge/">&lt;p&gt;&lt;img src=&quot;/img/guage01.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;One of the most important aspects of a railway is the standardization of the railway itself. Trains have to fit the platforms they pick up passengers from and they must also be able to successfully roll along the rails it sits atop of. This is called gauge and we have two different sets of the measurement to work with.&lt;/p&gt;
 
@@ -1903,12 +1903,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">Imagine having this mindset over shrinkflation and regulation</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/02/19/shrinkflation/" rel="alternate" type="text/html" title="Imagine having this mindset over shrinkflation and regulation" />
+      <link href="http://localhost:8000/2024/02/19/shrinkflation/" rel="alternate" type="text/html" title="Imagine having this mindset over shrinkflation and regulation" />
       
       <published>2024-02-19T00:00:00+00:00</published>
       <updated>2024-02-19T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/02/19/shrinkflation</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/02/19/shrinkflation/">&lt;p&gt;&lt;a href=&quot;https://web.archive.org/web/20250102001603mp_/https://www.cbc.ca/news/business/shrinkflation-legislation-canada-1.7114612&quot;&gt;Via the CBC&lt;/a&gt;:&lt;/p&gt;
+      <id>http://localhost:8000/2024/02/19/shrinkflation</id>
+      <content type="html" xml:base="http://localhost:8000/2024/02/19/shrinkflation/">&lt;p&gt;&lt;a href=&quot;https://web.archive.org/web/20250102001603mp_/https://www.cbc.ca/news/business/shrinkflation-legislation-canada-1.7114612&quot;&gt;Via the CBC&lt;/a&gt;:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;PepperBrooks was getting ready to wash her dishes when she noticed something didn’t add up.&lt;/p&gt;
@@ -1967,12 +1967,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">SkyTrain and its station name pairs around the world</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/02/14/skytrain-name-pairs/" rel="alternate" type="text/html" title="SkyTrain and its station name pairs around the world" />
+      <link href="http://localhost:8000/2024/02/14/skytrain-name-pairs/" rel="alternate" type="text/html" title="SkyTrain and its station name pairs around the world" />
       
       <published>2024-02-14T00:00:00+00:00</published>
       <updated>2024-02-14T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/02/14/skytrain-name-pairs</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/02/14/skytrain-name-pairs/">&lt;p&gt;&lt;img src=&quot;/img/np01.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+      <id>http://localhost:8000/2024/02/14/skytrain-name-pairs</id>
+      <content type="html" xml:base="http://localhost:8000/2024/02/14/skytrain-name-pairs/">&lt;p&gt;&lt;img src=&quot;/img/np01.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A few months ago, I had a weird thought cross my mind: how many stations on the SkyTrain network are shared with other railways in the world?&lt;/p&gt;
 
@@ -2103,12 +2103,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">ChatGPT and LLMs as a whole are dangerous for my job</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/01/24/llms-dangerous/" rel="alternate" type="text/html" title="ChatGPT and LLMs as a whole are dangerous for my job" />
+      <link href="http://localhost:8000/2024/01/24/llms-dangerous/" rel="alternate" type="text/html" title="ChatGPT and LLMs as a whole are dangerous for my job" />
       
       <published>2024-01-24T00:00:00+00:00</published>
       <updated>2024-01-24T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/01/24/llms-dangerous</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/01/24/llms-dangerous/">&lt;p&gt;&lt;img src=&quot;/img/llm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+      <id>http://localhost:8000/2024/01/24/llms-dangerous</id>
+      <content type="html" xml:base="http://localhost:8000/2024/01/24/llms-dangerous/">&lt;p&gt;&lt;img src=&quot;/img/llm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I decided to ask ChatGPT a question I once had during a job interview before being hired on at my current company:&lt;/p&gt;
 
@@ -2184,12 +2184,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">Mt Baker</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/01/24/baker/" rel="alternate" type="text/html" title="Mt Baker" />
+      <link href="http://localhost:8000/2024/01/24/baker/" rel="alternate" type="text/html" title="Mt Baker" />
       
       <published>2024-01-24T00:00:00+00:00</published>
       <updated>2024-01-24T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/01/24/baker</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/01/24/baker/">&lt;p&gt;&lt;img src=&quot;/img/IMG_7023.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+      <id>http://localhost:8000/2024/01/24/baker</id>
+      <content type="html" xml:base="http://localhost:8000/2024/01/24/baker/">&lt;p&gt;&lt;img src=&quot;/img/IMG_7023.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Mt. Baker in Washington state&lt;/em&gt;&lt;/p&gt;</content>
 
@@ -2226,12 +2226,12 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
       <title type="html">This was the first SkyTrain car</title>
       
       
-      <link href="https://cariad.keigher.ca/2024/01/19/first-skytrain/" rel="alternate" type="text/html" title="This was the first SkyTrain car" />
+      <link href="http://localhost:8000/2024/01/19/first-skytrain/" rel="alternate" type="text/html" title="This was the first SkyTrain car" />
       
       <published>2024-01-19T00:00:00+00:00</published>
       <updated>2024-01-19T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/01/19/first-skytrain</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/01/19/first-skytrain/">&lt;p&gt;&lt;img src=&quot;/img/fst01.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+      <id>http://localhost:8000/2024/01/19/first-skytrain</id>
+      <content type="html" xml:base="http://localhost:8000/2024/01/19/first-skytrain/">&lt;p&gt;&lt;img src=&quot;/img/fst01.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;As we are now in the midst of the end of life for SkyTrain’s Mark I train sets, I want to make a small confession: I am not fond of them. Sure. They’re historically important to Metro Vancouver and have made a huge contribution to improving the quality of life within the region, but I just simply don’t like riding them.&lt;/p&gt;
 
