@@ -1,6 +1,6 @@
 #!/bin/sh
 
-jekyll build
+bundle exec jekyll build
 echo "*.py\n*.sh\n.DS_*" > _site/.gitignore
 cp -R _site/* ../cariad.github.io/
 git add *
