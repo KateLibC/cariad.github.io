@@ -93,6 +93,72 @@
         <header class="post-header">
           <h1 class="post-title">
             
+              <a class="post-link" href="/2024/01/24/llms-dangerous/">ChatGPT and LLMs as a whole are dangerous for my job</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Jan 24, 2024
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p><img src="/img/llm.png" alt="" /></p>
+
+<p>I decided to ask ChatGPT a question I once had during a job interview before being hired on at my current company:</p>
+
+<blockquote>
+  <p>Tell me what to do as a cyber security professional working in an industrial control network when an HMI is compromised and human safety is possibly at risk</p>
+</blockquote>
+
+<p>And its immediate response was to give me this answer:</p>
+
+<blockquote>
+  <p>If you’re a cybersecurity professional working in an industrial control network and you suspect that an HMI (Human Machine Interface) is compromised with potential risks to human safety, it’s crucial to take immediate and systematic steps to address the situation. Here’s a general guideline:</p>
+
+  <ol>
+    <li>Isolate the Compromised System:
+      <ul>
+        <li>Identify the compromised HMI system and disconnect it from the network immediately to prevent further spread of the attack.</li>
+        <li>If possible, isolate the compromised system physically to ensure it cannot communicate with other networked devices.</li>
+      </ul>
+    </li>
+    <li>Notify Relevant Personnel:
+      <ul>
+        <li>Alert the appropriate personnel, including operations, management, and IT security teams, about the compromise.</li>
+        <li>Activate the incident response team and emergency procedures as outlined in your organization’s cybersecurity and safety policies.</li>
+      </ul>
+    </li>
+  </ol>
+</blockquote>
+
+<p>This has me quite pissed off.</p>
+
+<p>The thing that ChatGPT did here was assume that industrial control security is handled no differently than enterprise or general computing; this is dead wrong.</p>
+
+<p>Industrial control involves human safety and taking an HMI out of the equation can actually make matters worse. There have been documented situations where making arbitrary decisions such as the recommended “disconnect it from the network” can trigger cascading effects or outcomes that are undesired.</p>
+
+<p>Unplugging an HMI from a PLC and a control network as a whole could cause a ripple effect that puts human lives in danger. An HMI is basically a computer (but built to withstand a rugged environment) and a PLC (<a href="https://web.archive.org/web/20250102001603mp_/https://en.wikipedia.org/wiki/Programmable_logic_controller">programmable logic controller</a>) is the interface the HMI interacts with to make machines do things. I am simplifying things greatly here, but the point is that they’re not regular computers.</p>
+
+<p>ChatGPT correctly states to notify relevant personnel, but this both fails to put this at the start and doesn’t mention someone like a plant manager or similar role. You need people who are familiar with the equipment to do things like lockout, shutdown, et cetera–in my field we call them “subject matter experts” or “SMEs”.</p>
+
+<p>If I am to hear of a compromised HMI, my instinct is to talk to the person overseeing the operations first and get them to help mitigate it before even dreaming of disconnecting anything unilaterally. I do not want to be responsible for or creating increased risk for human casualties.</p>
+
+<p>This scares the fuck out of me.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
               <a class="post-link" href="/2024/01/24/baker/">Mt Baker</a>
             
           </h1>
@@ -307,53 +373,6 @@
 <p>Coming back to the present and the remaining Mark I trains, it’s hard to know what is being planned for these trains especially in light of two sets having been unceremoniously scrapped. Some really interesting ideas have been thrown about on what to do with them and one in particular I like is the idea of repurposing them into mini cafes.</p>
 
 <p>If you think my idea of a coffee shop called the “Expresso Line” in honour of the Expo Line is interesting, let me know if you want to halvesies on this golden opportunity.</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2024/01/04/twitch-streaming/">Me and streaming on Twitch</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Jan 4, 2024
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <p>As you might have noticed, I haven’t streamed on Twitch much in the past two months. There have been good reasons for that and it stems from the fact that I have been getting out more often as of late.</p>
-
-<p>I started to stream regularly in late 2019 at the suggestion of a friend and found myself to having good time. Back then, I was recovering from an operation and needed something to do to occupy myself. However, just as I was coming around the corner on healing, the pandemic hit and my options to do things like play sports again evaporated.</p>
-
-<p>Prior to all of this, I was regularly rollerskating and was priming myself to play roller derby in some fashion. However, an injury during a skirmish led to a limited ability to participate in physical activity again and when combined with an unrelated operation and a pandemic, my desire to play sports was greatly diminished.</p>
-
-<p>So from 2020 onward, I would finish work and then prepare to stream whatever content I felt like streaming. This resulted in me speedrunning, playing RPGs, trying to get through the entire Game Gear library, and of course completing the entirety of Ace Attorney.</p>
-
-<p>However, in late 2022 during Flame Fatales, I realised that streaming and the culture around it really was taking its toll on me. I made a decision to step back over time from helping out with all marathons and after I completed Ace Attorney, I began to struggle with what to do over streaming on Twitch in general.</p>
-
-<p>I love playing RPGs. They’re my favourite genre and it should come as no surprise to many as my favourite game is Chrono Trigger. However, I have always been happier playing them on my own and not to an audience. This has become a source of conflict for me as it is the only content I feel I can stream on Twitch right now.</p>
-
-<p>Last year, I returned to playing sports by joining the local queer softball league. It is a sport I really enjoy and have played previously. My team is really spectacular and I like to be around everyone in a social setting too. It’s not often that a bunch of folks who had never met before come together to form a team that not only gets on well, but kicks ass at the same time.</p>
-
-<p>My playing softball has proven to be a huge conflict time-wise with streaming. I honestly prefer not being at a desk all the time and even in winter I am avoiding streaming by hiking, birding, or taking up dancing, which is another thing I used to do regularly until my divorce.</p>
-
-<p>So what does this mean for me and Twitch in the long-term? It does mean no more regular streams. It doesn’t mean I am going away entirely.</p>
-
-<p>For example, if and when a new Ace Attorney game comes out, I will stream it aggressively. I feel like I should and I definitely want to. However, I do not want to maintain a schedule and I do not want to make a big production of my stream like I once did.</p>
-
-<p>But what I won’t do is just stream for the sake of streaming. It isn’t healthy for me, isn’t compatible with my life, and it gets in the way of spending time with friends and family.</p>
-
-<p>So this is not a goodbye, but it is time for me to nap.</p>
 
         </div>
         
