@@ -93,6 +93,187 @@
         <header class="post-header">
           <h1 class="post-title">
             
+              <a class="post-link" href="/2022/02/03/adventures-with-an-11-000-kilometre-long-game-boy-advance-link/">Adventures with an 11,000 kilometre-long Game Boy Advance link</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Feb 3, 2022
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p>One of the things I lamented a lot growing up was an inability to find anyone else to do Game Boy link cable games with. I had a few games which would work with the setup, but very few of my friends had Game Boys themselves and when my younger brother received a Game Boy Pocket (I had the black-coloured original), <a href="https://en.wikipedia.org/wiki/Game_Link_Cable">it used a different cable all together</a>, making it impossible for us to play Pokémon together.</p>
+
+<p>My Game Boy was always on its own little island, never to see any real interaction any other device. It wasn’t until I was much older that I would have the ability to hook it up with other Game Boys since I now own a Game Boy Advance (GBA), Game Boy Player, and Super Game Boy 2.</p>
+
+<p>But everything is online now and starting with the handheld’s successor, the Nintendo DS: it’s also wireless. There are a lot of gems for the Game Boy out there which relied on this cable that have since become largely forgotten or at least cannot have the full extent of their capabilities realized.</p>
+
+<h3>The GameCube and Game Boy Advance</h3>
+
+<p>One of the features of the GameCube was <a href="https://en.wikipedia.org/wiki/GameCube_%E2%80%93_Game_Boy_Advance_link_cable">the ability to attach to a GBA via a controller port</a>. This wasn’t meant to output from a handheld to a TV necessarily (such as with the Super Game Boy on the Super Nintendo), but instead to act as an alternate controller or to transfer content between. This same cable also works on Wii consoles with the appropriate controller ports.</p>
+
+<p><img src="/img/1biEqjKPLVVy6BPn4aH8mQA_1.png" alt="" /></p>
+
+<p>My rather beat-up GameCube attached to a Game Boy Advance</p>
+
+<p>One other benefit of this cable is when using the Game Boy Player, you can use the GBA as a controller instead of the awkwardly-shaped one provided with the console. And if you want to go further, you can also attach the cable to another GameCube if you want to make use of the Player on there instead.</p>
+
+<p><img src="/img/1CP7mcsRxMfHKIsI5k1FRaA_1.png" alt="" /></p>
+
+<p>As weird as this looks, it’s entirely possible to use your Wii and GameCube this way.</p>
+
+<p><img src="/img/1d9KzsC1W4sHm32hHWYZy2w_1.png" alt="" /></p>
+
+<p>Or you can go all “chaotic evil” and use this configuration, which too works, but not for the purposes of I am discussing here — I just thought it was neat to share! Two friends of mine gave me a SGB2 after returning from Japan and it’s a far better device than the original Super Game Boy.</p>
+
+<p>One of the features of the GBA is the ability to load software on it without having to insert a cartridge. This made the handheld rather powerful as a game loaded on a GameCube could load content on to a handheld without additional copies of software.</p>
+
+<p>This was taken advantage of games such as PacMan Vs., Final Fantasy Crystal Chronicles, and importantly for this article, The Legend of Zelda: Four Swords Adventure. All of these games required the use of a GBA to be attached for multiplayer action and acted a lot like what you’d see in some Wii U games.</p>
+
+<p>However, this required you to have multiple GBA handhelds, the cables themselves (sold separately), and the appropriate copy of the GameCube game.</p>
+
+<h3>A ridiculous dream</h3>
+
+<p>One of the consequences of the ongoing pandemic is the inability to not only safely play some games in the comfort of our own homes, but to travel to see each other when we have shared interests. I’ve been wanting to play one of the aforementioned games with a few friends, but safety is important.</p>
+
+<p>So on and off I’ve been thinking about just playing these games over the Internet. It was more or less an idle thought in 2020, but then in early 2021, someone <a href="https://stacksmashing.gumroad.com/l/gb-link">released an adapter</a> which allowed you to make use of a Raspberry Pi Pico to allow a desktop computer to interface with a link cable. I quickly ordered one and assembled it.</p>
+
+<p><img src="/img/1mBkQoK2tVo7PKO4yF5v-gg_1.png" alt="" /></p>
+
+<p>No. This doesn’t work. Yes. That is my Game Boy from childhood.</p>
+
+<p>There’s now no reason that physically a GameCube couldn’t attach to the Internet if I had at least three of these USB adapters attached to the console with three of those appropriate link cables, and then three other people with GBAs with the same adapters attached to their PCs.</p>
+
+<p>And that is where the problems started: it required everyone to have the hardware. Unfortunately, that wasn’t going to be the only issue.</p>
+
+<p>The adapter itself was intended purely to trade Pokémon, <a href="https://blog.gbplay.io/2021/05/10/An-8-Bit-Idea_The-Internet-of-Game-Boys.html">which itself should work even with the latency the Internet creates</a>. It was designed around the idea that it should be fine for pure Game Boy to Game Boy connectivity, which is forgiving due to how the protocol is supposed to work.</p>
+
+<blockquote>
+  <p>Since the link protocol is synchronous and bits are sent and received simultaneously, that means the master device requires the slave to send its response at a rate equal to the clock speed. In non-Game Boy Color mode, the master Game Boy supplies an 8KHz clock (data transfer speed of 1KB/s). This means that there is only a ~120μs window to respond! The Game Boy Color can operate at even higher speeds. No internet connection could possibly satisfy this latency requirement. However, the slave device has no such constraints. It just responds when it receives data!</p>
+</blockquote>
+
+<p>Unfortunately, it doesn’t appear that this is the case with the GBA. Based on what I am reading in some <a href="http://www.akkit.org/info/gbatek.htm#gbacommunicationports">excellent documentation</a>, the clock rate is even tighter with its tolerances (256 KHz to 2 MHz for the GBA as opposed to the original Game Boy’s 8 KHz). As a result, the hardware is unlikely to accept being a GameCube controller once you are of significant distance, which in the GBA’s case is more than a few metres.</p>
+
+<p>But maybe the hardware being a problem is a non-issue. What if we just scrapped the hardware idea and do this using software instead?</p>
+
+<p>Luck would have it that a few months after the USB adapter was released, the team behind the GameCube (and Wii) emulator, Dolphin announced a new feature: <a href="https://dolphin-emu.org/blog/2021/07/21/integrated-gba/">Game Boy Advance netplay</a>.</p>
+
+<p>This was no small feat for the team, but they’re also known for being rather meticulous and talented with their software. It wasn’t fool-proof and was rife with problems as evident from this excerpt from their blog:</p>
+
+<blockquote>
+  <p>These games in particular loved to spam tons of commands, sometimes sending over 200 commands a frame. This exposed a rather serious flaw in the TCP GBA protocol. Namely, they could get tripped up if they received a command while they were still emulating forward to catch up to the point from the previous command.</p>
+</blockquote>
+
+<p>When I casually brought up in the fall of that year that I wanted to do this, someone linked the above blog piece, which then led to some organization.</p>
+
+<h3>Getting a crew together</h3>
+
+<p>Eventually my friends, <a href="https://twitter.com/authorblues">authorblues</a>, <a href="https://twitter.com/callmewuest">tinahacks</a>, <a href="https://twitter.com/aetyate">Aetyate</a>, and I got together to go over playing this game online. We kept testing brief as we wanted to play the chosen game mostly obscured from us aside from “does it work”.</p>
+
+<p>Once we were assured, we set up a night to play and thus <a href="https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Four_Swords_Adventures">The Legend of Zelda: Four Swords Adventures</a> was being played on Twitch with all four Game Boy Advance displays on stream alongside the GameCube game itself.</p>
+
+<p><img src="/img/1gGnKQnz084ShaEcJTTbdgQ_1.png" alt="" /></p>
+
+<p>You have to go back and forth between the GameCube screen and the Game Boy Advance you’re playing on in order to complete this game in multiplayer. In single player mode, this is not required.</p>
+
+<p>While Aetyate and authorblues are in the eastern United States, tinahacks herself is in Finland. With my being in Vancouver, we effectively had two 4,000 KM (2,500 mi) connections and an 11,000 KM (6,800 mi) one going to my PC, playing a game which originally used a two metre (6 ft) cable itself — these distances are approximations and not based on the actual connections between us.</p>
+
+<p>A single button press would find itself travelling 15,000 KM (9,300 mi) one-way, meaning that we’re approaching at least 3/4ths of the circumference of the whole planet considering the nature of of both TCP and the link cable protocols. The emulator was required to do this in order to keep everything in sync and consequently we had to endure somewhere of a 1/5th of a second delay on our individual inputs just to make it manageable.</p>
+
+<p>But it was possible and we were playing it.</p>
+
+<p><img src="/img/1ORWszohXzW0wOvRsMpL84w_1.png" alt="" /></p>
+
+<p>Two people in the eastern United States, one in northern Europe, and myself in Western Canada were about to do something that would have been seen as absurd when the game initially came out</p>
+
+<p>Reducing the latency was something I had considered. I looked at options for acquiring a virtual machine with a GPU located somewhere in eastern North America close to fibre links across the Atlantic to Europe, but the costs for such systems have become quite expensive.</p>
+
+<p>For example, one large cloud computing service was quoting me US$800 for a single month’s use of a machine meeting these requirements. Even with a discount I had available plus US$450 in credits I had with them, it just didn’t seem worth it.</p>
+
+<p><img src="/img/1ejRHQzvvt3WSAZq2EwP96A_1.png" alt="" /></p>
+
+<p>One thing we learnt quick to do was test our controllers by using the battle mode within the game just to make sure that nothing found itself remapped.</p>
+
+<p>This was something another streamer had done in order to host fighting games online and had a great deal of success, but we didn’t feel that the cost was worth it for what we were playing. Four Swords Adventure is an action role playing game and with two streams of this game under our belt, we were feeling that latency would not hinder us too much.</p>
+
+<p>Or so we thought.</p>
+
+<h3>When the lag caught up with us</h3>
+
+<p>The latency in Four Swords Adventures was largely manageable for us and often was comical. In fact, the latency was the least of our concerns for the most part as we had other issues to deal with.</p>
+
+<p>During one of our streams, tinahacks’ copy of Dolphin suddenly ran into problems and started to spew all sorts of errors on her computer. Fortunately, we were not too far past the last save point so we all opted to just restart Dolphin and carry on.</p>
+
+<p><img src="/img/159SGRCsm1gIjskJjPmU_ew_1.png" alt="" /></p>
+
+<p>When the game broke, the stream broke.</p>
+
+<p>On average, I was seeing about 60–80 ms of latency between Aetyate and I, 110–130 ms for authorblues, and unsurprisingly, 180–220 ms for tinahacks.</p>
+
+<p>This is where the whole 1/5th of a second from earlier comes from. We were restricted by the laws of physics to what options we had available.</p>
+
+<p>Dolphin includes an adjustable buffer setting in its netplay feature and we can adjust it based on what feels right. I kept it at ‘20’ the whole time as reducing it any further started to introduce audio choppiness and that is just not good “stream content”. It was fine for the first two streams, but towards the middle of our third night of playing the game, it reared its ugly head.</p>
+
+<p>The game wanted us to walk in-step to get to the other side and failing to do so would result in us having to circle back to where we began on the screen.</p>
+
+<p><img src="/img/1lX02ALhpysQKJFFyiOgSkA_1.png" alt="" /></p>
+
+<p>Walking into this square without care will lead to you falling into a pit and having to come around back. You can see Aetyate falling into a pit on the bottom-right with myself and authorblues right — tinahacks is presently dashing across on the far right.</p>
+
+<p>Typically if you run across a pit in a Zelda game, you can use your “Pegasus Boots” item to quickly dart across large gaps. However, the game developers placed what appears to be potato-pineapple hybrids in the way so if you were to dash across, you’d collide with them and then fall down the pit.</p>
+
+<p>The game requires you to walk parallel to each other in formation in order to keep the platform balanced and then upon approaching the blocked items, simultaneously pull them off of the ground and then toss them. If you can pull off the second part successfully, then the pit is resolved so all we need to worry about is just getting at least one of us across.</p>
+
+<p>With the current buffer settings, we probably made a dozen and a half if not more attempts. It was starting to look dire as the input latency combined with the latency that a Discord audio call produces made it impossible for us to just get the timing down right. It was beginning to look like this might be the end of this fun experiment until we tried one idea.</p>
+
+<p>Let’s just make the buffer not exist and play the game frame-by-frame.</p>
+
+<p>You absolutely should watch the video in this tweet to understand how everything went because while we were successful, someone decided to be a “bother” once it was known that we made it.</p>
+
+<p>Each frame we progressed was progress in itself and when we made it to the other side, almost all of us managed to remember to pick up the object on the other end — I inadvertently hit my sword button instead (oops).</p>
+
+<p>What proceeded was pure comedy because once one of us successfully got over, another went and attempted to sabotage everything because it was possible to get away with that now and I found myself and that saboteur at the bottom of the pit.</p>
+
+<p>However, this was no longer a problem as now the boots I had put on earlier were now possible as an option across this pit.</p>
+
+<p><img src="/img/1nwZy5gRIV8l4r5ymWaiDGQ_1.png" alt="" /></p>
+
+<p>At least two of us were on the other side despite someone’s best efforts.</p>
+
+<p>This wasn’t the only obvious latency problem we had to contend with as a prior boss battle during this stream was proving difficult due to a need to time certain actions, but this was the first time we had to adjust the emulation in order to actually make any meaningful progress.</p>
+
+<h3>What’s next?</h3>
+
+<p>We have a few more streams of this game left with plans for this upcoming Sunday and Tuesday (February 6 and 8, 2022), with the second day being a hopeful completion of what has been a rather fun experience. This will be on <a href="https://www.twitch.tv/authorblues">authorblues’ Twitch channel</a>.</p>
+
+<p>If you’re interested in watching the past broadcasts, you can view the VODs on Twitch here (I will do my best to update this with the other streams once we are done):</p>
+
+<ul>
+  <li><a href="https://www.twitch.tv/videos/1283953211">February 1, 2022 (Part 3)</a></li>
+  <li><a href="https://www.twitch.tv/videos/1276216366">January 25, 2022 (Part 2)</a></li>
+  <li><a href="https://www.twitch.tv/videos/1270519533">January 20, 2022 (Part 1)</a></li>
+</ul>
+
+<p>After completing our misadventures, we intend to play <a href="https://en.wikipedia.org/wiki/Final_Fantasy_Crystal_Chronicles_%28video_game%29">Final Fantasy Crystal Chronicles</a>, which is another game I have never played.</p>
+
+<p>This is likely to be after the upcoming <a href="https://gamesdonequick.com/framefatales">Frost Fatales 2022</a>, an all-women speedrunning marathon I contribute my spare time to. I hope you’ll check out as we’re raising money for Malala Fund and lots of talented women will show how fast they can play games!</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
               <a class="post-link" href="/2022/01/30/more-hacking-on-automating-wordle/">More hacking on automating Wordle</a>
             
           </h1>
@@ -619,136 +800,6 @@
 <p>So no. I don’t see it at all possible as hitting a “reset switch” here as the ramifications would be enormous. In truth and all likelihood, someone coincidentally committed code that messed up production, which then cascaded to catastrophic collapse of vital systems. It fits in with Hanlon’s razor as mentioned at the start of this piece and there is just no evidence to suggest otherwise.</p>
 
 <p>The one theory I did have is maybe a “white knight” situation, where someone opted to fall on their own sword for some misguided reason, but even then I don’t buy that possibility.</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2021/10/02/twitch-has-made-a-good-step-with-preventing-harassment-but-it-has-pitfalls-also-what-the-hell-is/">Twitch has made a good step with preventing harassment but it has pitfalls — also what the hell is…</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Oct 2, 2021
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <hr />
-
-<p>I have <a href="https://katelibc.medium.com/twitch-chat-harassment-remains-unaddressed-despite-complaints-and-evidence-of-potential-fraud-d7fc66f95d88">written extensively</a> about the problems Twitch has with harassment via user interactions, so it should come as no surprise that I have been keeping myself informed of the the activities that eventually lead to <a href="https://www.polygon.com/22652063/a-day-off-twitch-streaming-platform-hate-raids-boycott">A Day Off Twitch</a>, where many streamers protested against the company’s milquetoast response to the problem by not streaming. While I have many opinions about how everything was co-opted and mutated from what the <a href="https://twitter.com/search?q=%23twitchdobetter&amp;lang=en">#TwitchDoBetter</a> movement, I am of the opinion that the media attention it receive was likely beneficial.</p>
-
-<p>Earlier this week, <a href="https://blog.twitch.tv/en/2021/09/29/securing-your-chat-with-phone-and-email-verification/">Twitch finally announced</a> seemingly effective tools to contend with harassment. Streamers can now enforce a requirement for users to have either or both e-mail and phone-based verification (via SMS) before they are permitted to participate in chat. Being that many users legitimately may not have done either prior to this new feature, streamers can permit users who have accounts with a specific age to avoid either, they can elevate them to VIP or moderator status, or require them to subscribe (as in pay the streamer) to participate.</p>
-
-<p><img src="/img/1s_oEmF3_BGljdwhhk17nSg_1.png" alt="" /></p>
-
-<p>Moderation configuration settings from a Twitch dashboard. Options show e-mail verification and phone verification with settings for first time chatters, with additional features for chatters without verification being granted permission to participate with a minimum account age.</p>
-
-<p>The one thing many streamers had called for that is not mentioned at all in the above screenshot is this one pertinent feature from the announcement:</p>
-
-<blockquote>
-  <p>We know there are many reasons someone may need to manage more than one account, so you can verify up to five accounts per phone number. That said, to help prevent ban evasion, if one phone-verified account is suspended site-wide, all accounts tied to that number will also be suspended site-wide. Users won’t be able to verify additional accounts using a phone number that is already tied to an actively suspended account.</p>
-</blockquote>
-
-<blockquote>
-  <p>At the channel-level, if one phone-verified or email-verified account is banned by a channel, all other accounts tied to that phone number or email will also be banned from chatting in that channel.</p>
-</blockquote>
-
-<p>This is huge as for the longest time, a harassing user could just register multiple accounts to a single e-mail address without consequence. While it is easy to have multiple e-mail addresses, there is a much larger barrier to having multiple phone numbers capable of receiving SMS.</p>
-
-<p><img src="/img/1aBKB4SwqChOQvjXy4q0dHA_1.png" alt="" /></p>
-
-<p>User account settings showing that a phone number and e-mail address are linked.</p>
-
-<p>However, be that it may, it comes with many caveats and one in particular comes to mind: not everyone has access to mobile phone service, and this could lead to an inequity situation for some. Twitch themselves even point this out in the announcement.</p>
-
-<blockquote>
-  <p><strong>If I don’t have a mobile phone, does this mean I can’t participate in chat anymore?</strong></p>
-</blockquote>
-
-<blockquote>
-  <p>If your account is not phone-verified, this will not prevent you from watching and enjoying a stream — but it does mean there may be some channels you are unable to chat in if they have phone-verified chat enabled. Creators can also choose to make exceptions to phone-verified chat for accounts of a certain age or following time, as well as VIPs, moderators, and subscribers.</p>
-</blockquote>
-
-<p>This comes down to the creator being benevolent or permissive with how individuals can participate and could just outright exclude anyone who is unable to verify via their mobile phone. The minimum age for a user to have a Twitch account is <a href="https://help.twitch.tv/s/article/children-on-twitch?language=en_US">on paper thirteen years</a>, and while many who are younger often have mobile phone service, there are many who do not. While I personally do not want anyone younger than 18-years old to participate in my stream, I do know that this is not desired by everyone.</p>
-
-<p>The other problem is that this likely has some limitations. Twitch’s goal is to make harassment more expensive and is something I advocated when I wrote about this problem earlier this year, but based on how I am seeing it written about by the company, I do believe that there are workarounds.</p>
-
-<p>My burning question for one workaround is this: how do the e-mail address-based ban evasion avoidance techniques take tags into account? Many e-mail services, including Google’s, support the appending a tag to an e-mail address wherein you append ‘+’ to the end of the first half of your address (also known as the “local part”) with a label following soon after.</p>
-
-<p>Many do not and perhaps should not scan for this sort of thing as the rules for what can and should be in a local part are <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">sort of defined</a>, you cannot be assured that the use of a tag is implicit of anything as it is dependent on the e-mail service to start with. Does Twitch scan for this potential problem? I have my doubts and may consider testing this if someone else hasn’t already.</p>
-
-<p>I also pointed out that there are throwaway e-mail services, and those can be used to verify an account. What is Twitch doing about that? There are lists that are freely available for them to use to detect the use of the, but are they doing this?</p>
-
-<p><img src="/img/1XrDhT8SWvsvXhLZGuAAyxA_1.png" alt="" /></p>
-
-<p>From page 35 of my March 2021 report on Twitch harassment. This shows a throwaway e-mail service granting me a verification code for my new account.</p>
-
-<p>So then we’re led into this scenario: let’s verify by mobile phone? This seems to be straightforward as surely it is hard to evade that way?</p>
-
-<p>It is a valid assumption as while I have had to buy disposable SIM cards for consulting engagements, not everyone is going to have more than one or two mobile phones. However, this assumption is still wrong as there are throwaway SMS services.</p>
-
-<p><img src="/img/1VD-i14Df6Ff3ahu6X1zi1g_1.png" alt="" /></p>
-
-<p>A service showing available mobile phone numbers for web-based reception of SMS messages.</p>
-
-<p>Now, I will admit that these numbers provided by this and similar services are often exhausted extremely quickly. There is also the consideration that there is a finite quantity of available numbers on these services, but it is a matter to give thought to when relying on this scheme.</p>
-
-<p>Overall, I am supportive of this new feature, but the equity issue and the potential evasion techniques remain.</p>
-
-<h4>So what about this lawsuit?</h4>
-
-<p>On September 10th, which was two and a half weeks before announcing these features, Twitch <a href="https://www.scribd.com/document/524416914/Twitch-Interactive-vs-Cruzzcontrol-and-CreatineOverdose">filed a civil suit</a> in Northern California against two Europeans who are alleged to have created software to engage in harassment on the streaming service.</p>
-
-<p>The timing has always baffled me because it would have made sense to drop this feature and this lawsuit on the same day. Many found that this was Twitch trying to look like they were doing something instead of anything concrete and this further alienated streamers from the company. In my case, <a href="https://twitter.com/KateLibc/status/1436403378314092547">I found the filing rather damning towards the company themselves</a>, because they admitted a few things that I find rather embarassing.</p>
-
-<blockquote>
-  <p>However, despite Twitch’s best efforts, the hate raids continue. On information and belief, Defendants created software code to conduct hate raids via automated means. And they continue to develop their software code to avoid Twitch’s efforts at preventing Defendants’ bots from accessing the Twitch Services.</p>
-</blockquote>
-
-<p>This paragraph (51) was rather interesting because I want to know more about “Twitch’s best efforts”, There have been rumours for many years that there remains a workaround that permits harassers to create en-masse accounts to engage in harassment without any response from the company. I cannot elaborate further on this problem, but honestly it isn’t here where I raise my eyebrow.</p>
-
-<blockquote>
-  <p>To further curb Defendants’ hate-raids, Twitch updated its software to employ additional measures that better detect malicious bot software in chat messages.</p>
-</blockquote>
-
-<blockquote>
-  <p>Twitch expended significant resources combatting Defendants’ attacks. Twitch spent time and money investigating Defendants, including through use of its fraud detection team. Twitch also engineered technological and other fixes in an attempt to stop Defendants’ harassing and hateful conduct. These updates include but are not limited to implementing stricter identity controls with accounts, machine learning algorithms to detect bot accounts that are used to engage in harmful chat and augmenting the banned word list. Twitch mobilized its communications staff to address the community harm flowing from the hate raids and assured its community that it was taking proactive measures to stop them. Twitch also worked with impacted streamers to educate them on moderation toolkits for their chats and solicited and responded to streamers’ and users’ comments and concerns.</p>
-</blockquote>
-
-<p>These “stricter identity controls” stand out as we did not see tools for streamers being made available to leverage this until recently, but what really raises my ire is them stating they’re using “machine learning algorithms to detect bot accounts”.</p>
-
-<p>What the hell sort of “machine learning” have they deployed? I even criticised this on Twitter.</p>
-
-<p>Of the 174 “hoss” follow bots that have been known to exist at the time of this writing, with the majority appearing since mid-August, they all share a common pattern which can be easily snuffed out with just two very basic <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>:</p>
-
-<blockquote>
-  <p>^hoss0{0,2}312_{0,1}.*<br />
-^.*_{0,1}hoss0{0,2}312$</p>
-</blockquote>
-
-<p>Just what the fuck? How is this so complicated? You can do this with just one regular expression, but it isn’t that much more costly to do it with two and it is much easier to maintain.</p>
-
-<p>My only theory about this “machine learning” nonsense can be summed up in this Discord conversation I had on the day I read the filing:</p>
-
-<p><img src="/img/1eB1xHbutR-B044C3xXU5Dw_1.png" alt="" /></p>
-
-<p>My parodic interpretation of a meeting at Twitch HQ about the chat moderation problem: “this is my theory about a meeting [on] moderation […] recently: a: “okay. so these fucks are asking us to make moderation better. what do we do?” b: “well, i have been doing machine learning for funsies on udemy and i think it would work well?” a: “that is hot shit. we can’t do this with blockchain?” b: “working on that later. nft stuff first ya know” c: “hey. why don’t we revisit my idea of just allowing bans based on how they work on irc?” a &amp; b: “no. fuck you” a: “besides, we don’t get to do machine learning for anything beyond marketing””</p>
-
-<p>I have rather poor opinions about Twitch’s approach as evident above.</p>
-
-<p>The solution of using machine learning at least to me appears to be something “hot and sexy” when in reality we need something conventional. I have done a lot of work around using entropy to detect malicious activity in my line of work, but it was only done after making other attack methods more expensive, which should be done first as it is often easier to do.</p>
-
-<p>At least we finally got these new verification tools, but honestly, Twitch has a lot remaining to do and I am not holding my breath.</p>
 
         </div>
         

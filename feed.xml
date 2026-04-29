@@ -5,7 +5,7 @@
   
   <link href="https://cariad.keigher.ca/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://cariad.keigher.ca/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2026-04-29T05:04:56+00:00</updated>
+  <updated>2026-04-29T13:22:30+00:00</updated>
   <id>https://cariad.keigher.ca/</id>
 
   
@@ -182,7 +182,7 @@ and it would not be that far fetched to consider something different. Let’s ta
 &lt;p&gt;&lt;a href=&quot;https://internet-ti.me&quot;&gt;My friend, Jessica made me enamoured with the use of .beats&lt;/a&gt;, 
 a scheme &lt;a href=&quot;https://en.wikipedia.org/wiki/Swatch_Internet_Time&quot;&gt;developed by Swatch in the 1990s&lt;/a&gt;. It isn’t metric 
 time, which was &lt;a href=&quot;https://en.wikipedia.org/wiki/French_Republican_calendar#Days&quot;&gt;adopted by the French Republic post-revolution&lt;/a&gt;, 
-but it is a scheme that permits the existing calendar but adopts a scheme that is intended to be used without 
+but it is a scheme that permits the existing calendar but adopts its own method that is intended to be used without 
 time zones.&lt;/p&gt;
 
 &lt;p&gt;The abolishment of time zones has been proposed by numerous people in the past, including science fiction author 
@@ -521,7 +521,270 @@ the world building is looking like earns some excitement.&lt;/p&gt;
       
 
       
-        <summary type="html">One of the things I have been wanting to do in Reconenct is play a bit with how time is kept. Without giving away too much of the story, multiple planets separated by several weeks of travel spanning different star systems would in my mind lead to a situation where the time standards that we all know today have maybe evolved. Time-keeping is a core component of my day job as I base all of my work on the use of Coordinated Universal Time, or UTC. It’s a relatively simple system where you just need to keep track of one time for the whole planet and then use an offset to determine the local time. Since I live in Vancouver, my time zone is -7 UTC (which recently changed from -8), this means that I am seven hours behind from what UTC displays. Here’s an example using a very basic JavaScript clock: UTC Your time You’re not limited to offsets that are whole integers either. Examples include Newfoundland time, where the island of the Canadian province of Newfoundland and Labrador has an offset of -03:30, or Central Western Standard Time, which gives it an offset of +8:45. It has its quirks, but translating between these times is fairly painless provided your loved ones are not in either of these trying to call each other. Imagine the frustration of someone in Cocklebiddy in Western Australia trying to figure out when to call their mother who lives in Dildo, Newfoundland and Labrador. I hold the belief that this system, while geocentric, works well for humanity even if off-world as if you’re in a spaceship travelling around our star system, it is fine. However, what about calendars? And what about other planets? This is a silly post that I wanted to do so I could talk a bit about my book. Much of the inspiration for coming up with my own dating scheme originates in both Star Trek and the Wayfinder series by Becky Chambers. I welcome people pointing out any problems with this all, but this post is haphazard and is for certain going to have flaws. I hate calendars The importance of calendars should not be understated: knowing where we are in the year is important for ensuring that our agricultural sector knows when to grow crops and for legal and financial systems to keep working. However, I am going to show something that may be frustrating to see for the first time. The months of September, October, November, and December are not where they should be and the year should really start sometime around March. For those of you familiar with the history of Rome as well as the Roman empire, this something you might know already, but January and February did not exist prior to the latter part of 700 BCE. You’d have ten months or 304 days in the calendar, and then winter. The names of the aforementioned months mean in Latin the seventh, eighth, ninth, and tenth month–if you don’t speak Latin but speak French, you’ll catch on to how the months are spelt. However, around 713 BCE, January and February were tacked on at the start of the calendar, only because of the importance of end of year celebrations. While those months were added on to the calendar, it still didn’t mean that the year started on January 1st as it just meant that the calendar rolled over. Christmas day, which has remained consistent as December 25 for much of Europe, was for a long time the start of the year, whereas some adhered to March 1st due to Roman empire influences, and also March 25th, in honour of conception of Jesus. Adoption of January 1st as the start of the year started with the Germans in 1544 and then finally with the American colonies under British control in 1752, two hundred and eight years later. American exceptionalism predates their revolution I swear. I know there are other calendars out there such as the Chinese or Hindu ones rife with similar problems I am sure. However, the internationally-accepted calendar we have today is the Gregorian, which in October 1582, was adopted after it was realised that Europe was using a calendar, the Julian, that was off by over a week due to a miscalculation of leap year handling. The error made with the Julian calendar was that the year was 325.25 days, lending the thought that exactly every four years, we tack on an extra day. However, the year is actually 365.2425 days, so tacking on that extra day like before may seem okay, but it starts to become a problem as centuries become millenniums. At the start of this section, I made a remark about knowing when to grow crops, well eventually the growing season is not going to align with the equinox and that was a problem if we’re going to find ourselves relying on this calendar. So when the day of Thursday, October 4th, 1582 came to an end, the next day jumped ahead ten whole days to Friday, October 15th. This is why we now have a complicated rule of a leap year being on every year divisible by four, except where it is divisible by 100 unless it itself is divisible by 400. This is why the year 2000 was a leap year, but the year 2100 will not be. Are we out of the woods with this calendar? Nope. There is a something called a leap second, which gets added periodically based on all sorts of arbitrary variables that our calendar cannot cope with.. It has been since 2016 that we’ve come to witness some, and that is only because they’ve opted to accept that we can ignore them until the mid-2100s in the hopes we figure out how to get computer programmers to deal with it better or some technology comes around to solve it all together. Let me close off this section by saying this: our geocentric calendar is going to suck in space but we’re also probably going to be stuck with it because of how we focus on human biology. We do not have to have 24 hours Before I proceed: I am going to talk about solar days and solar days only. If you do the basic equation of 24x60x60, you end up with 86,400, which is the number of seconds the a solar day occupies. The definition of a second originally was based off the rotation of the Earth, but it was then defined based off of the frequency if caesium, which unlike our home, does not deviate from our measurements. The Earth is actually slowing down. Six hundred million years ago, a solar day would have been 21 hours, but due to influences from the Moon and the Sun or other influences including filling giant hydroelectric dam basins, the Earth itself is not reliable to measure the passage of time. So technically speaking, you could say that a solar day on Earth is 86,400.0025 seconds based on current measurements.. But we don’t need to care about that so 86,400 is good enough for what I am talking about. While “good enough”, there are only so many factors for that number. There are 96 divisors that could fit into that value. So why not just abolish it? Why don’t we use a thousand minutes to define a day? There’s 1,440 minutes in a day and it would not be that far fetched to consider something different. Let’s talk about Beat Time. UTC Beat time My friend, Jessica made me enamoured with the use of .beats, a scheme developed by Swatch in the 1990s. It isn’t metric time, which was adopted by the French Republic post-revolution, but it is a scheme that permits the existing calendar but adopts a scheme that is intended to be used without time zones. The abolishment of time zones has been proposed by numerous people in the past, including science fiction author Arthur C. Clarke. I did say earlier that the use of offsets was a good idea, but I think that .beats is objectively better. The idea of saying “I will meet you at 800” works real well in my mind. Time dilation and its lack of importance Back to our friend Mars, trying to keep clocks in sync will require you to contend with general relativity. This late-2025 paper in The Astronomical Journal brought this to light: This study estimates clock rates on Mars and compares them to those on the Moon and Earth. We find that, on average, clocks on Mars tick faster than those on the Earth’s geoid by 477 μs day, with a variation of 226 μs day over a Martian year. Additionally, there is an amplitude modulation of approximately 40 μs day over seven synodic cycles. Our good ol’ friend relativity means that time keeping between multiple planets not only has to consider rotation and orbit, but the velocity and tidal forces too. 226-477 μs does not seem that significant, but given that you’re dealing with about a quarter to almost half of a a millisecond, it is not immeasurable. However, it is insignificant for the purposes of the book, so I don’t really care. I just wanted to bring this all up because I thought this part was neat. Let’s talk about my worlds In Reconnect, there are four mentioned worlds. They are not Earth, but we still rely on its time despite the setting for reasons I will not get into. Since they’re not Earth, this means that they all have different orbits and rotations.   Galactic Hibernia Augustia Xiadi Procula Local day (mins) 1,440 1,457.28 1,440 1,334.88 1,873.44 Local day (M) 1,000 1,012 1,000 927 1,301 Local year (local day) 365.24 360.91 98 327.1 653.9 To clarify the units, minutes are the ones we know and love, and M is basically a variation of the Internet time I wrote about earlier. A year for each planet is defined by the number of its local days. As you can see, there are some things we’re familiar with and peculiarities so let’s talk about each planet individually. Galactic And right off the bat, we’re not speaking about a planet but the galaxy itself. One of the things I have some level of confidence in is that we’re probably never going to say goodbye to the idea of UTC or a similar successor for as long as our species exists and makes use of technology. As such, I decided that in order to keep things working smoothly between the multiple planets, space stations, and whatnot that they themselves would rely on a calendar and clock that is the same no matter where you are. This is in my mind important because while it may be morning in some city on any of these worlds, morning is a concept that exists provided you have a star and rotation. When it comes to the International Space Station, they use UTC themselves. About every 90 minutes, the station makes a complete orbit around our planet, meaning that the concept of “morning” based on sunrise would be impractical due to the sun appearing and disappearing about sixteen times every standard Earth day. Hibernia, Xiadi, and Procula These are all planets with fairly normal rotations and orbits. Procula is the odd duck in all of this because its short year and long day–its day is 31 hours and 13 minutes whereas Hibernia is Earth-like at 24 hours and 17 minutes and Xiadi being close at 22 hours and 15 minutes. Despite being habitable, it is in my mind probably a bit shit to live on Procula considering you have effectively an extra quarter of a day added. A Martian solar day for example is 24 hours and 39 minutes, which might be just fine from a circadium rhythm standpoint. This is not baseless, as this story from the Harvard Gazette writes: By recording the daily rhythms of hormones and body temperatures in 24 healthy young and old men and women over a one-month period, the researchers conclude that our internal clocks run on a daily cycle of 24 hours, 11 minutes. You’d still be exceeding it, but being that nobody really has precise sleep schedules, adding an extra 39 minutes to each day probably would not have any long-lasting health effects. I do have to wonder what losing an hour and 45 minutes would do however as is the case with Xiadi. Augustia How would you keep time on a tidally-locked planet? If you’re un familiar, a tidally locked orbit is where one side of an object never changes its face towards its parent. This is the situation with the Moon, where we always see its face no matter what due to how it orbits around our planet. This situation has been observed with exo-planets and while it does not negate the possibility for habitability, it does introduce a question: what is the local time? My solution was simply to use the galactic time to define what the local time is and define a local day as how long it takes to go around its parent star. It takes 98 galactic days to go around its parent star. Earth time is not compatible with local time As you are probably reading, there’s local and galactic time to contend with. Functionally, time is time if you’re ignoring relativity, as the measurement of a second here on Earth is going to be no different than anywhere else in the universe. However, nobody is going to find it practical to have a Martian day be the same as an Earth day when having any sort of conversation. The reason why I think a local time works just fine is because there’s no real practical way to have any sort of instantaneous conversation once you get a dozen kilometres away from each other. In The Expanse TV series, a video call between Chrisjen Avasarala on Earth and her husband, Arjun Avasarala-Rao who was on the Moon had them talking over each other due to the approximately two and a half second round trip delay caused by the speed of light. It’s less of a big deal to contend with as the delay is acceptable, but what about Mars? With a delay of anywhere between three and twenty two minutes dependent on the position of Earth and Mars in relation to the Sun, you’re not going to have this problem simply because it is not practical to do anything real-time. At best, all communication will be instant messages or email. This is something I tap into with the book albeit it is a background problem. Physics will dictate the size of your empire even if you achieve fast interstellar travel. As an aside, I’d love to know if anyone has ever explored what undersea telegraph wires would have done were they to have existed before the American revolution of 1776. I have the belief that it would have been merely delayed although the outcome of it all is indeterminable. If you’re expecting transport between planets to work well, then you’ll have a universal time, but for anything local, time can just be based on whatever the planet is doing in relation to its parent star. The average person is not going to care about what time it is on Xiadi if they’re on Hibernia because nothing is going to arriving in time anyway. Colloquialisms will survive Since I touched on the “average person”, while I think the definition of how we track time will change, even if we adopt a clock much like the .beats scheme, it’s likely that we’ll still use terms like “minutes” or “hours” to describe something with only “days” actually sticking to its original definition in some form. If I tell a friend that I’ll be arriving “in a few minutes”, it’s intended to not be specific as it is intended to just say you’ll be arriving “soon”, which itself is not specific. Just spill the beans Okay. So humans are full of bad habits and compromises. I doubt we’re going to ditch our current, internationally-accepted calendar even if we find ourselves spanning multiple star systems. So, I chose to do something down the middle: I got rid of months–sort of. Reconnect time (simple) Reconnect time (expanded) The format is quite simple: you have an era (defined as BCC or CC), the date itself, and then the time. The date can be expressed as the number of days in the form of an integer since the start of the year or it can be broken into its traditional month and day in the expanded format. In space, harvest times don’t really matter unless you’re on Earth, so we can express the time of year in whatever format we want. The local calendar may do whatever it wants, but the galactic calendar can go about in a neutral manner. As for the year, it is expressed with an era beforehand which is optional, but it is based on an event that dictates the origin of the universe I am working within. There is no actual year per se, but we need one for the sake of this post so this is what we’re getting. Leap years are kept and follow the same rule although it is offset based off of when the era rolls over. As for the time itself, you may have noticed that the .beat time of does not correspond with the universe time of . This is because the Internet time is based on whatever it is in Switzerland, whereas the time used in the story is based on UTC. That’s how I have chosen to do time in this book: just simplify it and don’t refer to months by their names any longer. Closing I’ve been sitting on this entry for a week and decided to push it out, errors and all. I’m enjoying my time spent writing this book and hope that the small sliver of insight into what is the world building is looking like earns some excitement.</summary>
+        <summary type="html">One of the things I have been wanting to do in Reconenct is play a bit with how time is kept. Without giving away too much of the story, multiple planets separated by several weeks of travel spanning different star systems would in my mind lead to a situation where the time standards that we all know today have maybe evolved. Time-keeping is a core component of my day job as I base all of my work on the use of Coordinated Universal Time, or UTC. It’s a relatively simple system where you just need to keep track of one time for the whole planet and then use an offset to determine the local time. Since I live in Vancouver, my time zone is -7 UTC (which recently changed from -8), this means that I am seven hours behind from what UTC displays. Here’s an example using a very basic JavaScript clock: UTC Your time You’re not limited to offsets that are whole integers either. Examples include Newfoundland time, where the island of the Canadian province of Newfoundland and Labrador has an offset of -03:30, or Central Western Standard Time, which gives it an offset of +8:45. It has its quirks, but translating between these times is fairly painless provided your loved ones are not in either of these trying to call each other. Imagine the frustration of someone in Cocklebiddy in Western Australia trying to figure out when to call their mother who lives in Dildo, Newfoundland and Labrador. I hold the belief that this system, while geocentric, works well for humanity even if off-world as if you’re in a spaceship travelling around our star system, it is fine. However, what about calendars? And what about other planets? This is a silly post that I wanted to do so I could talk a bit about my book. Much of the inspiration for coming up with my own dating scheme originates in both Star Trek and the Wayfinder series by Becky Chambers. I welcome people pointing out any problems with this all, but this post is haphazard and is for certain going to have flaws. I hate calendars The importance of calendars should not be understated: knowing where we are in the year is important for ensuring that our agricultural sector knows when to grow crops and for legal and financial systems to keep working. However, I am going to show something that may be frustrating to see for the first time. The months of September, October, November, and December are not where they should be and the year should really start sometime around March. For those of you familiar with the history of Rome as well as the Roman empire, this something you might know already, but January and February did not exist prior to the latter part of 700 BCE. You’d have ten months or 304 days in the calendar, and then winter. The names of the aforementioned months mean in Latin the seventh, eighth, ninth, and tenth month–if you don’t speak Latin but speak French, you’ll catch on to how the months are spelt. However, around 713 BCE, January and February were tacked on at the start of the calendar, only because of the importance of end of year celebrations. While those months were added on to the calendar, it still didn’t mean that the year started on January 1st as it just meant that the calendar rolled over. Christmas day, which has remained consistent as December 25 for much of Europe, was for a long time the start of the year, whereas some adhered to March 1st due to Roman empire influences, and also March 25th, in honour of conception of Jesus. Adoption of January 1st as the start of the year started with the Germans in 1544 and then finally with the American colonies under British control in 1752, two hundred and eight years later. American exceptionalism predates their revolution I swear. I know there are other calendars out there such as the Chinese or Hindu ones rife with similar problems I am sure. However, the internationally-accepted calendar we have today is the Gregorian, which in October 1582, was adopted after it was realised that Europe was using a calendar, the Julian, that was off by over a week due to a miscalculation of leap year handling. The error made with the Julian calendar was that the year was 325.25 days, lending the thought that exactly every four years, we tack on an extra day. However, the year is actually 365.2425 days, so tacking on that extra day like before may seem okay, but it starts to become a problem as centuries become millenniums. At the start of this section, I made a remark about knowing when to grow crops, well eventually the growing season is not going to align with the equinox and that was a problem if we’re going to find ourselves relying on this calendar. So when the day of Thursday, October 4th, 1582 came to an end, the next day jumped ahead ten whole days to Friday, October 15th. This is why we now have a complicated rule of a leap year being on every year divisible by four, except where it is divisible by 100 unless it itself is divisible by 400. This is why the year 2000 was a leap year, but the year 2100 will not be. Are we out of the woods with this calendar? Nope. There is a something called a leap second, which gets added periodically based on all sorts of arbitrary variables that our calendar cannot cope with.. It has been since 2016 that we’ve come to witness some, and that is only because they’ve opted to accept that we can ignore them until the mid-2100s in the hopes we figure out how to get computer programmers to deal with it better or some technology comes around to solve it all together. Let me close off this section by saying this: our geocentric calendar is going to suck in space but we’re also probably going to be stuck with it because of how we focus on human biology. We do not have to have 24 hours Before I proceed: I am going to talk about solar days and solar days only. If you do the basic equation of 24x60x60, you end up with 86,400, which is the number of seconds the a solar day occupies. The definition of a second originally was based off the rotation of the Earth, but it was then defined based off of the frequency if caesium, which unlike our home, does not deviate from our measurements. The Earth is actually slowing down. Six hundred million years ago, a solar day would have been 21 hours, but due to influences from the Moon and the Sun or other influences including filling giant hydroelectric dam basins, the Earth itself is not reliable to measure the passage of time. So technically speaking, you could say that a solar day on Earth is 86,400.0025 seconds based on current measurements.. But we don’t need to care about that so 86,400 is good enough for what I am talking about. While “good enough”, there are only so many factors for that number. There are 96 divisors that could fit into that value. So why not just abolish it? Why don’t we use a thousand minutes to define a day? There’s 1,440 minutes in a day and it would not be that far fetched to consider something different. Let’s talk about Beat Time. UTC Beat time My friend, Jessica made me enamoured with the use of .beats, a scheme developed by Swatch in the 1990s. It isn’t metric time, which was adopted by the French Republic post-revolution, but it is a scheme that permits the existing calendar but adopts its own method that is intended to be used without time zones. The abolishment of time zones has been proposed by numerous people in the past, including science fiction author Arthur C. Clarke. I did say earlier that the use of offsets was a good idea, but I think that .beats is objectively better. The idea of saying “I will meet you at 800” works real well in my mind. Time dilation and its lack of importance Back to our friend Mars, trying to keep clocks in sync will require you to contend with general relativity. This late-2025 paper in The Astronomical Journal brought this to light: This study estimates clock rates on Mars and compares them to those on the Moon and Earth. We find that, on average, clocks on Mars tick faster than those on the Earth’s geoid by 477 μs day, with a variation of 226 μs day over a Martian year. Additionally, there is an amplitude modulation of approximately 40 μs day over seven synodic cycles. Our good ol’ friend relativity means that time keeping between multiple planets not only has to consider rotation and orbit, but the velocity and tidal forces too. 226-477 μs does not seem that significant, but given that you’re dealing with about a quarter to almost half of a a millisecond, it is not immeasurable. However, it is insignificant for the purposes of the book, so I don’t really care. I just wanted to bring this all up because I thought this part was neat. Let’s talk about my worlds In Reconnect, there are four mentioned worlds. They are not Earth, but we still rely on its time despite the setting for reasons I will not get into. Since they’re not Earth, this means that they all have different orbits and rotations.   Galactic Hibernia Augustia Xiadi Procula Local day (mins) 1,440 1,457.28 1,440 1,334.88 1,873.44 Local day (M) 1,000 1,012 1,000 927 1,301 Local year (local day) 365.24 360.91 98 327.1 653.9 To clarify the units, minutes are the ones we know and love, and M is basically a variation of the Internet time I wrote about earlier. A year for each planet is defined by the number of its local days. As you can see, there are some things we’re familiar with and peculiarities so let’s talk about each planet individually. Galactic And right off the bat, we’re not speaking about a planet but the galaxy itself. One of the things I have some level of confidence in is that we’re probably never going to say goodbye to the idea of UTC or a similar successor for as long as our species exists and makes use of technology. As such, I decided that in order to keep things working smoothly between the multiple planets, space stations, and whatnot that they themselves would rely on a calendar and clock that is the same no matter where you are. This is in my mind important because while it may be morning in some city on any of these worlds, morning is a concept that exists provided you have a star and rotation. When it comes to the International Space Station, they use UTC themselves. About every 90 minutes, the station makes a complete orbit around our planet, meaning that the concept of “morning” based on sunrise would be impractical due to the sun appearing and disappearing about sixteen times every standard Earth day. Hibernia, Xiadi, and Procula These are all planets with fairly normal rotations and orbits. Procula is the odd duck in all of this because its short year and long day–its day is 31 hours and 13 minutes whereas Hibernia is Earth-like at 24 hours and 17 minutes and Xiadi being close at 22 hours and 15 minutes. Despite being habitable, it is in my mind probably a bit shit to live on Procula considering you have effectively an extra quarter of a day added. A Martian solar day for example is 24 hours and 39 minutes, which might be just fine from a circadium rhythm standpoint. This is not baseless, as this story from the Harvard Gazette writes: By recording the daily rhythms of hormones and body temperatures in 24 healthy young and old men and women over a one-month period, the researchers conclude that our internal clocks run on a daily cycle of 24 hours, 11 minutes. You’d still be exceeding it, but being that nobody really has precise sleep schedules, adding an extra 39 minutes to each day probably would not have any long-lasting health effects. I do have to wonder what losing an hour and 45 minutes would do however as is the case with Xiadi. Augustia How would you keep time on a tidally-locked planet? If you’re un familiar, a tidally locked orbit is where one side of an object never changes its face towards its parent. This is the situation with the Moon, where we always see its face no matter what due to how it orbits around our planet. This situation has been observed with exo-planets and while it does not negate the possibility for habitability, it does introduce a question: what is the local time? My solution was simply to use the galactic time to define what the local time is and define a local day as how long it takes to go around its parent star. It takes 98 galactic days to go around its parent star. Earth time is not compatible with local time As you are probably reading, there’s local and galactic time to contend with. Functionally, time is time if you’re ignoring relativity, as the measurement of a second here on Earth is going to be no different than anywhere else in the universe. However, nobody is going to find it practical to have a Martian day be the same as an Earth day when having any sort of conversation. The reason why I think a local time works just fine is because there’s no real practical way to have any sort of instantaneous conversation once you get a dozen kilometres away from each other. In The Expanse TV series, a video call between Chrisjen Avasarala on Earth and her husband, Arjun Avasarala-Rao who was on the Moon had them talking over each other due to the approximately two and a half second round trip delay caused by the speed of light. It’s less of a big deal to contend with as the delay is acceptable, but what about Mars? With a delay of anywhere between three and twenty two minutes dependent on the position of Earth and Mars in relation to the Sun, you’re not going to have this problem simply because it is not practical to do anything real-time. At best, all communication will be instant messages or email. This is something I tap into with the book albeit it is a background problem. Physics will dictate the size of your empire even if you achieve fast interstellar travel. As an aside, I’d love to know if anyone has ever explored what undersea telegraph wires would have done were they to have existed before the American revolution of 1776. I have the belief that it would have been merely delayed although the outcome of it all is indeterminable. If you’re expecting transport between planets to work well, then you’ll have a universal time, but for anything local, time can just be based on whatever the planet is doing in relation to its parent star. The average person is not going to care about what time it is on Xiadi if they’re on Hibernia because nothing is going to arriving in time anyway. Colloquialisms will survive Since I touched on the “average person”, while I think the definition of how we track time will change, even if we adopt a clock much like the .beats scheme, it’s likely that we’ll still use terms like “minutes” or “hours” to describe something with only “days” actually sticking to its original definition in some form. If I tell a friend that I’ll be arriving “in a few minutes”, it’s intended to not be specific as it is intended to just say you’ll be arriving “soon”, which itself is not specific. Just spill the beans Okay. So humans are full of bad habits and compromises. I doubt we’re going to ditch our current, internationally-accepted calendar even if we find ourselves spanning multiple star systems. So, I chose to do something down the middle: I got rid of months–sort of. Reconnect time (simple) Reconnect time (expanded) The format is quite simple: you have an era (defined as BCC or CC), the date itself, and then the time. The date can be expressed as the number of days in the form of an integer since the start of the year or it can be broken into its traditional month and day in the expanded format. In space, harvest times don’t really matter unless you’re on Earth, so we can express the time of year in whatever format we want. The local calendar may do whatever it wants, but the galactic calendar can go about in a neutral manner. As for the year, it is expressed with an era beforehand which is optional, but it is based on an event that dictates the origin of the universe I am working within. There is no actual year per se, but we need one for the sake of this post so this is what we’re getting. Leap years are kept and follow the same rule although it is offset based off of when the era rolls over. As for the time itself, you may have noticed that the .beat time of does not correspond with the universe time of . This is because the Internet time is based on whatever it is in Switzerland, whereas the time used in the story is based on UTC. That’s how I have chosen to do time in this book: just simplify it and don’t refer to months by their names any longer. Closing I’ve been sitting on this entry for a week and decided to push it out, errors and all. I’m enjoying my time spent writing this book and hope that the small sliver of insight into what is the world building is looking like earns some excitement.</summary>
+      
+
+      
+      
+    </entry>
+  
+  
+  
+    <entry>
+      
+      <title type="html">Keeping track of time in Disconnect</title>
+      
+      
+      <link href="https://cariad.keigher.ca/2026/04/26/time-tracking-in-disconnect/" rel="alternate" type="text/html" title="Keeping track of time in Disconnect" />
+      
+      <published>2026-04-26T00:00:00+00:00</published>
+      <updated>2026-04-26T00:00:00+00:00</updated>
+      <id>https://cariad.keigher.ca/2026/04/26/time-tracking-in-disconnect</id>
+      <content type="html" xml:base="https://cariad.keigher.ca/2026/04/26/time-tracking-in-disconnect/">&lt;p&gt;One of the things I have been wanting to do in Disconnect is play a bit with how time is kept. Without 
+giving away too much of the story, multiple planets separated by several weeks of travel spanning 
+different star systems would in my mind lead to a situation where the time standards that we all know 
+today have maybe evolved.&lt;/p&gt;
+
+&lt;p&gt;Time-keeping is a core component of my day job as I base all of my work on the use of 
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Coordinated_Universal_Time&quot;&gt;Coordinated Universal Time&lt;/a&gt;, or UTC. It’s a 
+relatively simple system where you just need to keep track of one time for the whole planet and then 
+use an offset to determine the local time.&lt;/p&gt;
+
+&lt;p&gt;Since I live in Vancouver, my time zone is -7 UTC 
+(&lt;a href=&quot;https://www2.gov.bc.ca/gov/content/governments/celebrating-british-columbia/daylight-saving-time&quot;&gt;which recently changed from -8&lt;/a&gt;), 
+this means that I am seven hours behind from what UTC displays.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example using a very basic JavaScript clock:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;UTC&lt;/th&gt;
+      &lt;th&gt;Vancouver (-7 UTC)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span id=&quot;timeUTC&quot;&gt;&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span id=&quot;timeVancouver&quot;&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;You’re not limited to offsets that are whole integers either. Examples include 
+&lt;a href=&quot;https://en.wikipedia.org/wiki/UTC%E2%88%9203:30&quot;&gt;Newfoundland time&lt;/a&gt;, where the island of the Canadian province of 
+Newfoundland and Labrador has an offset of -03:30, or 
+&lt;a href=&quot;https://en.wikipedia.org/wiki/UTC%2B08:45#UTC+09:45&quot;&gt;Central Western Standard Time&lt;/a&gt;, which gives it an offset of 
++8:45. It has its quirks, but translating between these times is fairly painless provided your loved ones are not 
+in either of these trying to call each other.&lt;/p&gt;
+
+&lt;p&gt;Imagine the frustration of someone in Cocklebiddy in Western Australia trying to figure out when to call their 
+mother who lives in Dildo, Newfoundland and Labrador.&lt;/p&gt;
+
+&lt;p&gt;I hold the belief that this system, while geocentric, works well for humanity even if off-world as if you’re in a 
+spaceship travelling around our star system, it is fine. However, what about calendars? And what about other planets?&lt;/p&gt;
+
+&lt;h1&gt;I hate calendars&lt;/h1&gt;
+
+&lt;p&gt;The importance of calendars should not be understated: knowing where we are in the year is important for ensuring 
+that our agriculture knows when to grow crops and for legal and financial systems to keep working. However, I am 
+going to show something that may be frustrating to see for the first time.&lt;/p&gt;
+
+&lt;p&gt;The months of September, October, November, and December are not where they should be and the year should really start 
+sometime around March. For those of you familiar with the history of Rome as well as the Roman empire, this something 
+you might know already, but January and February did not exist prior to the latter part of 700 BCE. You’d have ten 
+months or 304 days in the calendar, and then winter.&lt;/p&gt;
+
+&lt;p&gt;The names of the aforementioned months mean in Latin the seventh, eighth, ninth, and tenth month–if you don’t speak 
+Latin but speak French, you’ll catch on to how the months are spelt. However, around 713 BCE, January and February
+were tacked on at the start of the calendar, only because of the importance of end of year celebrations.&lt;/p&gt;
+
+&lt;p&gt;While those months were added on to the calendar, it still didn’t mean that the year started on January 1st 
+as it just meant that the calendar rolled over.&lt;/p&gt;
+
+&lt;p&gt;Christmas day, which has remained consistent as December 25 for much of Europe, was for a long time the start of the 
+year, whereas some adhered to March 1st due to Roman empire influences, and also March 25th, in honour of conception 
+of Jesus. Adoption of January 1st as the start of the year started with the Germans in 1544 and then finally with the 
+American colonies under British control in 1752, two hundred and eight years later.&lt;/p&gt;
+
+&lt;p&gt;American exceptionalism predates their revolution I swear.&lt;/p&gt;
+
+&lt;p&gt;I know there are other calendars out there such as the &lt;a href=&quot;https://en.wikipedia.org/wiki/Chinese_calendar&quot;&gt;Chinese&lt;/a&gt; or 
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Hindu_calendar&quot;&gt;Hindu&lt;/a&gt; ones rife with similar problems I am sure. However, the 
+internationally-accepted calendar we have today is the Gregorian, which in October 1582, was adopted after it was 
+realised that Europe was using a calendar, the Julian, that was off by over a week due to a miscalculation of leap 
+year handling.&lt;/p&gt;
+
+&lt;p&gt;The error made with the Julian calendar was that the year was 325.25 days, lending the thought that exactly every 
+four years, we tack on an extra day. However, the year is actually 365.2425 days, so tacking on that extra day like 
+before may seem okay, but it starts to become a problem as centuries become millenniums. At the start of this 
+section, I made a remark about knowing when to grow crops, well eventually the growing season is not going to align 
+with the equinox and that was a problem if we’re going to find ourselves relying on this calendar.&lt;/p&gt;
+
+&lt;p&gt;So when the day of Thursday, October 4th, 1582 came to an end, the next day jumped ahead ten whole days to Friday, 
+October 15th. This is why we now have a complicated rule of a leap year being on every year divisible by four, except 
+where it is divisible by 100 unless it itself is divisible by 400. This is why the year 2000 was a leap year, but 
+the year 2100 will not be.&lt;/p&gt;
+
+&lt;p&gt;Are we out of the woods with this calendar? Nope. There is a something called a 
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Leap_second&quot;&gt;leap second&lt;/a&gt;, which gets added periodically based on all sorts of 
+arbitrary variables that our calendar cannot cope with.. It has been since 2016 that we’ve come to witness some, and 
+that is only because they’ve opted to accept that we can ignore them until the mid-2100s in the hopes we figure out 
+&lt;a href=&quot;https://sarvendev.com/2024/07/problematic-second/&quot;&gt;how to get computer programmers to deal with it better or some technology comes around to solve it all together&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let me close off this section by saying this: our geocentric calendar is going to suck in space but we’re also 
+probably going to be stuck with it because of how we focus on human biology.&lt;/p&gt;
+
+&lt;h1&gt;We do not have to have 24 hours&lt;/h1&gt;
+
+&lt;p&gt;Before I proceed: I am going to talk about solar days and solar days only.&lt;/p&gt;
+
+&lt;p&gt;If you do the basic equation of 24x60x60, you end up with 86,400, which is the number of seconds the a solar 
+day occupies. The definition of a second originally was based off the rotation of the Earth, but it was then 
+defined based off of the frequency if caesium, which unlike our home, does not deviate from our measurements.&lt;/p&gt;
+
+&lt;p&gt;The Earth is actually slowing down. Six hundred million years ago, a solar day would have been 21 hours, but due 
+to influences from the Moon and the Sun or other influences including 
+&lt;a href=&quot;https://kagi.com/search?q=three+gorges+dam+slow+down&quot;&gt;filling giant hydroelectric dam basins&lt;/a&gt;, it is quite 
+apparent that for good measurements, the Earth itself is not reliable. So technically speaking, you could say 
+that a solar day on Earth is 86,400.0025 seconds, hence the leap second I mentioned earlier.&lt;/p&gt;
+
+&lt;p&gt;But we don’t need to care about that so 86,400 is good enough.&lt;/p&gt;
+
+&lt;p&gt;While “good enough”, there are only so many factors for that number. There are 
+&lt;a href=&quot;https://www.wolframalpha.com/input/?i=factor+86400&quot;&gt;96 divisors&lt;/a&gt; that could fit into that value.&lt;/p&gt;
+
+&lt;p&gt;So why not just abolish it? Why don’t we use a thousand minutes to define a day? There’s 1,440 minutes in a day 
+and it would not be that far fetched to consider something different. Let’s talk about Beat Time.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;UTC&lt;/th&gt;
+      &lt;th&gt;Beat time&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;span id=&quot;timeUTC2&quot;&gt;&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span id=&quot;timeBeats&quot;&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://internet-ti.me&quot;&gt;My friend, Jessica made me enamoured with the use of .beats&lt;/a&gt;, 
+a scheme &lt;a href=&quot;https://en.wikipedia.org/wiki/Swatch_Internet_Time&quot;&gt;developed by Swatch in the 1990s&lt;/a&gt;. It isn’t metric 
+time, which was &lt;a href=&quot;https://en.wikipedia.org/wiki/French_Republican_calendar#Days&quot;&gt;adopted by the French Republic post-revolution&lt;/a&gt;, 
+but it is a scheme that permits the existing calendar but adopts a scheme that is intended to be used without 
+time zones.&lt;/p&gt;
+
+&lt;p&gt;The abolishment of time zones has been proposed by numerous people in the past, including science fiction author 
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Abolition_of_time_zones#Proposals&quot;&gt;Arthur C. Clarke&lt;/a&gt;. I did say earlier that the use 
+of offsets was a good idea, but I think that .beats is objectively better.&lt;/p&gt;
+
+&lt;p&gt;The idea of saying “I will meet you at 800” works real well in my mind.&lt;/p&gt;
+
+&lt;h1&gt;Time dilation and its lack of importance&lt;/h1&gt;
+
+&lt;p&gt;Back to our friend Mars, trying to keep clocks in sync will require you to contend with general relativity. 
+&lt;a href=&quot;https://iopscience.iop.org/article/10.3847/1538-3881/ae0c16&quot;&gt;This late-2025 paper&lt;/a&gt; in The Astronomical 
+Journal brought this to light:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This study estimates clock rates on Mars and compares them to those on the Moon and Earth. We find that, on average, clocks on Mars tick faster than those on the Earth’s geoid by 477 μs day, with a variation of 226 μs day over a Martian year. Additionally, there is an amplitude modulation of approximately 40 μs day over seven synodic cycles.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Our good ol’ friend relativity means that time keeping between multiple planets not only has to consider 
+rotation and orbit, but the velocity and tidal forces too. 226-477 μs does not seem that significant, but 
+given that you’re dealing with about a quarter to almost half of a a millisecond, it is not immeasurable.&lt;/p&gt;
+
+&lt;p&gt;However, it is insignificant for the purposes of the book, so I don’t really care. I just wanted to bring 
+this all up because I thought this part was neat.&lt;/p&gt;
+
+&lt;h1&gt;Screw it&lt;/h1&gt;
+
+&lt;script&gt;
+    // If you&apos;re looking at this, I didn&apos;t feel like making this as nice as possible. I just 
+    // wanted it to work! I know of more elegant ways to do this.
+
+    // Beat time from: https://gist.github.com/craigerskine/567162a434205dffa98af7aa91596ff9
+    function beatTime(){
+        const date = new Date();
+        const hours = (date.getUTCHours() == 23) ? 0 : date.getUTCHours() + 1;
+        const beats = Math.abs(((((hours * 60) + date.getUTCMinutes()) * 60) + date.getUTCSeconds()) / 86.4).toFixed(2);
+        return beats;
+    }
+    
+    function updateTime() {
+        // Variables
+        var months = {
+            0: &quot;January&quot;, 1: &quot;February&quot;, 2: &quot;February&quot;, 3: &quot;April&quot;, 4: &quot;May&quot;, 5: &quot;June&quot;,
+            6: &quot;July&quot;, 7: &quot;August&quot;, 8: &quot;September&quot;, 9: &quot;October&quot;, 10: &quot;November&quot;, 11: &quot;December&quot;
+            }
+        var day = {
+            0: &quot;Sunday&quot;, 1: &quot;Monday&quot;, 2: &quot;Tuesday&quot;, 3: &quot;Wednesday&quot;, 4: &quot;Thursday&quot;,
+            5: &quot;Friday&quot;, 6: &quot;Saturday&quot;
+        }
+        var offset = -7
+
+        // Sets time for UTC and then Vancouver
+        var currentUTC = new Date()
+        var currentVancouver = new Date(currentUTC.getTime() + (offset * 1000));
+
+        // Set time for UTC
+        var monthUTC = months[currentUTC.getUTCMonth()];
+        var dayUTC = day[currentUTC.getUTCDay()];
+        var dateUTC = currentUTC.getUTCDate();
+        var yearUTC = currentUTC.getUTCFullYear();
+        var hoursUTC = (&apos;00&apos;+currentUTC.getUTCHours()).slice(-2);
+        var minutesUTC = (&apos;00&apos;+currentUTC.getUTCMinutes()).slice(-2);
+        var secondsUTC = (&apos;00&apos;+currentUTC.getUTCSeconds()).slice(-2);
+
+        // Set time for Vancouver
+        var monthVancouver = months[currentVancouver.getMonth()];
+        var dayVancouver = day[currentVancouver.getDay()];
+        var dateVancouver = currentVancouver.getDate();
+        var yearVancouver = currentVancouver.getFullYear();
+        var hoursVancouver = (&apos;00&apos;+currentVancouver.getHours()).slice(-2);
+        var minutesVancouver = (&apos;00&apos;+currentVancouver.getMinutes()).slice(-2);
+        var secondsVancouver = (&apos;00&apos;+currentVancouver.getSeconds()).slice(-2);
+
+        // Set strings
+        var tsUTC = hoursUTC + &quot;:&quot; + minutesUTC + &quot;:&quot; + secondsUTC;
+        var tsUTC2 = tsUTC;
+        tsUTC = tsUTC + &quot; on &quot; + dayUTC + &quot;, &quot; + monthUTC + &quot; &quot; + dateUTC + &quot;, &quot; + yearUTC;
+        var tsVancouver = hoursVancouver + &quot;:&quot; + minutesVancouver + &quot;:&quot; + secondsVancouver;
+        tsVancouver = tsVancouver + &quot; on &quot; + dayVancouver + &quot;, &quot; + monthVancouver + &quot; &quot; + dateVancouver + &quot;, &quot; + yearVancouver;
+
+        // Update HTML
+        document.getElementById(&apos;timeUTC&apos;).innerHTML = tsUTC;
+        document.getElementById(&apos;timeUTC2&apos;).innerHTML = tsUTC2;
+        document.getElementById(&apos;timeVancouver&apos;).innerHTML = tsVancouver;
+        document.getElementById(&apos;timeBeats&apos;).innerHTML = beatTime();
+    }
+    setInterval(updateTime, 1000);
+&lt;/script&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Cariad Heather Keigher</name>
+          
+          
+        </author>
+      
+
+      
+
+      
+
+      
+        <summary type="html">One of the things I have been wanting to do in Disconnect is play a bit with how time is kept. Without giving away too much of the story, multiple planets separated by several weeks of travel spanning different star systems would in my mind lead to a situation where the time standards that we all know today have maybe evolved. Time-keeping is a core component of my day job as I base all of my work on the use of Coordinated Universal Time, or UTC. It’s a relatively simple system where you just need to keep track of one time for the whole planet and then use an offset to determine the local time. Since I live in Vancouver, my time zone is -7 UTC (which recently changed from -8), this means that I am seven hours behind from what UTC displays. Here’s an example using a very basic JavaScript clock: UTC Vancouver (-7 UTC) You’re not limited to offsets that are whole integers either. Examples include Newfoundland time, where the island of the Canadian province of Newfoundland and Labrador has an offset of -03:30, or Central Western Standard Time, which gives it an offset of +8:45. It has its quirks, but translating between these times is fairly painless provided your loved ones are not in either of these trying to call each other. Imagine the frustration of someone in Cocklebiddy in Western Australia trying to figure out when to call their mother who lives in Dildo, Newfoundland and Labrador. I hold the belief that this system, while geocentric, works well for humanity even if off-world as if you’re in a spaceship travelling around our star system, it is fine. However, what about calendars? And what about other planets? I hate calendars The importance of calendars should not be understated: knowing where we are in the year is important for ensuring that our agriculture knows when to grow crops and for legal and financial systems to keep working. However, I am going to show something that may be frustrating to see for the first time. The months of September, October, November, and December are not where they should be and the year should really start sometime around March. For those of you familiar with the history of Rome as well as the Roman empire, this something you might know already, but January and February did not exist prior to the latter part of 700 BCE. You’d have ten months or 304 days in the calendar, and then winter. The names of the aforementioned months mean in Latin the seventh, eighth, ninth, and tenth month–if you don’t speak Latin but speak French, you’ll catch on to how the months are spelt. However, around 713 BCE, January and February were tacked on at the start of the calendar, only because of the importance of end of year celebrations. While those months were added on to the calendar, it still didn’t mean that the year started on January 1st as it just meant that the calendar rolled over. Christmas day, which has remained consistent as December 25 for much of Europe, was for a long time the start of the year, whereas some adhered to March 1st due to Roman empire influences, and also March 25th, in honour of conception of Jesus. Adoption of January 1st as the start of the year started with the Germans in 1544 and then finally with the American colonies under British control in 1752, two hundred and eight years later. American exceptionalism predates their revolution I swear. I know there are other calendars out there such as the Chinese or Hindu ones rife with similar problems I am sure. However, the internationally-accepted calendar we have today is the Gregorian, which in October 1582, was adopted after it was realised that Europe was using a calendar, the Julian, that was off by over a week due to a miscalculation of leap year handling. The error made with the Julian calendar was that the year was 325.25 days, lending the thought that exactly every four years, we tack on an extra day. However, the year is actually 365.2425 days, so tacking on that extra day like before may seem okay, but it starts to become a problem as centuries become millenniums. At the start of this section, I made a remark about knowing when to grow crops, well eventually the growing season is not going to align with the equinox and that was a problem if we’re going to find ourselves relying on this calendar. So when the day of Thursday, October 4th, 1582 came to an end, the next day jumped ahead ten whole days to Friday, October 15th. This is why we now have a complicated rule of a leap year being on every year divisible by four, except where it is divisible by 100 unless it itself is divisible by 400. This is why the year 2000 was a leap year, but the year 2100 will not be. Are we out of the woods with this calendar? Nope. There is a something called a leap second, which gets added periodically based on all sorts of arbitrary variables that our calendar cannot cope with.. It has been since 2016 that we’ve come to witness some, and that is only because they’ve opted to accept that we can ignore them until the mid-2100s in the hopes we figure out how to get computer programmers to deal with it better or some technology comes around to solve it all together. Let me close off this section by saying this: our geocentric calendar is going to suck in space but we’re also probably going to be stuck with it because of how we focus on human biology. We do not have to have 24 hours Before I proceed: I am going to talk about solar days and solar days only. If you do the basic equation of 24x60x60, you end up with 86,400, which is the number of seconds the a solar day occupies. The definition of a second originally was based off the rotation of the Earth, but it was then defined based off of the frequency if caesium, which unlike our home, does not deviate from our measurements. The Earth is actually slowing down. Six hundred million years ago, a solar day would have been 21 hours, but due to influences from the Moon and the Sun or other influences including filling giant hydroelectric dam basins, it is quite apparent that for good measurements, the Earth itself is not reliable. So technically speaking, you could say that a solar day on Earth is 86,400.0025 seconds, hence the leap second I mentioned earlier. But we don’t need to care about that so 86,400 is good enough. While “good enough”, there are only so many factors for that number. There are 96 divisors that could fit into that value. So why not just abolish it? Why don’t we use a thousand minutes to define a day? There’s 1,440 minutes in a day and it would not be that far fetched to consider something different. Let’s talk about Beat Time. UTC Beat time My friend, Jessica made me enamoured with the use of .beats, a scheme developed by Swatch in the 1990s. It isn’t metric time, which was adopted by the French Republic post-revolution, but it is a scheme that permits the existing calendar but adopts a scheme that is intended to be used without time zones. The abolishment of time zones has been proposed by numerous people in the past, including science fiction author Arthur C. Clarke. I did say earlier that the use of offsets was a good idea, but I think that .beats is objectively better. The idea of saying “I will meet you at 800” works real well in my mind. Time dilation and its lack of importance Back to our friend Mars, trying to keep clocks in sync will require you to contend with general relativity. This late-2025 paper in The Astronomical Journal brought this to light: This study estimates clock rates on Mars and compares them to those on the Moon and Earth. We find that, on average, clocks on Mars tick faster than those on the Earth’s geoid by 477 μs day, with a variation of 226 μs day over a Martian year. Additionally, there is an amplitude modulation of approximately 40 μs day over seven synodic cycles. Our good ol’ friend relativity means that time keeping between multiple planets not only has to consider rotation and orbit, but the velocity and tidal forces too. 226-477 μs does not seem that significant, but given that you’re dealing with about a quarter to almost half of a a millisecond, it is not immeasurable. However, it is insignificant for the purposes of the book, so I don’t really care. I just wanted to bring this all up because I thought this part was neat. Screw it</summary>
       
 
       
@@ -2946,70 +3209,6 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
 
       
         <summary type="html">One of the most important aspects of a railway is the standardization of the railway itself. Trains have to fit the platforms they pick up passengers from and they must also be able to successfully roll along the rails it sits atop of. This is called gauge and we have two different sets of the measurement to work with. A weird question came to mind: could an Expo or Millennium Line train fit on the Canada Line? How about vice-versa? Let’s talk about this. Firstly, let’s get the elephant in the room out of the way. There is no way for any Expo or Millennium Line train to independently function on the Canada Line. The propulsion technology used on the two lines requires the centre rail in order to propel itself along the rails. However, the rails themselves would permit the trains to fit and roll along. All three of the lines use the same rail gauge. Rail gauge simply dictates the distance between the two rails and in the case of the SkyTrain system, it’s 1,435 mm or 4 feet and 8.5 inches–everybody calls this “standard gauge”. This gauge is used all over the world and is the same for railways operated by CN and CPKC, the entirety of the National Rail system in the United Kingdom, and virtually every railway in mainland Europe save for non-high speed railways in Spain, Finland, and some railways of former Soviet bloc countries. If someone were able to bring a Mark I rolling stock on to the Canada Line, they would be able to pull the cars along the rails with very little resistance. However, one glaring problem would appear: the trains are smaller. This is where the second gauge comes into play: load. The Mark I trains are smaller than their Hyundai Rotem cousins. How much smaller? About almost a half-metre smaller at its width (a Mark II is 2.5m wide and a Rotem is 3) and the platform height on the Canada Line is 25 cm taller (100 cm vs 75 cm). Some Mark II and III trains have run into problems where they’re 2-3 cm too tall which is a huge problem for accessibility, but a full quarter metre difference would be egregious. So this leads us into the obvious problem with the inverse: the Canada Line trains would fit on the rails but that would be about it. They’d all quite violently clip the platforms if they could power themselves. And then this finally leads us to this: the power is completely different between the two systems too. The voltage is 700 VDC (volts direct current) on the Canada Line and 625 VDC for the other two. Multi-voltage trains are very common, but it won’t matter here anyway since the way power is handled by the trains is radically different. On the Expo and Millennium Lines, power is fed by two rails mounted on the side. One rail is to supply power and the other is to return power. This is all to provide a circuit so the trains can operate. The Canada Line is different: there is a third rail but it is mounted downwards as opposed to the side and it’s just a single rail with return power provided through the rails itself. I have had a railway engineer complain to me about this design, but I barely understood the actual problem with it other than it makes maintenance a bit of a pain. That is how radically different the systems are from each other.</summary>
-      
-
-      
-      
-    </entry>
-  
-  
-  
-    <entry>
-      
-      <title type="html">Imagine having this mindset over shrinkflation and regulation</title>
-      
-      
-      <link href="https://cariad.keigher.ca/2024/02/19/shrinkflation/" rel="alternate" type="text/html" title="Imagine having this mindset over shrinkflation and regulation" />
-      
-      <published>2024-02-19T00:00:00+00:00</published>
-      <updated>2024-02-19T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/02/19/shrinkflation</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/02/19/shrinkflation/">&lt;p&gt;&lt;a href=&quot;https://web.archive.org/web/20250102001603mp_/https://www.cbc.ca/news/business/shrinkflation-legislation-canada-1.7114612&quot;&gt;Via the CBC&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;PepperBrooks was getting ready to wash her dishes when she noticed something didn’t add up.&lt;/p&gt;
-
-  &lt;p&gt;The new bottle of Dawn Platinum she’d bought contained 431 millilitres of dish soap, 10 per cent less than an older bottle of the same product that she had in her cupboard.&lt;/p&gt;
-
-  &lt;p&gt;Despite the difference, both bottles had cost the same.&lt;/p&gt;
-
-  &lt;p&gt;“I’m not happy about it,” said the Mississauga, Ont., marketing strategist who goes by the mononym PepperBrooks. “There was no notification. They didn’t let me know as a consumer that I’m going to be getting less for the same [price].”&lt;/p&gt;
-
-  &lt;p&gt;[…]&lt;/p&gt;
-
-  &lt;p&gt;But PepperBrooks believes regulations aren’t the best approach. Instead, she feels the onus should be on manufacturers to fess up when they shrink a product — or risk losing customers.&lt;/p&gt;
-
-  &lt;p&gt;“It’s more on the company, as like a social responsibility, to let them, the consumer, know that they are getting less,” she said. “I think it builds brand loyalty.”&lt;/p&gt;
-
-  &lt;p&gt;After her experience with Dawn dish soap, PepperBrooks said she’s still using the product but now feels less loyal to the brand and is keeping her eye out for alternatives.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Ah yes. The thing that’ll keep companies in line is not regulation but instead “social responsibility”.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://web.archive.org/web/20250102001603mp_/https://pepperbrooks.com/ux-case-study-one&quot;&gt;I looked the woman up&lt;/a&gt; so naturally she’d have this mindset.&lt;/p&gt;
-
-&lt;p&gt;I’m sure that she’d have been against food regulation when they were being introduced in the 1920s. Social responsibility would have been enough to prevent us from eating sawdust.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-            <name>Cariad Heather Keigher</name>
-          
-          
-        </author>
-      
-
-      
-
-      
-
-      
-        <summary type="html">Via the CBC: PepperBrooks was getting ready to wash her dishes when she noticed something didn’t add up. The new bottle of Dawn Platinum she’d bought contained 431 millilitres of dish soap, 10 per cent less than an older bottle of the same product that she had in her cupboard. Despite the difference, both bottles had cost the same. “I’m not happy about it,” said the Mississauga, Ont., marketing strategist who goes by the mononym PepperBrooks. “There was no notification. They didn’t let me know as a consumer that I’m going to be getting less for the same [price].” […] But PepperBrooks believes regulations aren’t the best approach. Instead, she feels the onus should be on manufacturers to fess up when they shrink a product — or risk losing customers. “It’s more on the company, as like a social responsibility, to let them, the consumer, know that they are getting less,” she said. “I think it builds brand loyalty.” After her experience with Dawn dish soap, PepperBrooks said she’s still using the product but now feels less loyal to the brand and is keeping her eye out for alternatives. Ah yes. The thing that’ll keep companies in line is not regulation but instead “social responsibility”. I looked the woman up so naturally she’d have this mindset. I’m sure that she’d have been against food regulation when they were being introduced in the 1920s. Social responsibility would have been enough to prevent us from eating sawdust.</summary>
       
 
       

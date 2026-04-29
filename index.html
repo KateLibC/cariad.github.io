@@ -251,7 +251,7 @@ and it would not be that far fetched to consider something different. Let’s ta
 <p><a href="https://internet-ti.me">My friend, Jessica made me enamoured with the use of .beats</a>, 
 a scheme <a href="https://en.wikipedia.org/wiki/Swatch_Internet_Time">developed by Swatch in the 1990s</a>. It isn’t metric 
 time, which was <a href="https://en.wikipedia.org/wiki/French_Republican_calendar#Days">adopted by the French Republic post-revolution</a>, 
-but it is a scheme that permits the existing calendar but adopts a scheme that is intended to be used without 
+but it is a scheme that permits the existing calendar but adopts its own method that is intended to be used without 
 time zones.</p>
 
 <p>The abolishment of time zones has been proposed by numerous people in the past, including science fiction author 
@@ -567,6 +567,255 @@ the world building is looking like earns some excitement.</p>
         document.getElementById('timeBeats5').innerHTML = beatReconnect;
         document.getElementById('timeRSimple').innerHTML = tsRSimple;
         document.getElementById('timeRExpanded').innerHTML = tsRExpanded;
+    }
+    setInterval(updateTime, 1000);
+</script>
+
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2026/04/26/time-tracking-in-disconnect/">Keeping track of time in Disconnect</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Apr 26, 2026
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>One of the things I have been wanting to do in Disconnect is play a bit with how time is kept. Without 
+giving away too much of the story, multiple planets separated by several weeks of travel spanning 
+different star systems would in my mind lead to a situation where the time standards that we all know 
+today have maybe evolved.</p>
+
+<p>Time-keeping is a core component of my day job as I base all of my work on the use of 
+<a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">Coordinated Universal Time</a>, or UTC. It’s a 
+relatively simple system where you just need to keep track of one time for the whole planet and then 
+use an offset to determine the local time.</p>
+
+<p>Since I live in Vancouver, my time zone is -7 UTC 
+(<a href="https://www2.gov.bc.ca/gov/content/governments/celebrating-british-columbia/daylight-saving-time">which recently changed from -8</a>), 
+this means that I am seven hours behind from what UTC displays.</p>
+
+<p>Here’s an example using a very basic JavaScript clock:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>UTC</th>
+      <th>Vancouver (-7 UTC)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span id="timeUTC"></span></td>
+      <td><span id="timeVancouver"></span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You’re not limited to offsets that are whole integers either. Examples include 
+<a href="https://en.wikipedia.org/wiki/UTC%E2%88%9203:30">Newfoundland time</a>, where the island of the Canadian province of 
+Newfoundland and Labrador has an offset of -03:30, or 
+<a href="https://en.wikipedia.org/wiki/UTC%2B08:45#UTC+09:45">Central Western Standard Time</a>, which gives it an offset of 
++8:45. It has its quirks, but translating between these times is fairly painless provided your loved ones are not 
+in either of these trying to call each other.</p>
+
+<p>Imagine the frustration of someone in Cocklebiddy in Western Australia trying to figure out when to call their 
+mother who lives in Dildo, Newfoundland and Labrador.</p>
+
+<p>I hold the belief that this system, while geocentric, works well for humanity even if off-world as if you’re in a 
+spaceship travelling around our star system, it is fine. However, what about calendars? And what about other planets?</p>
+
+<h1>I hate calendars</h1>
+
+<p>The importance of calendars should not be understated: knowing where we are in the year is important for ensuring 
+that our agriculture knows when to grow crops and for legal and financial systems to keep working. However, I am 
+going to show something that may be frustrating to see for the first time.</p>
+
+<p>The months of September, October, November, and December are not where they should be and the year should really start 
+sometime around March. For those of you familiar with the history of Rome as well as the Roman empire, this something 
+you might know already, but January and February did not exist prior to the latter part of 700 BCE. You’d have ten 
+months or 304 days in the calendar, and then winter.</p>
+
+<p>The names of the aforementioned months mean in Latin the seventh, eighth, ninth, and tenth month–if you don’t speak 
+Latin but speak French, you’ll catch on to how the months are spelt. However, around 713 BCE, January and February
+were tacked on at the start of the calendar, only because of the importance of end of year celebrations.</p>
+
+<p>While those months were added on to the calendar, it still didn’t mean that the year started on January 1st 
+as it just meant that the calendar rolled over.</p>
+
+<p>Christmas day, which has remained consistent as December 25 for much of Europe, was for a long time the start of the 
+year, whereas some adhered to March 1st due to Roman empire influences, and also March 25th, in honour of conception 
+of Jesus. Adoption of January 1st as the start of the year started with the Germans in 1544 and then finally with the 
+American colonies under British control in 1752, two hundred and eight years later.</p>
+
+<p>American exceptionalism predates their revolution I swear.</p>
+
+<p>I know there are other calendars out there such as the <a href="https://en.wikipedia.org/wiki/Chinese_calendar">Chinese</a> or 
+<a href="https://en.wikipedia.org/wiki/Hindu_calendar">Hindu</a> ones rife with similar problems I am sure. However, the 
+internationally-accepted calendar we have today is the Gregorian, which in October 1582, was adopted after it was 
+realised that Europe was using a calendar, the Julian, that was off by over a week due to a miscalculation of leap 
+year handling.</p>
+
+<p>The error made with the Julian calendar was that the year was 325.25 days, lending the thought that exactly every 
+four years, we tack on an extra day. However, the year is actually 365.2425 days, so tacking on that extra day like 
+before may seem okay, but it starts to become a problem as centuries become millenniums. At the start of this 
+section, I made a remark about knowing when to grow crops, well eventually the growing season is not going to align 
+with the equinox and that was a problem if we’re going to find ourselves relying on this calendar.</p>
+
+<p>So when the day of Thursday, October 4th, 1582 came to an end, the next day jumped ahead ten whole days to Friday, 
+October 15th. This is why we now have a complicated rule of a leap year being on every year divisible by four, except 
+where it is divisible by 100 unless it itself is divisible by 400. This is why the year 2000 was a leap year, but 
+the year 2100 will not be.</p>
+
+<p>Are we out of the woods with this calendar? Nope. There is a something called a 
+<a href="https://en.wikipedia.org/wiki/Leap_second">leap second</a>, which gets added periodically based on all sorts of 
+arbitrary variables that our calendar cannot cope with.. It has been since 2016 that we’ve come to witness some, and 
+that is only because they’ve opted to accept that we can ignore them until the mid-2100s in the hopes we figure out 
+<a href="https://sarvendev.com/2024/07/problematic-second/">how to get computer programmers to deal with it better or some technology comes around to solve it all together</a>.</p>
+
+<p>Let me close off this section by saying this: our geocentric calendar is going to suck in space but we’re also 
+probably going to be stuck with it because of how we focus on human biology.</p>
+
+<h1>We do not have to have 24 hours</h1>
+
+<p>Before I proceed: I am going to talk about solar days and solar days only.</p>
+
+<p>If you do the basic equation of 24x60x60, you end up with 86,400, which is the number of seconds the a solar 
+day occupies. The definition of a second originally was based off the rotation of the Earth, but it was then 
+defined based off of the frequency if caesium, which unlike our home, does not deviate from our measurements.</p>
+
+<p>The Earth is actually slowing down. Six hundred million years ago, a solar day would have been 21 hours, but due 
+to influences from the Moon and the Sun or other influences including 
+<a href="https://kagi.com/search?q=three+gorges+dam+slow+down">filling giant hydroelectric dam basins</a>, it is quite 
+apparent that for good measurements, the Earth itself is not reliable. So technically speaking, you could say 
+that a solar day on Earth is 86,400.0025 seconds, hence the leap second I mentioned earlier.</p>
+
+<p>But we don’t need to care about that so 86,400 is good enough.</p>
+
+<p>While “good enough”, there are only so many factors for that number. There are 
+<a href="https://www.wolframalpha.com/input/?i=factor+86400">96 divisors</a> that could fit into that value.</p>
+
+<p>So why not just abolish it? Why don’t we use a thousand minutes to define a day? There’s 1,440 minutes in a day 
+and it would not be that far fetched to consider something different. Let’s talk about Beat Time.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>UTC</th>
+      <th>Beat time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span id="timeUTC2"></span></td>
+      <td><span id="timeBeats"></span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="https://internet-ti.me">My friend, Jessica made me enamoured with the use of .beats</a>, 
+a scheme <a href="https://en.wikipedia.org/wiki/Swatch_Internet_Time">developed by Swatch in the 1990s</a>. It isn’t metric 
+time, which was <a href="https://en.wikipedia.org/wiki/French_Republican_calendar#Days">adopted by the French Republic post-revolution</a>, 
+but it is a scheme that permits the existing calendar but adopts a scheme that is intended to be used without 
+time zones.</p>
+
+<p>The abolishment of time zones has been proposed by numerous people in the past, including science fiction author 
+<a href="https://en.wikipedia.org/wiki/Abolition_of_time_zones#Proposals">Arthur C. Clarke</a>. I did say earlier that the use 
+of offsets was a good idea, but I think that .beats is objectively better.</p>
+
+<p>The idea of saying “I will meet you at 800” works real well in my mind.</p>
+
+<h1>Time dilation and its lack of importance</h1>
+
+<p>Back to our friend Mars, trying to keep clocks in sync will require you to contend with general relativity. 
+<a href="https://iopscience.iop.org/article/10.3847/1538-3881/ae0c16">This late-2025 paper</a> in The Astronomical 
+Journal brought this to light:</p>
+
+<blockquote>
+  <p>This study estimates clock rates on Mars and compares them to those on the Moon and Earth. We find that, on average, clocks on Mars tick faster than those on the Earth’s geoid by 477 μs day, with a variation of 226 μs day over a Martian year. Additionally, there is an amplitude modulation of approximately 40 μs day over seven synodic cycles.</p>
+</blockquote>
+
+<p>Our good ol’ friend relativity means that time keeping between multiple planets not only has to consider 
+rotation and orbit, but the velocity and tidal forces too. 226-477 μs does not seem that significant, but 
+given that you’re dealing with about a quarter to almost half of a a millisecond, it is not immeasurable.</p>
+
+<p>However, it is insignificant for the purposes of the book, so I don’t really care. I just wanted to bring 
+this all up because I thought this part was neat.</p>
+
+<h1>Screw it</h1>
+
+<script>
+    // If you're looking at this, I didn't feel like making this as nice as possible. I just 
+    // wanted it to work! I know of more elegant ways to do this.
+
+    // Beat time from: https://gist.github.com/craigerskine/567162a434205dffa98af7aa91596ff9
+    function beatTime(){
+        const date = new Date();
+        const hours = (date.getUTCHours() == 23) ? 0 : date.getUTCHours() + 1;
+        const beats = Math.abs(((((hours * 60) + date.getUTCMinutes()) * 60) + date.getUTCSeconds()) / 86.4).toFixed(2);
+        return beats;
+    }
+    
+    function updateTime() {
+        // Variables
+        var months = {
+            0: "January", 1: "February", 2: "February", 3: "April", 4: "May", 5: "June",
+            6: "July", 7: "August", 8: "September", 9: "October", 10: "November", 11: "December"
+            }
+        var day = {
+            0: "Sunday", 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday",
+            5: "Friday", 6: "Saturday"
+        }
+        var offset = -7
+
+        // Sets time for UTC and then Vancouver
+        var currentUTC = new Date()
+        var currentVancouver = new Date(currentUTC.getTime() + (offset * 1000));
+
+        // Set time for UTC
+        var monthUTC = months[currentUTC.getUTCMonth()];
+        var dayUTC = day[currentUTC.getUTCDay()];
+        var dateUTC = currentUTC.getUTCDate();
+        var yearUTC = currentUTC.getUTCFullYear();
+        var hoursUTC = ('00'+currentUTC.getUTCHours()).slice(-2);
+        var minutesUTC = ('00'+currentUTC.getUTCMinutes()).slice(-2);
+        var secondsUTC = ('00'+currentUTC.getUTCSeconds()).slice(-2);
+
+        // Set time for Vancouver
+        var monthVancouver = months[currentVancouver.getMonth()];
+        var dayVancouver = day[currentVancouver.getDay()];
+        var dateVancouver = currentVancouver.getDate();
+        var yearVancouver = currentVancouver.getFullYear();
+        var hoursVancouver = ('00'+currentVancouver.getHours()).slice(-2);
+        var minutesVancouver = ('00'+currentVancouver.getMinutes()).slice(-2);
+        var secondsVancouver = ('00'+currentVancouver.getSeconds()).slice(-2);
+
+        // Set strings
+        var tsUTC = hoursUTC + ":" + minutesUTC + ":" + secondsUTC;
+        var tsUTC2 = tsUTC;
+        tsUTC = tsUTC + " on " + dayUTC + ", " + monthUTC + " " + dateUTC + ", " + yearUTC;
+        var tsVancouver = hoursVancouver + ":" + minutesVancouver + ":" + secondsVancouver;
+        tsVancouver = tsVancouver + " on " + dayVancouver + ", " + monthVancouver + " " + dateVancouver + ", " + yearVancouver;
+
+        // Update HTML
+        document.getElementById('timeUTC').innerHTML = tsUTC;
+        document.getElementById('timeUTC2').innerHTML = tsUTC2;
+        document.getElementById('timeVancouver').innerHTML = tsVancouver;
+        document.getElementById('timeBeats').innerHTML = beatTime();
     }
     setInterval(updateTime, 1000);
 </script>
@@ -1078,390 +1327,6 @@ have access out of sight.</p>
 <p>Funding for the gondola is still up in the air–pun intended. The business case has been made and it has been suggested that 
 perhaps this year or next, the project will finally be announced as going ahead. I for one want to see it built. Perhaps with 
 its success, we’ll see similar systems elsewhere in Metro Vancouver.</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2025/12/29/sailor-moon-cdrom/">Adventures with a Sailor Moon CD-ROM</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Dec 29, 2025
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <p>A couple of years ago, I picked up this Sailor Moon disc. I think I got it from eBay.</p>
-
-<p><img src="/img/IMG_3023.jpeg" alt="" /></p>
-
-<p><img src="/img/IMG_3024.jpeg" alt="" /></p>
-
-<p>Unfortunately, I had mistaken this disc for something else. However, it turns out to be a fun little multimedia application specifically for the Macintosh. Let’s explore it and see what we can find and also what we can also do with it!</p>
-
-<h1>Extracting the disc</h1>
-
-<p>So right off the bat, my modern Mac running macOS 26 cannot read the disc when loaded from my external optical drive connected via USB C.</p>
-
-<p><img src="/img/smoon01.png" alt="" /></p>
-
-<p>I was not able to use <code class="language-plaintext highlighter-rouge">hdiutil</code> to duplicate the disc into an ISO and when I tried to duplicate it using <code class="language-plaintext highlighter-rouge">dd</code> it would dump contents out, but it would not be seen as a proper disc.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╭─cariad@donnager ~/Local
-╰─➤  file Sailormoon.iso
-Sailormoon.iso: data
-</code></pre></div></div>
-
-<p>What is the solution? Getting the drive to be read in Basilisk II failed regardless of it being Windows or macOS, but strangely a Windows-based tool did end up working out.</p>
-
-<p><img src="/img/smoon02.png" alt="" /></p>
-
-<p><a href="https://www.catacombae.org/hfsexplorer/">HFSExplorer</a> could read the disc and permitted me to create a HFS disk image that I could mount in macOS.</p>
-
-<p><img src="/img/smoon18.png" alt="" /></p>
-
-<p>So now I have the files visible to me in a format I can use with Basilisk II.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╭─cariad@donnager ~/Local
-╰─➤  file Nakayoshi.img
-Nakayoshi.img: Macintosh HFS data (mounted) block size: 11264, number of blocks: -374, volume name: untitled
-</code></pre></div></div>
-
-<p>Let’s see what is within!</p>
-
-<h1>File contents</h1>
-
-<p>There are 11 files visible on the disc with all filenames encoded in <a href="https://en.wikipedia.org/wiki/Shift_JIS#MacJapanese">MacJapanese</a>. It was annoying to translate the encoding over as while Shift-JIS tools supposedly should be able to work with it, anything I threw at the names would not play nice.</p>
-
-<p>Fortunately, I was able to view the intended filenames in <a href="https://www.catacombae.org/hfsexplorer/">HFS Explorer</a> and then figure out things that way. Here are the files and what they are.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>MacJapanese</th>
-      <th>Unicode</th>
-      <th>Translation</th>
-      <th>Type of file</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ã‡êØïœêg.ÉÄÅ[ÉrÅ[</code></td>
-      <td><code class="language-plaintext highlighter-rouge">金星変身.ムービー</code></td>
-      <td>Venus Transformation</td>
-      <td>Apple QuickTime movie</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">âŒêØïœêg.ÉÄÅ[ÉrÅ[</code></td>
-      <td><code class="language-plaintext highlighter-rouge">火星変身.ムービー</code></td>
-      <td>Mars Transfomration</td>
-      <td>Apple QuickTime movie</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Ç§Ç≥Ç¨ïœêg.ÉÄÅ[ÉrÅ[</code></td>
-      <td><code class="language-plaintext highlighter-rouge">うさぎ変身.ムービー</code></td>
-      <td>Usagi Transformation</td>
-      <td>Apple QuickTime movie</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ÇøÇ—Ç§Ç≥ïœêg.ÉÄÅ[ÉrÅ[</code></td>
-      <td><code class="language-plaintext highlighter-rouge">ちびうさ変身.ムービー</code></td>
-      <td>Chibiusa Transformation</td>
-      <td>Apple QuickTime movie</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">É^ÉLÉVÅ[Éhâºñ .ÉÄÅ[ÉrÅ[</code></td>
-      <td><code class="language-plaintext highlighter-rouge">タキシード仮面.ムービー</code></td>
-      <td>Tuxedo Mask</td>
-      <td>Apple QuickTime movie</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ÉIÅ[ÉvÉì.ÉÄÅ[ÉrÅ[</code></td>
-      <td><code class="language-plaintext highlighter-rouge">オープン.ムービー</code></td>
-      <td>Opening</td>
-      <td>Apple QuickTime movie</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">êÖêØïœêg.ÉÄÅ[ÉrÅ[</code></td>
-      <td><code class="language-plaintext highlighter-rouge">水星変身.ムービー</code></td>
-      <td>Mercury Transformation</td>
-      <td>Apple QuickTime movie</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ïëë‰.ÉÄÅ[ÉrÅ[</code></td>
-      <td><code class="language-plaintext highlighter-rouge">舞台.ムービー</code></td>
-      <td>Stage</td>
-      <td>Apple QuickTime movie</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">íºéq.ÉÄÅ[ÉrÅ[</code></td>
-      <td><code class="language-plaintext highlighter-rouge">直子.ムービー</code></td>
-      <td>Naoko</td>
-      <td>Apple QuickTime movie</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ñÿêØïœêg.ÉÄÅ[ÉrÅ[</code></td>
-      <td><code class="language-plaintext highlighter-rouge">木星変身.ムービー</code></td>
-      <td>Jupiter Transformation</td>
-      <td>Apple QuickTime movie</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SAILORMOON</code></td>
-      <td><code class="language-plaintext highlighter-rouge">SAILORMOON</code></td>
-      <td>Sailor Moon</td>
-      <td>Executable</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>It’s interesting how ムービー translates to “movie” to indicate that it is a Quicktime file. This is something I am familiar with as files in HFS are treated differently than say in Linux or Windows. There are resource forks and data forks for files. The actual data of the file is in the data fork, but the resource fork indicates that why kind of data it is. You can remove <code class="language-plaintext highlighter-rouge">.mov</code> from a file and it will still launch in QuickTime because the resource fork says it is a QuickTime file.</p>
-
-<p>That is the reason why each filename ends with <code class="language-plaintext highlighter-rouge">.ムービー</code> or really <code class="language-plaintext highlighter-rouge">.ÉÄÅ[ÉrÅ[</code> because the resource fork is all that matters. An extension in Mac OS from this era is really a formality and is truly only required for cross-platform compatibility. Even today it barely matters as evident when taking a screenshot as while it is a PNG, it lacks the extension <code class="language-plaintext highlighter-rouge">.png</code>.</p>
-
-<p>I think screenshots were originally <code class="language-plaintext highlighter-rouge">.ps</code> (PostScript) files back when Mac OS X came out, but I digress.</p>
-
-<p>In any event, getting any of these videos to play nice with VLC or FFMPEG also proved to be quite annoying. The lone executable is actually most interesting: it’s a container for a Macromedia Shockwave file.</p>
-
-<h1>ScummVM cannot execute it</h1>
-
-<p>Since it was written with Macromedia Director 3, it should be supported by ScummVM right? Support for the format has been around <a href="https://djsrv.github.io/scummvm/shockwave/">for a few years now,</a> so I figured that I’d give it a go.</p>
-
-<p><img src="/img/smoon04.png" alt="" /></p>
-
-<p>It does permit me to go further than this, but when I attempt to load it, it goes into a loop where it restarts. This is something which <a href="https://lists.scummvm.org/pipermail/scummvm-git-logs/2023-January/097942.html">has been reported by a friend of mine</a> when I lent the disc to her and she came across the problem.</p>
-
-<p>I’m not up for going down this rabbit hole so I have a different idea instead.</p>
-
-<h1>Extracting the Director data</h1>
-
-<p>Using <a href="https://github.com/ProjectorRays/ProjectorRays">ProjectorRays</a>, I figured I could just decompile it all down to its constituent parts.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Users\Cariad\Documents\Nakayoshi&gt;c:\Users\Cariad\Downloads\projectorrays-0.2.0.exe decompile -v SAILORMOON
-Codec unsupported: APPL
-</code></pre></div></div>
-
-<p>However, it ended up failing because the file was made for Macintosh System and this tool doesn’t know what an <code class="language-plaintext highlighter-rouge">APPL</code> binary is–it probably expects to see <code class="language-plaintext highlighter-rouge">PE</code>.</p>
-
-<p>But luck would have it that another tool, <a href="https://github.com/n0samu/director-files-extract">director-files-extract</a> would work with Macintosh files and so I was left with a bunch of files ending with the <code class="language-plaintext highlighter-rouge">.dxr</code> extension.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╭─cariad@donnager ~/Local/Nakayoshi/SAILORMOON
-╰─➤  ls -la
-total 1033472
-drwxr-xr-x@ 26 cariad  staff        832 Dec 29 09:18 .
-drwxr-xr-x@ 20 cariad  staff        640 Dec 29 14:52 ..
--rw-r--r--@  1 cariad  staff       8196 Dec 29 09:18 .DS_Store
--rw-r--r--@  1 cariad  staff    2211836 Dec 29 09:04 .DXR
--rw-r--r--@  1 cariad  staff   52641070 Dec 29 09:04 Shared.dxr
--rw-r--r--@  1 cariad  staff    2616890 Dec 29 09:04 SM_.DXR
--rw-r--r--@  1 cariad  staff    2398300 Dec 29 09:04 SM.DXR
--rw-r--r--@  1 cariad  staff    1354790 Dec 29 09:04 SM.DXR_1
--rw-r--r--@  1 cariad  staff    4744824 Dec 29 09:04 SM.DXR_2
--rw-r--r--@  1 cariad  staff    2338738 Dec 29 09:04 SM.DXR_3
--rw-r--r--@  1 cariad  staff    1836318 Dec 29 09:04 SM.DXR_4
--rw-r--r--@  1 cariad  staff    1323160 Dec 29 09:04 SM.DXR_5
--rw-r--r--@  1 cariad  staff  132493868 Dec 29 09:04 SMAUT.DXR
--rw-r--r--@  1 cariad  staff    1631360 Dec 29 09:04 SMC.DXR
--rw-r--r--@  1 cariad  staff   15188776 Dec 29 09:04 SMCHIB.DXR
--rw-r--r--@  1 cariad  staff    1836008 Dec 29 09:04 SMJUP.DXR
--rw-r--r--@  1 cariad  staff   49982622 Dec 29 09:04 SMJUPITE.DXR
--rw-r--r--@  1 cariad  staff    2812764 Dec 29 09:04 SMM.DXR
--rw-r--r--@  1 cariad  staff   17363390 Dec 29 09:04 SMMAM.DXR
--rw-r--r--@  1 cariad  staff   32296774 Dec 29 09:04 SMMAR.DXR
--rw-r--r--@  1 cariad  staff    2032030 Dec 29 09:04 SMMER.DXR
--rw-r--r--@  1 cariad  staff   30326954 Dec 29 09:04 SMMERCUR.DXR
--rw-r--r--@  1 cariad  staff   49514662 Dec 29 09:04 SMMONT.DXR
--rw-r--r--@  1 cariad  staff   90767138 Dec 29 09:04 SMMOO.DXR
--rw-r--r--@  1 cariad  staff    1847186 Dec 29 09:04 SMV.DXR
--rw-r--r--@  1 cariad  staff   29520352 Dec 29 09:04 SMVENU.DXR
-</code></pre></div></div>
-
-<p>One little catch with the files above, a number of files ended up with an <code class="language-plaintext highlighter-rouge">*</code> (asterisk) in each which proved to be a problem when I moved on so I removed it from all the files. <a href="https://en.wikipedia.org/wiki/Filename#Comparison_of_filename_limitations">HFS permits any character in a filename</a> save for <code class="language-plaintext highlighter-rouge">:</code> and <code class="language-plaintext highlighter-rouge">/</code> (the latter more of an issue with HFS+), which means moving the files out into a Windows application later as I needed to would never work.</p>
-
-<p><img src="/img/smoon20.png" alt="" /></p>
-
-<p>DXR files by themselves cannot be opened with Macromedia Director, but they can be decompiled. The aforementioned ProjectorRays tool has a <code class="language-plaintext highlighter-rouge">decompile</code> function which will permit me to open everything.</p>
-
-<p><img src="/img/smoon21.png" alt="" /></p>
-
-<p>Great. After decompiling and bring them over to Basilisk II, the files are visible to the software.</p>
-
-<p><img src="/img/smoon22.png" alt="" /></p>
-
-<p>Man. I forgot about how miserable old Mac OS was–memory management then was a huge chore and is a consequence of the weak (and “weak” is really not saying much) multitasking that existed in this operating system. In any event, these are now readable Director files. However, I could not figure out how to get the data into readable files so another tool to the rescue.</p>
-
-<p><img src="/img/smoon19.png" alt="" /></p>
-
-<p>The same developer who created the tool to rip the DXR files out also created a tool to extract the content from within called <a href="https://github.com/n0samu/DirectorCastRipper">Director Cast Ripper</a>. I now have all of the audio and images extracted from it! I even have the scripts copied over although I don’t intend to do anything with them.</p>
-
-<h1>Success with images</h1>
-
-<p>After getting the tools to all play nice, I finally had a directory full of images which were both in <code class="language-plaintext highlighter-rouge">.PNG</code> and <code class="language-plaintext highlighter-rouge">.BMP</code> formats. I only care about PNG files really, so let’s count them.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╭─cariad@donnager ~/Local/Nakayoshi/Extract/Exports
-╰─➤  find . -type f -name "*.png" | wc -l
-     766
-</code></pre></div></div>
-
-<p>At 766 results, it might seem like many, but I wonder if there were a lot of duplicates so I decided to just do a simple MD5 over all of them to get an actual unique count.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╭─cariad@donnager ~/Local/Nakayoshi/Extract/Exports
-╰─➤  find . -type f -name "*.png" -exec md5sum {} \; | awk '{print $1}' | uniq | wc -l
-     766
-</code></pre></div></div>
-
-<p>Apparently not! That is a pretty decent haul of images for a 1994 collection of images from a manga that had only been out for a few years. Some of them are buttons for the interactive portion of the disc, but other than the majority is the really good stuff!</p>
-
-<p>And they’re fairly decent resolution for the time with some of the images being 1024x768 or thereabouts depending on orientation and scale. Here are a few examples:</p>
-
-<p><img src="/img/smoon07.png" alt="" /></p>
-
-<p><img src="/img/smoon08.png" alt="" /></p>
-
-<p><img src="/img/smoon09.png" alt="" /></p>
-
-<h1>Frustration over video</h1>
-
-<p>So earlier I mentioned that there are ten videos that are supposedly QuickTime movie files. They’re all playable from Mac OS 8 when running in Basilisk II.</p>
-
-<p><img src="/img/smoon11.png" alt="" /></p>
-
-<p>macOS sees them in that format and the <code class="language-plaintext highlighter-rouge">file</code> command in the terminal spits out <code class="language-plaintext highlighter-rouge">Apple QuickTime movie (unoptimized)</code> so you’d think that I could play them. Well, apparently not.</p>
-
-<p><img src="/img/smoon10.png" alt="" /></p>
-
-<p>Also one of files is also reported as <code class="language-plaintext highlighter-rouge">DIY-Thermocam raw data</code> so maybe I should not put too much weight into the output of the <code class="language-plaintext highlighter-rouge">file</code> command in the end.</p>
-
-<p>In any event, QuickTime, <a href="https://www.videolan.org">VLC</a>, and <a href="https://iina.io">IINA</a> all refuse to play the videos despite them working just fine when playing it in the actual application under Basilisk II. Older QuickTime files tend to struggle under newer Macs and apparently I am not alone with this problem as evident by a <a href="https://discussions.apple.com/thread/254118859?sortBy=rank">post from the Apple discussions site</a>.</p>
-
-<p>In this person’s case, it was a capture from a VHS tape on some mid-1990s Macintosh clone. It looks pretty dire getting it to work on anything made earlier I wager.</p>
-
-<p>Maybe <a href="https://www.ffmpeg.org">FFmpeg</a> can shed some light on these files?</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╭─cariad@donnager ~/Local/Nakayoshi
-╰─➤  ffmpeg -i VenusTransformation.mov
-ffmpeg version 8.0.1 Copyright (c) 2000-2025 the FFmpeg developers
-  built with Apple clang version 17.0.0 (clang-1700.4.4.1)
-  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/8.0.1 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libharfbuzz --enable-libjxl --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox --enable-audiotoolbox --enable-neon
-  libavutil      60.  8.100 / 60.  8.100
-  libavcodec     62. 11.100 / 62. 11.100
-  libavformat    62.  3.100 / 62.  3.100
-  libavdevice    62.  1.100 / 62.  1.100
-  libavfilter    11.  4.100 / 11.  4.100
-  libswscale      9.  1.100 /  9.  1.100
-  libswresample   6.  1.100 /  6.  1.100
-[mov,mp4,m4a,3gp,3g2,mj2 @ 0xb11024000] moov atom not found
-[in#0 @ 0xb11020000] Error opening input: Invalid data found when processing input
-Error opening input file VenusTransformation.mov.
-Error opening input files: Invalid data found when processing input
-</code></pre></div></div>
-
-<p>The error <code class="language-plaintext highlighter-rouge">moov atom not found</code> led me to <a href="https://www.reddit.com/r/ffmpeg/comments/ih0hf7/comment/g2z2zix/">this Reddit post from five years ago</a>, which then led me to <a href="https://github.com/ponchio/untrunc">try a tool called “untrunc”</a> in order to untruncated the file.</p>
-
-<p>However, this came up in the documentation:</p>
-
-<blockquote>
-  <p>You need both the broken video and an example working video (ideally from the same camera, if not the chances to fix it are slim).</p>
-</blockquote>
-
-<p>None of the videos on the disc work when I want to play them locally.</p>
-
-<p>But then an idea. Can I fix them in Basilisk II?</p>
-
-<p><img src="/img/smoon12.png" alt="" /></p>
-
-<p>When you save the file, there’s a checkbox to make it playable on non-Apple computers. Mind you, I am using an Apple computer to do all of this work (an M1 Max Mac Studio from 2022), but the operating system then is a completely alien creature to the operating system now so let’s just ignore that.</p>
-
-<p><img src="/img/smoon13.png" alt="" /></p>
-
-<p>Success! That is the trick as I can now open them in VLC. Just use the old computer to export it into a format that everyone can view. So let’s rename all of the files and then export them all out. I decided to keep an English naming scheme for all of these files since it will be manageable on my end.</p>
-
-<p><img src="/img/smoon14.png" alt="" /></p>
-
-<p>Now let’s read them with FFmpeg and see what we get.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╭─cariad@donnager ~/Local/NewSailormoon
-╰─➤  ffmpeg -i Opening.mov
-ffmpeg version 8.0.1 Copyright (c) 2000-2025 the FFmpeg developers
-  built with Apple clang version 17.0.0 (clang-1700.4.4.1)
-  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/8.0.1 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libaribb24 --enable-libbluray --enable-libdav1d --enable-libharfbuzz --enable-libjxl --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev=jack --enable-videotoolbox --enable-audiotoolbox --enable-neon
-  libavutil      60.  8.100 / 60.  8.100
-  libavcodec     62. 11.100 / 62. 11.100
-  libavformat    62.  3.100 / 62.  3.100
-  libavdevice    62.  1.100 / 62.  1.100
-  libavfilter    11.  4.100 / 11.  4.100
-  libswscale      9.  1.100 /  9.  1.100
-  libswresample   6.  1.100 /  6.  1.100
-Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'Opening.mov':
-  Metadata:
-    creation_time   : 2025-12-29T15:14:02.000000Z
-  Duration: 00:00:02.67, start: 0.000000, bitrate: 1445 kb/s
-  Stream #0:0[0x1](eng): Video: cinepak (cvid / 0x64697663), rgb24, 640x480, 1442 kb/s, 10.50 fps, 30 tbr, 30 tbn (default)
-    Metadata:
-      creation_time   : 2025-12-29T15:14:02.000000Z
-      handler_name    : Apple Video Media Handler
-      vendor_id       : appl
-      encoder         : Cinepak
-</code></pre></div></div>
-
-<p>Fantastic. We have good ol’ Cinepak here. They’re surprisingly at 480p although at 10-11 frames per second so this is going to be a bit dire. However, let’s convert them all to H.264 for reasons that’ll make sense later.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╭─cariad@donnager ~/Local/NewSailormoon
-╰─➤  ls -la
-total 106696
-drwxr-xr-x@ 24 cariad  staff       768 Dec 29 15:22 .
-drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
--rw-r--r--@  1 cariad  staff    254586 Dec 29 15:19 ChibiusaTransformation.mov
--rw-r--r--@  1 cariad  staff    135294 Dec 29 15:22 ChibiusaTransformation.mov.mp4
--rw-r--r--@  1 cariad  staff    875652 Dec 29 15:18 JupiterTransformation.mov
--rw-r--r--@  1 cariad  staff    251332 Dec 29 15:22 JupiterTransformation.mov.mp4
--rw-r--r--@  1 cariad  staff    891752 Dec 29 15:18 MarsTransformation.mov
--rw-r--r--@  1 cariad  staff    292343 Dec 29 15:22 MarsTransformation.mov.mp4
--rw-r--r--@  1 cariad  staff    827380 Dec 29 15:19 MercuryTransformation.mov
--rw-r--r--@  1 cariad  staff    229363 Dec 29 15:22 MercuryTransformation.mov.mp4
--rw-r--r--@  1 cariad  staff  15665124 Dec 29 15:18 Naoko.mov
--rw-r--r--@  1 cariad  staff   4075826 Dec 29 15:22 Naoko.mov.mp4
--rw-r--r--@  1 cariad  staff    481781 Dec 29 15:19 Opening.mov
--rw-r--r--@  1 cariad  staff    178255 Dec 29 15:22 Opening.mov.mp4
--rw-r--r--@  1 cariad  staff    709998 Dec 29 15:04 SailormoonTransformation.mov
--rw-r--r--@  1 cariad  staff    258981 Dec 29 15:22 SailormoonTransformation.mov.mp4
--rw-r--r--@  1 cariad  staff  17630400 Dec 29 15:18 Stage.mov
--rw-r--r--@  1 cariad  staff   7715465 Dec 29 15:22 Stage.mov.mp4
--rw-r--r--@  1 cariad  staff    923519 Dec 29 15:19 TuxedoMask.mov
--rw-r--r--@  1 cariad  staff    382557 Dec 29 15:22 TuxedoMask.mov.mp4
--rw-r--r--@  1 cariad  staff    709998 Dec 29 15:19 UsagiTransformation.mov
--rw-r--r--@  1 cariad  staff    258981 Dec 29 15:22 UsagiTransformation.mov.mp4
--rw-r--r--@  1 cariad  staff    683562 Dec 29 15:19 VenusTransformation.mov
--rw-r--r--@  1 cariad  staff    266030 Dec 29 15:22 VenusTransformation.mov.mp4
-</code></pre></div></div>
-
-<p>Man. Video codecs have come a long way since the 1990s. We’re seeing at least a quarter the size by just converting them to H.264. That said, the emulated Quadra 950 from that time period would be unable to render the frames from the newer video files at any respectable rate.</p>
-
-<p><img src="/img/smoon15.png" alt="" /></p>
-
-<p>Annoyingly there is a problem with the <code class="language-plaintext highlighter-rouge">Naoko.mov</code> file (formerly <code class="language-plaintext highlighter-rouge">íºéq.ÉÄÅ[ÉrÅ[</code>) in particular where the audio and video violently corrupts. This issue appears on the original source file and I am uncertain whether it is from attempting to play it or perhaps it is formatted friendlier for Macromedia Director?</p>
-
-<p><img src="/img/smoon16.png" alt="" /></p>
-
-<p>Nope. Same awful problem persists when playing in here too. Does it persist in the actual application?</p>
-
-<p><img src="/img/smoon17.png" alt="" /></p>
-
-<p>It does. There is a possibility that there is an issue with the original application or it is my copy. This is not my problem to solve it seems!</p>
-
-<h1>What next?</h1>
-
-<p>Well, I have plans for all of this so stay tuned! Hopefully this doesn’t drop off of my desk!</p>
 
         </div>
         

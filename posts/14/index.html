@@ -93,6 +93,147 @@
         <header class="post-header">
           <h1 class="post-title">
             
+              <a class="post-link" href="/2022/12/02/skytrain-scada/">SkyTrain and Industrial Control</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Dec 2, 2022
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p><em>This is a Twitter thread from July 2018 that I made into a blog entry.</em></p>
+
+<p><img src="/img/scada01.jpeg" alt="" /></p>
+
+<p><img src="/img/scada02.jpeg" alt="" /></p>
+
+<p>I want to talk about how important industrial control is and why the general public is woefully unaware of how they interact with it on a daily basis.</p>
+
+<p>This is a post on SkyTrain, Vancouver’s rapid transit system and how safe it is until users circumvent it.</p>
+
+<p><img src="/img/scada03.webp" alt="" /></p>
+
+<p>SkyTrain has just about 80 KM of track and it’s 100% automated. This means that when you walk on to any of the trains on any of the three lines, there is no driver. Because of this, it can achieve and has achieved 70 sec headings, meaning you don’t have to wait long for a train.</p>
+
+<p><img src="/img/scada04.webp" alt="" /></p>
+
+<p>More often than not it’s about 120 sec but still few systems in the world can achieve this maximum frequency.</p>
+
+<p>Its frequency is also its biggest Achilles heel when things go awry, but I’ll touch on that shortly.</p>
+
+<p><img src="/img/scada05.webp" alt="" /></p>
+
+<p>For the very curious, the trains use the <a href="https://web.archive.org/web/20241223042620mp_/https://www.thalesgroup.com/en/markets/transport/urban-mobility/seltractm-g8">Seltrac moving block system</a>. This allows for the trains to run very close together to the point where trains can actually be right in front of each other with a few metres to spare.</p>
+
+<p><img src="/img/scada06.webp" alt="" /></p>
+
+<p><img src="/img/scada07.webp" alt="" /></p>
+
+<p><img src="/img/scada08.webp" alt="" /></p>
+
+<p>To prevent people from going into the tracks, there are various sensors at entry points where humans could interact with the trains. The trains don’t have anything to detect a human is in its path; it just knows where it is.</p>
+
+<p><img src="/img/scada09.png" alt="" /></p>
+
+<p>(<a href="https://twitter.com/thebuzzer/status/855588013430251520">View on Twitter</a>)</p>
+
+<p>Or in some cases wildlife gets into the track. This is a new extension of the system and it’s not too far from an interface zone, allowing for cougars to enter. The line was not operating at the time.</p>
+
+<p><img src="/img/scada10.webp" alt="" /></p>
+
+<p><img src="/img/scada11.webp" alt="" /></p>
+
+<p>So optimally, trains know where they are and humans never enter the track. Unfortunately, it does break from time to time…</p>
+
+<p><img src="/img/scada12.png" alt="" /></p>
+
+<p>(<a href="https://www.youtube.com/watch?v=DYc9tuJ9SgA">View talk on elevator security on YouTube</a>)</p>
+
+<p>The way I look at our rapid transit system is like this: it’s like an elevator. An elevator is designed to never kill you provided that you don’t circumvent the safety controls.</p>
+
+<p><img src="/img/scada13.webp" alt="" /></p>
+
+<p><img src="/img/scada14.webp" alt="" /></p>
+
+<p>So what happens when humans circumvent the safety controls by opening doors when the trains are stopped? A lot of things and it messes up the balance of the system.</p>
+
+<p><img src="/img/scada15.webp" alt="" /></p>
+
+<p>SkyTrain operates using a third-rail system, meaning that electricity is provided by a rail on either side of the track to feed electricity. It is very easy to end up touching it if you are unaware.</p>
+
+<p><img src="/img/scada16.webp" alt="" /></p>
+
+<p>Also the trains operate at 80 KM/h at maximum speed.</p>
+
+<p>All of this means that if someone exits a stopped train, everything starts to go hairy fast.</p>
+
+<p><img src="/img/scada17.webp" alt="" /></p>
+
+<p>First off, SkyTrain has to have the section of track where people are thought to be walking through turned off and to stop all trains from approaching the stations between them. This means that a huge section of track going both ways is now disabled.</p>
+
+<p><img src="/img/scada18.webp" alt="" /></p>
+
+<p>Secondly, attendants have to assist the riders who opted to leave the trains with getting on to the platforms. This has to be completed before we can do anything further. It may take an hour or more.</p>
+
+<p><img src="/img/scada19.webp" alt="" /></p>
+
+<p>So here’s where the fun part comes in: what happens when you decide to knock out power to these trains? We lose the ability to trust their state.</p>
+
+<p>That’s right. We’ve lost the trains and now the system has no idea where any of them are.</p>
+
+<p><img src="/img/scada21.webp" alt="" /></p>
+
+<p>To bring the trains back to life we cannot just turn them on and tell them to go to the next station. They themselves do not know where they are and the system does not have the ability to make them trust their current position.</p>
+
+<p><img src="/img/scada22.webp" alt="" /></p>
+
+<p>These self-driving trains however have to meet requirements every few months by having them driven by an operator. Almost all attendants are trained to operate the train when need be–due to weather or maintenance.</p>
+
+<p><img src="/img/scada23.webp" alt="" /></p>
+
+<p>So to fix this: we have to have the train sets driven into their nearest station one set at a time. This is the longest part because there are sections of track that are nearly 3 KM long.</p>
+
+<p><img src="/img/scada24.webp" alt="" /></p>
+
+<p><img src="/img/scada25.webp" alt="" /></p>
+
+<p>Once this is done and we’ve ensured that nobody is in harm’s way, we can have the system come back to life.</p>
+
+<p>I’ve ridden this network every working day for the past decade and can [confidently] say that the system is very safe. However, the biggest problem it has is that when it breaks, people tend to get frustrated and cause the system to break further.</p>
+
+<p><img src="/img/scada26.webp" alt="" /></p>
+
+<p>In 2017, the system recorded a record 151 mn passengers (compared to 117 mn in 2010) and on average the majority of system delays are caused by humans interacting with the trains either intentionally or unintentionally–I will not elaborate further.</p>
+
+<p>(There is a train 069 BTW)</p>
+
+<p>How this all ties into industrial control [(IC)] of course is that this is the very definition of one that the public uses every day and pays no attention to how it works. Often we talk about IC in power plants, natural resources, and elsewhere, but our mass transit systems are IC!</p>
+
+<p>IC security is super important but it is also important to understand how much goes into making a good IC system work. It isn’t just having to worry about security matters but to also plan for humans interfering with the operations of things.</p>
+
+<p><img src="/img/scada27.webp" alt="" /></p>
+
+<p>So the next time you’re stuck on a train, don’t break the emergency seal. It may be 15 minutes for you but you may cause 120 minutes for others.</p>
+
+<p>I should add: I don’t work for TransLink! If I did I’d probably wouldn’t be allowed to [chost] about this stuff. I work for a company that heavily uses industrial control so as a result I have an interest in how things like SkyTrain works!</p>
+
+<p>Fun fact: I was DM’d by two TransLink employees asking me if I worked for them when this thread started to make the rounds locally. I literally just transposed my knowledge of industrial control to how these trains work! Knowledge of industrial control equipment is just something I gained from my career and it isn’t hard for me to look at systems and figure out how they tick.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
               <a class="post-link" href="/2022/11/24/holy-grail-soc/">A Fool&#39;s Errand in Cyber Security and Beyond</a>
             
           </h1>
@@ -458,63 +599,6 @@
 <p>What Mastodon has done is create a situation where someone who wants to talk about their favourite anime has to find an instance and then hopefully make a home there. Is this a bad thing? I don’t know, but like IRC, having connections to multiple instances is quite annoying and thus I don’t like it.</p>
 
 <p>Twitter is Eris. Mastodon is EFnet.</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2022/11/10/when-stadium-chinatown-station-also-had-monorail/">When Stadium-Chinatown station also had monorail</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Nov 10, 2022
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <hr />
-
-<p><img src="/img/1zYXlaC4NP-rImwpQiVw3EA_1.png" alt="" /></p>
-
-<p>Plaza of Nations at Expo 86 (City of Vancouver Archives)</p>
-
-<p>Expo 86 was Vancouver’s “coming out” party and its theme was transportation. This of course coincided with the opening of what is now the Expo Line from Waterfront to its then terminus at New Westminster. However, there were a few rapid transit systems built for the exposition including one very useful monorail system.</p>
-
-<p><img src="/img/09xZnfaE659e4LuDG_1.jpg" alt="" /></p>
-
-<p>Map showing the transfer point between then “Stadium” station to the Expo 86 monorail (City of Vancouver Archives)</p>
-
-<p>During the event, a monorail platform was situated to the west of what was then Stadium station and it provided speedy service across the sprawling World’s Fair. The entire length of the service spanned over five kilometres and it was vital in not only connecting the parts of the False Creek portion of the fair, but also back to SkyTrain itself which was a link to the Canada Pavilion at what is now Canada Place, next to Waterfront station.</p>
-
-<p><img src="/img/0dZI2LWXKVjdtmJag_1.jpg" alt="" /></p>
-
-<p>Monorail cruising through the Expo 86 grounds (City of Vancouver Archives)</p>
-
-<p>The monorail itself had several other stops including two near what is now Yaletown-Roundhouse station on the Canada Line, inside of the Plaza of Nations near BC Place Stadium, one at the Cambie Street bridge, and one more just a block from Main Street-Science World (which would then have been just “Main Street” as Science World was simply “Expo Centre” during the fair).</p>
-
-<p><img src="/img/1ee23Zt3FL6RZHW0fBowjOw_1.jpeg" alt="" /></p>
-
-<p>Expo 86 and the Monorail (City of Vancouver Archives)</p>
-
-<p>One interesting thing about the monorail was that it was envisioned as a possible rapid transit system for Metro Vancouver as early as the 1950s (at some point I should write about this). However, when finally built, it simply hugged False Creek and after the fair was over, was dismantled and sent off to England where it became a staple of an amusement park starting in summer 1987.</p>
-
-<p><img src="/img/02L8u8xcWbHQUrfJM_1.jpg" alt="" /></p>
-
-<p>Proposed tram or street car system (City of Vancouver)</p>
-
-<p>The route it took however is still an option under consideration for a street car service (see green-coloured line above), but Vancouver City Council has been speaking about this idea for decades and it probably could be decades more before we ever see that happen <a href="https://dailyhive.com/vancouver/downtown-vancouver-false-creek-streetcar-route-map">even though as early as last year it had another report released on it</a>.</p>
-
-<p><em>This originally appeared on cohost.org/VancouverTransit but has been moved here due to the site’s shutdown.</em></p>
 
         </div>
         
