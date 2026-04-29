@@ -93,6 +93,135 @@
         <header class="post-header">
           <h1 class="post-title">
             
+              <a class="post-link" href="/2022/01/30/more-hacking-on-automating-wordle/">More hacking on automating Wordle</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Jan 30, 2022
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <hr />
+
+<p><em>Just a warning: if you are playing Wordle and don’t want any hints, this is not the Medium entry for you. Also, I am not a mathematician or statistician, so everything is just based on my knowledge of cryptanalysis and nothing more.</em></p>
+
+<p><em>One other thing to note is that the word list I am working with is not Wordle’s as I intentionally wanted to avoid looking at its source code.</em></p>
+
+<p>Okay. So I had one remaining question from <a href="https://katelibc.medium.com/hacking-wordle-through-automation-and-cryptanalysis-85b438328936">my last entry on Wordle</a>: what is the most efficient starting word overall?</p>
+
+<blockquote>
+  <p>“Cares” has a word score of 967.4, whereas “audio” gets 288.4 and “ports” has 796.6. The point of the game is to produce an answer in as few steps as possible and while you will knock off a lot of vowels and consonants with those two, you are likely reducing the chances of answering in the fewest attempts.</p>
+</blockquote>
+
+<blockquote>
+  <p>My choice of word also includes the letter “e”, which is the most common letter used in the English language. On average, you should see that letter appear about 10–13% of the time, with the letter “a” being about 7–9%, and “s” being 6–9%.</p>
+</blockquote>
+
+<blockquote>
+  <p>You can also order it as “scare” or “races” too if you desire, but I believe that with “s” at the end and putting “r” in the middle, you cover all initial possibilities quite effectively here.</p>
+</blockquote>
+
+<p>I did not like what I wrote here, but at the time I didn’t really run numbers on outcomes. However, I was working on this because you cannot really automate Wordle without a good starting word.</p>
+
+<h3>Methodology</h3>
+
+<p>Using the same logic from before, the process to find the winning word was fairly simple.</p>
+
+<p>For each starting word, we then ran through each possible five letter word other than itself. It would run each guess against an implementation of Wordle in my own code with the same hints and correct guesses. Once it got to an answer, it would then record all attempts into a set and then move on to the next word.</p>
+
+<p><img src="/img/10sPLTqitT_TdO16_lziu1A_1.png" alt="" /></p>
+
+<p>The word “bases” was guessed with a starting word of “caves” and made five other guesses before coming to an eventual answer. This obviously would have failed if I used it against Wordle.</p>
+
+<p>Unlike Wordle, there was no guess limit as I wanted to know how many attempts it would take using the methodology I did before where I came up with a list based on efficiency. So the first word based on possibilities made by the hints and correct letter guesses available from the list was the word chosen.</p>
+
+<p>There are flaws with this list sorting as <a href="https://twitter.com/authorblues/status/1481292670769192962">discussed on Twitter</a>, but I wanted to stick to my current methodology, so we’ll proceed forward.</p>
+
+<h3>The worst words</h3>
+
+<p>Defining the worst word can be achieved one of two ways. We can either look for a group of words or a single word that has the most guess attempts or we can look at them on average.</p>
+
+<p>A minimum of the number of guesses is quite simple: one if you’re lucky, but if the word doesn’t match, then two. Guessing what the largest number of guesses will be took a little bit of magic.</p>
+
+<p>The words that managed to hit a the maximum-seen attempts of 14 were: “agile”, “anile”, “dells”, “duels”, “dulls”, “dully”, “exile”, “gaily”, “guile”, “gulls”, “gully”, “jails”, “jello”, “jells”, “jelly”, “jinns”, “jolly”, “keels”, “kelly”, “lolls”, “lolly”, “lulls”, “nails”, “ninny”, “nulls”, “quell”, “rails”, “rials”, “villa”, “ville”, “villi”, “yella”, “yells”, and “yield”. If you are to notice a pattern here, almost all of them have the letter ‘l’ in them, but this isn’t really the reason why they performed badly.</p>
+
+<p>Word scores are all over the place with these words, which leads me to believe that it is not necessarily indicative of a good start. For example, “quells” is amongst that list and had a score of 307.4, but then “rails” received 768.6. The average score for all of the words was 531.1, so I’m not confident all that much in using that as a metric for a good starting word.</p>
+
+<p>So then what about averages? This gives us a better picture because Wordle limits us to six guesses. I would suggest if a word has a minimum average of 4 or higher that it should not be used at the start.</p>
+
+<p>The worst performing word had an average of 4.26 attempts, which was “jujus”. This was followed by “wheee” at 4.23, and “yukky” at 4.21. There were three tied for 4.2, and they were “vexes”, “sexes”, and “esses”.</p>
+
+<p>The word score “jujus” was 506.6, but interestingly, “sexes” received 888.6.</p>
+
+<h3>Is there a guaranteed winner?</h3>
+
+<p>The short answer is: no.</p>
+
+<p>All words with this methodology ranged from 8 to 14 maximum attempts. No single word went below 8 attempts, meaning there are starting words which will lead to failure.</p>
+
+<p>There is a silver-lining, the number of words with the smallest maximum is only slightly larger than the number of words with the largest maximum.</p>
+
+<p>There are 1,764 words of which had 12 maximum attempts, 2,085 with 11, 984 with 10, and 411 with 9. However, with 8, there are only 39 words, and all of them might justifiably be the best candidates.</p>
+
+<p>The words that performed the best were “blest”, “deism”, “doest”, “durst”, “feist”, “heist”, “least”, “liest”, “merse”, “midst”, “obese”, “pseud”, “sebum”, “sedan”, “sedge”, “sedgy”, “sedum”, “seize”, “sepia”, “serge”, “serif”, “serum”, “sheaf”, “sheik”, “sherd”, “siege”, “sieve”, “skein”, “skirt”, “slept”, “speck”, “spend”, “sperm”, “steal”, “suede”, “swell”, “swift”, “welsh”, and “wrist”.</p>
+
+<p><img src="/img/1Ka5sISDp-NUVVWlfsGT_8A_1.png" alt="" /></p>
+
+<p>“Obese” has a word score of 277.8 and “pseud” is 281.6.</p>
+
+<p>Going back to word scores, we arrive upon something curious: the range of scores is between 277.8 and 526, with the average being 398.4. Perhaps the way to look at the word score is not at whether it is strong at the start, but instead if it eliminates all of the least likely? This would suggest that words such as “obese” or “pseud” could be good starting candidates.</p>
+
+<h3>Could we find a most-likely?</h3>
+
+<p>This is where I want to deviate: a maximum does not imply that it is the worst choice. And in this case, I am willing to believe this because I did find something amongst all of the words that allows me to suggest that there is either a flaw in my methodology or I am looking at this all wrong.</p>
+
+<p>The words “estop”, “epsom”, and “serum” had an average attempt count of 2.74, 2.77, and 2.79 each respectively. When I looked at their word scores, “estop” had 160.4, “epsom” had 165.8, and “serum” had 418.</p>
+
+<p>I decided to look at all words of which were lower than 2.9, and within the the 54 words, the minimum score was 106.6 and the maximum was 496, with an average of 336.3. I think I know where the word score’s usefulness may lie: it’s better to start with a lower than a higher one.</p>
+
+<p>When I spoke about maximums earlier, “estop” found itself with a maximum of 9 attempts. In fact, “serum”, which had a slightly higher average than “estop” found itself with a maximum of 8 — “epsom” received 9.</p>
+
+<p>But this is still an incorrect approach.</p>
+
+<p>We’re looking at the average and what I’d like to know is what has the highest percentage of wins within the limitations imposed by the game. We have six guesses, so what word is best suited on average to produce an outcome.</p>
+
+<p>With these parameters in mind, we can then use the following methodology: which word is most likely to get a guess correct within those six attempts and then not consider the steps beyond that point since they’re not indicative of what would be considered a success.</p>
+
+<p>Of the 5,756 words tested, one word managed to achieve a win in three moves 69.4% of the time: “verso”. It also achieved a win in two moves 10.8% of the time, four was 13.1%, five was 4.6%, and six was 1.5% — a 99.4% successful starting word.</p>
+
+<p>But this is not the best word even though it is the best word for the quickest win — fortunately we already know the best one to use in order to win.</p>
+
+<p>As mentioned before, “estop” had an average of 2.74 attempts before a win, but importantly it has the highest success rate. It edged out “verso” by achieving a 99.6% win rate with 46% of all attempts being achieved in its first two guesses and then three in 40% — four was 9.4%, five was 3.2%, and six was 0.9%.</p>
+
+<p>With a failure on only 19 words from the word list — compared to 30 for the other word I was testing with — starting with just “estop” should net you a win most of the time.</p>
+
+<p>So in my opinion: “estop” is by far the best word.</p>
+
+<p><img src="/img/1DezAoeADAebHml6mnxXMOA_1.png" alt="" /></p>
+
+<p>From January 30th’s Wordle: “estop” showed that despite failing the first two guesses, the algorithm did it in four tries whereas “verso” had to make an extra guess.</p>
+
+<h3>The data</h3>
+
+<p><a href="https://github.com/KateLibC/WordleStats">I’m happy to share the data I have made</a> and I welcome you to demonstrate anything you have done with it. However, I must reiterate that I am not a statistician nor do I consider myself adept with mathematics. What I will say that I was out to have fun to solve this challenge and I feel like I have.</p>
+
+<p>I wanted to play this game unconventionally and I think I accomplished that goal. There are some further ideas to achieve a 100% success rate or at least get extremely close to it, but being that I am at 99.6% successful on just this algorithm alone, it does make me think that this little project can be considered “ended”.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
               <a class="post-link" href="/2022/01/12/hacking-wordle-through-automation-and-cryptanalysis/">Hacking Wordle through automation and cryptanalysis</a>
             
           </h1>
@@ -620,103 +749,6 @@
 <p>The solution of using machine learning at least to me appears to be something “hot and sexy” when in reality we need something conventional. I have done a lot of work around using entropy to detect malicious activity in my line of work, but it was only done after making other attack methods more expensive, which should be done first as it is often easier to do.</p>
 
 <p>At least we finally got these new verification tools, but honestly, Twitch has a lot remaining to do and I am not holding my breath.</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2021/09/08/what-is-in-your-bc-vaccine-passport/">What is in your BC Vaccine Passport?</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Sep 8, 2021
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <hr />
-
-<p>As you may be aware, those in British Columbia are joining other jurisdictions in issuing “vaccine passports”, which is basically a verification system to show your vaccination status. This is to combat the spread of COVID-19, and is intended to ensure that those who are unvaccinated do not pose a threat to those who are.</p>
-
-<p><img src="/img/1TQE1-lLWyA6iIZ9I697cww_1.jpeg" alt="" /></p>
-
-<p>BC Government Health Gateway showing my “BC Vaccine Card”</p>
-
-<p>If you’re reading this and are about to go tweet at me or write some diatribe to my e-mail address about vaccines being tyranny, I have a simple response: fuck off.</p>
-
-<p>I have professional concerns about the passport myself, but they’re based on equity for those who are unable procure a personal health card for whatever reason. If your concerns align with the thousands who opted to hinder access to local hospitals, you’re a fucking dickhead and I do not care about your baseless and factless opinions.</p>
-
-<hr />
-
-<p>Anyway, historically, <a href="https://www.theglobeandmail.com/opinion/article-my-vaccine-passport-from-the-1970s-tells-the-story-of-disease-in-our/">these are not new at all</a> as during my own parents’ lifetimes before my being born, they existed for Canadians who needed to travel abroad. However, we’re now in the age where our mobile phones are capable of providing an aspect of verification of vaccination status.</p>
-
-<p><img src="/img/1YTQ_lxEunLQIPdClX4xMWA_1.png" alt="" /></p>
-
-<p>Website for SMART Health Cards</p>
-
-<p>It was feared initially that every jurisdiction would adopt a system of their own to work with the data, but fortunately it seems that British Columbia has adopted the same system as Québec, which is to use the <a href="https://smarthealth.cards">SMART Health Card</a> system, a standard developed by the W3C Consortium, who are behind the standards for the <a href="https://www.w3.org">world wide web</a>.</p>
-
-<p>Much like how the world wide web work with establishing encrypted connections for online banking, the SMART Health Card (“SHC”) uses the same methodology to verify the contents of the presented QR code. The QR code can be shown to anyone with <a href="https://thecommonsproject.org/smart-health-card-verifier">an mobile phone running an application capable of reading it</a>, and then the details on the application can be compared with some photo identification to confirm that the QR code belongs to the person they’re interacting with.</p>
-
-<p>The QR code can be on your phone, a piece of paper, or in one case with someone in Québec, printed on a t-shirt so it could be read metres away.</p>
-
-<p>Anyone can read this QR code and with that it may raise some eyebrows.</p>
-
-<hr />
-
-<p>So now you’re wondering: what makes it safe? How does someone not get my personal details? These are legitimate and important questions and it can be answered quite easily: the issuing health authority is only supposed to put as much information as needed on the card.</p>
-
-<p><img src="/img/1KQNVSwakCiCjaRJDjNwMrA_1.png" alt="" /></p>
-
-<p>The SMART Health System is clear about what can be on a person’s card.</p>
-
-<p>As it stands, the standard should contain your legal name, date of birth, tests if relevant, vaccinations, and contraindications should you have any. It is spelt out as per the image about that it should not contain your phone number, your address, an identifier such as a personal health or drivers licence number, and other health information. The SHC standard straight up outlines keeping data at a minimum and has <a href="https://spec.smarthealth.cards/#privacy">a whole section on privacy</a>.</p>
-
-<p><img src="/img/1QUpdpfSQ5hTqxBO34Ev_5w_1.jpeg" alt="" /></p>
-
-<p>Output from a SHC QR code reader. The “issuer not recognized” remark at the bottom should be of no concern until the programme goes live in a week. I would expect that to go away by then.</p>
-
-<p>So does British Columbia adhere to the recommendations?</p>
-
-<hr />
-
-<p>I have gone ahead and decoded my passport (<a href="https://marcan2020.medium.com/reversing-smart-health-cards-e765157fae9">using this methodology as a guide</a>) and was able to glean from the data that it has the following:</p>
-
-<ul>
-  <li>The issuer (ISS), which is remarked as the Provincial Health Services Authority (PHSA)</li>
-  <li>The creation date (NBF), which is an epoch time stamp of seconds since January 1, 1970 00:00:00 UTC (standard for most computer data)</li>
-  <li>The type of card it is, with the data outlining it is for COVID-19, immunization, and is a health card</li>
-  <li>The family name of the passport holder</li>
-  <li>The first or given name of the passport holder</li>
-  <li>Their birth date</li>
-  <li>Their immunization records and date of occurrence for each plus the vaccine type, lot number (which box or order the vaccine came in), and where it was given</li>
-</ul>
-
-<p>That is it. There are no health numbers, no address, and surprisingly, no mention of the person’s gender. I have concerns about the name aspect for those who are transgender as it could out them, but that is it.</p>
-
-<p>You can safely show this QR code to someone else if someone requests you of that information. If you’re running a wedding, you can have your guests confirmed that they have been vaccinated. All you need is to have photo identification to verify the contents of the QR code and through the power of mathematics, it is incredibly difficult and likely impossible to forge a QR code that can thwart this system.</p>
-
-<p>Go ahead and print this out, <a href="https://gist.github.com/dotsam/1ed47617fbf960862345353aaaeb79ea">make an iOS shortcut that is super useful</a>, or put it on a t-shirt. It’ll be a piece of identification until we get through this mess we’re still in.</p>
-
-<p>All we are waiting on is for the PHSA to become an recognized issuer and anyone can trust this vaccine passport. A vaccine passport issued in British Columbia will also work in Québec and vice-versa and while it may have issues internationally as I am certain that someone in Florida or Belgium may not know what the PHSA is, they’d still be able to read the data anyway.</p>
-
-<hr />
-
-<p>Go get your passport if you have gotten your vaccine and if you haven’t gotten your vaccine yet, go get it. If you don’t want to get your vaccine, leave everyone alone and wait out the pandemic so you don’t spread it or worse get sick.</p>
-
-<p>My remaining concern right now is: what do we do about those who cannot get access to the website? Equity is still my problem with all of this, and my concern lies with those who are undocumented or are of no fixed address, just to name a few.</p>
-
-<p><em>Update: it seems that you can just call in to get a non-digital copy of the passport should you run into some issues related to equity.</em></p>
 
         </div>
         

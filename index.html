@@ -93,6 +93,489 @@
         <header class="post-header">
           <h1 class="post-title">
             
+              <a class="post-link" href="/2026/04/28/time-tracking-in-reconnect/">Keeping track of time in Reconnect</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Apr 28, 2026
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>One of the things I have been wanting to do in Reconenct is play a bit with how time is kept. Without 
+giving away too much of the story, multiple planets separated by several weeks of travel spanning 
+different star systems would in my mind lead to a situation where the time standards that we all know 
+today have maybe evolved.</p>
+
+<p>Time-keeping is a core component of my day job as I base all of my work on the use of 
+<a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">Coordinated Universal Time</a>, or UTC. It’s a 
+relatively simple system where you just need to keep track of one time for the whole planet and then 
+use an offset to determine the local time.</p>
+
+<p><img src="/img/atomicclock.jpg" alt="" /></p>
+
+<p>Since I live in Vancouver, my time zone is -7 UTC 
+(<a href="https://www2.gov.bc.ca/gov/content/governments/celebrating-british-columbia/daylight-saving-time">which recently changed from -8</a>), 
+this means that I am seven hours behind from what UTC displays.</p>
+
+<p>Here’s an example using a very basic JavaScript clock:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>UTC</th>
+      <th>Your time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span id="timeUTC"></span></td>
+      <td><span id="timeVancouver"></span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You’re not limited to offsets that are whole integers either. Examples include 
+<a href="https://en.wikipedia.org/wiki/UTC%E2%88%9203:30">Newfoundland time</a>, where the island of the Canadian province of 
+Newfoundland and Labrador has an offset of -03:30, or 
+<a href="https://en.wikipedia.org/wiki/UTC%2B08:45#UTC+09:45">Central Western Standard Time</a>, which gives it an offset of 
++8:45. It has its quirks, but translating between these times is fairly painless provided your loved ones are not 
+in either of these trying to call each other.</p>
+
+<p>Imagine the frustration of someone in Cocklebiddy in Western Australia trying to figure out when to call their 
+mother who lives in Dildo, Newfoundland and Labrador.</p>
+
+<p>I hold the belief that this system, while geocentric, works well for humanity even if off-world as if you’re in a 
+spaceship travelling around our star system, it is fine. However, what about calendars? And what about other planets?</p>
+
+<h1>I hate calendars</h1>
+
+<p>The importance of calendars should not be understated: knowing where we are in the year is important for ensuring 
+that our agriculture knows when to grow crops and for legal and financial systems to keep working. However, I am 
+going to show something that may be frustrating to see for the first time.</p>
+
+<p>The months of September, October, November, and December are not where they should be and the year should really start 
+sometime around March. For those of you familiar with the history of Rome as well as the Roman empire, this something 
+you might know already, but January and February did not exist prior to the latter part of 700 BCE. You’d have ten 
+months or 304 days in the calendar, and then winter.</p>
+
+<p>The names of the aforementioned months mean in Latin the seventh, eighth, ninth, and tenth month–if you don’t speak 
+Latin but speak French, you’ll catch on to how the months are spelt. However, around 713 BCE, January and February
+were tacked on at the start of the calendar, only because of the importance of end of year celebrations.</p>
+
+<p>While those months were added on to the calendar, it still didn’t mean that the year started on January 1st 
+as it just meant that the calendar rolled over.</p>
+
+<p>Christmas day, which has remained consistent as December 25 for much of Europe, was for a long time the start of the 
+year, whereas some adhered to March 1st due to Roman empire influences, and also March 25th, in honour of conception 
+of Jesus. Adoption of January 1st as the start of the year started with the Germans in 1544 and then finally with the 
+American colonies under British control in 1752, two hundred and eight years later.</p>
+
+<p>American exceptionalism predates their revolution I swear.</p>
+
+<p>I know there are other calendars out there such as the <a href="https://en.wikipedia.org/wiki/Chinese_calendar">Chinese</a> or 
+<a href="https://en.wikipedia.org/wiki/Hindu_calendar">Hindu</a> ones rife with similar problems I am sure. However, the 
+internationally-accepted calendar we have today is the Gregorian, which in October 1582, was adopted after it was 
+realised that Europe was using a calendar, the Julian, that was off by over a week due to a miscalculation of leap 
+year handling.</p>
+
+<p><img src="/img/juliencalendar.jpg" alt="" /></p>
+
+<p>The error made with the Julian calendar was that the year was 325.25 days, lending the thought that exactly every 
+four years, we tack on an extra day. However, the year is actually 365.2425 days, so tacking on that extra day like 
+before may seem okay, but it starts to become a problem as centuries become millenniums. At the start of this 
+section, I made a remark about knowing when to grow crops, well eventually the growing season is not going to align 
+with the equinox and that was a problem if we’re going to find ourselves relying on this calendar.</p>
+
+<p>So when the day of Thursday, October 4th, 1582 came to an end, the next day jumped ahead ten whole days to Friday, 
+October 15th. This is why we now have a complicated rule of a leap year being on every year divisible by four, except 
+where it is divisible by 100 unless it itself is divisible by 400. This is why the year 2000 was a leap year, but 
+the year 2100 will not be.</p>
+
+<p>Are we out of the woods with this calendar? Nope. There is a something called a 
+<a href="https://en.wikipedia.org/wiki/Leap_second">leap second</a>, which gets added periodically based on all sorts of 
+arbitrary variables that our calendar cannot cope with.. It has been since 2016 that we’ve come to witness some, and 
+that is only because they’ve opted to accept that we can ignore them until the mid-2100s in the hopes we figure out 
+<a href="https://sarvendev.com/2024/07/problematic-second/">how to get computer programmers to deal with it better or some technology comes around to solve it all together</a>.</p>
+
+<p>Let me close off this section by saying this: our geocentric calendar is going to suck in space but we’re also 
+probably going to be stuck with it because of how we focus on human biology.</p>
+
+<h1>We do not have to have 24 hours</h1>
+
+<p>Before I proceed: I am going to talk about solar days and solar days only.</p>
+
+<p>If you do the basic equation of 24x60x60, you end up with 86,400, which is the number of seconds the a solar 
+day occupies. The definition of a second originally was based off the rotation of the Earth, but it was then 
+defined based off of the frequency if caesium, which unlike our home, does not deviate from our measurements.</p>
+
+<p><img src="/img/earthset.jpg" alt="" /></p>
+
+<p>The Earth is actually slowing down. Six hundred million years ago, a solar day would have been 21 hours, but due 
+to influences from the Moon and the Sun or other influences including 
+<a href="https://kagi.com/search?q=three+gorges+dam+slow+down">filling giant hydroelectric dam basins</a>, the Earth itself 
+is not reliable to measure the passage of time. So technically speaking, you could say 
+that a solar day on Earth is 86,400.0025 seconds based on current measurements..</p>
+
+<p>But we don’t need to care about that so 86,400 is good enough for what I am talking about.</p>
+
+<p>While “good enough”, there are only so many factors for that number. There are 
+<a href="https://www.wolframalpha.com/input/?i=factor+86400">96 divisors</a> that could fit into that value.</p>
+
+<p>So why not just abolish it? Why don’t we use a thousand minutes to define a day? There’s 1,440 minutes in a day 
+and it would not be that far fetched to consider something different. Let’s talk about Beat Time.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>UTC</th>
+      <th>Beat time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span id="timeUTC2"></span></td>
+      <td><span id="timeBeats"></span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="https://internet-ti.me">My friend, Jessica made me enamoured with the use of .beats</a>, 
+a scheme <a href="https://en.wikipedia.org/wiki/Swatch_Internet_Time">developed by Swatch in the 1990s</a>. It isn’t metric 
+time, which was <a href="https://en.wikipedia.org/wiki/French_Republican_calendar#Days">adopted by the French Republic post-revolution</a>, 
+but it is a scheme that permits the existing calendar but adopts a scheme that is intended to be used without 
+time zones.</p>
+
+<p>The abolishment of time zones has been proposed by numerous people in the past, including science fiction author 
+<a href="https://en.wikipedia.org/wiki/Abolition_of_time_zones#Proposals">Arthur C. Clarke</a>. I did say earlier that the use 
+of offsets was a good idea, but I think that .beats is objectively better.</p>
+
+<p>The idea of saying “I will meet you at 800” works real well in my mind.</p>
+
+<h1>Time dilation and its lack of importance</h1>
+
+<p>Back to our friend Mars, trying to keep clocks in sync will require you to contend with general relativity. 
+<a href="https://iopscience.iop.org/article/10.3847/1538-3881/ae0c16">This late-2025 paper</a> in The Astronomical 
+Journal brought this to light:</p>
+
+<blockquote>
+  <p>This study estimates clock rates on Mars and compares them to those on the Moon and Earth. We find that, on average, clocks on Mars tick faster than those on the Earth’s geoid by 477 μs day, with a variation of 226 μs day over a Martian year. Additionally, there is an amplitude modulation of approximately 40 μs day over seven synodic cycles.</p>
+</blockquote>
+
+<p>Our good ol’ friend relativity means that time keeping between multiple planets not only has to consider 
+rotation and orbit, but the velocity and tidal forces too. 226-477 μs does not seem that significant, but 
+given that you’re dealing with about a quarter to almost half of a a millisecond, it is not immeasurable.</p>
+
+<p>However, it is insignificant for the purposes of the book, so I don’t really care. I just wanted to bring 
+this all up because I thought this part was neat.</p>
+
+<p>This is a silly post that I wanted to do so I could talk a bit about my book. Much of the inspiration for 
+coming up with my own dating scheme originates in both Star Trek and the Wayfinder series by Becky 
+Chambers. I welcome people pointing out any problems with this all, but this post is haphazard and is for 
+certain going to have flaws.</p>
+
+<h1>Let’s talk about my worlds</h1>
+
+<p>In Reconnect, there are four mentioned worlds. They are not Earth, but we still rely on its time despite 
+the setting for reasons I will not get into. Since they’re not Earth, this means that they all have 
+different orbits and rotations.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Galactic</th>
+      <th>Hibernia</th>
+      <th>Augustia</th>
+      <th>Xiadi</th>
+      <th>Procula</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Local day (mins)</strong></td>
+      <td>1,440</td>
+      <td>1,457.28</td>
+      <td>1,440</td>
+      <td>1,334.88</td>
+      <td>1,873.44</td>
+    </tr>
+    <tr>
+      <td><strong>Local day (M)</strong></td>
+      <td>1,000</td>
+      <td>1,012</td>
+      <td>1,000</td>
+      <td>927</td>
+      <td>1,301</td>
+    </tr>
+    <tr>
+      <td><strong>Local year (local day)</strong></td>
+      <td>365.24</td>
+      <td>360.91</td>
+      <td>98</td>
+      <td>327.1</td>
+      <td>653.9</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To clarify the units, minutes are the ones we know and love, and <em>M</em> is basically a variation of 
+the Internet time I wrote about earlier. A year for each planet is defined by the number of its 
+local days.</p>
+
+<p>As you can see, there are some things we’re familiar with and peculiarities so let’s talk about 
+each planet individually.</p>
+
+<h2>Galactic</h2>
+
+<p>And right off the bat, we’re not speaking about a planet but the galaxy itself. One of the things 
+I have some level of confidence in is that we’re probably never going to say goodbye to the idea 
+of UTC or a similar successor for as long as our species exists and makes use of technology.</p>
+
+<p>As such, I decided that in order to keep things working smoothly between the multiple planets, 
+space stations, and whatnot that they themselves would rely on a calendar and clock that is the 
+same no matter where you are.</p>
+
+<p>This is in my mind important because while it may be morning in some city on any of these 
+worlds, morning is a concept that exists provided you have a star and rotation.</p>
+
+<p>When it comes to the International Space Station, they use UTC themselves. About every 90 minutes, 
+the station makes a complete orbit around our planet, meaning that the concept of “morning” based 
+on sunrise would be impractical due to the sun appearing and disappearing about sixteen times every 
+standard Earth day.</p>
+
+<h2>Hibernia, Xiadi, and Procula</h2>
+
+<p>These are all planets with fairly normal rotations and orbits.</p>
+
+<p>Procula is the odd duck in all of this because its short year and long day–its day is 31 hours and 
+13 minutes whereas Hibernia is Earth-like at 24 hours and 17 minutes and Xiadi being close at 22 hours 
+and 15 minutes.</p>
+
+<p>Despite being habitable, it is in my mind probably a bit shit to live on Procula considering you have 
+effectively an extra quarter of a day added.</p>
+
+<p>A Martian solar day for example is 24 hours and 39 minutes, which might be just fine from a circadium 
+rhythm standpoint. This is not baseless, as 
+<a href="https://news.harvard.edu/gazette/story/1999/07/human-biological-clock-set-back-an-hour/">this story from the Harvard Gazette writes</a>:</p>
+
+<blockquote>
+  <p>By recording the daily rhythms of hormones and body temperatures in 24 healthy young and old men and women over a one-month period, the researchers conclude that our internal clocks run on a daily cycle of 24 hours, 11 minutes.</p>
+</blockquote>
+
+<p>You’d still be exceeding it, but being that nobody really has precise sleep schedules, adding an 
+extra 39 minutes to each day probably would not have any long-lasting health effects. I do have to 
+wonder what losing an hour and 45 minutes would do however as is the case with Xiadi.</p>
+
+<h2>Augustia</h2>
+
+<p>How would you keep time on a tidally-locked planet? If you’re un familiar, a tidally locked orbit 
+is where one side of an object never changes its face towards its parent. This is the situation 
+with the Moon, where we always see its face no matter what due to how it orbits around our planet.</p>
+
+<p><img src="/img/earth_terminator.jpg" alt="" /></p>
+
+<p>This situation has been observed with exo-planets and while it does not negate the possibility for 
+habitability, it does introduce a question: what is the local time?</p>
+
+<p>My solution was simply to use the galactic time to define what the local time is and define a local 
+day as how long it takes to go around its parent star. It takes 98 galactic days to go around its 
+parent star.</p>
+
+<h1>Earth time is not compatible with local time</h1>
+
+<p>As you are probably reading, there’s local and galactic time to contend with. Functionally, time 
+is time if you’re ignoring relativity, as the measurement of a second here on Earth is going to 
+be no different than anywhere else in the universe. However, nobody is going to find it practical 
+to have a Martian day be the same as an Earth day when having any sort of conversation.</p>
+
+<p>The reason why I think a local time works just fine is because there’s no real practical way to 
+have any sort of instantaneous conversation once you get a dozen kilometres away from each other.</p>
+
+<p><img src="/img/arjun_expanse.jpg" alt="" /></p>
+
+<p>In The Expanse TV series, a video call between Chrisjen Avasarala on Earth and her husband, 
+Arjun Avasarala-Rao who was on the Moon had them talking over each other due to the approximately 
+two and a half second round trip delay caused by the speed of light. It’s less of a big deal to 
+contend with as the delay is acceptable, but what about Mars?</p>
+
+<p>With a delay of anywhere between three and twenty two minutes dependent on the position of Earth 
+and Mars in relation to the Sun, you’re not going to have this problem simply because it is not 
+practical to do anything real-time. At best, all communication will be instant messages or email.</p>
+
+<p>This is something I tap into with the book albeit it is a background problem. Physics will dictate 
+the size of your empire even if you achieve fast interstellar travel.</p>
+
+<p>As an aside, I’d love to know if anyone has ever explored what undersea telegraph wires would have 
+done were they to have existed before the American revolution of 1776. I have the belief that it 
+would have been merely delayed although the outcome of it all is indeterminable.</p>
+
+<p>If you’re expecting transport between planets to work well, then you’ll have a universal time, but 
+for anything local, time can just be based on whatever the planet is doing in relation to its 
+parent star. The average person is not going to care about what time it is on Xiadi if they’re 
+on Hibernia because nothing is going to arriving in time anyway.</p>
+
+<h1>Colloquialisms will survive</h1>
+
+<p>Since I touched on the “average person”, while I think the definition of how we track time will 
+change, even if we adopt a clock much like the .beats scheme, it’s likely that we’ll still use 
+terms like “minutes” or “hours” to describe something with only “days” actually sticking to its 
+original definition in some form.</p>
+
+<p>If I tell a friend that I’ll be arriving “in a few minutes”, it’s intended to not be specific as 
+it is intended to just say you’ll be arriving “soon”, which itself is not specific.</p>
+
+<h1>Just spill the beans</h1>
+
+<p>Okay. So humans are full of bad habits and compromises. I doubt we’re going to ditch our current, 
+internationally-accepted calendar even if we find ourselves spanning multiple star systems. So, 
+I chose to do something down the middle: I got rid of months–sort of.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reconnect time (simple)</th>
+      <th>Reconnect time (expanded)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span id="timeRSimple"></span> <span id="timeBeats2"></span></td>
+      <td><span id="timeRExpanded"></span> <span id="timeBeats3"></span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The format is quite simple: you have an era (defined as BCC or CC), the date itself, and then the 
+time.</p>
+
+<p>The date can be expressed as the number of days in the form of an integer since the start of the 
+year or it can be broken into its traditional month and day in the expanded format.</p>
+
+<p>As for the year, it is expressed with an era beforehand which is optional, but it is based on an 
+event that dictates the origin of the universe I am working within. There is no actual year per 
+se, but we need one for the sake of this post so this is what we’re getting.</p>
+
+<p>As for the time itself, you may have noticed that the .beat time of <span id="timeBeats4"></span> 
+does not correspond with the universe time of <span id="timeBeats5"></span>. This is because the 
+Internet time is based on whatever it is in Switzerland, whereas the time used in the story is 
+based on UTC.</p>
+
+<p>That’s how I have chosen to do time in this book: just simplify it and don’t refer to months 
+by their names any longer.</p>
+
+<h1>Closing</h1>
+
+<p>I’ve been sitting on this entry for a week and decided to push it out, errors and all. I’m 
+enjoying my time spent writing this book and hope that the small sliver of insight into what is 
+the world building is looking like earns some excitement.</p>
+
+<script>
+    // If you're looking at this, I didn't feel like making this as nice as possible. I just 
+    // wanted it to work! I know of more elegant ways to do this.
+
+    // Beat time from: https://gist.github.com/craigerskine/567162a434205dffa98af7aa91596ff9
+    function beatTime(){
+        const date = new Date();
+        const hours = (date.getUTCHours() == 23) ? 0 : date.getUTCHours() + 1;
+        const beats = Math.abs(((((hours * 60) + date.getUTCMinutes()) * 60) + date.getUTCSeconds()) / 86.4).toFixed(2);
+        return beats;
+    }
+    
+    function updateTime() {
+        // Variables
+        var months = {
+            0: "January", 1: "February", 2: "February", 3: "April", 4: "May", 5: "June",
+            6: "July", 7: "August", 8: "September", 9: "October", 10: "November", 11: "December"
+            }
+        var day = {
+            0: "Sunday", 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday",
+            5: "Friday", 6: "Saturday"
+        }
+        var offset = -7
+
+        // Sets time for UTC and then Vancouver
+        var currentUTC = new Date()
+        var currentVancouver = currentUTC;
+
+        // Set time for UTC
+        var monthUTC = months[currentUTC.getUTCMonth()];
+        var dayUTC = day[currentUTC.getUTCDay()];
+        var dateUTC = currentUTC.getUTCDate();
+        var yearUTC = currentUTC.getUTCFullYear();
+        var hoursUTC = ('00'+currentUTC.getUTCHours()).slice(-2);
+        var minutesUTC = ('00'+currentUTC.getUTCMinutes()).slice(-2);
+        var secondsUTC = ('00'+currentUTC.getUTCSeconds()).slice(-2);
+
+        // Set time for Reconnect
+        var yearDisconnect = 2408; // Ooh. What is this?
+        var monthReconnect = currentUTC.getUTCMonth() + 1;
+        var dateReconnect = currentUTC.getUTCDate();
+        var daysReconnect = Math.ceil((new Date(currentUTC.getTime())-new Date(currentUTC.getFullYear(), 0, 1))/86400000);
+        // If you think this takes place in 2408: maybe or maybe not ;)
+        var yearReconnect = yearDisconnect - currentUTC.getUTCFullYear();
+        if (yearReconnect < 0) {
+            yearReconnect = currentUTC.getUTCFullYear() - yearDisconnect;
+        }
+        var eraReconnect = "CC"; // Not explaining this one :D
+        if (currentUTC.getUTCFullYear() < 2408) {
+            eraReconnect = "BCC";
+        }
+        var beatHourReconnect = currentUTC.getUTCHours();
+        var beatMinuteReconnect = currentUTC.getUTCMinutes();
+        var beatSecondReconnect = currentUTC.getUTCSeconds();
+        var beatReconnect = (((beatHourReconnect * 60) + beatMinuteReconnect) * 60) + beatSecondReconnect;
+        beatReconnect = (beatReconnect / 86400) * 1000;
+        beatReconnect = beatReconnect.toFixed(2);
+
+        // Set time for Vancouver
+        var monthVancouver = months[currentVancouver.getMonth()];
+        var dayVancouver = day[currentVancouver.getDay()];
+        var dateVancouver = currentVancouver.getDate();
+        var yearVancouver = currentVancouver.getFullYear();
+        var hoursVancouver = ('00'+currentVancouver.getHours()).slice(-2);
+        var minutesVancouver = ('00'+currentVancouver.getMinutes()).slice(-2);
+        var secondsVancouver = ('00'+currentVancouver.getSeconds()).slice(-2);
+
+        // Set strings
+        var tsUTC = hoursUTC + ":" + minutesUTC + ":" + secondsUTC;
+        var tsUTC2 = tsUTC;
+        tsUTC = tsUTC + " on " + dayUTC + ", " + monthUTC + " " + dateUTC + ", " + yearUTC;
+        var tsVancouver = hoursVancouver + ":" + minutesVancouver + ":" + secondsVancouver;
+        tsVancouver = tsVancouver + " on " + dayVancouver + ", " + monthVancouver + " " + dateVancouver + ", " + yearVancouver;
+        var tsRSimple = eraReconnect + " " + yearReconnect + "." + daysReconnect;
+        var tsRExpanded = eraReconnect + " " + yearReconnect + "." + monthReconnect + "-" + dateReconnect;
+
+        // Update HTML
+        document.getElementById('timeUTC').innerHTML = tsUTC;
+        document.getElementById('timeUTC2').innerHTML = tsUTC2;
+        document.getElementById('timeVancouver').innerHTML = tsVancouver;
+        document.getElementById('timeBeats').innerHTML = beatTime();
+        document.getElementById('timeBeats2').innerHTML = beatReconnect;
+        document.getElementById('timeBeats3').innerHTML = beatReconnect;
+        document.getElementById('timeBeats4').innerHTML = beatTime();
+        document.getElementById('timeBeats5').innerHTML = beatReconnect;
+        document.getElementById('timeRSimple').innerHTML = tsRSimple;
+        document.getElementById('timeRExpanded').innerHTML = tsRExpanded;
+    }
+    setInterval(updateTime, 1000);
+</script>
+
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
               <a class="post-link" href="/2026/03/21/announcing-book-reconnect/">Announcing my book: Reconnect</a>
             
           </h1>
@@ -972,243 +1455,6 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
 <h1>What next?</h1>
 
 <p>Well, I have plans for all of this so stay tuned! Hopefully this doesn’t drop off of my desk!</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2025/12/24/thoughts-on-the-year/">My 2025 year-end post</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Dec 24, 2025
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <p>It’s that time where everybody has their two cents to offer on what their year has been about and this post is pretty much the same. Some years I’ve been really good about this and others not so much, but we’re here now and I’ve been writing this on and off for the past month so let’s go for it.</p>
-
-<h1>Health</h1>
-
-<p>2025 brought on the rude realisation that I am getting older and as a consequence injuries have become quite apparent to me. Back in mid-December of last year, I fell and twisted my ankle while de-boarding a train in London. Basically the heels I was wearing while en route to my office there gave way when I miscalculated the drop between the train and the platform.</p>
-
-<p>Mind the gap I know, but it was 7:30 AM and I was half-awake at best. I had gotten off at this station numerous times in the past so it was just pure inattentiveness.</p>
-
-<p>When I twisted my ankle, I felt something odd in my knee as well but paid no mind since the pain was acute in my ankle. However, as time went on, I noticed my knee giving out as I would walk around and then eventually it became aware that it was a problem when I attempted to play a single game of softball and had a slip up during a play, and thus a hospital visit and then an MRI a week later led to an outcome that required intervention.</p>
-
-<p><img src="/img/IMG_1395.jpeg" alt="" /></p>
-
-<p>The incident in London and the fall during the softball game had accelerated an injury I was bound to have happen. It of course had to happen to my right knee down from my right hip that I injured in roller derby six years ago.</p>
-
-<p><img src="/img/IMG_1420.jpeg" alt="" /></p>
-
-<p>I fortunately was able to avoid surgery and had temporary relief through a procedure that required ultrasound to guide an injection. I was able to get back into some level of physical exercise once more with significantly less pain.</p>
-
-<p>A few months after, trying to return to running and also through playing curling for the first time, I noticed that the pain has returned albeit a lot less worse than the past.</p>
-
-<p>I’m giving myself some time to adjust, but I am considering speaking to the surgeon again to see what my options are since I still from time to time have knee pain that is uncomfortable.</p>
-
-<p>The whole ordeal reframed some views I had about my life. For now, I am hesitating to write more about this part, but I am happy with the decisions I made even if they were difficult.</p>
-
-<h1>Travel</h1>
-
-<p>I did not fly on an airplane in 2025. Figure that one out.</p>
-
-<p>There are travel plans for 2026, but this year due to the above health challenges and other factors, I opted to not travel much further than Vancouver Island or the Sunshine Coast.</p>
-
-<p>Please enjoy these two photos from my travels:</p>
-
-<p><img src="/img/IMG_1168.jpeg" alt="" /></p>
-
-<p>This is a view from the inside of the provincial parliament building in Victoria, British Columbia. I had an opportunity to be at the legislature during a sitting so I watched some members of the BC Conservative party actually act inappropriately. Shocking I know, but par for the course with these folks.</p>
-
-<p><img src="/img/IMG_2592.jpeg" alt="" /></p>
-
-<p>My partner and I took a trip to Sechelt as a getaway for my birthday. We were graced with this lovely sunset just as we were about to go out for a nice dinner.</p>
-
-<p>In any event, in 2026, I am likely to return to Ireland to see some family and then maybe a visit elsewhere. I have been toying with going to Australia at some point, but I feel like that may be a 2027 idea instead.</p>
-
-<h1>Photography</h1>
-
-<p>This year, I returned to photography, but I have sort of shunned anything digital.</p>
-
-<p>Back in 2024, I purchased a Fed 3, which is a rangefinder made in Ukraine when it was still part of the Soviet Union. I wrote about the use of my cameras earlier this year and I look forward to getting better with film in the new year.</p>
-
-<p><img src="/img/IMG_2998.jpeg" alt="" /></p>
-
-<p>Above you can see the following cameras in order from left to right:</p>
-
-<ul>
-  <li>Sony DSC-HX99</li>
-  <li>Fed 3</li>
-  <li>Nikon D50</li>
-  <li>Nikon F60</li>
-</ul>
-
-<p>The D50 is quite old, but I keep it around because it attaches to my 15 cm telescope. I don’t need much in the way for that since the telescope itself does not have a tracking mount so the exposures are never going to be long.</p>
-
-<p>The Sony camera is a leftover from when I streamed and I wanted a camera I could use to get a better shot of my face back when streamer-specific cameras were hard to come by.</p>
-
-<p>I’ve written about my use of the Fed and the F60 in <a href="/2025/09/04/Comparing-Film-Aliexpress/">a previous entry</a>, but of the two, the F60 has been the most fun since it’s ready to go and it also doesn’t have a damaged lens.</p>
-
-<p><img src="/img/70540029.jpeg" alt="" /></p>
-
-<p>I’m going to make a commitment to document all the film I ever used. I am presently on the hunt for a specific variety of expired film stock of which I will eventually post about once I have what I need.</p>
-
-<h1>Media consumption</h1>
-
-<p>Let’s talk about some media I enjoyed this past year.</p>
-
-<h2>Films</h2>
-
-<p>I watch about one to two films per week and if you’re ever curious, I do my best to track them on <a href="https://letterboxd.com/cariadk/">Letterboxd</a>, which has indicated to me I had ticked over the thousandth film mark at some point in the past year or so.</p>
-
-<p>For films I watched at the cinema, it’s a tie between Mickey 17 and the Phoenician Scheme in terms of favourites.</p>
-
-<p>Robert Pattinson playing a weird little guy (or series of guys I guess) alongside a very psychotic character portrayed by Mark Ruffalo in a science fiction setting did draw me in. However, I am a sucker for almost anything by Wes Anderson and so I am not going to choose here–Asteroid City was a much more enjoyable film for anything recent that said.</p>
-
-<p>However, for films that were no longer on the big screen, I did finally watch Conclave. As someone who was raised Catholic I did notice a huge infraction which might be noticeable if you’re familiar with the sacrament of confession. That said, I enjoyed the movie and have recommended that others give it a watch.</p>
-
-<p>I always have a favourite dumb movie of the year and that goes to War of the Worlds, starring Ice Cube. It was ridiculous, but it was ridiculous and dumb in a way that while I will never be interested in watching again, I can recommend it if you ever need a ride that almost goes nowhere and I mean that literally.</p>
-
-<p><img src="/img/IMG_1120.jpeg" alt="" /></p>
-
-<p>Oh yeah. I also finally watched United Passions. What a godawful movie. It’s a good thing that FIFA and the World Cup is not rife with corruption any more am I right?</p>
-
-<h2>Television</h2>
-
-<p>I started to watch What We Do in the Shadows and I can say that enjoyed it.</p>
-
-<p>Television has been something I’ve watched a lot less of lately, but that and getting through more of Foundation and also The Expanse have both been a pleasure.</p>
-
-<p>Dropout has continued to be a favourite subscription service and I imagine that it will remain the case into 2026. Game Changer was extremely intense this past season and I can only imagine that Sam Reich will drop the gloves in 2026. I have mixed feelings on Crowd Control and feel that it is at best a two season series.</p>
-
-<h2>Books</h2>
-
-<p>Sticking with The Expanse, I read through the first three books this year and it has been a very pleasurable experience.</p>
-
-<p><img src="/img/IMG_2999.jpeg" alt="" /></p>
-
-<p>As for other books, I finally read Artemis and have gotten through most of Project Hail Mary, both of which are by Andy Weir.</p>
-
-<p>I’m going to buck the trend here based on some comments I’ve read elsewhere in that I really enjoyed Artemis and think that it could have been made into a series, but Project Hail Mary really just isn’t clicking with me and I feel like it is not at all a better story.</p>
-
-<p>I ended up putting the book down for now, but I am fearing that my annoyance with the style of writing in it might stall me from completing it much the same had happened with God Emperor of Dune by Frank Herbert. It at least didn’t irritate me as Hyperion by Dan Simmons–I’ve been told that the rest of the series is worth a read but one scene in this book turned me off and I’ve been hesitating to come back to it.</p>
-
-<p>Runner up for books I enjoyed goes to Three Body Problem by Cixin Lin. The book really throws a curveball at you until you get to the very end. However, the gender politics really grinds my gears, but looking past that I find that the premise is really good and I might give it a go at the follow up book sometime next year.</p>
-
-<p>I also have read three of the four books from the <a href="https://www.goodreads.com/series/170872-wayfarers">Wayfarer series</a> by Becky Chambers. Sometime in the new year I’ll read the final book of the series and perhaps write an entry here about my thoughts about her world building. It’s a good series and I suggest giving it a go.</p>
-
-<p>I’m finally going to start reading some Pratchet books in 2026 as well.</p>
-
-<h2>Video games</h2>
-
-<p>Believe it or not, I don’t think I played anything new released this year.</p>
-
-<p>I have a huge backlog of games and it is ever-increasing. In fact, I opted to pair down my physical collection of games earlier in the year and I feel like that was the right decision.</p>
-
-<p>Stardew Valley was a fun little highlight of the year and a game I keep coming back to for cozy playthroughs.</p>
-
-<p><img src="/img/IMG_9835.jpeg" alt="" /></p>
-
-<p>My hope for 2026 is that Capcom announces a new Ace Attorney game of some sort. If the above is indication enough for my love of the series, I can tell you that I was annoyed to hear that a new Mega Man game was announced and yet a much better series is languishing.</p>
-
-<p>If I were to cast a magic wand, I’d want a follow up to The Great Ace Attorney Chronicles.</p>
-
-<p>I’ve started to play through Final Fantasy XIII this past month. My hope is to finish it before the new year and then move on to XIII-2 and then Lightning Returns. Slowly but surely I am completing every mainline Final Fantasy game.</p>
-
-<h2>Music</h2>
-
-<p>I attended no concerts this year!</p>
-
-<p>As for new music releases, Chappell Roan’s The Giver was a bop and seeing everybody use it for things such as hockey reels or government messaging really throws me for a loop considering its lyrics are explicitly queer.</p>
-
-<p>Either some people have a sense of humour or it is straight people being oblivious.</p>
-
-<h1>Advocacy</h1>
-
-<p>I become both a volunteer and a donor to a local transit advocacy group, <a href="https://movementyvr.ca">MovementYVR</a>.</p>
-
-<p>For us to tackle matters such as climate change and also to help ease and maybe assist the housing crisis, I really feel that we need to devote resources towards expanding public transit in our cities. It annoys me to no end that intercity bus service in this province is fragmented at best and non-existent at worst and this idea that we must get everyone to use a car instead is both short-sighted and insane.</p>
-
-<p><img src="/img/IMG_2392.jpeg" alt="" /></p>
-
-<p>During the campaign to bring bus rapid transit to North Burnaby, the misinformation from the Burnaby Heights Association and its members and supporters really grinded my gears. It is hard to read it as being either ignorance or intention (or both I guess), but they were the most disappointing group of people to contend with since joining.</p>
-
-<p>It really taught me a lot about how ingrained some folks are with the silos they place themselves within.</p>
-
-<p>Transit improves mobility for everyone including those who prefer to drive automobiles. I’d rather go somewhere by transit than take my car. I own an electric vehicle and I still don’t see it as the future nor a mode I want to choose as my second or third option.</p>
-
-<p>My dream for 2026 is to see the an announcement for the Millennium Line extension to the University of British Columbia and some sort of intercity transit service–be it rail or bus.</p>
-
-<p>As a result of my involvement with this group, some other projects are forthcoming and I am excited that sometime in January I’ll be announcing a project I am working on with folks I met through this organisation.</p>
-
-<h1>My book</h1>
-
-<p>Okay. I am just going to say this here: I am writing a science fiction novel. This has been an ongoing project since 2022 and after many rewrites I have gotten down the premise I am happy with.</p>
-
-<p>The challenge I’ve found with writing a book is unlike short stories I have written in my past, I need to ensure continuity and thus as you go further along it’s easy to accidentally contradict what has happened previously or straight up develop a plot hole.</p>
-
-<p>I won’t elaborate much about the story just yet, but I’m looking forward to sharing teasers from it once I am comfortable enough.</p>
-
-<p>Finding space to write the book has been my largest challenge. I find that writing at home is distracting so often I go to the pub or a cafe to work on it. However, while there, I feel time-limited and I often end up downing too much to drink in the process.</p>
-
-<p>I switched from an Alphasmart to a Remarkable 2 this year though. A friend offered his to me and after purchasing a keyboard attachment for it, it has really proven to be an invaluable device for distraction-free writing.</p>
-
-<p>The book is being written without the aide of any large language models. Even if it is a terrible story, it at least came from my own terrible brain.</p>
-
-<h1>Sports</h1>
-
-<p>I watched a lot of soccer this year. I am considering to get season tickets for Vancouver Rise FC since I am glad to see a professional women’s club in this city.</p>
-
-<p>I also watched live cricket for the first time this year. The sport makes perfect sense to me now and I kind of wish we were more serious about it in this country but alas.</p>
-
-<p>Next year, the World Cup will have seven games here in Vancouver. I am on the fence about going as while I would love to see some matches, the cost is prohibitive and supporting FIFA is always a moral conundrum.</p>
-
-<p>I started to play curling just in the past month and intend to continue playing in the new year. My injury is making me hesitate to play softball when the season begins, but I think I have a strategy will permit me to return albeit with a reduced capacity.</p>
-
-<p>I’m fucking stubborn and so I won’t let this stop me.</p>
-
-<h1>Podcasting</h1>
-
-<p>Yes. <a href="https://www.shawiniganmoments.ca">Shawinigan Moments</a> is coming back.</p>
-
-<p>Tam and I have been busy with our lives. In my case, the injury took a lot of wind out of my sails and that is why the railway series was never completed.</p>
-
-<p>And that series won’t be. The research part of the podcast is quite difficult when you have a day-job and also desire to maintain a social life. I want this show to remain fun for the two of us so we have to approach it all differently.</p>
-
-<p>We’re coming back, but with content we’ve already been doing in the past but was limited to behind the Patreon paywall. We’re also still looking for someone to be our third, which I think would make our show work so much better, but that is a task suited for sometime later in 2026.</p>
-
-<p>Staying on podcasting, I am going to be a producer and editor for another podcast due to be announced next month. This was a meeting of two minds and it’s shaping up be something potentially strong due to the two hosts involved. I will write more about it once there is more to be said so stay tuned.</p>
-
-<h1>Closing off with predictions</h1>
-
-<p>I want to see how badly I predict 2026 so here we go outlandish or not:</p>
-
-<ul>
-  <li>Prime Minister Mark Carney will get a majority government through someone crossing the floor either from the NDP or the Tories–he only needs one more seat (realistic)</li>
-  <li>Pierre Poillievre finally resigns as leader of the Tories (probable)</li>
-  <li>One of the large language model companies will die off but more capital will be burnt in order to keep the whole shitshow afloat (probable)</li>
-  <li><a href="https://store.steampowered.com/sale/steammachine">The Steam Machine</a> is given an MSRP of C$1,600 but would have been cheaper if memory prices didn’t suddenly cost a fortune (probable)</li>
-  <li>Some sort of modern <a href="https://en.wikipedia.org/wiki/Ternary_computer">ternary computer</a> will be demonstrated but unfortunately it will be for LLM nonsense purposes in mind (unlikely)</li>
-  <li><a href="https://en.wikipedia.org/wiki/Metal_Gear_Solid_4:_Guns_of_the_Patriots">Metal Gear Solid 4</a> will get a modern port to the PlayStation 5 and PC platforms (possible)</li>
-  <li>Dune: Part Three will incorporate a lot more from Children of Dune than Messiah (likely)</li>
-  <li><a href="https://en.wikipedia.org/wiki/Corus_Entertainment">Corus Entertainment</a> will stop being a zombie corporation with being purchased by TELUS (realm of possibility)</li>
-  <li>Square-Enix announces a remake of <a href="https://en.wikipedia.org/wiki/Chrono_Trigger">Chrono Trigger</a> using the same engine used by Octopath Traveller or Live A Live (realistic)</li>
-  <li>Former Prime Minister Justin Trudeau and American pop star, Katy Perry who have been dating since the springtime will announce that they’re getting married (possible)</li>
-</ul>
-
-<p>When I do my 2026 post, I’ll see how poorly I predicted the year.</p>
 
         </div>
         
