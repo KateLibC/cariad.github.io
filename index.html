@@ -661,255 +661,6 @@ the world building is looking like earns some excitement.</p>
         <header class="post-header">
           <h1 class="post-title">
             
-              <a class="post-link" href="/2026/04/26/time-tracking-in-disconnect/">Keeping track of time in Disconnect</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Apr 26, 2026
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <p>One of the things I have been wanting to do in Disconnect is play a bit with how time is kept. Without 
-giving away too much of the story, multiple planets separated by several weeks of travel spanning 
-different star systems would in my mind lead to a situation where the time standards that we all know 
-today have maybe evolved.</p>
-
-<p>Time-keeping is a core component of my day job as I base all of my work on the use of 
-<a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">Coordinated Universal Time</a>, or UTC. It’s a 
-relatively simple system where you just need to keep track of one time for the whole planet and then 
-use an offset to determine the local time.</p>
-
-<p>Since I live in Vancouver, my time zone is -7 UTC 
-(<a href="https://www2.gov.bc.ca/gov/content/governments/celebrating-british-columbia/daylight-saving-time">which recently changed from -8</a>), 
-this means that I am seven hours behind from what UTC displays.</p>
-
-<p>Here’s an example using a very basic JavaScript clock:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>UTC</th>
-      <th>Vancouver (-7 UTC)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span id="timeUTC"></span></td>
-      <td><span id="timeVancouver"></span></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>You’re not limited to offsets that are whole integers either. Examples include 
-<a href="https://en.wikipedia.org/wiki/UTC%E2%88%9203:30">Newfoundland time</a>, where the island of the Canadian province of 
-Newfoundland and Labrador has an offset of -03:30, or 
-<a href="https://en.wikipedia.org/wiki/UTC%2B08:45#UTC+09:45">Central Western Standard Time</a>, which gives it an offset of 
-+8:45. It has its quirks, but translating between these times is fairly painless provided your loved ones are not 
-in either of these trying to call each other.</p>
-
-<p>Imagine the frustration of someone in Cocklebiddy in Western Australia trying to figure out when to call their 
-mother who lives in Dildo, Newfoundland and Labrador.</p>
-
-<p>I hold the belief that this system, while geocentric, works well for humanity even if off-world as if you’re in a 
-spaceship travelling around our star system, it is fine. However, what about calendars? And what about other planets?</p>
-
-<h1>I hate calendars</h1>
-
-<p>The importance of calendars should not be understated: knowing where we are in the year is important for ensuring 
-that our agriculture knows when to grow crops and for legal and financial systems to keep working. However, I am 
-going to show something that may be frustrating to see for the first time.</p>
-
-<p>The months of September, October, November, and December are not where they should be and the year should really start 
-sometime around March. For those of you familiar with the history of Rome as well as the Roman empire, this something 
-you might know already, but January and February did not exist prior to the latter part of 700 BCE. You’d have ten 
-months or 304 days in the calendar, and then winter.</p>
-
-<p>The names of the aforementioned months mean in Latin the seventh, eighth, ninth, and tenth month–if you don’t speak 
-Latin but speak French, you’ll catch on to how the months are spelt. However, around 713 BCE, January and February
-were tacked on at the start of the calendar, only because of the importance of end of year celebrations.</p>
-
-<p>While those months were added on to the calendar, it still didn’t mean that the year started on January 1st 
-as it just meant that the calendar rolled over.</p>
-
-<p>Christmas day, which has remained consistent as December 25 for much of Europe, was for a long time the start of the 
-year, whereas some adhered to March 1st due to Roman empire influences, and also March 25th, in honour of conception 
-of Jesus. Adoption of January 1st as the start of the year started with the Germans in 1544 and then finally with the 
-American colonies under British control in 1752, two hundred and eight years later.</p>
-
-<p>American exceptionalism predates their revolution I swear.</p>
-
-<p>I know there are other calendars out there such as the <a href="https://en.wikipedia.org/wiki/Chinese_calendar">Chinese</a> or 
-<a href="https://en.wikipedia.org/wiki/Hindu_calendar">Hindu</a> ones rife with similar problems I am sure. However, the 
-internationally-accepted calendar we have today is the Gregorian, which in October 1582, was adopted after it was 
-realised that Europe was using a calendar, the Julian, that was off by over a week due to a miscalculation of leap 
-year handling.</p>
-
-<p>The error made with the Julian calendar was that the year was 325.25 days, lending the thought that exactly every 
-four years, we tack on an extra day. However, the year is actually 365.2425 days, so tacking on that extra day like 
-before may seem okay, but it starts to become a problem as centuries become millenniums. At the start of this 
-section, I made a remark about knowing when to grow crops, well eventually the growing season is not going to align 
-with the equinox and that was a problem if we’re going to find ourselves relying on this calendar.</p>
-
-<p>So when the day of Thursday, October 4th, 1582 came to an end, the next day jumped ahead ten whole days to Friday, 
-October 15th. This is why we now have a complicated rule of a leap year being on every year divisible by four, except 
-where it is divisible by 100 unless it itself is divisible by 400. This is why the year 2000 was a leap year, but 
-the year 2100 will not be.</p>
-
-<p>Are we out of the woods with this calendar? Nope. There is a something called a 
-<a href="https://en.wikipedia.org/wiki/Leap_second">leap second</a>, which gets added periodically based on all sorts of 
-arbitrary variables that our calendar cannot cope with.. It has been since 2016 that we’ve come to witness some, and 
-that is only because they’ve opted to accept that we can ignore them until the mid-2100s in the hopes we figure out 
-<a href="https://sarvendev.com/2024/07/problematic-second/">how to get computer programmers to deal with it better or some technology comes around to solve it all together</a>.</p>
-
-<p>Let me close off this section by saying this: our geocentric calendar is going to suck in space but we’re also 
-probably going to be stuck with it because of how we focus on human biology.</p>
-
-<h1>We do not have to have 24 hours</h1>
-
-<p>Before I proceed: I am going to talk about solar days and solar days only.</p>
-
-<p>If you do the basic equation of 24x60x60, you end up with 86,400, which is the number of seconds the a solar 
-day occupies. The definition of a second originally was based off the rotation of the Earth, but it was then 
-defined based off of the frequency if caesium, which unlike our home, does not deviate from our measurements.</p>
-
-<p>The Earth is actually slowing down. Six hundred million years ago, a solar day would have been 21 hours, but due 
-to influences from the Moon and the Sun or other influences including 
-<a href="https://kagi.com/search?q=three+gorges+dam+slow+down">filling giant hydroelectric dam basins</a>, it is quite 
-apparent that for good measurements, the Earth itself is not reliable. So technically speaking, you could say 
-that a solar day on Earth is 86,400.0025 seconds, hence the leap second I mentioned earlier.</p>
-
-<p>But we don’t need to care about that so 86,400 is good enough.</p>
-
-<p>While “good enough”, there are only so many factors for that number. There are 
-<a href="https://www.wolframalpha.com/input/?i=factor+86400">96 divisors</a> that could fit into that value.</p>
-
-<p>So why not just abolish it? Why don’t we use a thousand minutes to define a day? There’s 1,440 minutes in a day 
-and it would not be that far fetched to consider something different. Let’s talk about Beat Time.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>UTC</th>
-      <th>Beat time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span id="timeUTC2"></span></td>
-      <td><span id="timeBeats"></span></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><a href="https://internet-ti.me">My friend, Jessica made me enamoured with the use of .beats</a>, 
-a scheme <a href="https://en.wikipedia.org/wiki/Swatch_Internet_Time">developed by Swatch in the 1990s</a>. It isn’t metric 
-time, which was <a href="https://en.wikipedia.org/wiki/French_Republican_calendar#Days">adopted by the French Republic post-revolution</a>, 
-but it is a scheme that permits the existing calendar but adopts a scheme that is intended to be used without 
-time zones.</p>
-
-<p>The abolishment of time zones has been proposed by numerous people in the past, including science fiction author 
-<a href="https://en.wikipedia.org/wiki/Abolition_of_time_zones#Proposals">Arthur C. Clarke</a>. I did say earlier that the use 
-of offsets was a good idea, but I think that .beats is objectively better.</p>
-
-<p>The idea of saying “I will meet you at 800” works real well in my mind.</p>
-
-<h1>Time dilation and its lack of importance</h1>
-
-<p>Back to our friend Mars, trying to keep clocks in sync will require you to contend with general relativity. 
-<a href="https://iopscience.iop.org/article/10.3847/1538-3881/ae0c16">This late-2025 paper</a> in The Astronomical 
-Journal brought this to light:</p>
-
-<blockquote>
-  <p>This study estimates clock rates on Mars and compares them to those on the Moon and Earth. We find that, on average, clocks on Mars tick faster than those on the Earth’s geoid by 477 μs day, with a variation of 226 μs day over a Martian year. Additionally, there is an amplitude modulation of approximately 40 μs day over seven synodic cycles.</p>
-</blockquote>
-
-<p>Our good ol’ friend relativity means that time keeping between multiple planets not only has to consider 
-rotation and orbit, but the velocity and tidal forces too. 226-477 μs does not seem that significant, but 
-given that you’re dealing with about a quarter to almost half of a a millisecond, it is not immeasurable.</p>
-
-<p>However, it is insignificant for the purposes of the book, so I don’t really care. I just wanted to bring 
-this all up because I thought this part was neat.</p>
-
-<h1>Screw it</h1>
-
-<script>
-    // If you're looking at this, I didn't feel like making this as nice as possible. I just 
-    // wanted it to work! I know of more elegant ways to do this.
-
-    // Beat time from: https://gist.github.com/craigerskine/567162a434205dffa98af7aa91596ff9
-    function beatTime(){
-        const date = new Date();
-        const hours = (date.getUTCHours() == 23) ? 0 : date.getUTCHours() + 1;
-        const beats = Math.abs(((((hours * 60) + date.getUTCMinutes()) * 60) + date.getUTCSeconds()) / 86.4).toFixed(2);
-        return beats;
-    }
-    
-    function updateTime() {
-        // Variables
-        var months = {
-            0: "January", 1: "February", 2: "February", 3: "April", 4: "May", 5: "June",
-            6: "July", 7: "August", 8: "September", 9: "October", 10: "November", 11: "December"
-            }
-        var day = {
-            0: "Sunday", 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday",
-            5: "Friday", 6: "Saturday"
-        }
-        var offset = -7
-
-        // Sets time for UTC and then Vancouver
-        var currentUTC = new Date()
-        var currentVancouver = new Date(currentUTC.getTime() + (offset * 1000));
-
-        // Set time for UTC
-        var monthUTC = months[currentUTC.getUTCMonth()];
-        var dayUTC = day[currentUTC.getUTCDay()];
-        var dateUTC = currentUTC.getUTCDate();
-        var yearUTC = currentUTC.getUTCFullYear();
-        var hoursUTC = ('00'+currentUTC.getUTCHours()).slice(-2);
-        var minutesUTC = ('00'+currentUTC.getUTCMinutes()).slice(-2);
-        var secondsUTC = ('00'+currentUTC.getUTCSeconds()).slice(-2);
-
-        // Set time for Vancouver
-        var monthVancouver = months[currentVancouver.getMonth()];
-        var dayVancouver = day[currentVancouver.getDay()];
-        var dateVancouver = currentVancouver.getDate();
-        var yearVancouver = currentVancouver.getFullYear();
-        var hoursVancouver = ('00'+currentVancouver.getHours()).slice(-2);
-        var minutesVancouver = ('00'+currentVancouver.getMinutes()).slice(-2);
-        var secondsVancouver = ('00'+currentVancouver.getSeconds()).slice(-2);
-
-        // Set strings
-        var tsUTC = hoursUTC + ":" + minutesUTC + ":" + secondsUTC;
-        var tsUTC2 = tsUTC;
-        tsUTC = tsUTC + " on " + dayUTC + ", " + monthUTC + " " + dateUTC + ", " + yearUTC;
-        var tsVancouver = hoursVancouver + ":" + minutesVancouver + ":" + secondsVancouver;
-        tsVancouver = tsVancouver + " on " + dayVancouver + ", " + monthVancouver + " " + dateVancouver + ", " + yearVancouver;
-
-        // Update HTML
-        document.getElementById('timeUTC').innerHTML = tsUTC;
-        document.getElementById('timeUTC2').innerHTML = tsUTC2;
-        document.getElementById('timeVancouver').innerHTML = tsVancouver;
-        document.getElementById('timeBeats').innerHTML = beatTime();
-    }
-    setInterval(updateTime, 1000);
-</script>
-
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
               <a class="post-link" href="/2026/03/21/announcing-book-reconnect/">Announcing my book: Reconnect</a>
             
           </h1>
@@ -1293,6 +1044,118 @@ choose this option.</p>
 <p>I am so glad that this is not my issue to tackle ultimately. Perhaps the 
 <a href="https://en.wikipedia.org/wiki/Year_2038_problem">2038 computer bug issue</a> will solve this problem for us, which is 
 about the time the federal government would be in the midst of taking this issue seriously.</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
+              <a class="post-link" href="/2026/02/15/sfu-gondola/">Simon Fraser University&#39;s Gondola Makes Sense</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            Feb 15, 2026
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p><img src="/img/IMG_3335.jpeg" alt="" /></p>
+
+<p>I had the opportunity as a donor for <a href="https://movementyvr.ca/">Movement</a> to attend an event viewing what could be the future 
+of transit for students, staff, and nearby residents of Simon Fraser University.</p>
+
+<p>One of the key problems for SFU and the surrounding Univercity neighbourhood is that it is situated atop of a 370 
+metre-tall mountain. The university, first established in 1965, was built on a plateau on Burnaby Mountain at the request of its first 
+chancellor, Gordon Shrum, who desired its location due to the land being cheap and also being not terribly far away from 
+the rest of Metro Vancouver.</p>
+
+<p>Since its inception, the university has been only accessible by road either by Burnaby Mountain Parkway from the 
+western approach, connecting to Hastings Street towards Vancouver, or via Gaglardi Way, an expressway that connects from 
+the south via Lougheed Highway. The latter road is named for Phil Gaglardi, former Minister of Highways best known for 
+constantly getting speeding tickets and expanding the province’s highway network.</p>
+
+<p>This has meant that your only option to get to the top has been via car or bus. For the approach from the west, the road 
+is not as steep going from about 120 metres, but from the south it’s a different story. Much of the 
+Millennium Line sits at slightly above sea level (47 metres) and SFU’s designated station (Production Way-University) is 
+no different.</p>
+
+<p>As a consequence, buses are required to go from the bus loop to the very top on ten minute intervals at peak time. At 
+crush capacity, they’re ferrying usually a hundred or so passengers although I have read that it has reached as high as 
+140–the bus route number itself (145) is kind of a hint of what it could do I guess.</p>
+
+<p>One of the jokes I’ve heard about this route is that this is where buses go to die. The transmission is taking a serious 
+hammering as it carries its own weight plus the weight of its passengers. Up and down it goes day in and day out with only a 
+respite given for weekends, holidays, reading breaks, or service on a much gentler route.</p>
+
+<p>So what is the alternative? A SkyTrain spur up the hill is out of the question as it would have to be almost two kilometres 
+longer than the bus because you’d need a gradient that a train will like.</p>
+
+<p>Trains do not like hills and so for them to make a journey up one, it has to be a slope that will permit adequate 
+adherence. For it to also have little environmental impact, it would require much in the way of tunnelling and thus will 
+become expensive quite quickly.</p>
+
+<p><img src="/img/IMG_3327.jpeg" alt="" /></p>
+
+<p>TransLink’s answer is to take inspiration from the likes of one of Vancouver’s favourite winter activities: skiing.</p>
+
+<p>The transit agency has been 
+<a href="https://www.translink.ca/plans-and-projects/projects/rapid-transit-projects/burnaby-mountain-gondola">discussing a gondola proposal for a number of years</a>, 
+but it would not be the first to implement it as rapid transit. In 2004, Medelin, Colombia opened its first line of its 
+<a href="https://en.wikipedia.org/wiki/Metrocable_(Medell%C3%ADn)">Metrocable service</a> and most recently in 2025, Paris opened 
+its first line, <a href="https://en.wikipedia.org/wiki/C%C3%A2ble_1">Câble 1</a>. These systems have proven to be quite reliable 
+and inexpensive for either built-up areas or areas with geography much like ours.</p>
+
+<p><img src="/img/IMG_3326.jpeg" alt="" /></p>
+
+<p>This gondola used for demonstration purposes could very well be the sort we end up using. It has room for 
+32 people and the recommended route implies that were would be seven cars in either direction.</p>
+
+<p>With a three minute trip each way at 30 KM/h, each car would be doing ten round trips each hour and move well over 
+two thousand people up the hill during that time. This would be regardless of weather conditions or time of day as the 
+gondolas would always be at a fixed capacity all day, every day.</p>
+
+<p>Additionally, it would be approximately twice the capacity of any bus made available by TransLink and also take a quarter of the 
+time to get either up or down.</p>
+
+<p>One of the other problems with the hill is that it’s subject to adverse weather–in particular wind and snow. It’s a no 
+brainer that snow would have no affect on these sort of vehicles due to their use with mountains in and around Metro 
+Vancouver. However, it was suprising for me to learn that the type of system TransLink is aiming for would be able to handle 
+the severe winds that we get in the city during late autumn and early winter.</p>
+
+<p>A story I often cite is my having to be asked to leave SFU’s library not because of my own behaviour but because if I wanted 
+to get home, I’d have to leave now due to the buses being forced to cease activity up and down due to snow. In the process of 
+taking that very last bus, the articulation and the slippery conditions caused it to jackknife. This is something that couldn’t 
+happen with a gondola.</p>
+
+<p><img src="/img/IMG_3329.jpeg" alt="" /></p>
+
+<p>I guess this then brings up an important topic: safety.</p>
+
+<p><a href="https://www.cbc.ca/news/canada/british-columbia/sea-to-sky-gondola-sabotage-mystery-1.7563792">In both 2019 and 2020</a>, a 
+nearby gondola in Squamish had its cable cut. While in neither incident was anyone killed as the gondola was not in service, 
+the 2020 incident almost resulted in the injury of a security guard.</p>
+
+<p>However, I have been informed that this is a single cable system and TransLink is looking at a triple one, meaning that 
+the difficulty in inflicting this sort of vandalism would be high. Also, unlike Squamish, Burnaby is not in a rural 
+area and it would be much easier to both secure and monitor for any sort of undesired activity in places where one may 
+have access out of sight.</p>
+
+<p><img src="/img/IMG_3324.jpeg" alt="" /></p>
+
+<p>What is next for TransLink then?</p>
+
+<p>Funding for the gondola is still up in the air–pun intended. The business case has been made and it has been suggested that 
+perhaps this year or next, the project will finally be announced as going ahead. I for one want to see it built. Perhaps with 
+its success, we’ll see similar systems elsewhere in Metro Vancouver.</p>
 
         </div>
         
