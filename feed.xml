@@ -5,7 +5,7 @@
   
   <link href="https://cariad.keigher.ca/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://cariad.keigher.ca/" rel="alternate" type="text/html" hreflang="en" />
-  <updated>2026-04-29T13:23:35+00:00</updated>
+  <updated>2026-05-19T20:21:59+00:00</updated>
   <id>https://cariad.keigher.ca/</id>
 
   
@@ -24,6 +24,99 @@
     </author>
   
 
+  
+  
+    <entry>
+      
+      <title type="html">An Open Letter to Prime Minister Carney on Backdoors</title>
+      
+      
+      <link href="https://cariad.keigher.ca/2026/05/19/open-letter-to-pm-carney/" rel="alternate" type="text/html" title="An Open Letter to Prime Minister Carney on Backdoors" />
+      
+      <published>2026-05-19T00:00:00+00:00</published>
+      <updated>2026-05-19T00:00:00+00:00</updated>
+      <id>https://cariad.keigher.ca/2026/05/19/open-letter-to-pm-carney</id>
+      <content type="html" xml:base="https://cariad.keigher.ca/2026/05/19/open-letter-to-pm-carney/">&lt;p&gt;CC: Don Davies, MP Vancouver Kingsway&lt;br /&gt;
+CC: Taleeb Noormohamed, MP Vancouver Granville&lt;/p&gt;
+
+&lt;p&gt;Hon. Prime Minister,&lt;/p&gt;
+
+&lt;p&gt;This is a letter urging you and your party to not vote in favour of Bill C-22, an act respecting lawful access.&lt;/p&gt;
+
+&lt;p&gt;Section 487 of the Criminal Code of Canada already provides law enforcement with sweeping abilities to request electronic data from service providers without said providers enduring consequences for their voluntary assistance. By mandating that encryption be effectively disabled for any service used by an electronic device, of which this is what it proposes as the introduction of access by a third-party means that there is no privacy.&lt;/p&gt;
+
+&lt;p&gt;This sort of legislation will make out every single person into a criminal by default should they choose to not comply with this. Not only that, it will permit a chilling effect on our technology industry, which relies on trust for activities such as transactions and secrecy in communications. Additionally, it removes telecommunication services from being reliant on being common carriers, as this will escalate to them having to inspect messages during interception.&lt;/p&gt;
+
+&lt;p&gt;I do not believe that Taleeb Noormohamed, the current Parliamentary Secretary to the Minister of Artificial Intelligence and Digital Innovation has the skill set and expertise to understand what he has brought forward. This is an individual whose technology career has only overseen e-commerce as an executive in luxury goods and vacation accommodation rentals. If he had any idea of the sort of challanges that this Bill creates, he would then understand the ramifications of permitting both a safe and secure way for other parties to peer into encrypted communications.&lt;/p&gt;
+
+&lt;p&gt;What I am trying to say here is basically this: your parliamentary secretary has no clue about what he is talking about.&lt;/p&gt;
+
+&lt;p&gt;His statement as follows:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;I want to emphasize the word “existing”. The bill would not create new surveillance powers, new intercept authorities or back doors into any one system. It would make the court-authorized processes that we already have, warrants and production orders, which are tools that have always required judicial oversight, functional in a world that has moved online.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is contrary to what is introduced in Part 2, 5-2 of Bill C-22:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;The Governor in Council may make regulations respecting the obligations of core providers, including regulations respecting […] the retention of categories of metadata — including transmission data, as defined in section 487.‍011 of the Criminal Code — for reasonable periods of time not exceeding one year.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Section 487.011, changes the definition of transmission data under part c from the following:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;transmission data means data that […] does not reveal the substance, meaning or purpose of the communication&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To as such:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;subscriber information, in relation to any client of a person who provides services to the public or any subscriber to the services of such a person, means […] information relating to the services provided to the subscriber or client, including […] information that identifies the devices, equipment or things used by the subscriber or client in relation to the services&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This radical change in altering definitions from “transmission data” to “subscriber information” plus the change from “not revealing the substance” is the introduction of the backdoor when combined with the following from the Bill:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;487.‍0142 (1) On ex parte application made by a peace officer or public officer, a justice or judge may order a person who provides services to the public to prepare and produce a document containing all the subscriber information that relates to any information, including transmission data, that is specified in the order and that is in their possession or control when they receive the order.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In order for a service to comply with this change to Section 487, it would necessitate the creation of a backdoor. Mr. Noormohamed either misunderstands what the bill actually states, has fed it through a third party and is taking the output from it as truth, or is intentionally being misleading. Let it be known that this change to the Criminal Code is a backdoor.&lt;/p&gt;
+
+&lt;p&gt;When Bill C-13 was introduced by then Public Safety Minister, Vic Toews, a bill which would have made substantial changes to Section 487, he cited that it was to protect children, citing Amanda Todd and Rehteah Parsons, two teenaged girls both of whom were victimised by predators. These changes did nothing to further protect children, and once again, Mr. Noormohamed is using the same tactics.&lt;/p&gt;
+
+&lt;p&gt;Will opposition to this bill label another political columnist as being “with the child pornographers” as Mr. Toews had inspired a response with to a previous version of the Bill? This government and the many that have come before them have not addressed the real harms that affect children. However, they’ve all been more than happy to use them as pawns when law enforcement wishes to seek new opportunities in order to control the lives of the average, hardworking Canadian.&lt;/p&gt;
+
+&lt;p&gt;There is no safe way to introduce third party access to encrypted messages between parties and children are not at risk due to encryption thwarting law enforcement.&lt;/p&gt;
+
+&lt;p&gt;Canadians have a right to privacy whether from telecommunication providers or the government in their day to day lives. This bill will make Canada less competitive in the technology industry and will have a chilling effect beyond.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      
+        <author>
+            <name>Cariad Heather Keigher</name>
+          
+          
+        </author>
+      
+
+      
+
+      
+
+      
+        <summary type="html">CC: Don Davies, MP Vancouver Kingsway CC: Taleeb Noormohamed, MP Vancouver Granville Hon. Prime Minister, This is a letter urging you and your party to not vote in favour of Bill C-22, an act respecting lawful access. Section 487 of the Criminal Code of Canada already provides law enforcement with sweeping abilities to request electronic data from service providers without said providers enduring consequences for their voluntary assistance. By mandating that encryption be effectively disabled for any service used by an electronic device, of which this is what it proposes as the introduction of access by a third-party means that there is no privacy. This sort of legislation will make out every single person into a criminal by default should they choose to not comply with this. Not only that, it will permit a chilling effect on our technology industry, which relies on trust for activities such as transactions and secrecy in communications. Additionally, it removes telecommunication services from being reliant on being common carriers, as this will escalate to them having to inspect messages during interception. I do not believe that Taleeb Noormohamed, the current Parliamentary Secretary to the Minister of Artificial Intelligence and Digital Innovation has the skill set and expertise to understand what he has brought forward. This is an individual whose technology career has only overseen e-commerce as an executive in luxury goods and vacation accommodation rentals. If he had any idea of the sort of challanges that this Bill creates, he would then understand the ramifications of permitting both a safe and secure way for other parties to peer into encrypted communications. What I am trying to say here is basically this: your parliamentary secretary has no clue about what he is talking about. His statement as follows: I want to emphasize the word “existing”. The bill would not create new surveillance powers, new intercept authorities or back doors into any one system. It would make the court-authorized processes that we already have, warrants and production orders, which are tools that have always required judicial oversight, functional in a world that has moved online. This is contrary to what is introduced in Part 2, 5-2 of Bill C-22: The Governor in Council may make regulations respecting the obligations of core providers, including regulations respecting […] the retention of categories of metadata — including transmission data, as defined in section 487.‍011 of the Criminal Code — for reasonable periods of time not exceeding one year. Section 487.011, changes the definition of transmission data under part c from the following: transmission data means data that […] does not reveal the substance, meaning or purpose of the communication To as such: subscriber information, in relation to any client of a person who provides services to the public or any subscriber to the services of such a person, means […] information relating to the services provided to the subscriber or client, including […] information that identifies the devices, equipment or things used by the subscriber or client in relation to the services This radical change in altering definitions from “transmission data” to “subscriber information” plus the change from “not revealing the substance” is the introduction of the backdoor when combined with the following from the Bill: 487.‍0142 (1) On ex parte application made by a peace officer or public officer, a justice or judge may order a person who provides services to the public to prepare and produce a document containing all the subscriber information that relates to any information, including transmission data, that is specified in the order and that is in their possession or control when they receive the order. In order for a service to comply with this change to Section 487, it would necessitate the creation of a backdoor. Mr. Noormohamed either misunderstands what the bill actually states, has fed it through a third party and is taking the output from it as truth, or is intentionally being misleading. Let it be known that this change to the Criminal Code is a backdoor. When Bill C-13 was introduced by then Public Safety Minister, Vic Toews, a bill which would have made substantial changes to Section 487, he cited that it was to protect children, citing Amanda Todd and Rehteah Parsons, two teenaged girls both of whom were victimised by predators. These changes did nothing to further protect children, and once again, Mr. Noormohamed is using the same tactics. Will opposition to this bill label another political columnist as being “with the child pornographers” as Mr. Toews had inspired a response with to a previous version of the Bill? This government and the many that have come before them have not addressed the real harms that affect children. However, they’ve all been more than happy to use them as pawns when law enforcement wishes to seek new opportunities in order to control the lives of the average, hardworking Canadian. There is no safe way to introduce third party access to encrypted messages between parties and children are not at risk due to encryption thwarting law enforcement. Canadians have a right to privacy whether from telecommunication providers or the government in their day to day lives. This bill will make Canada less competitive in the technology industry and will have a chilling effect beyond.</summary>
+      
+
+      
+      
+    </entry>
+  
   
   
     <entry>
@@ -3137,78 +3230,6 @@ drwxr-xr-x@ 23 cariad  staff       736 Dec 29 15:08 ..
 
       
         <summary type="html">Hello from Whistler.</summary>
-      
-
-      
-      
-    </entry>
-  
-  
-  
-    <entry>
-      
-      <title type="html">Gauging SkyTrain between the Canada Line and the Expo and Millennium Lines</title>
-      
-      
-      <link href="https://cariad.keigher.ca/2024/02/19/skytrain-gauge/" rel="alternate" type="text/html" title="Gauging SkyTrain between the Canada Line and the Expo and Millennium Lines" />
-      
-      <published>2024-02-19T00:00:00+00:00</published>
-      <updated>2024-02-19T00:00:00+00:00</updated>
-      <id>https://cariad.keigher.ca/2024/02/19/skytrain-gauge</id>
-      <content type="html" xml:base="https://cariad.keigher.ca/2024/02/19/skytrain-gauge/">&lt;p&gt;&lt;img src=&quot;/img/guage01.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;One of the most important aspects of a railway is the standardization of the railway itself. Trains have to fit the platforms they pick up passengers from and they must also be able to successfully roll along the rails it sits atop of. This is called gauge and we have two different sets of the measurement to work with.&lt;/p&gt;
-
-&lt;p&gt;A weird question came to mind: could an Expo or Millennium Line train fit on the Canada Line? How about vice-versa? Let’s talk about this.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/guage02.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Firstly, let’s get the elephant in the room out of the way. There is no way for any Expo or Millennium Line train to independently function on the Canada Line. The propulsion technology used on the two lines requires the centre rail in order to propel itself along the rails. However, the rails themselves would permit the trains to fit and roll along.&lt;/p&gt;
-
-&lt;p&gt;All three of the lines use the same rail gauge. Rail gauge simply dictates the distance between the two rails and in the case of the SkyTrain system, it’s 1,435 mm or 4 feet and 8.5 inches–everybody calls this “standard gauge”. This gauge is used all over the world and is the same for railways operated by CN and CPKC, the entirety of the National Rail system in the United Kingdom, and virtually every railway in mainland Europe save for non-high speed railways in Spain, Finland, and some railways of former Soviet bloc countries.&lt;/p&gt;
-
-&lt;p&gt;If someone were able to bring a Mark I rolling stock on to the Canada Line, they would be able to pull the cars along the rails with very little resistance. However, one glaring problem would appear: the trains are smaller. This is where the second gauge comes into play: load.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/guage03.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The Mark I trains are smaller than their Hyundai Rotem cousins. How much smaller? About almost a half-metre smaller at its width (a Mark II is 2.5m wide and a Rotem is 3) and the platform height on the Canada Line is 25 cm taller (100 cm vs 75 cm). Some Mark II and III trains have run into problems where they’re 2-3 cm too tall which is a huge problem for accessibility, but a full quarter metre difference would be egregious.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/guage04.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So this leads us into the obvious problem with the inverse: the Canada Line trains would fit on the rails but that would be about it. They’d all quite violently clip the platforms if they could power themselves.&lt;/p&gt;
-
-&lt;p&gt;And then this finally leads us to this: the power is completely different between the two systems too. The voltage is 700 VDC (volts direct current) on the Canada Line and 625 VDC for the other two. Multi-voltage trains are very common, but it won’t matter here anyway since the way power is handled by the trains is radically different.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/guage05.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;On the Expo and Millennium Lines, power is fed by two rails mounted on the side. One rail is to supply power and the other is to return power. This is all to provide a circuit so the trains can operate.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/guage06.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The Canada Line is different: there is a third rail but it is mounted downwards as opposed to the side and it’s just a single rail with return power provided through the rails itself. I have had a railway engineer complain to me about this design, but I barely understood the actual problem with it other than it makes maintenance a bit of a pain.&lt;/p&gt;
-
-&lt;p&gt;That is how radically different the systems are from each other.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      
-        <author>
-            <name>Cariad Heather Keigher</name>
-          
-          
-        </author>
-      
-
-      
-
-      
-
-      
-        <summary type="html">One of the most important aspects of a railway is the standardization of the railway itself. Trains have to fit the platforms they pick up passengers from and they must also be able to successfully roll along the rails it sits atop of. This is called gauge and we have two different sets of the measurement to work with. A weird question came to mind: could an Expo or Millennium Line train fit on the Canada Line? How about vice-versa? Let’s talk about this. Firstly, let’s get the elephant in the room out of the way. There is no way for any Expo or Millennium Line train to independently function on the Canada Line. The propulsion technology used on the two lines requires the centre rail in order to propel itself along the rails. However, the rails themselves would permit the trains to fit and roll along. All three of the lines use the same rail gauge. Rail gauge simply dictates the distance between the two rails and in the case of the SkyTrain system, it’s 1,435 mm or 4 feet and 8.5 inches–everybody calls this “standard gauge”. This gauge is used all over the world and is the same for railways operated by CN and CPKC, the entirety of the National Rail system in the United Kingdom, and virtually every railway in mainland Europe save for non-high speed railways in Spain, Finland, and some railways of former Soviet bloc countries. If someone were able to bring a Mark I rolling stock on to the Canada Line, they would be able to pull the cars along the rails with very little resistance. However, one glaring problem would appear: the trains are smaller. This is where the second gauge comes into play: load. The Mark I trains are smaller than their Hyundai Rotem cousins. How much smaller? About almost a half-metre smaller at its width (a Mark II is 2.5m wide and a Rotem is 3) and the platform height on the Canada Line is 25 cm taller (100 cm vs 75 cm). Some Mark II and III trains have run into problems where they’re 2-3 cm too tall which is a huge problem for accessibility, but a full quarter metre difference would be egregious. So this leads us into the obvious problem with the inverse: the Canada Line trains would fit on the rails but that would be about it. They’d all quite violently clip the platforms if they could power themselves. And then this finally leads us to this: the power is completely different between the two systems too. The voltage is 700 VDC (volts direct current) on the Canada Line and 625 VDC for the other two. Multi-voltage trains are very common, but it won’t matter here anyway since the way power is handled by the trains is radically different. On the Expo and Millennium Lines, power is fed by two rails mounted on the side. One rail is to supply power and the other is to return power. This is all to provide a circuit so the trains can operate. The Canada Line is different: there is a third rail but it is mounted downwards as opposed to the side and it’s just a single rail with return power provided through the rails itself. I have had a railway engineer complain to me about this design, but I barely understood the actual problem with it other than it makes maintenance a bit of a pain. That is how radically different the systems are from each other.</summary>
       
 
       
