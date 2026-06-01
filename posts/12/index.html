@@ -93,6 +93,43 @@
         <header class="post-header">
           <h1 class="post-title">
             
+              <a class="post-link" href="/2023/05/15/twitch-mod-bot/">Sunsetting a moderation bot</a>
+            
+          </h1>
+
+          <p class="post-meta">
+            May 15, 2023
+            
+            
+          </p>
+        </header>
+
+        <div class="post-content">
+          <p>Years ago, I wrote <a href="https://web.archive.org/web/20250102001603mp_/https://katelibc.medium.com/twitch-chat-harassment-remains-unaddressed-despite-complaints-and-evidence-of-potential-fraud-d7fc66f95d88">in-depth</a> about Twitch being a complete trash fire. As a response to it, I made a bot which I shared with about 40 different streamers that addressed Twitch’s shortcomings.</p>
+
+<p>For about a year and a half, this bot ran largely uninterrupted and had all sorts of features such as predictive bans, exemptions, algorithmic bans, and so forth. It was far more advanced than whatever Twitch had out there and I believe it probably prevented a few hate raids against marginalised streamers.</p>
+
+<p><a href="https://web.archive.org/web/20250102001603mp_/https://discuss.dev.twitch.tv/t/deprecation-of-chat-commands-through-irc/40486">In February</a>, Twitch removed the ability to perform bans via its chat interface and instead shifted everything to requiring a user access token in conjunction with its HTTP API.</p>
+
+<p>On the surface, this is fine in the grand scheme of things, but it required me to completely rejig the entire authentication model from just simply using a <code class="language-plaintext highlighter-rouge">/mod</code> command on the bot and then me joining the channel to asking for <a href="https://web.archive.org/web/20250102001603mp_/https://dev.twitch.tv/docs/authentication/#user-access-tokens">everyone to sign in and pass me a token</a>. This is a piss-poor design because it would be just easier to assign the permissions via legacy means, but nope, you have to re-authenticate that bot.</p>
+
+<p>I might be overthinking or misunderstanding this, but the bot also has become more onerous to update and is also costing me CA$40/month of which I largely pay out of pocket–not complaining, but it is a personal expense that would have not occurred if Twitch had made good tools years ago. Combine with increasing living expenses, I have decided that it’s not fun to pay for this anymore.</p>
+
+<p>In any event, because of the cost and Twitch finally has tooling that makes it easier to deal with bullshit after much, much yelling in their direction from all sorts of groups, I feel it is time to officially state that I have sunsetted the bot. I hope that it did benefit those who needed it most and I am always willing to provide a hand should anything come up in the future. ❤️</p>
+
+<p>In case you’re wondering: all data is being deleted from the database and backups are going with!</p>
+
+        </div>
+        
+      </li>
+    
+      
+      
+
+      <li>
+        <header class="post-header">
+          <h1 class="post-title">
+            
               <a class="post-link" href="/2023/05/15/softlock-mi2/">I managed to softlock Monkey Island 2: LeChuck&#39;s Revenge</a>
             
           </h1>
@@ -253,154 +290,6 @@
 <p><img src="/img/br05.jpg" alt="" /></p>
 
 <p>After the summer, the train set was sent back to the UK where it operated on various different services until all Pacers were retired at the end of 2020.</p>
-
-        </div>
-        
-      </li>
-    
-      
-      
-
-      <li>
-        <header class="post-header">
-          <h1 class="post-title">
-            
-              <a class="post-link" href="/2023/02/18/skytrain-challenge/">Today is the SkyTrain challenge!</a>
-            
-          </h1>
-
-          <p class="post-meta">
-            Feb 18, 2023
-            
-            
-          </p>
-        </header>
-
-        <div class="post-content">
-          <p><em>This is a reproduction of a post made on cohost.org where my friend, Tam and I went on to travel on the entirety of Metro Vancouver’s SkyTrain network</em></p>
-
-<p><img src="/img/stc01.jpg" alt="" /></p>
-
-<p><img src="/img/stc02.jpeg" alt="" /></p>
-
-<p><img src="/img/stc03.jpg" alt="" /></p>
-
-<p><img src="/img/sct04.jpg" alt="" /></p>
-
-<p>Today, my friend, witchpixels and I are going to travel the entire length of the three-line, 79.6 KM rapid transit system known as SkyTrain! This will have us riding eight trains through 53 stations across seven municipalities in Metro Vancouver!</p>
-
-<p>I’ve been wanting to do this for a while and with the construction of the Broadway extension and the upcoming Surrey/Langley extension, this is our opportunity to ride the system using what we believe is the shortest path!</p>
-
-<h1>12:27 PM - VCC Clark</h1>
-
-<p><img src="/img/stc05.jpeg" alt="" /></p>
-
-<p><img src="/img/stc06.jpeg" alt="" /></p>
-
-<p>It begins! 12:27 pm we have left VCC Clark!</p>
-
-<h1>12:48 PM - Lougheed Town Centre</h1>
-
-<p><img src="/img/stc07.jpeg" alt="" /></p>
-
-<p>12:48 PM and we are at Lougheed Town Centre!</p>
-
-<h1>1:04 PM - Lafarge Lake-Douglas</h1>
-
-<p><img src="/img/stc08.jpeg" alt="" /></p>
-
-<p>1:04 PM and we completed the Millennium line! Now to go back! We lucked out as our train didn’t require us to deboard!</p>
-
-<h1>1:23 PM - Lougheed Town Centre</h1>
-
-<p><img src="/img/stc08.jpeg" alt="" /></p>
-
-<p><img src="/img/stc09.jpeg" alt="" /></p>
-
-<p><img src="/img/stc10.jpeg" alt="" /></p>
-
-<p><img src="/img/stc11.jpeg" alt="" /></p>
-
-<p>1:23 PM and we made it to Lougheed! Unfortunately we will be waiting for our transfer train to get us to Columbia.</p>
-
-<h1>1:37 PM - Columbia</h1>
-
-<p><img src="/img/stc12.jpeg" alt="" /></p>
-
-<p><img src="/img/stc13.jpeg" alt="" /></p>
-
-<p>1:37 PM and we managed to make a quick transfer at Columbia! Onward into Surrey!</p>
-
-<h1>1:45 PM - King George</h1>
-
-<p><img src="/img/stc14.jpeg" alt="" /></p>
-
-<p>1:45 PM and we made it on to the long leg all the way to Waterfront!</p>
-
-<h1>2:21 PM - Passing VCC-Clark</h1>
-
-<p><img src="/img/stc15.jpeg" alt="" /></p>
-
-<p>2:21 PM and we are just passing where we started!</p>
-
-<h1>2:31 PM - Waterfront</h1>
-
-<p><img src="/img/stc16.jpeg" alt="" /></p>
-
-<p><img src="/img/stc17.jpeg" alt="" /></p>
-
-<p><img src="/img/stc18.jpeg" alt="" /></p>
-
-<p><img src="/img/stc19.jpeg" alt="" /></p>
-
-<p>2:31 PM and we made it to Waterfront! We are going to Richmond-Brighouse first! We had to pass through the station hall but somehow boarded our waiting train effortlessly!</p>
-
-<p>So far we have lucked out on transfers with the worst being five minutes!</p>
-
-<h1>2:58 PM - Richmond-Brighouse</h1>
-
-<p><img src="/img/stc20.jpeg" alt="" /></p>
-
-<p>2:58 PM and we are at Richmond-Brighouse! One more transfer left and we will be at the end!</p>
-
-<h1>3:07 PM - Bridgeport</h1>
-
-<p><img src="/img/stc21.jpeg" alt="" /></p>
-
-<p><img src="/img/stc22.jpeg" alt="" /></p>
-
-<p>3:07 PM and we are about to do the last leg. The train we need is immediately next!</p>
-
-<h1>3:20 PM - YVR Airport</h1>
-
-<p><img src="/img/stc23.jpeg" alt="" /></p>
-
-<p><img src="/img/stc24.jpeg" alt="" /></p>
-
-<p>And time! 2 hours 49 minutes and 8 seconds to ride the entire SkyTrain system! I guess in 2025 or 2026 we can do this again with the Millennium Line extension to Arbutus.</p>
-
-<h1>Post-journey statistics</h1>
-
-<p>If anyone wants to know the splits, they’re as follows:</p>
-
-<ul>
-  <li>VCC Clark to Lafarge Lake/Douglas - 36m 36s</li>
-  <li>Lafarge Lake/Douglas to Lougheed Town Centre - 17m 28s *</li>
-  <li>Lougheed Town Centre to Columbia - 13m 50s</li>
-  <li>Columbia to King George - 10m 20s</li>
-  <li>King George to Waterfront - 43m 45s</li>
-  <li>Waterfront to Richmond-Brighouse - 29m 58s</li>
-  <li>Richmond-Brighouse to Bridgeport - 7m 55s *</li>
-  <li>Bridgeport to YVR-Airport - 9m 8s</li>
-</ul>
-
-<p>*Denotes that we never had to transfer trains to continue our journey!</p>
-
-<h1>Update (August 30, 2023)</h1>
-
-<p>Holy shit. <a href="https://web.archive.org/web/20241121054640mp_/https://www.guinnessworldrecords.com/world-records/485154-fastest-time-to-travel-to-all-vancouver-skytrain-stations">We beat the Guinness record for this speedrun</a>.</p>
-
-<p>The SkyTrain speedrun was beaten on this trip!</p>
 
         </div>
         
